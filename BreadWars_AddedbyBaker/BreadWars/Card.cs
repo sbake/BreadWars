@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace BreadWars
 {
-    class Cards
+    class Card
     {
 
         //atributes & properties
-        
+
         //name
         //value
         //effect

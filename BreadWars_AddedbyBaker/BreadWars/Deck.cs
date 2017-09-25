@@ -8,6 +8,7 @@ namespace BreadWars
 {
     class Deck
     {
-        //needs to load external deck 
+        //needs to load external deck .
+
     }
 }
