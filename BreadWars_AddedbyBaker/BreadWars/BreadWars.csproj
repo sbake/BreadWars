@@ -42,7 +42,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Cards.cs" />
+    <Compile Include="Card.cs" />
     <Compile Include="Deck.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameObject.cs" />
