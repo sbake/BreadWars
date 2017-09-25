@@ -8,7 +8,7 @@ namespace BreadWars
 {
     class Player
     {
-        const int PLAYER_MAX_HEALTH = 100;
+        const int PLAYER_MAX_HEALTH = 50;
         //hand (cards or slots) an array?
         private Card[] hand = new Card[5];
         //health
