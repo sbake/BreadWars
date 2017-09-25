@@ -9,11 +9,15 @@ namespace BreadWars
     class Cards
     {
 
-        //atributes
+        //atributes & properties
+        
         //name
         //value
         //effect
         //special (effect active)
         //image (?)
+        //isBurned
+        //is8
+
     }
 }
