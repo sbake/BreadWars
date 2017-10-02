@@ -20,18 +20,27 @@ namespace BreadWars
         //position
         Texture2D texr; //single texture or spritesheet
         Rectangle posit;
+        SpriteBatch spriteBatch;
 
 
         //constructor
         //every drawable object needsa texture to be drawn, and a position to draw that texture
-        Drawable(Texture2D pTexr, Rectangle pPosit)
+        Drawable(Texture2D pTexr, Rectangle pPosit, SpriteBatch pSpriteBatch)
         {
             texr = pTexr;
             posit = pPosit;
+            spriteBatch = pSpriteBatch;
         }
 
         //methods
         //method for drawing static objects (position doesn't move, can use variable)
+        public void DrawStatic()
+        {
+            //draw texture at posit
+            spriteBatch.Draw(texr, posit, Color.White);
+            
+        }
+        
         //methods to unpack sprites
         //method for animated objects a (takes position as a parameter)
         //method for animated objects b (moves through multiple sprites)

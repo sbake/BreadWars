@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace BreadWars
 {
-    class Card
+    class Card : Drawable
     {
         const String IMAGE_NAME = "";
         //atributes & properties
@@ -34,6 +34,8 @@ namespace BreadWars
                 return IMAGE_NAME;
             }
         }
+
+        //constructor
 
     }
 }
