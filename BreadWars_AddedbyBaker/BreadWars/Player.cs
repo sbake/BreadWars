@@ -12,13 +12,12 @@ namespace BreadWars
         const int PLAYER_MAX_HEALTH = 50;
 
         //number
-        private bool playerNumber;
-
-        //Deck
-        private Deck deck;
+        private byte playerNumber;
 
         //hand (cards or slots) an array?
-        private Card[] hand = new Card[5];
+        private List<Card> hand = new List<Card>();
+
+        public List<Card> playerHand { get {return hand;} }
 
         //health
         private int playerCurrentHealth = PLAYER_MAX_HEALTH;
@@ -33,18 +32,17 @@ namespace BreadWars
         private bool isPoisoned;
         private bool hasBlock;
 
-        public Player(bool number, Deck d){
+        public Player(byte number){
             playerCurrentHealth = 20;
             isPoisoned = false;
             hasBlock = false;
             handIsShowing = false;
             playerNumber = number;
-            deck = d;
         }
 
         public void playTurn(Card[] cardsToPlay, int cardIndex){
             cardsToPlay[playerNumber] = hand[cardIndex];
-            hand[cardIndex] = deck.nextCard();
+            hand.Remove(cardIndex);
 
         }
 
