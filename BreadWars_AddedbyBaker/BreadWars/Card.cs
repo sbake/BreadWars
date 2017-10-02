@@ -9,8 +9,6 @@ namespace BreadWars
 {
     class Card : Drawable
     {
-        const String IMAGE_NAME = "";
-        //atributes & properties
 
         //name
         private String name;
@@ -21,21 +19,14 @@ namespace BreadWars
         //effect
 
         //special (effect active)
-
-        //image
+        public bool isActive;
+        public bool IsActive {get{return isActive;} set{isActive;}}
         
         //isBurned
         private bool isBurned;
         //is8
         private bool is8;
 
-        public String ImageName
-        {
-            get
-            {
-                return IMAGE_NAME;
-            }
-        }
 
         //constructor
 

@@ -17,16 +17,12 @@ namespace BreadWars
         //hand (cards or slots) an array?
         private List<Card> hand = new List<Card>();
 
-        public List<Card> playerHand { get {return hand;} }
+        public List<Card> Hand { get {return hand;} }
 
         //health
         private int playerCurrentHealth = PLAYER_MAX_HEALTH;
 
-        public int playerHealth {get {return playerCurrentHealth;}}
-        
-
-        //states (hiding cards on top of screen or showing cards on bottom of screen)
-        private bool handIsShowing;
+        public int Health {get {return playerCurrentHealth;}}
 
         //status (poison and block)
         private bool isPoisoned;
@@ -36,7 +32,6 @@ namespace BreadWars
             playerCurrentHealth = 20;
             isPoisoned = false;
             hasBlock = false;
-            handIsShowing = false;
             playerNumber = number;
         }
 
