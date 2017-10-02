@@ -8,9 +8,10 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 
-namespace BreadWars
+
+namespace Bread_Wars_Deck_Builder
 {
-    class Cards
+    class Builder
     {
     }
 }
