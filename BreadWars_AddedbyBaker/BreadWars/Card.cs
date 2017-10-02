@@ -16,6 +16,8 @@ namespace BreadWars
         private String name;
         //value
         private int value;
+
+        public int Value { get { return value; } }
         //effect
 
         //special (effect active)
