@@ -45,7 +45,7 @@
     <Compile Include="Cards.cs" />
     <Compile Include="Deck.cs" />
     <Compile Include="Game1.cs" />
-    <Compile Include="GameObject.cs" />
+    <Compile Include="Drawable.cs" />
     <Compile Include="HUDObjects.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
