@@ -12,7 +12,7 @@ namespace BreadWars
         const int PLAYER_MAX_HEALTH = 50;
 
         //number
-        private int playerNumber;
+        private bool playerNumber;
 
         //Deck
         private Deck deck;
@@ -33,7 +33,7 @@ namespace BreadWars
         private bool isPoisoned;
         private bool hasBlock;
 
-        public Player(int number, Deck d){
+        public Player(bool number, Deck d){
             playerCurrentHealth = 20;
             isPoisoned = false;
             hasBlock = false;
