@@ -37,7 +37,9 @@ namespace BreadWars
         public void DrawStatic()
         {
             //draw texture at posit
+            spriteBatch.Begin();
             spriteBatch.Draw(texr, posit, Color.White);
+            spriteBatch.End();
             
         }
         
