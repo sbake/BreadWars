@@ -18,8 +18,8 @@ namespace BreadWars
         //cards will add another texture for back
         //specials will have multiple animated things associated with them
         //position
-        Texture2D texr; //single texture or spritesheet
-        Rectangle posit;
+        Texture2D texture; //single texture or spritesheet
+        Rectangle position;
         SpriteBatch spriteBatch;
 
         //sprite sheet + animation
@@ -42,7 +42,7 @@ namespace BreadWars
         public void DrawStatic()
         {
             //draw texture at posit
-            spriteBatch.Draw(texr, posit, Color.White);
+            spriteBatch.Draw(texture, position, Color.White);
             //please don't add spritebatch bits to this- spritebatch starting and ending should be handled in Game1, so we aren't restarting spritebatch 20x an update
             //unless there is a compelling reason to restart spritebatch every time this method is called,
             //in which case, please let me know

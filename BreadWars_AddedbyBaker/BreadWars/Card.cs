@@ -22,17 +22,7 @@ namespace BreadWars
 
         //special (effect active)
         public bool isActive;
-        public bool IsActive
-        {
-            get
-            {
-                return isActive;
-            }
-            set
-            {
-                isActive = value;
-            }
-        }
+        
         
         //isBurned
         private bool isBurned;
@@ -44,6 +34,18 @@ namespace BreadWars
         public Card(Texture2D pTexr, Rectangle pPosit, SpriteBatch pSpriteBatch)
         {
 
+        }
+
+        public bool IsActive
+        {
+            get
+            {
+                return isActive;
+            }
+            set
+            {
+                isActive = value;
+            }
         }
     }
 }
