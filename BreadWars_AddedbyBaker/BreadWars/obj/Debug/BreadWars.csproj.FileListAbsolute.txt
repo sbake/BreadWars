@@ -1,0 +1,17 @@
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\MonoGame.Framework.dll.config
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\x86\SDL2.dll
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\x64\SDL2.dll
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\x86\soft_oal.dll
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\x64\soft_oal.dll
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\x86\libSDL2-2.0.so.0
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\x64\libSDL2-2.0.so.0
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\x86\libopenal.so.1
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\x64\libopenal.so.1
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\libSDL2-2.0.0.dylib
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\libopenal.1.dylib
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\BreadWars.exe
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\BreadWars.pdb
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\MonoGame.Framework.dll
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\obj\Debug\BreadWars.csprojResolveAssemblyReference.cache
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\obj\Debug\BreadWars.exe
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\obj\Debug\BreadWars.pdb
