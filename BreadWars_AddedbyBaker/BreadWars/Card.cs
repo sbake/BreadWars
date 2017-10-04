@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 
 namespace BreadWars
 {
-    class Card : Drawable
+    public class Card : Drawable
     {
 
         //name
@@ -20,7 +22,17 @@ namespace BreadWars
 
         //special (effect active)
         public bool isActive;
-        public bool IsActive {get{return isActive;} set{isActive;}}
+        public bool IsActive
+        {
+            get
+            {
+                return isActive;
+            }
+            set
+            {
+                isActive = value;
+            }
+        }
         
         //isBurned
         private bool isBurned;
@@ -29,6 +41,9 @@ namespace BreadWars
 
 
         //constructor
+        public Card(Texture2D pTexr, Rectangle pPosit, SpriteBatch pSpriteBatch):base(pTexr, pPosit, pSpriteBatch)
+        {
 
+        }
     }
 }

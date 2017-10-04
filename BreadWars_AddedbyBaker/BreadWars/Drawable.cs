@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace BreadWars
 {
-    class Drawable
+    public class Drawable
     {
         //attributes
         //Texture or spritesheet, or multiple textures
@@ -25,7 +25,7 @@ namespace BreadWars
 
         //constructor
         //every drawable object needsa texture to be drawn, and a position to draw that texture
-        Drawable(Texture2D pTexr, Rectangle pPosit, SpriteBatch pSpriteBatch)
+        public Drawable(Texture2D pTexr, Rectangle pPosit, SpriteBatch pSpriteBatch)
         {
             texr = pTexr;
             posit = pPosit;
