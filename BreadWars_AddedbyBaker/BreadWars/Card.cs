@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace BreadWars
 {
-    public class Card : Drawable
+    class Card : Drawable
     {
 
         //name
@@ -41,7 +41,7 @@ namespace BreadWars
 
 
         //constructor
-        public Card(Texture2D pTexr, Rectangle pPosit, SpriteBatch pSpriteBatch):base(pTexr, pPosit, pSpriteBatch)
+        public Card(Texture2D pTexr, Rectangle pPosit, SpriteBatch pSpriteBatch)
         {
 
         }
