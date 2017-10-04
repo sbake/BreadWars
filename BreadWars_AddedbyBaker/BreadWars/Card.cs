@@ -37,7 +37,9 @@ namespace BreadWars
         //constructor
         public Card(Texture2D pTexr, Rectangle pPosit, SpriteBatch pSpriteBatch)
         {
-
+            texr = pTexr;
+            posit = pPosit;
+            spriteBatch = pSpriteBatch;
         }
 
         

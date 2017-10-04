@@ -10,21 +10,19 @@ using Microsoft.Xna.Framework.Input;
 
 namespace BreadWars
 {
+    //half these comments will be deleted as methods are actually written- Sophia
     class Drawable
     {
         //attributes
         //basic
-        //Texture or spritesheet, or multiple textures
-        //cards will add another texture for back
-        //specials will have multiple animated things associated with them
-        //position
-        Texture2D texture; //single texture or spritesheet
-        Rectangle position;
+        Texture2D texr; //single texture or spritesheet, objects should have all associated textures on one sprite sheet, ideally
+        Rectangle posit;
         SpriteBatch spriteBatch;
 
         //sprite sheet + animation
         int rows, columns; //how many rows and columns
         Point imageSize; //width and height of image
+        List<Point> spriteLocations; //stores location of sprites on spritesheet
 
         //animation 
         int msPerFrame;
@@ -42,7 +40,7 @@ namespace BreadWars
         public void DrawStatic()
         {
             //draw texture at posit
-            spriteBatch.Draw(texture, position, Color.White);
+            spriteBatch.Draw(texr, posit, Color.White);
             //please don't add spritebatch bits to this- spritebatch starting and ending should be handled in Game1, so we aren't restarting spritebatch 20x an update
             //unless there is a compelling reason to restart spritebatch every time this method is called,
             //in which case, please let me know
@@ -53,7 +51,7 @@ namespace BreadWars
         //saves locations for each to make animation quicker- only need to do this math once
         void UnpackSprites()
         {
-            
+            //store sprites in SpriteLocations list
 
         }
         
@@ -61,7 +59,7 @@ namespace BreadWars
         //+ b (moves through multiple sprites and position)
         public void Anim()
         {
-
+            //goes through spriteLocations timed
 
         }
         
