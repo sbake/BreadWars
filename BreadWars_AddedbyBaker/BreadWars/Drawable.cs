@@ -15,17 +15,17 @@ namespace BreadWars
     {
         //attributes
         //basic
-        Texture2D texr; //single texture or spritesheet, objects should have all associated textures on one sprite sheet, ideally
-        Rectangle posit;
-        SpriteBatch spriteBatch;
+        protected Texture2D texr; //single texture or spritesheet, objects should have all associated textures on one sprite sheet, ideally
+        protected Rectangle posit;
+        protected SpriteBatch spriteBatch;
 
         //sprite sheet + animation
-        int rows, columns; //how many rows and columns
-        Point imageSize; //width and height of image
-        List<Point> spriteLocations; //stores location of sprites on spritesheet
+        protected int rows, columns; //how many rows and columns
+        protected Point imageSize; //width and height of image
+        protected List<Point> spriteLocations; //stores location of sprites on spritesheet
 
         //animation 
-        int msPerFrame;
+        protected int msPerFrame;
 
 
 
