@@ -34,6 +34,7 @@ namespace BreadWars
         //constructor- N/A
         //things can't just be drawable- should be a background object or a card.
         //every drawable object needsa texture to be drawn, and a position to draw that texture
+        //BUT this will be passed an existing spritebatch in both children
         
 
         //methods
@@ -42,7 +43,9 @@ namespace BreadWars
         {
             //draw texture at posit
             spriteBatch.Draw(texr, posit, Color.White);
-            
+            //please don't add spritebatch bits to this- spritebatch starting and ending should be handled in Game1, so we aren't restarting spritebatch 20x an update
+            //unless there is a compelling reason to restart spritebatch every time this method is called,
+            //in which case, please let me know
         }
         
         //methods to unpack sprites
