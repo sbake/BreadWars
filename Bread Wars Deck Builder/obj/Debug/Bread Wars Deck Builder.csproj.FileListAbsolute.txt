@@ -1,0 +1,8 @@
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.frmMain.resources
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.Properties.Resources.resources
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csproj.GenerateResource.Cache
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.exe.config
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.exe
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.pdb
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.exe
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.pdb
