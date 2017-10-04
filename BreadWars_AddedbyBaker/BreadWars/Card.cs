@@ -11,13 +11,11 @@ namespace BreadWars
 {
     class Card : Drawable
     {
-
-        //name
-        private String name;
+        
         //value
         private int value;
-
         public int Value { get { return value; } }
+
         //effect
 
         //special (effect active)
@@ -30,16 +28,21 @@ namespace BreadWars
         
         //isBurned
         private bool isBurned;
+        public bool IsBurned{get{return isBurned;} set{isActive = value;}}
+
         //is8
         private bool is8;
-
+        public bool Is8{get{return is8;} set{is8 = value;}}
 
         //constructor
-        public Card(Texture2D pTexr, Rectangle pPosit, SpriteBatch pSpriteBatch)
+        public Card(Texture2D pTexr, Rectangle pPosit, SpriteBatch pSpriteBatch, bool active)
         {
             texr = pTexr;
             posit = pPosit;
             spriteBatch = pSpriteBatch;
+            isBurned = false;
+            is8 = false;
+            isActive = active;
         }
 
         
