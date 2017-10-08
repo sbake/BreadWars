@@ -5,10 +5,11 @@
 /// </summary>
 public class Stab : Card
 {
-	public Stab()
-	{
-		//
-		// TODO: Add constructor logic here
-		//
-	}
+    private int STAB_DAMAGE = 20;
+    private int value = 3;
+
+    public override void effect(Player opponent, Player self)
+    {
+        if (isActive) opponent.AlterHealth(-STAB_DAMAGE);
+    }
 }

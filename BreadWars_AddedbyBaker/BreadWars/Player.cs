@@ -17,14 +17,8 @@ namespace BreadWars
         //hand (cards or slots) an array?
         private List<Card> hand = new List<Card>();
 
-        public List<Card> Hand
-        {
-            get
-            {
-                return hand;
-            }
-        }
-
+        public List<Card> Hand { get {return hand;}}
+        
         //health
         private int playerCurrentHealth = PLAYER_MAX_HEALTH;
 
@@ -32,7 +26,9 @@ namespace BreadWars
 
         //status (poison and block)
         private bool isPoisoned;
+        public bool IsPoisoned {get=>isPoisoned; set => isPoisoned = value;}
         private bool hasBlock;
+        public bool HasBlock {get => hasBlock; set => hasBlock = value;}
 
         public Player(byte number)
         {

@@ -5,10 +5,10 @@
 /// </summary>
 public class Block : Card
 {
-	public Block()
-	{
-		//
-		// TODO: Add constructor logic here
-		//
-	}
+    private int value = 15;
+
+    public override void effect(Player opponent, Player self)
+    {
+        if(isActive)self.HasBlock = true;
+    }
 }

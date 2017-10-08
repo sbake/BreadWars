@@ -45,6 +45,6 @@ namespace BreadWars
             isActive = active;
         }
 
-        
+        public abstract void effect(Player opponent, Player self);
     }
 }

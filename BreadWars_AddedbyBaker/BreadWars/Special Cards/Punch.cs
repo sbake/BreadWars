@@ -5,10 +5,13 @@
 /// </summary>
 public class Punch: Card
 {
-	public Punch()
-	{
-		//
-		// TODO: Add constructor logic here
-		//
-	}
+    private int PUNCH_DAMAGE = 10;
+    private int value = 9;
+
+    public override void effect(Player opponent, Player self)
+    {
+        if(isActive)opponent.AlterHealth(-PUNCH_DAMAGE);
+    }
+    
+    
 }
