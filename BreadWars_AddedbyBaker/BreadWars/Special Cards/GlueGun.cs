@@ -21,6 +21,7 @@ public class GlueGun: Card
             Card newCard = Card(c2.texr, c1.Posit, false);
             newCard.value = c1.Value + c2.Value;
             self.Hand.Add(newCard);
+            self.Hand.Add(deck.Next);
         }
     }
 }
