@@ -17,7 +17,6 @@ namespace BreadWars
         //basic
         protected Texture2D texr; //single texture or spritesheet, objects should have all associated textures on one sprite sheet, ideally
         protected Rectangle posit;
-        protected SpriteBatch spriteBatch;
 
         //sprite sheet + animation
         protected int rows, columns; //how many rows and columns
@@ -26,24 +25,26 @@ namespace BreadWars
 
         //animation 
         protected int msPerFrame;
+        protected int msSinceFrame;
 
+        //Properties
+        public Rectangle Posit
+        {
+            get { return posit; }
+            set { posit = value; }
+        }
 
 
         //constructor- N/A
-        //things can't just be drawable- should be a background object or a card.
-        //every drawable object needsa texture to be drawn, and a position to draw that texture
-        //BUT this will be passed an existing spritebatch in both children
+        //things can't just be drawable objects- should be a background object or a card.
         
 
         //methods
         //method for drawing static objects (position doesn't move, can use variable)
-        public void DrawStatic()
+        public void DrawStatic(SpriteBatch spriteBatch)
         {
             //draw texture at posit
             spriteBatch.Draw(texr, posit, Color.White);
-            //please don't add spritebatch bits to this- spritebatch starting and ending should be handled in Game1, so we aren't restarting spritebatch 20x an update
-            //unless there is a compelling reason to restart spritebatch every time this method is called,
-            //in which case, please let me know
         }
         
         //methods to unpack sprites
@@ -51,8 +52,17 @@ namespace BreadWars
         //saves locations for each to make animation quicker- only need to do this math once
         void UnpackSprites()
         {
-            //store sprites in SpriteLocations list
+            spriteLocations.Clear();
 
+            //store sprites in SpriteLocations list
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    Point location = new Point((i * (posit.Height/rows)),(j * (posit.Width/columns)));
+                    spriteLocations.Add(location);
+                }
+            }
         }
         
         //method for animated objects a (just position changes)
@@ -60,7 +70,10 @@ namespace BreadWars
         public void Anim()
         {
             //goes through spriteLocations timed
-
+            if (msPerFrame >= msSinceFrame)
+            {
+                
+            }
         }
         
     }
