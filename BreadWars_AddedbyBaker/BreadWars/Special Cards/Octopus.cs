@@ -5,10 +5,6 @@
 /// </summary>
 public class Octopus: Card
 {
-	public Octopus()
-	{
-		//
-		// TODO: Add constructor logic here
-		//
-	}
+    private int value = 8;
+
 }
