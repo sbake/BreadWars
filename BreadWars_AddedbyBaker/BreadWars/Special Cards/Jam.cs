@@ -1,8 +1,10 @@
-﻿using BreadWars;
+﻿
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+namespace BreadWars
+{
 /// <summary>
 /// Summary description for Jam
 /// </summary>
@@ -23,4 +25,5 @@ public class Jam: Card
             self.AlterHealth(RESTORE_HEALTH);
         }
     }
+}
 }

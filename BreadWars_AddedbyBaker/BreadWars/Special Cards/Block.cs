@@ -1,8 +1,9 @@
-﻿using BreadWars;
+﻿
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+namespace BreadWars
+{
 /// <summary>
 /// Summary description for Block
 /// </summary>
@@ -18,4 +19,5 @@ public class Block : Card
     {
         if(isActive)self.HasBlock = true;
     }
+}
 }

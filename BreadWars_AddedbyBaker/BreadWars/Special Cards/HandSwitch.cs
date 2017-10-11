@@ -1,8 +1,10 @@
-﻿using BreadWars;
+﻿
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+namespace BreadWars
+{
 /// <summary>
 /// Summary description for HandSwitch
 /// </summary>
@@ -24,4 +26,5 @@ public class HandSwitch : Card
             self.Hand = hand1;
         }
     }
+}
 }

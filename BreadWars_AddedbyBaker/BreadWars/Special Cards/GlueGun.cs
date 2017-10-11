@@ -1,8 +1,10 @@
-﻿using BreadWars;
+﻿
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+namespace BreadWars
+{
 /// <summary>
 /// Summary description for GlueGun
 /// </summary>
@@ -31,4 +33,5 @@ public class GlueGun: Card
             self.Hand.Add(deck.Next);
         }
     }
+}
 }

@@ -1,8 +1,9 @@
-﻿using BreadWars;
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+namespace BreadWars
+{
 /// <summary>
 /// Summary description for Stab
 /// </summary>
@@ -20,3 +21,4 @@ public class Stab : Card
         if (isActive) opponent.AlterHealth(-STAB_DAMAGE);
     }
 }
+    }

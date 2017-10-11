@@ -1,8 +1,10 @@
-﻿using BreadWars;
+﻿
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+namespace BreadWars
+{
 /// <summary>
 /// Summary description for Punch
 /// </summary>
@@ -21,4 +23,5 @@ public class Punch: Card
     }
     
     
+}
 }

@@ -1,8 +1,9 @@
-﻿using BreadWars;
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+namespace BreadWars
+{
 /// <summary>
 /// Summary description for Tazer
 /// </summary>
@@ -12,3 +13,4 @@ public class Tazer : Card
     {
     }
 }
+    }

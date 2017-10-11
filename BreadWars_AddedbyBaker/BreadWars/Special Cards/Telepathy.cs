@@ -1,8 +1,10 @@
-﻿using BreadWars;
+﻿
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+namespace BreadWars
+{
 /// <summary>
 /// Summary description for Telepathy
 /// </summary>
@@ -12,3 +14,4 @@ public class Telepathy : Card
     {
     }
 }
+    }
