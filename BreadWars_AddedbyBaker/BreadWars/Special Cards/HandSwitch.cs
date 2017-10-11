@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BreadWars;
+using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 /// <summary>
 /// Summary description for HandSwitch
@@ -7,7 +10,11 @@ public class HandSwitch : Card
 {
     private int value = 13;
 
-    public override void effect(Player opponent, Player self, Deck deck)
+    public HandSwitch(Texture2D pTexr, Rectangle pPosit, bool active) : base(pTexr, pPosit, active)
+    {
+    }
+
+    public override void Effect(Player opponent, Player self, Deck deck)
     {
         if (isActive)
         {

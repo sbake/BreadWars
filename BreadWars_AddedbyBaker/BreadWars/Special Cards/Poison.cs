@@ -1,14 +1,14 @@
-﻿using System;
+﻿using BreadWars;
+using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 /// <summary>
 /// Summary description for Poison
 /// </summary>
-public class Poison: Card
+public class Poison : Card
 {
-	public Poison()
-	{
-		//
-		// TODO: Add constructor logic here
-		//
-	}
+    public Poison(Texture2D pTexr, Rectangle pPosit, bool active) : base(pTexr, pPosit, active)
+    {
+    }
 }

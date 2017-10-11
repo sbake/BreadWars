@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BreadWars;
+using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 /// <summary>
 /// Summary description for GlueGun
@@ -6,6 +9,10 @@
 public class GlueGun: Card
 {
     private int value = 4;
+
+    public GlueGun(Texture2D pTexr, Rectangle pPosit, bool active) : base(pTexr, pPosit, active)
+    {
+    }
 
     public void Effect(Player opponent, Player self, Deck deck)
     {

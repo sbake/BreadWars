@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Input;
 namespace BreadWars
 {
     //half these comments will be deleted as methods are actually written- Sophia
-    class Drawable
+    public class Drawable
     {
         //attributes
         //basic

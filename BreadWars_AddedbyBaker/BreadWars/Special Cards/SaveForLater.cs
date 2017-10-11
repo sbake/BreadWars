@@ -1,14 +1,14 @@
-﻿using System;
+﻿using BreadWars;
+using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 /// <summary>
 /// Summary description for SaveForLater
 /// </summary>
-public class SaveForLater: Card
+public class SaveForLater : Card
 {
-	public SaveForLater()
-	{
-		//
-		// TODO: Add constructor logic here
-		//
-	}
+    public SaveForLater(Texture2D pTexr, Rectangle pPosit, bool active) : base(pTexr, pPosit, active)
+    {
+    }
 }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BreadWars;
+using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 /// <summary>
 /// Summary description for Punch
@@ -7,6 +10,10 @@ public class Punch: Card
 {
     private int PUNCH_DAMAGE = 10;
     private int value = 9;
+
+    public Punch(Texture2D pTexr, Rectangle pPosit, bool active) : base(pTexr, pPosit, active)
+    {
+    }
 
     public override void Effect(Player opponent, Player self)
     {

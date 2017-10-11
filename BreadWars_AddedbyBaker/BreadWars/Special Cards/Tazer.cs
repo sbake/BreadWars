@@ -1,14 +1,14 @@
-﻿using System;
+﻿using BreadWars;
+using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 /// <summary>
 /// Summary description for Tazer
 /// </summary>
-public class Tazer: Card
+public class Tazer : Card
 {
-	public Tazer()
-	{
-		//
-		// TODO: Add constructor logic here
-		//
-	}
+    public Tazer(Texture2D pTexr, Rectangle pPosit, bool active) : base(pTexr, pPosit, active)
+    {
+    }
 }

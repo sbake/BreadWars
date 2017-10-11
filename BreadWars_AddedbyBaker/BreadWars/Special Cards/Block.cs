@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BreadWars;
+using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 /// <summary>
 /// Summary description for Block
@@ -7,7 +10,11 @@ public class Block : Card
 {
     private int value = 15;
 
-    public override void effect(Player opponent, Player self)
+    public Block(Texture2D pTexr, Rectangle pPosit, bool active) : base(pTexr, pPosit, active)
+    {
+    }
+
+    public override void Effect(Player opponent, Player self)
     {
         if(isActive)self.HasBlock = true;
     }

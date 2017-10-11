@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace BreadWars
 {
-    class Player
+    public class Player
     {
         const int PLAYER_MAX_HEALTH = 50;
 

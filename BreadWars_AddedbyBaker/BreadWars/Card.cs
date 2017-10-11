@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace BreadWars
 {
-    class Card : Drawable
+    public class Card : Drawable
     {
         
         //value

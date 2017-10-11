@@ -1,4 +1,6 @@
 ﻿using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace BreadWars
 {
@@ -8,11 +10,8 @@ namespace BreadWars
     public class Banker : Card
 
     {
-        public Banker()
+        public Banker(Texture2D pTexr, Rectangle pPosit, bool active) : base(pTexr, pPosit, active)
         {
-            //
-            // TODO: Add constructor logic here
-            //
         }
     }
 }

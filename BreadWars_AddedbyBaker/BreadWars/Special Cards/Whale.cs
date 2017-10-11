@@ -1,14 +1,14 @@
-﻿using System;
+﻿using BreadWars;
+using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 /// <summary>
 /// Summary description for Whale
 /// </summary>
-public class Whale: Card
+public class Whale : Card
 {
-	public Whale()
-	{
-		//
-		// TODO: Add constructor logic here
-		//
-	}
+    public Whale(Texture2D pTexr, Rectangle pPosit, bool active) : base(pTexr, pPosit, active)
+    {
+    }
 }
