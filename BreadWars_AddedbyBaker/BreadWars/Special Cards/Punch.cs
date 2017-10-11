@@ -8,7 +8,7 @@ public class Punch: Card
     private int PUNCH_DAMAGE = 10;
     private int value = 9;
 
-    public override void effect(Player opponent, Player self)
+    public override void Effect(Player opponent, Player self)
     {
         if(isActive)opponent.AlterHealth(-PUNCH_DAMAGE);
     }

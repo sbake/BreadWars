@@ -33,5 +33,15 @@ namespace BreadWars
         {
             players[winPlayer - 1].Health += pointsPerRound;
         }
+        public void SpecialCards(Card cardPlayed, byte playerNum, Player[] players)
+        {
+            if(cardPlayed.isActive )
+            {
+                if (playerNum == 1)
+                    cardPlayed.effect(players[1], players[2]);
+                if (playerNum == 2)
+                    cardPlayed.effect(players[2], players[1]);
+            }
+        }
     }
 }

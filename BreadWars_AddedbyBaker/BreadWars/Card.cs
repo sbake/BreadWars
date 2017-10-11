@@ -13,7 +13,7 @@ namespace BreadWars
     {
         
         //value
-        private int value;
+        protected int value;
         public int Value { get { return value; } }
 
         //effect
@@ -44,7 +44,15 @@ namespace BreadWars
             isActive = active;
         }
 
-        public abstract void effect(Player opponent, Player self);
+        public virtual void Effect(Player opponent, Player self, Deck deck){
+            if(isActive){
+                Random r = new Random();
+                for(int i=r.Next(0,51); i<52; i++){
+                    deck[i].Is8 = true;
+                    i+= r.Next(0, 20);
+                }
+            }
+        }
 
         //overwrite draw methos to only draw card if flipped up
         public void DrawStatic()

@@ -7,7 +7,7 @@ public class HandSwitch : Card
 {
     private int value = 13;
 
-    public override void effect(Player opponent, Player self)
+    public override void effect(Player opponent, Player self, Deck deck)
     {
         if (isActive)
         {
