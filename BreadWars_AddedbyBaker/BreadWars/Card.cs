@@ -13,7 +13,7 @@ namespace BreadWars
     {
         
         //value
-        private int value;
+        protected int value;
         public int Value { get { return value; } }
 
         //effect

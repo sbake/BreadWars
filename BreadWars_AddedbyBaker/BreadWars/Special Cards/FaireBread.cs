@@ -5,10 +5,10 @@
 /// </summary>
 public class FaireBread: Card
 {
-	public FaireBread()
-	{
-		//
-		// TODO: Add constructor logic here
-		//
-	}
+    private int value = 11;
+
+    public override void Effect()
+    {
+
+    }
 }
