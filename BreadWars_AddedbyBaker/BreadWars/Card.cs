@@ -35,16 +35,21 @@ namespace BreadWars
         public bool Is8{get{return is8;} set{is8 = value;}}
 
         //constructor
-        public Card(Texture2D pTexr, Rectangle pPosit, SpriteBatch pSpriteBatch, bool active)
+        public Card(Texture2D pTexr, Rectangle pPosit, bool active)
         {
             texr = pTexr;
             posit = pPosit;
-            spriteBatch = pSpriteBatch;
             isBurned = false;
             is8 = false;
             isActive = active;
         }
 
         public abstract void effect(Player opponent, Player self);
+
+        //overwrite draw methos to only draw card if flipped up
+        public void DrawStatic()
+        {
+
+        }
     }
 }
