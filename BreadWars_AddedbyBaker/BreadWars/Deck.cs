@@ -10,12 +10,21 @@ using Microsoft.Xna.Framework.Content;
 
 namespace BreadWars
 {
-    class Deck
+    public class Deck
     {
         //needs to load external deck
         const string PATH = ".";
 
         Card[] library = new Card[52]; //may change array size based on whether or not we choose one deck or two
+
+        //can change however you want later, just for texting if other stuffs work
+        int count = 0;
+        public Card Next()
+        {
+            Card toReturn = library.ElementAt(count);
+            count++;
+            return toReturn;
+        }
 
         //completely random deck stuff for testing
         //@kyle, if you need to discard this to make sync, please copy and paste the back up I'll put in google docs, or let me know so I can. Thanks.
@@ -49,7 +58,7 @@ namespace BreadWars
 
         public void PopulateDeck(Random rng, Texture2D Texture)
         {
-            for (int i = 0; i < cardsToAdd.Count; i ++)
+            for (int i = 0; i < cardsToAdd.Length; i ++)
             {
                      for (int j = 0; j < cardsToAdd[i]; j++)
                      {
@@ -81,7 +90,7 @@ namespace BreadWars
                          switch (i)
                          {
                              case 0:
-                            Banker b = new Banker();
+                            Banker b = new Banker(null, new Rectangle(0,0,0,0), false);
                                  break;
                              case 1:
                                  break;

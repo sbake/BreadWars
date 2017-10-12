@@ -10,10 +10,10 @@ namespace BreadWars
 /// </summary>
 public class Octopus: Card
 {
-    private int value = 8;
 
     public Octopus(Texture2D pTexr, Rectangle pPosit, bool active) : base(pTexr, pPosit, active)
     {
-    }
+            value = 8;
+        }
 }
 }

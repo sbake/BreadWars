@@ -2,6 +2,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
 
 namespace BreadWars
 {
@@ -10,11 +11,11 @@ namespace BreadWars
 /// </summary>
 public class HandSwitch : Card
 {
-    private int value = 13;
 
     public HandSwitch(Texture2D pTexr, Rectangle pPosit, bool active) : base(pTexr, pPosit, active)
     {
-    }
+            value = 13;
+        }
 
     public override void Effect(Player opponent, Player self, Deck deck)
     {

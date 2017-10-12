@@ -10,13 +10,13 @@ namespace BreadWars
 /// </summary>
 public class FaireBread: Card
 {
-    private int value = 11;
 
     public FaireBread(Texture2D pTexr, Rectangle pPosit, bool active) : base(pTexr, pPosit, active)
     {
-    }
+            value = 11;
+        }
 
-    public override void Effect()
+    public override void Effect(Player opponent, Player self, Deck deck)
     {
 
     }

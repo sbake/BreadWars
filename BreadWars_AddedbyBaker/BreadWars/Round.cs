@@ -11,10 +11,12 @@ namespace BreadWars
         //TODO add methods for comparing cards, calling specials, awarding points 
         //attributes
         private int pointsPerRound;
+        private Deck deck;
                 
-        public Round(int ptsPerRound)
+        public Round(int ptsPerRound, Deck d)
         {
             pointsPerRound = ptsPerRound;
+            deck = d;
         }
 
         public byte CompareCards(Card[] cardsIn)
@@ -38,9 +40,9 @@ namespace BreadWars
             if(cardPlayed.isActive )
             {
                 if (playerNum == 1)
-                    cardPlayed.effect(players[1], players[2]);
+                    cardPlayed.Effect(players[1], players[2],deck);
                 if (playerNum == 2)
-                    cardPlayed.effect(players[2], players[1]);
+                    cardPlayed.Effect(players[2], players[1], deck);
             }
         }
     }
