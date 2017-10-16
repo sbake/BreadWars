@@ -34,6 +34,10 @@ namespace BreadWars
         private bool is8;
         public bool Is8{get{return is8;} set{is8 = value;}}
 
+        //is unicorn
+        private bool isUnicorn;
+        public bool IsUnicorn { get { return isUnicorn; } set { isUnicorn = value; } }
+
         //constructor
         public Card(Texture2D pTexr, Rectangle pPosit, bool active)
         {

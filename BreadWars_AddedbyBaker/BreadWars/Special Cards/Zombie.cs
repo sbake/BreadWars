@@ -12,6 +12,7 @@ public class Zombie : Card
 {
     public Zombie(Texture2D pTexr, Rectangle pPosit, bool active) : base(pTexr, pPosit, active)
     {
+            value = 5;
     }
 }
     }

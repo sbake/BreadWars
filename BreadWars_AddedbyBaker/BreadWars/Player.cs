@@ -18,7 +18,7 @@ namespace BreadWars
         //hand (cards or slots) an array?
         private List<Card> hand = new List<Card>();
 
-        public List<Card> Hand { get {return hand;}}
+        public List<Card> Hand { get { return hand; } set => hand = value; }
         
         //health
         private int playerCurrentHealth = PLAYER_MAX_HEALTH;
@@ -30,17 +30,35 @@ namespace BreadWars
         public bool IsPoisoned {get=>isPoisoned; set => isPoisoned = value;}
         private bool hasBlock;
         public bool HasBlock {get => hasBlock; set => hasBlock = value;}
+        private bool isParalyzed;
+        public bool IsParalyzed { get => isParalyzed; set => isParalyzed = value; }
+        private int paralyzeCount;
+        public int ParalyzeCount { set => paralyzeCount = value; }
+
+        Random r;
 
         public Player(byte number)
         {
             playerCurrentHealth = 20;
             isPoisoned = false;
             hasBlock = false;
+            isParalyzed = false;
             playerNumber = number;
+            r = new Random();
+            paralyzeCount = 0;
         }
 
         public void PlayTurn(Card[] cardsToPlay, int cardIndex)
         {
+            if (isParalyzed)
+            {
+                int cIndex = r.Next(0, hand.Count);
+                cardsToPlay[playerNumber] = hand[cIndex];
+                hand.Remove(hand[cIndex]);
+                paralyzeCount--;
+                if (paralyzeCount == 0) isParalyzed = false;
+                return;
+            }
             cardsToPlay[playerNumber] = hand[cardIndex];
             hand.Remove(hand[cardIndex]);
 

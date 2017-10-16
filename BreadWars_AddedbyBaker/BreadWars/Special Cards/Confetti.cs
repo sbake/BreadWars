@@ -12,6 +12,7 @@ public class Confetti : Card
 {
     public Confetti(Texture2D pTexr, Rectangle pPosit, bool active) : base(pTexr, pPosit, active)
     {
+            value = 20;
     }
 }
 }

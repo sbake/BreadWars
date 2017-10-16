@@ -18,6 +18,18 @@ public class FaireBread: Card
 
     public override void Effect(Player opponent, Player self, Deck deck)
     {
+            foreach(Card c in opponent.Hand)
+            {
+                c.isActive = !c.isActive;
+            }foreach(Card c in self.Hand)
+            {
+                c.isActive = !c.isActive;
+            }
+            foreach(Card c in deck.Library)
+            {
+                c.isActive = !c.isActive;
+            }
+            //need to do save for laters as well
 
     }
 }

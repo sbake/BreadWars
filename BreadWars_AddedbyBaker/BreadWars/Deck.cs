@@ -16,6 +16,7 @@ namespace BreadWars
         const string PATH = ".";
 
         Card[] library = new Card[52]; //may change array size based on whether or not we choose one deck or two
+        public Card[] Library { get =>library; }
 
         //can change however you want later, just for texting if other stuffs work
         int count = 0;
