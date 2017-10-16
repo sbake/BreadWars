@@ -25,9 +25,10 @@ namespace BreadWars
 
         //temp array holding both players(may be moved in the future)
         Player[] players;
+        Card[] cardsInPlay = new Card[2];
 
         //124 to 768
-        Point[] cardPos = { new Point(0,0), new Point(0,0), new Point(0,0), new Point(0,0) };
+        Rectangle[] cardPos = { new Rectangle(0,0, 20, 20), new Rectangle(0,0, 20, 20), new Rectangle(0,0, 20, 20), new Rectangle(0,0 ,20, 20) };
 
         //phase and game states
         enum GameState { Start, Help, Game, Credits, GameOver};
@@ -146,6 +147,7 @@ namespace BreadWars
                     switch (currPhase)
                     {
                         case Phase.Player1:
+
                             break;
                         case Phase.Player2:
                             break;
@@ -153,8 +155,23 @@ namespace BreadWars
                             switch (prevPhase)
                             {
                                 case Phase.Player1:
+                                    for(int i=0; i<player1.Hand.Count; i++)
+                                    {
+                                        if(cardPos[i].Contains(mState.Position))
+                                        {
+                                            cardsInPlay[0] = player1.Hand[i];
+                                        }
+                                    }
                                     break;
                                 case Phase.Player2:
+                                    for (int i = 0; i < player2.Hand.Count; i++)
+                                    {
+                                        if (cardPos[i].Contains(mState.Position))
+                                        {
+                                            cardsInPlay[0] = player2.Hand[i];
+                                        }
+                                    }
+                                    round.CompareCards(cardsInPlay);
                                     break;
                                 case Phase.Results:
                                     break;

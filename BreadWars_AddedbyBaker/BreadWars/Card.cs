@@ -21,7 +21,11 @@ namespace BreadWars
         //save player
         Player self;
 
-        //effect
+        //dimensions
+        const int WIDTH = 20;
+        public int Width { get => WIDTH; }
+        const int HEIGHT = 20;
+        public int Height { get => HEIGHT; }
 
         //special (effect active)
         public bool isActive;
