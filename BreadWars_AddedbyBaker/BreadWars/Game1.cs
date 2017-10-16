@@ -20,6 +20,13 @@ namespace BreadWars
         //temp array holding both players(may be moved in the future)
         Player[] players;
 
+
+        //phase and game states
+        enum GameState { Start, Help, Game, Credits, GameOver};
+        private GameState state;
+        enum Phase { Player1, Player2, Pause, Results };
+        private Phase phase;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -45,7 +52,9 @@ namespace BreadWars
             //player array
             players = new Player[2];
             players[0] = player1;
-            players[1] = player2; 
+            players[1] = player2;
+
+            state = GameState.Start;
         }
 
         /// <summary>
@@ -80,6 +89,20 @@ namespace BreadWars
                 Exit();
 
             // TODO: Add your update logic here
+            switch (state)
+            {
+                case GameState.Start:
+                    break;
+                case GameState.Help:
+                    break;
+                case GameState.Credits:
+                    break;
+                case GameState.GameOver:
+                    break;
+                case GameState.Game:
+                    break;
+            }
+
 
             base.Update(gameTime);
         }
@@ -94,7 +117,19 @@ namespace BreadWars
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
-
+            switch (state)
+            {
+                case GameState.Start:
+                    break;
+                case GameState.Help:
+                    break;
+                case GameState.Credits:
+                    break;
+                case GameState.GameOver:
+                    break;
+                case GameState.Game:
+                    break;
+            }
 
             spriteBatch.End();
 
