@@ -1,5 +1,2 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
-
-/Bread Wars Deck Builder/obj
+*.suo
+BreadWars_AddedbyBaker/.vs/BreadWars/v15/sqlite3/storage.ide

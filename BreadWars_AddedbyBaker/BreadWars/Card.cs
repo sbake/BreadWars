@@ -16,6 +16,8 @@ namespace BreadWars
         protected int value;
         public int Value { get { return value; } }
 
+        protected string Name { get; set; }
+
         //save player
         Player self;
 
@@ -42,6 +44,10 @@ namespace BreadWars
         public bool IsUnicorn { get { return isUnicorn; } set { isUnicorn = value; } }
 
         //constructor
+        public Card(Texture2D pTexr, Rectangle pPos ,string nm):base(pTexr, pPos)
+        {
+            Name = nm;
+        }
         public Card(Texture2D pTexr, Rectangle pPosit, bool active, Player pSelf, Drawable pNumbers) : base(pTexr, pPosit)
         {
             isBurned = false;
