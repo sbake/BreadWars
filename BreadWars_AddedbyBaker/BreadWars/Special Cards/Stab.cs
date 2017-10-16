@@ -11,7 +11,7 @@ public class Stab : Card
 {
     private int STAB_DAMAGE = 20;
 
-    public Stab(Texture2D pTexr, Rectangle pPosit, bool active) : base(pTexr, pPosit, active)
+    public Stab(Texture2D pTexr, Rectangle pPosit, bool active, Player pSelf, Drawable pNumbers) : base(pTexr, pPosit, active, pSelf, pNumbers)
         {
             value = 3;
         }

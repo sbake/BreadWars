@@ -12,8 +12,8 @@ public class Punch: Card
 {
     private int PUNCH_DAMAGE = 10;
 
-    public Punch(Texture2D pTexr, Rectangle pPosit, bool active) : base(pTexr, pPosit, active)
-    {
+    public Punch(Texture2D pTexr, Rectangle pPosit, bool active, Player pSelf, Drawable pNumbers) : base(pTexr, pPosit, active, pSelf, pNumbers)
+        {
             value = 9;
         }
 

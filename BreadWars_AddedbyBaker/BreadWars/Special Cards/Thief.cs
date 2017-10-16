@@ -10,8 +10,8 @@ namespace BreadWars
 /// </summary>
 public class Thief : Card
 {
-    public Thief(Texture2D pTexr, Rectangle pPosit, bool active) : base(pTexr, pPosit, active)
-    {
+    public Thief(Texture2D pTexr, Rectangle pPosit, bool active, Player pSelf, Drawable pNumbers) : base(pTexr, pPosit, active, pSelf, pNumbers)
+        {
     }
 }
 }

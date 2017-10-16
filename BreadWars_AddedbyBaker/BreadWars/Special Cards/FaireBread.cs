@@ -11,8 +11,8 @@ namespace BreadWars
 public class FaireBread: Card
 {
 
-    public FaireBread(Texture2D pTexr, Rectangle pPosit, bool active) : base(pTexr, pPosit, active)
-    {
+    public FaireBread(Texture2D pTexr, Rectangle pPosit, bool active, Player pSelf, Drawable pNumbers) : base(pTexr, pPosit, active, pSelf, pNumbers)
+        {
             value = 11;
         }
 

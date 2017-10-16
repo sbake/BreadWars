@@ -10,8 +10,8 @@ namespace BreadWars
 /// </summary>
 public class SaveForLater : Card
 {
-    public SaveForLater(Texture2D pTexr, Rectangle pPosit, bool active) : base(pTexr, pPosit, active)
-    {
+    public SaveForLater(Texture2D pTexr, Rectangle pPosit, bool active, Player pSelf, Drawable pNumbers) : base(pTexr, pPosit, active, pSelf, pNumbers)
+        {
     }
 }
 }

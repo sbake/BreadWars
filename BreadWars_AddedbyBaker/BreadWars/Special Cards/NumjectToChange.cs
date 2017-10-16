@@ -11,7 +11,7 @@ public class NumjectToChange : Card
 {
         Random r;
 
-    public NumjectToChange(Texture2D pTexr, Rectangle pPosit, bool active) : base(pTexr, pPosit, active)
+    public NumjectToChange(Texture2D pTexr, Rectangle pPosit, bool active, Player pSelf, Drawable pNumbers) : base(pTexr, pPosit, active, pSelf, pNumbers)
     {
             value = 10;
             r = new Random();

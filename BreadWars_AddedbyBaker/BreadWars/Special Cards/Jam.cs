@@ -12,8 +12,8 @@ public class Jam: Card
 {
     private int RESTORE_HEALTH = 5;
 
-    public Jam(Texture2D pTexr, Rectangle pPosit, bool active) : base(pTexr, pPosit, active)
-    {
+    public Jam(Texture2D pTexr, Rectangle pPosit, bool active, Player pSelf, Drawable pNumbers) : base(pTexr, pPosit, active, pSelf, pNumbers)
+        {
             value = 6;
         }
 
