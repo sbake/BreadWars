@@ -20,14 +20,6 @@ namespace BreadWars
         //temp array holding both players(may be moved in the future)
         Player[] players;
 
-
-        //phase and game states
-        enum GameState { Start, Help, Game, Credits, GameOver};
-        private GameState state;
-        enum Phase { Player1, Player2, Pause, Results };
-        private Phase currPhase;
-        private Phase prevPhase;
-
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -53,11 +45,7 @@ namespace BreadWars
             //player array
             players = new Player[2];
             players[0] = player1;
-            players[1] = player2;
-
-            state = GameState.Start;
-            prevPhase = Phase.Results;
-            currPhase = Phase.Pause;
+            players[1] = player2; 
         }
 
         /// <summary>
@@ -92,66 +80,6 @@ namespace BreadWars
                 Exit();
 
             // TODO: Add your update logic here
-            KeyboardState kState = Keyboard.GetState();
-            MouseState mState = Mouse.GetState();
-
-            switch (state)
-            {
-                case GameState.Start:
-                    if (kState.IsKeyDown(Keys.Enter))
-                    {
-                        state = GameState.Game;
-                    }if(mState.Position == new Point(0,0)) //change pos, for credits
-                    {
-                        state = GameState.Credits;
-                    }
-                    if (mState.Position == new Point(0, 0)) //change pos for help
-                    {
-                        state = GameState.Help; 
-                    }
-                    break;
-                case GameState.Help:
-                    if (kState.IsKeyDown(Keys.Back))
-                    {
-                        state = GameState.Start;
-                    }
-                    break;
-                case GameState.Credits:
-                    if (kState.IsKeyDown(Keys.Back))
-                    {
-                        state = GameState.Start;
-                    }
-                    break;
-                case GameState.GameOver:
-                    if (kState.IsKeyDown(Keys.Enter))
-                    {
-                        state = GameState.Start;
-                    }
-                    break;
-                case GameState.Game:
-                    switch (currPhase)
-                    {
-                        case Phase.Player1:
-                            break;
-                        case Phase.Player2:
-                            break;
-                        case Phase.Pause:
-                            switch (prevPhase)
-                            {
-                                case Phase.Player1:
-                                    break;
-                                case Phase.Player2:
-                                    break;
-                                case Phase.Results:
-                                    break;
-                            }
-                            break;
-                        case Phase.Results:
-                            break;
-                    }
-                    break;
-            }
-
 
             base.Update(gameTime);
         }
@@ -166,39 +94,7 @@ namespace BreadWars
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
-            switch (state)
-            {
-                case GameState.Start:
-                    break;
-                case GameState.Help:
-                    break;
-                case GameState.Credits:
-                    break;
-                case GameState.GameOver:
-                    break;
-                case GameState.Game:
-                    switch (currPhase)
-                    {
-                        case Phase.Player1:
-                            break;
-                        case Phase.Player2:
-                            break;
-                        case Phase.Pause:
-                            switch (prevPhase)
-                            {
-                                case Phase.Player1:
-                                    break;
-                                case Phase.Player2:
-                                    break;
-                                case Phase.Results:
-                                    break;
-                            }
-                            break;
-                        case Phase.Results:
-                            break;
-                    }
-                    break;
-            }
+
 
             spriteBatch.End();
 
