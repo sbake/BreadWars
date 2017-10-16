@@ -36,6 +36,8 @@ namespace BreadWars
         enum Phase { Player1, Player2, Pause, Results };
         private Phase currPhase;
         private Phase prevPhase;
+        private KeyboardState kState;
+        private KeyboardState kStatePrev;
 
         public Game1()
         {
@@ -70,6 +72,8 @@ namespace BreadWars
 
             deck = new Deck();
             round = new Round(20, deck);
+            kState = Keyboard.GetState();
+            kStatePrev = Keyboard.GetState();
         }
 
         /// <summary>
@@ -105,13 +109,15 @@ namespace BreadWars
                 Exit();
 
             // TODO: Add your update logic here
-            KeyboardState kState = Keyboard.GetState();
+            kStatePrev = kState;
+            kState = Keyboard.GetState();
+            
             MouseState mState = Mouse.GetState();
 
             switch (state)
             {
                 case GameState.Start:
-                    if (kState.IsKeyDown(Keys.Enter))
+                    if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))
                     {
                         NewGame();
                         state = GameState.Game;
@@ -138,7 +144,7 @@ namespace BreadWars
                     }
                     break;
                 case GameState.GameOver:
-                    if (kState.IsKeyDown(Keys.Enter))
+                    if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))
                     {
                         state = GameState.Start;
                     }
@@ -147,37 +153,57 @@ namespace BreadWars
                     switch (currPhase)
                     {
                         case Phase.Player1:
-
+                            for (int i = 0; i < player1.Hand.Count; i++)
+                            {
+                                if (cardPos[i].Contains(mState.Position))
+                                {
+                                    cardsInPlay[0] = player1.Hand[i];
+                                    prevPhase = currPhase;
+                                    currPhase = Phase.Pause;
+                                    break;
+                                }
+                            }
                             break;
                         case Phase.Player2:
+                            for (int i = 0; i < player2.Hand.Count; i++)
+                            {
+                                if (cardPos[i].Contains(mState.Position))
+                                {
+                                    cardsInPlay[0] = player2.Hand[i];
+                                    prevPhase = currPhase;
+                                    currPhase = Phase.Pause;
+                                    break;
+                                }
+                            }
                             break;
                         case Phase.Pause:
+                            if (!(kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))) break;
                             switch (prevPhase)
                             {
                                 case Phase.Player1:
-                                    for(int i=0; i<player1.Hand.Count; i++)
-                                    {
-                                        if(cardPos[i].Contains(mState.Position))
-                                        {
-                                            cardsInPlay[0] = player1.Hand[i];
-                                        }
-                                    }
+                                    prevPhase = currPhase;
+                                    currPhase = Phase.Player2;
                                     break;
                                 case Phase.Player2:
-                                    for (int i = 0; i < player2.Hand.Count; i++)
-                                    {
-                                        if (cardPos[i].Contains(mState.Position))
-                                        {
-                                            cardsInPlay[0] = player2.Hand[i];
-                                        }
-                                    }
-                                    round.CompareCards(cardsInPlay);
+                                    prevPhase = currPhase;
+                                    currPhase = Phase.Results;
                                     break;
                                 case Phase.Results:
+                                    prevPhase = currPhase;
+                                    currPhase = Phase.Player1;
                                     break;
                             }
                             break;
                         case Phase.Results:
+                            byte winPlayer = round.CompareCards(cardsInPlay);
+                            round.EditHealth(winPlayer, players);
+                            round.SpecialCards(cardsInPlay[0], 0, players);
+                            round.SpecialCards(cardsInPlay[1], 1, players);
+                            if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))
+                            {
+                                prevPhase = currPhase;
+                                currPhase = Phase.Pause;
+                            }
                             break;
                     }
                     break;
