@@ -10,6 +10,7 @@ namespace BreadWars
     public class Player
     {
         const int PLAYER_MAX_HEALTH = 50;
+        const int PLAYER_START_HEALTH = 25;
 
         //number
         private byte playerNumber;
@@ -21,7 +22,7 @@ namespace BreadWars
         public List<Card> Hand { get { return hand; } set => hand = value; }
         
         //health
-        private int playerCurrentHealth = PLAYER_MAX_HEALTH;
+        private int playerCurrentHealth = PLAYER_START_HEALTH;
 
         public int Health {get {return playerCurrentHealth;} set { playerCurrentHealth = value; } }
 
@@ -39,7 +40,6 @@ namespace BreadWars
 
         public Player(byte number)
         {
-            playerCurrentHealth = 20;
             isPoisoned = false;
             hasBlock = false;
             isParalyzed = false;
@@ -69,5 +69,13 @@ namespace BreadWars
             playerCurrentHealth += toChange;
         }
 
+        public void ResetHealth()
+        {
+            playerCurrentHealth = PLAYER_START_HEALTH;
+            isPoisoned = false;
+            hasBlock = false;
+            isParalyzed = false;
+            paralyzeCount = 0;
+        }
     }
 }

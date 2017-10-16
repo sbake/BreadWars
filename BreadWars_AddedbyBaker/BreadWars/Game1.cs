@@ -17,9 +17,17 @@ namespace BreadWars
         Player player1;
         Player player2;
 
+        //Deck
+        Deck deck;
+
+        //Round
+        Round round;
+
         //temp array holding both players(may be moved in the future)
         Player[] players;
 
+        //124 to 768
+        Point[] cardPos = { new Point(0,0), new Point(0,0), new Point(0,0), new Point(0,0) };
 
         //phase and game states
         enum GameState { Start, Help, Game, Credits, GameOver};
@@ -58,6 +66,9 @@ namespace BreadWars
             state = GameState.Start;
             prevPhase = Phase.Results;
             currPhase = Phase.Pause;
+
+            deck = new Deck();
+            round = new Round(20, deck);
         }
 
         /// <summary>
@@ -100,7 +111,9 @@ namespace BreadWars
                 case GameState.Start:
                     if (kState.IsKeyDown(Keys.Enter))
                     {
+                        NewGame();
                         state = GameState.Game;
+                        
                     }if(mState.Position == new Point(0,0)) //change pos, for credits
                     {
                         state = GameState.Credits;
@@ -203,6 +216,23 @@ namespace BreadWars
             spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+
+        public void NewGame()
+        {
+            //initialize player hands
+            player1.Hand.Clear();
+            player2.Hand.Clear();
+            for(int i=0; i<5; i++)
+            {
+                player1.Hand.Add(deck.Next());
+                player2.Hand.Add(deck.Next());
+            }
+            player1.ResetHealth();
+            player2.ResetHealth();
+            currPhase = Phase.Pause;
+            prevPhase = Phase.Results;
         }
     }
 }
