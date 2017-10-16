@@ -22,13 +22,17 @@ namespace BreadWars
         Texture2D[] cardTexts = Texture2D[21];
         Rectangle empty = new Rectangle(0, 0, 0, 0);
 
+        public Deck(Texture2D[] pCardTexts)
+        {   
+            cardTexts = pCardTexts;
+        }
+
         int count = 0;
-        public Card Next(Texture2D[] pCardTexts)
+        public Card Next()
         {
             Card toReturn = library.ElementAt(count);
             count++;
             return toReturn;
-            cardTexts = pCardTexts;
         }
 
         //completely random deck stuff for testing
@@ -62,6 +66,7 @@ namespace BreadWars
             cardsToAdd[20] = 5;
 
             cardsAdded = 0;
+            
         }
 
         public void PopulateDeck(Random rng, Texture2D Texture)
