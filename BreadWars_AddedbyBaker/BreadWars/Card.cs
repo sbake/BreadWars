@@ -16,6 +16,9 @@ namespace BreadWars
         protected int value;
         public int Value { get { return value; } }
 
+        //save player
+        Player self;
+
         //effect
 
         //special (effect active)
@@ -39,13 +42,13 @@ namespace BreadWars
         public bool IsUnicorn { get { return isUnicorn; } set { isUnicorn = value; } }
 
         //constructor
-        public Card(Texture2D pTexr, Rectangle pPosit, bool active)
+        public Card(Texture2D pTexr, Rectangle pPosit, bool active, Player pSelf, Drawable pNumbers) : base(pTexr, pPosit)
         {
-            texr = pTexr;
-            posit = pPosit;
             isBurned = false;
             is8 = false;
             isActive = active;
+            self = pSelf;
+            Numbers = pNumbers;
         }
 
         public virtual void Effect(Player opponent, Player self, Deck deck){
@@ -59,9 +62,23 @@ namespace BreadWars
         }
 
         //overwrite draw methos to only draw card if flipped up
-        public void DrawStatic()
+        public void DrawStatic(SpriteBatch spriteBatch)
         {
-
+            if (1 == 1)//if player has turn, how to check?
+            {
+                base.UnpackSprites();
+                //draw base
+                spriteBatch.Draw(texr, posit, new Rectangle(spriteLocations[0], new Point(posit.Width, posit.Height)), Color.White);
+                //draw special if special
+                if (isActive)
+                {
+                    spriteBatch.Draw(texr, posit, new Rectangle(spriteLocations[1], new Point(posit.Width, posit.Height)), Color.White);
+                }
+                //draw numbr
+                
+            }
         }
     }
 }
+// Point location = new Point((i * (posit.Height/rows)),(j * (posit.Width/columns)));
+//spriteLocations.Add(location);

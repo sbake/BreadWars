@@ -23,6 +23,10 @@ namespace BreadWars
         protected Point imageSize; //width and height of image
         protected List<Point> spriteLocations; //stores location of sprites on spritesheet
 
+        //drawable Numbers
+        protected Drawable Numbers;
+
+
         //animation 
         protected int msPerFrame;
         protected int msSinceFrame;
@@ -36,7 +40,13 @@ namespace BreadWars
 
 
         //constructor- N/A
-        //things can't just be drawable objects- should be a background object or a card.
+        //most things can't just be drawable objects- should be a background object or a card.
+        //only one case: numbers
+        public Drawable(Texture2D pTexr, Rectangle pPosit)
+        {
+            texr = pTexr;
+            posit = pPosit;
+        }
         
 
         //methods
@@ -50,7 +60,7 @@ namespace BreadWars
         //methods to unpack sprites
         ///takes size of sprites and rows/columns, divides. 
         //saves locations for each to make animation quicker- only need to do this math once
-        void UnpackSprites()
+        public void UnpackSprites()
         {
             spriteLocations.Clear();
 
