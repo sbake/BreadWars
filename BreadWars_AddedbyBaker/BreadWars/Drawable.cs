@@ -38,6 +38,14 @@ namespace BreadWars
             set { posit = value; }
         }
 
+        public List<Point> SpriteLocations
+        {
+            get { return spriteLocations; }
+        }
+        public Texture2D Texr
+        {
+            get { return texr; }
+        }
 
         //constructor- N/A
         //most things can't just be drawable objects- should be a background object or a card.

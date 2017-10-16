@@ -68,14 +68,16 @@ namespace BreadWars
             {
                 base.UnpackSprites();
                 //draw base
-                spriteBatch.Draw(texr, posit, new Rectangle(spriteLocations[0], new Point(posit.Width, posit.Height)), Color.White);
+                spriteBatch.Draw(texr, posit, new Rectangle(spriteLocations[0], new Point(posit.Width/2, posit.Height)), Color.White);
                 //draw special if special
                 if (isActive)
                 {
-                    spriteBatch.Draw(texr, posit, new Rectangle(spriteLocations[1], new Point(posit.Width, posit.Height)), Color.White);
+                    spriteBatch.Draw(texr, posit, new Rectangle(spriteLocations[1], new Point(posit.Width/2, posit.Height)), Color.White);
                 }
                 //draw numbr
-                
+                int offsetFromCorners = 30; //add to posit
+                spriteBatch.Draw(Numbers.Texr, posit, new Rectangle(Numbers.SpriteLocations[value], new Point(posit.Width/10, posit.Height/10)), Color.White);
+                spriteBatch.Draw(Numbers.Texr, posit, new Rectangle(Numbers.SpriteLocations[value], new Point(posit.Width/10, posit.Height/10)), Color.White);
             }
         }
     }
