@@ -25,7 +25,8 @@ namespace BreadWars
         enum GameState { Start, Help, Game, Credits, GameOver};
         private GameState state;
         enum Phase { Player1, Player2, Pause, Results };
-        private Phase phase;
+        private Phase currPhase;
+        private Phase prevPhase;
 
         public Game1()
         {
@@ -55,6 +56,8 @@ namespace BreadWars
             players[1] = player2;
 
             state = GameState.Start;
+            prevPhase = Phase.Results;
+            currPhase = Phase.Pause;
         }
 
         /// <summary>
@@ -108,12 +111,44 @@ namespace BreadWars
                     }
                     break;
                 case GameState.Help:
+                    if (kState.IsKeyDown(Keys.Back))
+                    {
+                        state = GameState.Start;
+                    }
                     break;
                 case GameState.Credits:
+                    if (kState.IsKeyDown(Keys.Back))
+                    {
+                        state = GameState.Start;
+                    }
                     break;
                 case GameState.GameOver:
+                    if (kState.IsKeyDown(Keys.Enter))
+                    {
+                        state = GameState.Start;
+                    }
                     break;
                 case GameState.Game:
+                    switch (currPhase)
+                    {
+                        case Phase.Player1:
+                            break;
+                        case Phase.Player2:
+                            break;
+                        case Phase.Pause:
+                            switch (prevPhase)
+                            {
+                                case Phase.Player1:
+                                    break;
+                                case Phase.Player2:
+                                    break;
+                                case Phase.Results:
+                                    break;
+                            }
+                            break;
+                        case Phase.Results:
+                            break;
+                    }
                     break;
             }
 
@@ -142,6 +177,26 @@ namespace BreadWars
                 case GameState.GameOver:
                     break;
                 case GameState.Game:
+                    switch (currPhase)
+                    {
+                        case Phase.Player1:
+                            break;
+                        case Phase.Player2:
+                            break;
+                        case Phase.Pause:
+                            switch (prevPhase)
+                            {
+                                case Phase.Player1:
+                                    break;
+                                case Phase.Player2:
+                                    break;
+                                case Phase.Results:
+                                    break;
+                            }
+                            break;
+                        case Phase.Results:
+                            break;
+                    }
                     break;
             }
 
