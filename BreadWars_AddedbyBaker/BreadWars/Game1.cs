@@ -89,9 +89,23 @@ namespace BreadWars
                 Exit();
 
             // TODO: Add your update logic here
+            KeyboardState kState = Keyboard.GetState();
+            MouseState mState = Mouse.GetState();
+
             switch (state)
             {
                 case GameState.Start:
+                    if (kState.IsKeyDown(Keys.Enter))
+                    {
+                        state = GameState.Game;
+                    }if(mState.Position == new Point(0,0)) //change pos, for credits
+                    {
+                        state = GameState.Credits;
+                    }
+                    if (mState.Position == new Point(0, 0)) //change pos for help
+                    {
+                        state = GameState.Help; 
+                    }
                     break;
                 case GameState.Help:
                     break;
