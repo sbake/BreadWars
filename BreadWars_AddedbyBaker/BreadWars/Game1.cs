@@ -17,15 +17,24 @@ namespace BreadWars
         Player player1;
         Player player2;
 
+        //Deck
+        Deck deck;
+
+        //Round
+        Round round;
+
         //temp array holding both players(may be moved in the future)
         Player[] players;
 
+        //124 to 768
+        Point[] cardPos = { new Point(0,0), new Point(0,0), new Point(0,0), new Point(0,0) };
 
         //phase and game states
         enum GameState { Start, Help, Game, Credits, GameOver};
         private GameState state;
         enum Phase { Player1, Player2, Pause, Results };
-        private Phase phase;
+        private Phase currPhase;
+        private Phase prevPhase;
 
         public Game1()
         {
@@ -55,6 +64,11 @@ namespace BreadWars
             players[1] = player2;
 
             state = GameState.Start;
+            prevPhase = Phase.Results;
+            currPhase = Phase.Pause;
+
+            deck = new Deck();
+            round = new Round(20, deck);
         }
 
         /// <summary>
@@ -67,6 +81,7 @@ namespace BreadWars
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+
         }
 
         /// <summary>
@@ -97,7 +112,9 @@ namespace BreadWars
                 case GameState.Start:
                     if (kState.IsKeyDown(Keys.Enter))
                     {
+                        NewGame();
                         state = GameState.Game;
+                        
                     }if(mState.Position == new Point(0,0)) //change pos, for credits
                     {
                         state = GameState.Credits;
@@ -108,12 +125,44 @@ namespace BreadWars
                     }
                     break;
                 case GameState.Help:
+                    if (kState.IsKeyDown(Keys.Back))
+                    {
+                        state = GameState.Start;
+                    }
                     break;
                 case GameState.Credits:
+                    if (kState.IsKeyDown(Keys.Back))
+                    {
+                        state = GameState.Start;
+                    }
                     break;
                 case GameState.GameOver:
+                    if (kState.IsKeyDown(Keys.Enter))
+                    {
+                        state = GameState.Start;
+                    }
                     break;
                 case GameState.Game:
+                    switch (currPhase)
+                    {
+                        case Phase.Player1:
+                            break;
+                        case Phase.Player2:
+                            break;
+                        case Phase.Pause:
+                            switch (prevPhase)
+                            {
+                                case Phase.Player1:
+                                    break;
+                                case Phase.Player2:
+                                    break;
+                                case Phase.Results:
+                                    break;
+                            }
+                            break;
+                        case Phase.Results:
+                            break;
+                    }
                     break;
             }
 
@@ -142,12 +191,49 @@ namespace BreadWars
                 case GameState.GameOver:
                     break;
                 case GameState.Game:
+                    switch (currPhase)
+                    {
+                        case Phase.Player1:
+                            break;
+                        case Phase.Player2:
+                            break;
+                        case Phase.Pause:
+                            switch (prevPhase)
+                            {
+                                case Phase.Player1:
+                                    break;
+                                case Phase.Player2:
+                                    break;
+                                case Phase.Results:
+                                    break;
+                            }
+                            break;
+                        case Phase.Results:
+                            break;
+                    }
                     break;
             }
 
             spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+
+        public void NewGame()
+        {
+            //initialize player hands
+            player1.Hand.Clear();
+            player2.Hand.Clear();
+            for(int i=0; i<5; i++)
+            {
+                player1.Hand.Add(deck.Next());
+                player2.Hand.Add(deck.Next());
+            }
+            player1.ResetHealth();
+            player2.ResetHealth();
+            currPhase = Phase.Pause;
+            prevPhase = Phase.Results;
         }
     }
 }
