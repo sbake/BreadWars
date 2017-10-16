@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.10
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreadWars", "BreadWars\BreadWars.csproj", "{87538F54-D3A4-4918-BDC5-11E14E040DB5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bread Wars Deck Builder", "..\Bread Wars Deck Builder\Bread Wars Deck Builder.csproj", "{F908C65B-7C21-4A8E-A671-FEB3558CE982}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,15 +15,8 @@ Global
 		{87538F54-D3A4-4918-BDC5-11E14E040DB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87538F54-D3A4-4918-BDC5-11E14E040DB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87538F54-D3A4-4918-BDC5-11E14E040DB5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F908C65B-7C21-4A8E-A671-FEB3558CE982}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F908C65B-7C21-4A8E-A671-FEB3558CE982}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F908C65B-7C21-4A8E-A671-FEB3558CE982}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F908C65B-7C21-4A8E-A671-FEB3558CE982}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {4229C42B-AD07-42C0-8CC7-1E082CC2D73C}
 	EndGlobalSection
 EndGlobal
