@@ -15,10 +15,7 @@ namespace Bread_Wars_Deck_Builder
 
         public Builder()
         {
-            for(int i = 0; i < 20; i++)
-            {
-                
-            }
+
         }
     }
 }
