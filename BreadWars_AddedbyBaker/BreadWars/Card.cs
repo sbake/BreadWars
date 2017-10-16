@@ -9,15 +9,16 @@ using Microsoft.Xna.Framework.Content;
 
 namespace BreadWars
 {
-    class Card : Drawable
+    public class Card : Drawable
     {
-
-        //name
-        private String name;
+        
         //value
-        private int value;
-
+        protected int value;
         public int Value { get { return value; } }
+
+        //save player
+        Player self;
+
         //effect
 
         //special (effect active)
@@ -30,18 +31,56 @@ namespace BreadWars
         
         //isBurned
         private bool isBurned;
+        public bool IsBurned{get{return isBurned;} set{isActive = value;}}
+
         //is8
         private bool is8;
+        public bool Is8{get{return is8;} set{is8 = value;}}
 
+        //is unicorn
+        private bool isUnicorn;
+        public bool IsUnicorn { get { return isUnicorn; } set { isUnicorn = value; } }
 
         //constructor
-        public Card(Texture2D pTexr, Rectangle pPosit, SpriteBatch pSpriteBatch)
+        public Card(Texture2D pTexr, Rectangle pPosit, bool active, Player pSelf, Drawable pNumbers) : base(pTexr, pPosit)
         {
-            texr = pTexr;
-            posit = pPosit;
-            spriteBatch = pSpriteBatch;
+            isBurned = false;
+            is8 = false;
+            isActive = active;
+            self = pSelf;
+            Numbers = pNumbers;
         }
 
-        
+        public virtual void Effect(Player opponent, Player self, Deck deck){
+            if(isActive){
+                Random r = new Random();
+                for(int i=r.Next(0,51); i<52; i++){
+                    deck.Library[i].Is8 = true;
+                    i+= r.Next(0, 20);
+                }
+            }
+        }
+
+        //overwrite draw methos to only draw card if flipped up
+        public void DrawStatic(SpriteBatch spriteBatch)
+        {
+            if (1 == 1)//if player has turn, how to check?
+            {
+                base.UnpackSprites();
+                //draw base
+                spriteBatch.Draw(texr, posit, new Rectangle(spriteLocations[0], new Point(posit.Width/2, posit.Height)), Color.White);
+                //draw special if special
+                if (isActive)
+                {
+                    spriteBatch.Draw(texr, posit, new Rectangle(spriteLocations[1], new Point(posit.Width/2, posit.Height)), Color.White);
+                }
+                //draw numbr
+                int offsetFromCorners = 30; //add to posit
+                spriteBatch.Draw(Numbers.Texr, posit, new Rectangle(Numbers.SpriteLocations[value], new Point(posit.Width/10, posit.Height/10)), Color.White);
+                spriteBatch.Draw(Numbers.Texr, posit, new Rectangle(Numbers.SpriteLocations[value], new Point(posit.Width/10, posit.Height/10)), Color.White);
+            }
+        }
     }
 }
+// Point location = new Point((i * (posit.Height/rows)),(j * (posit.Width/columns)));
+//spriteLocations.Add(location);

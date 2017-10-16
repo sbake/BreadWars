@@ -1,15 +1,17 @@
 ﻿using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
-/// <summary>
-/// Summary description for Banker
-/// </summary>
-public class Banker : Card
-
+namespace BreadWars
 {
-	public Banker()
-	{
-		//
-		// TODO: Add constructor logic here
-		//
-	}
+    /// <summary>
+    /// Summary description for Banker
+    /// </summary>
+    public class Banker : Card
+
+    {
+        public Banker(Texture2D pTexr, Rectangle pPosit, bool active, Player pSelf, Drawable pNumbers) : base(pTexr, pPosit, active, pSelf, pNumbers)
+        {
+        }
+    }
 }

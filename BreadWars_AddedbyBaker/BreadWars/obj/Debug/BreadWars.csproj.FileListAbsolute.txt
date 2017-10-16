@@ -15,3 +15,6 @@ D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\Bre
 D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\obj\Debug\BreadWars.csprojResolveAssemblyReference.cache
 D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\obj\Debug\BreadWars.exe
 D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\obj\Debug\BreadWars.pdb
+D:\Profiles\sxb2218\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\obj\Debug\BreadWars.csprojResolveAssemblyReference.cache
+D:\Profiles\sxb2218\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\obj\Debug\BreadWars.exe
+D:\Profiles\sxb2218\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\obj\Debug\BreadWars.pdb

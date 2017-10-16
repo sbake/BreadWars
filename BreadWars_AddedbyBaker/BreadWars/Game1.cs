@@ -9,9 +9,17 @@ namespace BreadWars
     /// </summary>
     public class Game1 : Game
     {
+        //Attributes
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        
+
+        //The players
+        Player player1;
+        Player player2;
+
+        //temp array holding both players(may be moved in the future)
+        Player[] players;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -29,6 +37,15 @@ namespace BreadWars
             // TODO: Add your initialization logic here
 
             base.Initialize();
+
+            //The players
+            player1 = new Player(1);
+            player2 = new Player(2);
+
+            //player array
+            players = new Player[2];
+            players[0] = player1;
+            players[1] = player2; 
         }
 
         /// <summary>

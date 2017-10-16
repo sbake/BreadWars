@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\BreadWars_AddedbyBaker",
-    "\\BreadWars_AddedbyBaker\\BreadWars"
+    "\\BreadWars_AddedbyBaker\\BreadWars",
+    "\\BreadWars_AddedbyBaker\\BreadWars\\Special Cards"
   ],
-  "SelectedNode": "\\BreadWars_AddedbyBaker\\BreadWars\\Card.cs",
+  "SelectedNode": "\\BreadWars_AddedbyBaker\\BreadWars\\Special Cards\\GlueGun.cs",
   "PreviewInSolutionExplorer": false
 }

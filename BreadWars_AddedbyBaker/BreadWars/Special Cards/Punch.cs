@@ -1,14 +1,27 @@
-﻿using System;
+﻿
+using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
+namespace BreadWars
+{
 /// <summary>
 /// Summary description for Punch
 /// </summary>
 public class Punch: Card
 {
-	public Punch()
-	{
-		//
-		// TODO: Add constructor logic here
-		//
-	}
+    private int PUNCH_DAMAGE = 10;
+
+    public Punch(Texture2D pTexr, Rectangle pPosit, bool active, Player pSelf, Drawable pNumbers) : base(pTexr, pPosit, active, pSelf, pNumbers)
+        {
+            value = 9;
+        }
+
+    public override void Effect(Player opponent, Player self, Deck deck)
+    {
+        if(isActive)opponent.AlterHealth(-PUNCH_DAMAGE);
+    }
+    
+    
+}
 }

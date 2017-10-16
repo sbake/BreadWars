@@ -51,6 +51,27 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Round.cs" />
+    <Compile Include="Special Cards\Banker.cs" />
+    <Compile Include="Special Cards\Block.cs" />
+    <Compile Include="Special Cards\Confetti.cs" />
+    <Compile Include="Special Cards\FaireBread.cs" />
+    <Compile Include="Special Cards\Fire.cs" />
+    <Compile Include="Special Cards\GlueGun.cs" />
+    <Compile Include="Special Cards\HandSwitch.cs" />
+    <Compile Include="Special Cards\Jam.cs" />
+    <Compile Include="Special Cards\NumjectToChange.cs" />
+    <Compile Include="Special Cards\Octopus.cs" />
+    <Compile Include="Special Cards\Poison.cs" />
+    <Compile Include="Special Cards\Punch.cs" />
+    <Compile Include="Special Cards\SaveForLater.cs" />
+    <Compile Include="Special Cards\Stab.cs" />
+    <Compile Include="Special Cards\TableFlip.cs" />
+    <Compile Include="Special Cards\Tazer.cs" />
+    <Compile Include="Special Cards\Telepathy.cs" />
+    <Compile Include="Special Cards\Thief.cs" />
+    <Compile Include="Special Cards\Unicorn.cs" />
+    <Compile Include="Special Cards\Whale.cs" />
+    <Compile Include="Special Cards\Zombie.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
