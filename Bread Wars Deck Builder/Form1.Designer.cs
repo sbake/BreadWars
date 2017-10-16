@@ -30,18 +30,14 @@
         {
             this.btnSave = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.lbDeckSwitch = new System.Windows.Forms.ListBox();
             this.lbl1 = new System.Windows.Forms.Label();
+            this.clbCards = new System.Windows.Forms.CheckedListBox();
             this.btnNew = new System.Windows.Forms.Button();
-            this.lbl2 = new System.Windows.Forms.Label();
-            this.lbl5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblSize = new System.Windows.Forms.Label();
             this.txtAmount = new System.Windows.Forms.TextBox();
-            this.cbbDeck = new System.Windows.Forms.ComboBox();
-            this.cbbCards = new System.Windows.Forms.ComboBox();
-            this.lbl3 = new System.Windows.Forms.Label();
-            this.lstSummary = new System.Windows.Forms.ListBox();
-            this.lbl4 = new System.Windows.Forms.Label();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSave
@@ -64,6 +60,18 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // lbDeckSwitch
+            // 
+            this.lbDeckSwitch.FormattingEnabled = true;
+            this.lbDeckSwitch.Items.AddRange(new object[] {
+            "Default",
+            "The Great Tradition of Paris is Burning",
+            "AAAAAAAAAAAAAAAAAH"});
+            this.lbDeckSwitch.Location = new System.Drawing.Point(37, 47);
+            this.lbDeckSwitch.Name = "lbDeckSwitch";
+            this.lbDeckSwitch.Size = new System.Drawing.Size(193, 95);
+            this.lbDeckSwitch.TabIndex = 2;
+            // 
             // lbl1
             // 
             this.lbl1.AutoSize = true;
@@ -72,6 +80,56 @@
             this.lbl1.Size = new System.Drawing.Size(101, 13);
             this.lbl1.TabIndex = 3;
             this.lbl1.Text = "Choose your Deck: ";
+            // 
+            // clbCards
+            // 
+            this.clbCards.FormattingEnabled = true;
+            this.clbCards.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "1s",
+            "2s",
+            "3s",
+            "4s",
+            "5s",
+            "6s",
+            "7s",
+            "8s",
+            "9s",
+            "10s",
+            "11s",
+            "12s",
+            "13s",
+            "14s",
+            "15s",
+            "16s",
+            "17s",
+            "18s",
+            "19s",
+            "20s"});
+            this.clbCards.Location = new System.Drawing.Point(285, 47);
+            this.clbCards.MultiColumn = true;
+            this.clbCards.Name = "clbCards";
+            this.clbCards.Size = new System.Drawing.Size(257, 229);
+            this.clbCards.TabIndex = 4;
             // 
             // btnNew
             // 
@@ -83,23 +141,23 @@
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
-            // lbl2
+            // label1
             // 
-            this.lbl2.AutoSize = true;
-            this.lbl2.Location = new System.Drawing.Point(44, 232);
-            this.lbl2.Name = "lbl2";
-            this.lbl2.Size = new System.Drawing.Size(89, 13);
-            this.lbl2.TabIndex = 6;
-            this.lbl2.Text = "Amount of Each: ";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(44, 232);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Amount of Each: ";
             // 
-            // lbl5
+            // label2
             // 
-            this.lbl5.AutoSize = true;
-            this.lbl5.Location = new System.Drawing.Point(44, 278);
-            this.lbl5.Name = "lbl5";
-            this.lbl5.Size = new System.Drawing.Size(99, 13);
-            this.lbl5.TabIndex = 7;
-            this.lbl5.Text = "Current Deck Size: ";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(44, 278);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Current Deck Size: ";
             // 
             // lblSize
             // 
@@ -116,74 +174,19 @@
             this.txtAmount.Size = new System.Drawing.Size(50, 20);
             this.txtAmount.TabIndex = 10;
             // 
-            // cbbDeck
-            // 
-            this.cbbDeck.FormattingEnabled = true;
-            this.cbbDeck.Location = new System.Drawing.Point(37, 47);
-            this.cbbDeck.Name = "cbbDeck";
-            this.cbbDeck.Size = new System.Drawing.Size(129, 21);
-            this.cbbDeck.TabIndex = 11;
-            // 
-            // cbbCards
-            // 
-            this.cbbCards.FormattingEnabled = true;
-            this.cbbCards.Location = new System.Drawing.Point(37, 97);
-            this.cbbCards.Name = "cbbCards";
-            this.cbbCards.Size = new System.Drawing.Size(129, 21);
-            this.cbbCards.TabIndex = 12;
-            // 
-            // lbl3
-            // 
-            this.lbl3.AutoSize = true;
-            this.lbl3.Location = new System.Drawing.Point(34, 81);
-            this.lbl3.Name = "lbl3";
-            this.lbl3.Size = new System.Drawing.Size(80, 13);
-            this.lbl3.TabIndex = 13;
-            this.lbl3.Text = "Choose a Card:";
-            // 
-            // lstSummary
-            // 
-            this.lstSummary.FormattingEnabled = true;
-            this.lstSummary.Location = new System.Drawing.Point(305, 29);
-            this.lstSummary.Name = "lstSummary";
-            this.lstSummary.Size = new System.Drawing.Size(236, 238);
-            this.lstSummary.TabIndex = 14;
-            // 
-            // lbl4
-            // 
-            this.lbl4.AutoSize = true;
-            this.lbl4.Location = new System.Drawing.Point(302, 13);
-            this.lbl4.Name = "lbl4";
-            this.lbl4.Size = new System.Drawing.Size(85, 13);
-            this.lbl4.TabIndex = 15;
-            this.lbl4.Text = "Deck Summary: ";
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(37, 124);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 16;
-            this.btnAdd.Text = "Add Card";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(587, 342);
-            this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.lbl4);
-            this.Controls.Add(this.lstSummary);
-            this.Controls.Add(this.lbl3);
-            this.Controls.Add(this.cbbCards);
-            this.Controls.Add(this.cbbDeck);
             this.Controls.Add(this.txtAmount);
             this.Controls.Add(this.lblSize);
-            this.Controls.Add(this.lbl5);
-            this.Controls.Add(this.lbl2);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnNew);
+            this.Controls.Add(this.clbCards);
             this.Controls.Add(this.lbl1);
+            this.Controls.Add(this.lbDeckSwitch);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSave);
             this.Name = "frmMain";
@@ -197,18 +200,14 @@
 
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.ListBox lbDeckSwitch;
         private System.Windows.Forms.Label lbl1;
+        private System.Windows.Forms.CheckedListBox clbCards;
         private System.Windows.Forms.Button btnNew;
-        private System.Windows.Forms.Label lbl2;
-        private System.Windows.Forms.Label lbl5;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblSize;
         private System.Windows.Forms.TextBox txtAmount;
-        private System.Windows.Forms.ComboBox cbbDeck;
-        private System.Windows.Forms.ComboBox cbbCards;
-        private System.Windows.Forms.Label lbl3;
-        private System.Windows.Forms.ListBox lstSummary;
-        private System.Windows.Forms.Label lbl4;
-        private System.Windows.Forms.Button btnAdd;
     }
 }
 
