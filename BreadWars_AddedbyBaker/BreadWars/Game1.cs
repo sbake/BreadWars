@@ -70,7 +70,7 @@ namespace BreadWars
             prevPhase = Phase.Results;
             currPhase = Phase.Pause;
 
-            deck = new Deck();
+            //deck = new Deck();
             round = new Round(20, deck);
             kState = Keyboard.GetState();
             kStatePrev = Keyboard.GetState();
@@ -223,6 +223,10 @@ namespace BreadWars
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
+
+            //test code to get screen size
+            //no font---  spriteBatch.DrawString(, "Viewport Width:" + GraphicsDevice.Viewport.Width, new Vector2(10,10), Color.Black);
+            
             switch (state)
             {
                 case GameState.Start:
