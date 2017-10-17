@@ -11,9 +11,10 @@ namespace BreadWars
 public class Octopus: Card
 {
 
-    public Octopus(Texture2D pTexr, Rectangle pPosit, bool active, Player pSelf, Drawable pNumbers) : base(pTexr, pPosit, active, pSelf, pNumbers)
+    public Octopus(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers)  : base( pTexr,  pPosit,  active,  pNumbers)
         {
             value = 8;
+            Name = "Octopus";
         }
 }
 }

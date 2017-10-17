@@ -18,9 +18,6 @@ namespace BreadWars
 
         protected string Name { get; set; }
 
-        //save player
-        Player self;
-
         //dimensions
         const int WIDTH = 20;
         public int Width { get => WIDTH; }
@@ -48,16 +45,11 @@ namespace BreadWars
         public bool IsUnicorn { get { return isUnicorn; } set { isUnicorn = value; } }
 
         //constructor
-        public Card(Texture2D pTexr, Rectangle pPos ,string nm):base(pTexr, pPos)
-        {
-            Name = nm;
-        }
         public Card(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers) : base(pTexr, pPosit)
         {
             isBurned = false;
             is8 = false;
             isActive = active;
-            self = pSelf;
             Numbers = pNumbers;
         }
 

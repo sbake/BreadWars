@@ -11,9 +11,10 @@ namespace BreadWars
 public class GlueGun: Card
 {
 
-    public GlueGun(Texture2D pTexr, Rectangle pPosit, bool active, Player pSelf, Drawable pNumbers) : base(pTexr, pPosit, active, pSelf, pNumbers)
+    public GlueGun(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers)  : base( pTexr,  pPosit,  active,  pNumbers)
         {
             value = 4;
+            Name = "Glue Gun";
         }
 
     public override void Effect(Player opponent, Player self, Deck deck)

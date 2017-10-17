@@ -10,9 +10,10 @@ namespace BreadWars
 /// </summary>
 public class Unicorn : Card
 {
-    public Unicorn(Texture2D pTexr, Rectangle pPosit, bool active, Player pSelf, Drawable pNumbers) : base(pTexr, pPosit, active, pSelf, pNumbers)
+    public Unicorn(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers)  : base( pTexr,  pPosit,  active,  pNumbers)
         {
             value = 19;
+            Name = "Unicorn";
     }
 
         public override void Effect(Player opponent, Player self, Deck deck)

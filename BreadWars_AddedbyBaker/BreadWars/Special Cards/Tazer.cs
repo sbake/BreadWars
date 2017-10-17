@@ -10,8 +10,9 @@ namespace BreadWars
 public class Tazer : Card
 {
     public Tazer(Texture2D pTexr, Rectangle pPosit, bool active, Player pSelf, Drawable pNumbers) : base(pTexr, pPosit, active, pSelf, pNumbers)
-        {
+    {
             value = 12;
+            Name = "Tazer";
     }
 
         public override void Effect(Player opponent, Player self, Deck deck)
