@@ -13,18 +13,13 @@ namespace BreadWars
     class HUDObjects: Drawable
     {
         //constructor
-        public HUDObjects(Texture2D pTexr, Rectangle pPosit)
+        public HUDObjects(Texture2D pTexr, Rectangle pPosit) : base(pTexr, pPosit)
         {
-            texr = pTexr;
-            posit = pPosit;
         }
 
         //constructor for spritesheet objects
-        public HUDObjects(Texture2D pTexr, Rectangle pPosit, int pRows, int pColumns)
+        public HUDObjects(Texture2D pTexr, Rectangle pPosit, int pRows, int pColumns) : base(pTexr, pPosit)
         {
-            texr = pTexr;
-            posit = pPosit;
-
             rows = pRows;
             columns = pColumns;
         }

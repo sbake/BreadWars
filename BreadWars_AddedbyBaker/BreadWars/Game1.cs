@@ -30,6 +30,10 @@ namespace BreadWars
         //124 to 768
         Rectangle[] cardPos = { new Rectangle(0,0, 20, 20), new Rectangle(0,0, 20, 20), new Rectangle(0,0, 20, 20), new Rectangle(0,0 ,20, 20) };
 
+        //hudobject things
+        HUDObjects background;
+        Texture2D bGText;
+
         //phase and game states
         enum GameState { Start, Help, Game, Credits, GameOver};
         private GameState state;
@@ -86,7 +90,8 @@ namespace BreadWars
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-
+            bGText = Content.Load<Texture2D>("green");
+            background = new HUDObjects(bGText, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Width));
         }
 
         /// <summary>
@@ -226,6 +231,8 @@ namespace BreadWars
 
             //test code to get screen size
             //no font---  spriteBatch.DrawString(, "Viewport Width:" + GraphicsDevice.Viewport.Width, new Vector2(10,10), Color.Black);
+
+            background.DrawStatic(spriteBatch);
             
             switch (state)
             {

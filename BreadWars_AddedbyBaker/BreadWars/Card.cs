@@ -52,7 +52,7 @@ namespace BreadWars
         {
             Name = nm;
         }
-        public Card(Texture2D pTexr, Rectangle pPosit, bool active, Player pSelf, Drawable pNumbers) : base(pTexr, pPosit)
+        public Card(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers) : base(pTexr, pPosit)
         {
             isBurned = false;
             is8 = false;
