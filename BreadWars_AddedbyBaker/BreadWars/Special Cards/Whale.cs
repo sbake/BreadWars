@@ -10,9 +10,10 @@ namespace BreadWars
 /// </summary>
 public class Whale : Card
 {
-    public Whale(Texture2D pTexr, Rectangle pPosit, bool active) : base(pTexr, pPosit, active)
-    {
+    public Whale(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers)  : base( pTexr,  pPosit,  active,  pNumbers)
+        {
             value = 16;
+            Name = "Whale";
     }
 
         public override void Effect(Player opponent, Player self, Deck deck)

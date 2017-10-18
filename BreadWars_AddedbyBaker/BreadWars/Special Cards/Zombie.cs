@@ -10,9 +10,10 @@ namespace BreadWars
 /// </summary>
 public class Zombie : Card
 {
-    public Zombie(Texture2D pTexr, Rectangle pPosit, bool active) : base(pTexr, pPosit, active)
-    {
+    public Zombie(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers)  : base( pTexr,  pPosit,  active,  pNumbers)
+        {
             value = 5;
+            Name = "Zombie";
     }
 }
     }

@@ -10,9 +10,10 @@ namespace BreadWars
 public class Block : Card
 {
 
-    public Block(Texture2D pTexr, Rectangle pPosit, bool active) : base(pTexr, pPosit, active)
-    {
+    public Block(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers)  : base( pTexr,  pPosit,  active,  pNumbers)
+        {
             value = 15;
+            Name = "Block";
         }
 
     public override void Effect(Player opponent, Player self, Deck deck)

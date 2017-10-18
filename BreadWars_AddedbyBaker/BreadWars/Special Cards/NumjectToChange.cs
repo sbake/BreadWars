@@ -11,9 +11,10 @@ public class NumjectToChange : Card
 {
         Random r;
 
-    public NumjectToChange(Texture2D pTexr, Rectangle pPosit, bool active) : base(pTexr, pPosit, active)
+    public NumjectToChange(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers)  : base( pTexr,  pPosit,  active,  pNumbers)
     {
             value = 10;
+            Name = "Numject to Change";
             r = new Random();
     }
     

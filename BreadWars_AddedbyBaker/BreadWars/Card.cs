@@ -16,10 +16,13 @@ namespace BreadWars
         protected int value;
         public int Value { get { return value; } }
 
-        //save player
-        Player self;
+        protected string Name { get; set; }
 
-        //effect
+        //dimensions
+        const int WIDTH = 20;
+        public int Width { get => WIDTH; }
+        const int HEIGHT = 20;
+        public int Height { get => HEIGHT; }
 
         //special (effect active)
         public bool isActive;
@@ -42,12 +45,11 @@ namespace BreadWars
         public bool IsUnicorn { get { return isUnicorn; } set { isUnicorn = value; } }
 
         //constructor
-        public Card(Texture2D pTexr, Rectangle pPosit, bool active, Player pSelf, Drawable pNumbers) : base(pTexr, pPosit)
+        public Card(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers) : base(pTexr, pPosit)
         {
             isBurned = false;
             is8 = false;
             isActive = active;
-            self = pSelf;
             Numbers = pNumbers;
         }
 
@@ -55,7 +57,7 @@ namespace BreadWars
             if(isActive){
                 Random r = new Random();
                 for(int i=r.Next(0,51); i<52; i++){
-                    deck[i].Is8 = true;
+                    deck.Library[i].Is8 = true;
                     i+= r.Next(0, 20);
                 }
             }
