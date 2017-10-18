@@ -31,15 +31,19 @@ namespace BreadWars
 
         //124 to 768
         static int cardDepth = 350;
+        static int backCardDepth = 100;
         static int cardWidth = 50;
         static int cardHeight = 75;
         Rectangle[] cardPos = { new Rectangle(100, cardDepth, cardWidth, cardHeight), new Rectangle(200, cardDepth, cardWidth, cardHeight), new Rectangle(300, cardDepth, cardWidth, cardHeight), new Rectangle(400, cardDepth, cardWidth, cardHeight), new Rectangle(500, cardDepth, cardWidth, cardHeight) };
+        Rectangle[] backCardPos = { new Rectangle(100, backCardDepth, cardWidth, cardHeight), new Rectangle(200, backCardDepth, cardWidth, cardHeight), new Rectangle(300, backCardDepth, cardWidth, cardHeight), new Rectangle(400, backCardDepth, cardWidth, cardHeight), new Rectangle(500, backCardDepth, cardWidth, cardHeight) };
 
         //hudobject things
         HUDObjects background;
         HUDObjects introTest;
+        HUDObjects backCard;
         Texture2D bGText;
         Texture2D testText;
+        Texture2D backText;
 
         //phase and game states
         enum GameState { Start, Help, Game, Credits, GameOver};
@@ -101,6 +105,8 @@ namespace BreadWars
             background = new HUDObjects(bGText, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Width));
             testText = Content.Load<Texture2D>("introTest");
             introTest = new HUDObjects(testText, new Rectangle(0, 0, 400, 600));
+            backText = Content.Load<Texture2D>("backCard");
+            backCard = new HUDObjects(backText, new Rectangle(0, 0, 0, 0));
 
             //things with textures
             //cards- load all card textures into array here, rename card textures to numbers -card0, card1, card2... cardn
@@ -289,12 +295,22 @@ namespace BreadWars
                             {
                                 player1.Hand[i].DrawStatic(spriteBatch);
                             }
+                            for (int i = 0; i < 5; i++)
+                            {
+                                backCard.Posit = backCardPos[i];
+                                backCard.DrawStatic(spriteBatch);
+                            }
                             break;
                         case Phase.Player2:
                             //draw all cards in a loop
                             for (int i = 0; i < player2.Hand.Count; i++)
                             {
                                 player2.Hand[i].DrawStatic(spriteBatch);
+                            }
+                            for (int i = 0; i < 5; i++)
+                            {
+                                backCard.Posit = backCardPos[i];
+                                backCard.DrawStatic(spriteBatch);
                             }
                             break;
                         case Phase.Pause:

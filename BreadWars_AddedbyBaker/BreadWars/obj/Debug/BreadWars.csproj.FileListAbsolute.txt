@@ -108,3 +108,4 @@ D:\Profiles\sxb2218\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\
 D:\Profiles\sxb2218\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\BreadWars.pdb
 D:\Profiles\sxb2218\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\MonoGame.Framework.dll
 D:\Profiles\sxb2218\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\testnumbers14020.xnb
+D:\Profiles\sxb2218\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\backCard.xnb
