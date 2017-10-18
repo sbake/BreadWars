@@ -111,8 +111,8 @@ namespace Bread_Wars_Deck_Builder
                 // need to follow the file format to get the data
                for(int i=0; i<41; i++)
                 {
-                    Console.WriteLine(input.ReadString());
-                    Console.WriteLine(input.ReadInt32());
+                    numberCards[i] = input.ReadInt32();
+                    checkedListBox1.Items[i] = cards[i] + " " + numberCards[i];
                 }
 
                 // close when we are done
@@ -133,9 +133,17 @@ namespace Bread_Wars_Deck_Builder
             
             foreach (int indexChecked in checkedListBox1.CheckedIndices)
             {
+                if ((numberCards[indexChecked] + value) < 0) continue;
                 numberCards[indexChecked] += value;
                 sumCards += value;
-                checkedListBox1.Items[indexChecked] = checkedListBox1.Items[indexChecked] + " " + value;
+                if((string)checkedListBox1.Items[indexChecked]!= cards[indexChecked])
+                {
+                    checkedListBox1.Items[indexChecked] = cards[indexChecked] + " " + numberCards[indexChecked];
+                }
+                else
+                {
+                    checkedListBox1.Items[indexChecked] = checkedListBox1.Items[indexChecked] + " " + value;
+                }
             }
 
             label6.Text = sumCards.ToString();
