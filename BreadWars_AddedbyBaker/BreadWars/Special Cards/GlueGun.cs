@@ -28,8 +28,8 @@ public class GlueGun: Card
             int index2 = r.Next(0, self.Hand.Count);
             Card c2 = self.Hand[index2];
             self.Hand.RemoveAt(index2);
-            Card newCard = new Card(c2.texr, c1.Posit, false);
-            newCard.value = c1.Value + c2.Value;
+            Card newCard = new Card(c2.Texr, c1.Posit, false, Numbers);
+            newCard.Value = c1.Value + c2.Value;
             self.Hand.Add(newCard);
             self.Hand.Add(deck.Next());
         }

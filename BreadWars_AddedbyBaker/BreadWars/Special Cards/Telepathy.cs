@@ -10,7 +10,7 @@ namespace BreadWars
 /// </summary>
 public class Telepathy : Card
 {
-    public Telepathy(Texture2D pTexr, Rectangle pPosit, bool active, Player pSelf, Drawable pNumbers) : base(pTexr, pPosit, active, pSelf, pNumbers)
+    public Telepathy(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers) : base(pTexr, pPosit, active, pNumbers)
         {
             value = 14;
     }
@@ -19,9 +19,10 @@ public class Telepathy : Card
         {
             if (isActive)
             {
+                //need to pass in a sprite batch.
                 for(int i=0; i<4; i++)
                 {
-                    deck.Library[i].DrawStatic(); //???
+                    //deck.Library[i].DrawStatic(); //???
                 }
             }
         }

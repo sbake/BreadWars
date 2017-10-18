@@ -12,7 +12,7 @@ namespace BreadWars
 public class HandSwitch : Card
 {
 
-    public HandSwitch(Texture2D pTexr, Rectangle pPosit, bool active, Player pSelf, Drawable pNumbers) : base(pTexr, pPosit, active, pSelf, pNumbers)
+    public HandSwitch(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers) : base(pTexr, pPosit, active, pNumbers)
         {
             value = 13;
         }

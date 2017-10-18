@@ -17,8 +17,10 @@ namespace BreadWars
         Player player1;
         Player player2;
 
-        //Deck
+        //Deck + numbers
         Deck deck;
+        Drawable numbers;
+        Texture2D[] cardText;
 
         //Round
         Round round;
@@ -32,7 +34,9 @@ namespace BreadWars
 
         //hudobject things
         HUDObjects background;
+        HUDObjects introTest;
         Texture2D bGText;
+        Texture2D testText;
 
         //phase and game states
         enum GameState { Start, Help, Game, Credits, GameOver};
@@ -74,10 +78,10 @@ namespace BreadWars
             prevPhase = Phase.Results;
             currPhase = Phase.Pause;
 
-            //deck = new Deck();
             round = new Round(20, deck);
             kState = Keyboard.GetState();
             kStatePrev = Keyboard.GetState();
+
         }
 
         /// <summary>
@@ -92,6 +96,19 @@ namespace BreadWars
             // TODO: use this.Content to load your game content here
             bGText = Content.Load<Texture2D>("green");
             background = new HUDObjects(bGText, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Width));
+            testText = Content.Load<Texture2D>("introTest");
+            introTest = new HUDObjects(testText, new Rectangle(0, 0, 400, 600));
+
+            //things with textures
+            //cards- load all card textures into array here, rename card textures to numbers -card0, card1, card2... cardn
+            cardText = new Texture2D[21];
+            for (int i = 0; i < 21; i++)
+            {
+                cardText[i] = Content.Load<Texture2D>("Card");
+            }
+            //numbers and deck
+            numbers = new Drawable(Content.Load<Texture2D>("numberText14020"), new Rectangle(0, 0, 140, 20));
+            deck = new Deck(cardText, numbers);
         }
 
         /// <summary>
@@ -237,6 +254,7 @@ namespace BreadWars
             switch (state)
             {
                 case GameState.Start:
+                    introTest.DrawStatic(spriteBatch);
                     break;
                 case GameState.Help:
                     break;

@@ -14,7 +14,11 @@ namespace BreadWars
         
         //value
         protected int value;
-        public int Value { get { return value; } }
+        public int Value
+        {
+            get { return value; }
+            set { value = this.value; } //too late to change value name? value is already the name of a thing in C#
+        }
 
         protected string Name { get; set; }
 

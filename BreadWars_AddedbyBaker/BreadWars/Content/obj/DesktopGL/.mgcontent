@@ -4,30 +4,32 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/HelpScreen.png</File>
-    <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/Card.png</File>
-    <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/green.jpg</File>
-    <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Thief.png</File>
-    <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Unicorn.png</File>
-    <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Telepathy.png</File>
-    <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Zombie.png</File>
-    <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/SaveForLater.png</File>
-    <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Stab.png</File>
-    <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/TableFlip.png</File>
-    <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Punch.png</File>
-    <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Tazer.png</File>
-    <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Whale.png</File>
-    <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/NumjectToChange.png</File>
-    <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Octopus.png</File>
-    <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/plain bread.png</File>
-    <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Poison.png</File>
-    <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Fire.png</File>
-    <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/GlueGun.png</File>
-    <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/HandSwitch.png</File>
-    <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Jam.png</File>
-    <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Banker.png</File>
-    <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Block.png</File>
-    <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Confetti.png</File>
-    <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/FaireBread.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/HelpScreen.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/Card.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/green.jpg</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Thief.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Unicorn.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Telepathy.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Zombie.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/SaveForLater.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Stab.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/TableFlip.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Punch.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Tazer.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Whale.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/NumjectToChange.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Octopus.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/plain bread.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Poison.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Fire.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/GlueGun.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/HandSwitch.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Jam.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Banker.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Block.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/Confetti.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/FaireBread.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/numberText14020.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/introTest.png</File>
   </SourceFiles>
 </SourceFileCollection>
