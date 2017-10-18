@@ -56,7 +56,7 @@ namespace Bread_Wars_Deck_Builder
             "Confetti",
             "confetti special",
             "Numject to Change"};
-        private string[] files= new string[] { "" };
+        private List<string> files = new List<string>();
         private int[] numberCards;
         private int sumCards;
 
@@ -64,10 +64,15 @@ namespace Bread_Wars_Deck_Builder
         public Form2()
         {
             InitializeComponent();
+            string[] allFiles = Directory.GetFiles("."); //get all files in directory;
+            foreach(string f in allFiles)
+            {
+                if (f.Contains(".dat")) files.Add(f.Substring(2, f.Length-6));
+            }
             this.checkedListBox1.Items.Clear();
             this.checkedListBox2.Items.Clear();
             this.checkedListBox1.Items.AddRange(cards);
-            this.checkedListBox2.Items.AddRange(files);
+            this.checkedListBox2.Items.AddRange(files.ToArray());
             numberCards = new int[cards.Length];
             sumCards = 0;
         }
