@@ -64,15 +64,21 @@ namespace Bread_Wars_Deck_Builder
         public Form2()
         {
             InitializeComponent();
+            this.checkedListBox1.Items.Clear();
+            this.checkedListBox2.Items.Clear();
             this.checkedListBox1.Items.AddRange(cards);
             this.checkedListBox2.Items.AddRange(files);
             numberCards = new int[cards.Length];
             sumCards = 0;
         }
 
-        public void WriteFile()
+        public void WriteFile(string f)
         {
-            string filename = "1.dat";
+            string filename = f + ".dat";
+            if (f.Contains("."))
+            {
+                filename = f.Split('.')[0] + ".dat";
+            }
 
             // handles exceptions
             try
@@ -111,10 +117,12 @@ namespace Bread_Wars_Deck_Builder
                 // need to follow the file format to get the data
                for(int i=0; i<41; i++)
                 {
+                    input.ReadString();
                     numberCards[i] = input.ReadInt32();
                     checkedListBox1.Items[i] = cards[i] + " " + numberCards[i];
+                    sumCards += numberCards[i];
                 }
-
+                label6.Text = sumCards.ToString();
                 // close when we are done
                 input.Close();
             }
@@ -152,9 +160,9 @@ namespace Bread_Wars_Deck_Builder
 
         private void DoneClick(object sender, EventArgs e)
         {
-                if (sumCards == 52)
+                if (sumCards == 52 && textBox2.Text!= "")
                 {
-                    WriteFile();
+                    WriteFile(textBox2.Text);
                 }
             
         }
@@ -165,6 +173,12 @@ namespace Bread_Wars_Deck_Builder
             Application.SetCompatibleTextRenderingDefault(false);
             Form2 f2 = new Form2();
             Application.Run(f2);
+        }
+
+        private void LoadClick(object sender, EventArgs e)
+        {
+            if (checkedListBox2.SelectedItems.Count == 1) ReadFile((string)checkedListBox2.SelectedItem);
+            else ReadFile("1.dat");
         }
     }
 }

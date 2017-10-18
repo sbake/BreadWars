@@ -41,6 +41,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // checkedListBox1
@@ -140,7 +141,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(245, 528);
+            this.button2.Location = new System.Drawing.Point(366, 529);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 6;
@@ -151,11 +152,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 533);
+            this.label4.Location = new System.Drawing.Point(23, 534);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(142, 13);
+            this.label4.Size = new System.Drawing.Size(231, 13);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Hit Done to save deck to file";
+            this.label4.Text = "Write filename and hit Done to save deck to file";
             // 
             // label5
             // 
@@ -191,12 +192,21 @@
             this.button3.TabIndex = 11;
             this.button3.Text = "Load file";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.LoadClick);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(260, 531);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 12;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 571);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.checkedListBox2);
             this.Controls.Add(this.label6);
@@ -230,5 +240,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckedListBox checkedListBox2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
