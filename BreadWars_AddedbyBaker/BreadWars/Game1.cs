@@ -30,7 +30,10 @@ namespace BreadWars
         Card[] cardsInPlay = new Card[2];
 
         //124 to 768
-        Rectangle[] cardPos = { new Rectangle(0,0, 20, 20), new Rectangle(0,0, 20, 20), new Rectangle(0,0, 20, 20), new Rectangle(0,0 ,20, 20) };
+        static int cardDepth = 350;
+        static int cardWidth = 50;
+        static int cardHeight = 75;
+        Rectangle[] cardPos = { new Rectangle(100, cardDepth, cardWidth, cardHeight), new Rectangle(200, cardDepth, cardWidth, cardHeight), new Rectangle(300, cardDepth, cardWidth, cardHeight), new Rectangle(400, cardDepth, cardWidth, cardHeight), new Rectangle(500, cardDepth, cardWidth, cardHeight) };
 
         //hudobject things
         HUDObjects background;
@@ -107,7 +110,10 @@ namespace BreadWars
                 cardText[i] = Content.Load<Texture2D>("Card");
             }
             //numbers and deck
-            numbers = new Drawable(Content.Load<Texture2D>("numberText14020"), new Rectangle(0, 0, 140, 20));
+            numbers = new Drawable(Content.Load<Texture2D>("testnumbers14020"), new Rectangle(0, 0, 140, 20));
+            numbers.Rows = 1;
+            numbers.Columns = 10;
+            numbers.UnpackSprites();
             deck = new Deck(cardText, numbers);
         }
 
@@ -177,6 +183,9 @@ namespace BreadWars
                         case Phase.Player1:
                             for (int i = 0; i < player1.Hand.Count; i++)
                             {
+                                //assigning card positions
+                                player1.Hand[i].Posit = cardPos[i];
+
                                 if (cardPos[i].Contains(mState.Position))
                                 {
                                     cardsInPlay[0] = player1.Hand[i];
@@ -189,6 +198,9 @@ namespace BreadWars
                         case Phase.Player2:
                             for (int i = 0; i < player2.Hand.Count; i++)
                             {
+                                //assigning card positions
+                                player2.Hand[i].Posit = cardPos[i];
+
                                 if (cardPos[i].Contains(mState.Position))
                                 {
                                     cardsInPlay[0] = player2.Hand[i];
@@ -266,8 +278,18 @@ namespace BreadWars
                     switch (currPhase)
                     {
                         case Phase.Player1:
+                            //draw all cards in a loop
+                            for (int i = 0; i <player1.Hand.Count; i++)
+                            {
+                                player1.Hand[i].DrawStatic(spriteBatch);
+                            }
                             break;
                         case Phase.Player2:
+                            //draw all cards in a loop
+                            for (int i = 0; i < player2.Hand.Count; i++)
+                            {
+                                player2.Hand[i].DrawStatic(spriteBatch);
+                            }
                             break;
                         case Phase.Pause:
                             switch (prevPhase)

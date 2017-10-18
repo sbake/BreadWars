@@ -27,6 +27,8 @@ namespace BreadWars
         {   
             cardTexts = pCardTexts;
             numbers = pNumbers;
+            HardcodeDeck();
+            PopulateDeck();
         }
 
         int count = 0;
