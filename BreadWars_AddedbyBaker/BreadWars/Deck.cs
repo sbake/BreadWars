@@ -71,7 +71,7 @@ namespace BreadWars
             
         }
 
-        public void PopulateDeck(Random rng, Texture2D Texture)
+        public void PopulateDeck()
         {
             for (int i = 0; i < cardsToAdd.Length; i ++)
             {
