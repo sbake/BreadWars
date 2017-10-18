@@ -267,6 +267,12 @@ namespace BreadWars
             {
                 case GameState.Start:
                     introTest.DrawStatic(spriteBatch);
+
+                    //figuring out spritesheet problems
+                    for (int i = 0; i < numbers.SpriteLocations.Count; i++)
+                    {
+                        numbers.DrawStatic(spriteBatch);
+                    }
                     break;
                 case GameState.Help:
                     break;

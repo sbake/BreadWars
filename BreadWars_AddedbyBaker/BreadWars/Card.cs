@@ -86,8 +86,17 @@ namespace BreadWars
                 }
                 //draw numbr
                 //int offsetFromCorners = 30; //add to posit
-                spriteBatch.Draw(Numbers.Texr, new Rectangle(posit.X, posit.Y, 20, 20), new Rectangle(Numbers.SpriteLocations[value/10], new Point(Numbers.Posit.Width/10, Numbers.Posit.Height)), Color.White);
-                spriteBatch.Draw(Numbers.Texr, new Rectangle(posit.X+20, posit.Y, 20, 20), new Rectangle(Numbers.SpriteLocations[value%10], new Point(Numbers.Posit.Width / 10, Numbers.Posit.Height)), Color.White);
+                if (value / 10 != 0)
+                {
+                    spriteBatch.Draw(Numbers.Texr, new Rectangle(posit.X, posit.Y, 14, 20), new Rectangle(Numbers.SpriteLocations[value / 10], new Point(Numbers.Posit.Width / 10, Numbers.Posit.Height)), Color.White);
+                    spriteBatch.Draw(Numbers.Texr, new Rectangle(posit.X + 14, posit.Y, 14, 20), new Rectangle(Numbers.SpriteLocations[value % 10], new Point(Numbers.Posit.Width / 10, Numbers.Posit.Height)), Color.White);
+                }
+                else
+                {
+                    //texture, destination, source, color
+                    spriteBatch.Draw(Numbers.Texr, new Rectangle(posit.X, posit.Y, 14, 20), new Rectangle(Numbers.SpriteLocations[value % 10], new Point(Numbers.Posit.Width / 10, Numbers.Posit.Height)), Color.White);
+                }
+                
             }
         }
     }
