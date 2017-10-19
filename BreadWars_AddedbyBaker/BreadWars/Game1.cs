@@ -85,6 +85,7 @@ namespace BreadWars
             players[0] = player1;
             players[1] = player2;
 
+            //starting game and phase states
             state = GameState.Start;
             prevPhase = Phase.Results;
             currPhase = Phase.Pause;
@@ -164,6 +165,7 @@ namespace BreadWars
             switch (state)
             {
                 case GameState.Start:
+                    //choose deck to load (work in progress)
                     if (kState.IsKeyDown(Keys.NumPad0))
                     {
                         NewGame(deckFiles[0]);
@@ -173,6 +175,7 @@ namespace BreadWars
                         NewGame(deckFiles[1]);
                         state = GameState.Game;
                     }
+                    //default load deck 1.dat
                     else if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))
                     {
                         NewGame("1.dat");
@@ -188,19 +191,19 @@ namespace BreadWars
                     }
                     break;
                 case GameState.Help:
-                    if (kState.IsKeyDown(Keys.Back))
+                    if (kState.IsKeyDown(Keys.Back)) //press back to return to start screen
                     {
                         state = GameState.Start;
                     }
                     break;
                 case GameState.Credits:
-                    if (kState.IsKeyDown(Keys.Back))
+                    if (kState.IsKeyDown(Keys.Back)) //press back to return to start screen
                     {
                         state = GameState.Start;
                     }
                     break;
                 case GameState.GameOver:
-                    if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))
+                    if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter)) //press enter to go back to start screen
                     {
                         state = GameState.Start;
                     }
@@ -240,6 +243,7 @@ namespace BreadWars
                             break;
                         case Phase.Pause:
                             if (!(kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))) break;
+                            //press enter to continue to next phase
                             switch (prevPhase)
                             {
                                 case Phase.Player1:
@@ -257,11 +261,12 @@ namespace BreadWars
                             }
                             break;
                         case Phase.Results:
+                            //calculate victor of round and other effects
                             byte winPlayer = round.CompareCards(cardsInPlay);
                             round.EditHealth(winPlayer, players);
                             round.SpecialCards(cardsInPlay[0], 0, players);
                             round.SpecialCards(cardsInPlay[1], 1, players);
-                            if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))
+                            if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter)) //press enter to continue to next phase
                             {
                                 prevPhase = currPhase;
                                 currPhase = Phase.Pause;

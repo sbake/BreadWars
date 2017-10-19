@@ -22,7 +22,8 @@ public class Fire : Card
     {
         if (isActive)
         {
-            opponent.AlterHealth(-FIRE_DAMAGE);
+            opponent.AlterHealth(-FIRE_DAMAGE); //damage opponent
+            //burn all cards on field 
             foreach(Card c in self.Hand)
             {
                 c.IsBurned = true;

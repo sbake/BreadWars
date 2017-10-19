@@ -19,6 +19,7 @@ public class FaireBread: Card
 
     public override void Effect(Player opponent, Player self, Deck deck)
     {
+            //switch all cards' isActive bool
             foreach(Card c in opponent.Hand)
             {
                 c.isActive = !c.isActive;

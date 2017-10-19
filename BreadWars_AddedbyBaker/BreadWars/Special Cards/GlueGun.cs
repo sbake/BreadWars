@@ -21,6 +21,7 @@ public class GlueGun: Card
     {
         if (isActive)
         {
+                //get two random cards from hand and add values together to form new card
             Random r = new Random();
             int index1 = r.Next(0, self.Hand.Count);
             Card c1 = self.Hand[index1];
@@ -28,10 +29,10 @@ public class GlueGun: Card
             int index2 = r.Next(0, self.Hand.Count);
             Card c2 = self.Hand[index2];
             self.Hand.RemoveAt(index2);
-            Card newCard = new Card(c2.Texr, c1.Posit, false, Numbers);
+            Card newCard = new Card(c2.Texr, c1.Posit, false, Numbers); //new card with no effect
             newCard.Value = c1.Value + c2.Value;
             self.Hand.Add(newCard);
-            self.Hand.Add(deck.Next());
+            self.Hand.Add(deck.Next()); //draw to make up for one used card
         }
     }
 }

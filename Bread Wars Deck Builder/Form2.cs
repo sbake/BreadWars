@@ -13,7 +13,7 @@ namespace Bread_Wars_Deck_Builder
 {
     public partial class Form2 : Form
     {
-
+        //array possible cards (names, both normal and special)
         private string[] cards = new string[] {
             "thief",
             "thief special",
@@ -56,27 +56,33 @@ namespace Bread_Wars_Deck_Builder
             "Confetti",
             "confetti special",
             "Numject to Change"};
-        private List<string> files = new List<string>();
-        private int[] numberCards;
-        private int sumCards;
+        private List<string> files = new List<string>(); //for all deck files in existance
+        private int[] numberCards; //number desired cards per type
+        private int sumCards; //total number cards in deck, should be 52
 
 
         public Form2()
         {
             InitializeComponent();
             string[] allFiles = Directory.GetFiles("."); //get all files in directory;
-            foreach(string f in allFiles)
+            foreach(string f in allFiles) //only keep deck files
             {
                 if (f.Contains(".dat")) files.Add(f.Substring(2, f.Length-6));
             }
+            //set options on form correctly
             this.checkedListBox1.Items.Clear();
             this.checkedListBox2.Items.Clear();
             this.checkedListBox1.Items.AddRange(cards);
             this.checkedListBox2.Items.AddRange(files.ToArray());
+            //initialize attributes
             numberCards = new int[cards.Length];
             sumCards = 0;
         }
 
+        /// <summary>
+        /// will write deck information to binary file with name given by param f. 
+        /// </summary>
+        /// <param name="f">File name. Any file type will be removed (ex. WriteFile("1.txt") will write to "1.dat")</param>
         public void WriteFile(string f)
         {
             string filename = f + ".dat";
@@ -94,6 +100,7 @@ namespace Bread_Wars_Deck_Builder
                 // create the binary writer object
                 BinaryWriter output = new BinaryWriter(str);
 
+                //write information (name and number) for each card type
                 for(int i=0; i<cards.Length; i++)
                 {
                     output.Write(cards[i]);
@@ -113,7 +120,7 @@ namespace Bread_Wars_Deck_Builder
         //for editing files
         public void ReadFile(string filename)
         {
-            // read in binary.dat first
+            // read in filename.dat first
             try
             {
                 // create the BinaryReader
@@ -122,12 +129,12 @@ namespace Bread_Wars_Deck_Builder
                 // need to follow the file format to get the data
                for(int i=0; i<41; i++)
                 {
-                    input.ReadString();
-                    numberCards[i] = input.ReadInt32();
-                    checkedListBox1.Items[i] = cards[i] + " " + numberCards[i];
-                    sumCards += numberCards[i];
+                    input.ReadString(); //read name of card
+                    numberCards[i] = input.ReadInt32(); //save number of the card
+                    checkedListBox1.Items[i] = cards[i] + " " + numberCards[i]; //update display on form
+                    sumCards += numberCards[i]; //edit overal number of cards in deck
                 }
-                label6.Text = sumCards.ToString();
+                label6.Text = sumCards.ToString(); //display to form number of cards in deck
                 // close when we are done
                 input.Close();
             }
@@ -140,32 +147,25 @@ namespace Bread_Wars_Deck_Builder
 
         private void ApplyClick(object sender, EventArgs e)
         {
-            Console.WriteLine("apply");
             int value = 0;
-            try { value = int.Parse(textBox1.Text); } catch { }
+            try { value = int.Parse(textBox1.Text); } catch { } //only function if user input an int value
             
+            //update number of cards as specified by user
             foreach (int indexChecked in checkedListBox1.CheckedIndices)
             {
-                if ((numberCards[indexChecked] + value) < 0) continue;
+                if ((numberCards[indexChecked] + value) < 0) continue; //cards cannot have negative amount
                 numberCards[indexChecked] += value;
                 sumCards += value;
-                if((string)checkedListBox1.Items[indexChecked]!= cards[indexChecked])
-                {
-                    checkedListBox1.Items[indexChecked] = cards[indexChecked] + " " + numberCards[indexChecked];
-                }
-                else
-                {
-                    checkedListBox1.Items[indexChecked] = checkedListBox1.Items[indexChecked] + " " + value;
-                }
+                checkedListBox1.Items[indexChecked] = cards[indexChecked] + " " + numberCards[indexChecked];//write on form number of card 
             }
 
-            label6.Text = sumCards.ToString();
+            label6.Text = sumCards.ToString(); //write to form total number cards on deck
 
         }
 
         private void DoneClick(object sender, EventArgs e)
         {
-                if (sumCards == 52 && textBox2.Text!= "")
+                if (sumCards == 52 && textBox2.Text!= "") //if the deck is full then save to file
                 {
                     WriteFile(textBox2.Text);
                 }
@@ -182,6 +182,8 @@ namespace Bread_Wars_Deck_Builder
 
         private void LoadClick(object sender, EventArgs e)
         {
+            //if there is one specified file to read from , read from that file
+            //otherwise read from default file
             if (checkedListBox2.SelectedItems.Count == 1) ReadFile((string)checkedListBox2.SelectedItem);
             else ReadFile("1.dat");
         }
