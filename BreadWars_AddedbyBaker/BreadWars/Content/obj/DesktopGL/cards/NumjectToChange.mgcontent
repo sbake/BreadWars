@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>D:/Profiles/sxb2218/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/NumjectToChange.png</SourceFile>
-  <SourceTime>2017-10-18T15:49:03.2600199-04:00</SourceTime>
-  <DestFile>D:/Profiles/sxb2218/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/bin/DesktopGL/cards/NumjectToChange.xnb</DestFile>
-  <DestTime>2017-10-18T16:18:40.7861826-04:00</DestTime>
+  <SourceFile>C:/Users/medinarc/source/repos/BreadWars/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/NumjectToChange.png</SourceFile>
+  <SourceTime>2017-10-18T19:25:22.4884956-04:00</SourceTime>
+  <DestFile>C:/Users/medinarc/source/repos/BreadWars/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/bin/DesktopGL/cards/NumjectToChange.xnb</DestFile>
+  <DestTime>2017-10-18T20:27:31.5443562-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T10:05:36-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

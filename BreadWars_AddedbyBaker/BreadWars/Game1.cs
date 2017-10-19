@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
+using System.IO;
 
 namespace BreadWars
 {
@@ -29,13 +31,14 @@ namespace BreadWars
         Player[] players;
         Card[] cardsInPlay = new Card[2];
 
-        //124 to 768
+        //drawing cards
         static int cardDepth = 350;
         static int backCardDepth = 100;
         static int cardWidth = 50;
         static int cardHeight = 75;
         Rectangle[] cardPos = { new Rectangle(100, cardDepth, cardWidth, cardHeight), new Rectangle(200, cardDepth, cardWidth, cardHeight), new Rectangle(300, cardDepth, cardWidth, cardHeight), new Rectangle(400, cardDepth, cardWidth, cardHeight), new Rectangle(500, cardDepth, cardWidth, cardHeight) };
         Rectangle[] backCardPos = { new Rectangle(100, backCardDepth, cardWidth, cardHeight), new Rectangle(200, backCardDepth, cardWidth, cardHeight), new Rectangle(300, backCardDepth, cardWidth, cardHeight), new Rectangle(400, backCardDepth, cardWidth, cardHeight), new Rectangle(500, backCardDepth, cardWidth, cardHeight) };
+        List<string> deckFiles; //lists filenames for all decks
 
         //hudobject things
         HUDObjects background;
@@ -44,6 +47,7 @@ namespace BreadWars
         Texture2D bGText;
         Texture2D testText;
         Texture2D backText;
+        SpriteFont font;
 
         //phase and game states
         enum GameState { Start, Help, Game, Credits, GameOver};
@@ -88,7 +92,7 @@ namespace BreadWars
             round = new Round(20, deck);
             kState = Keyboard.GetState();
             kStatePrev = Keyboard.GetState();
-
+            IsMouseVisible = true;
         }
 
         /// <summary>
@@ -121,6 +125,14 @@ namespace BreadWars
             numbers.Columns = 10;
             numbers.UnpackSprites();
             deck = new Deck(cardText, numbers);
+
+            font = Content.Load<SpriteFont>("Arial");
+
+            string[] allFiles = Directory.GetFiles(".");
+            foreach(string f in allFiles)
+            {
+                if (f.Contains(".dat")) deckFiles.Add(f);
+            }
         }
 
         /// <summary>
@@ -147,13 +159,23 @@ namespace BreadWars
             kState = Keyboard.GetState();
             
             MouseState mState = Mouse.GetState();
+            
 
             switch (state)
             {
                 case GameState.Start:
-                    if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))
+                    if (kState.IsKeyDown(Keys.NumPad0))
                     {
-                        NewGame();
+                        NewGame(deckFiles[0]);
+                        state = GameState.Game;
+                    }
+                    else if (kState.IsKeyDown(Keys.NumPad1)){
+                        NewGame(deckFiles[1]);
+                        state = GameState.Game;
+                    }
+                    else if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))
+                    {
+                        NewGame("1.dat");
                         state = GameState.Game;
                         
                     }if(mState.Position == new Point(0,0)) //change pos, for credits
@@ -273,6 +295,10 @@ namespace BreadWars
             {
                 case GameState.Start:
                     introTest.DrawStatic(spriteBatch);
+                    for(int i=0; i< deckFiles.Count; i++)
+                    {
+                        spriteBatch.DrawString(font, "press "+ i+ "for " + deckFiles[i], new Vector2(10, 20*i), Color.Black);
+                    }
 
                     //figuring out spritesheet problems
                     for (int i = 0; i < numbers.SpriteLocations.Count; i++)
@@ -336,8 +362,9 @@ namespace BreadWars
         }
 
 
-        public void NewGame()
+        public void NewGame(string deckName)
         {
+            deck.LoadDeck(deckName);
             //initialize player hands
             player1.Hand.Clear();
             player2.Hand.Clear();
