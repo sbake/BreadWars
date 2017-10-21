@@ -38,7 +38,7 @@ namespace BreadWars
         static int cardHeight = 75;
         Rectangle[] cardPos = { new Rectangle(100, cardDepth, cardWidth, cardHeight), new Rectangle(200, cardDepth, cardWidth, cardHeight), new Rectangle(300, cardDepth, cardWidth, cardHeight), new Rectangle(400, cardDepth, cardWidth, cardHeight), new Rectangle(500, cardDepth, cardWidth, cardHeight) };
         Rectangle[] backCardPos = { new Rectangle(100, backCardDepth, cardWidth, cardHeight), new Rectangle(200, backCardDepth, cardWidth, cardHeight), new Rectangle(300, backCardDepth, cardWidth, cardHeight), new Rectangle(400, backCardDepth, cardWidth, cardHeight), new Rectangle(500, backCardDepth, cardWidth, cardHeight) };
-        List<string> deckFiles; //lists filenames for all decks
+        List<string> deckFiles= new List<string>(); //lists filenames for all decks
 
         //hudobject things
         HUDObjects background;
@@ -127,9 +127,9 @@ namespace BreadWars
             numbers.UnpackSprites();
             deck = new Deck(cardText, numbers);
 
-            font = Content.Load<SpriteFont>("Arial");
+            //font = Content.Load<SpriteFont>("Arial");
 
-            string[] allFiles = Directory.GetFiles(".");
+            string[] allFiles = Directory.GetFiles("..\\..\\..\\..\\..\\..\\Bread Wars Deck Builder\\bin\\Debug");
             foreach(string f in allFiles)
             {
                 if (f.Contains(".dat")) deckFiles.Add(f);
@@ -178,7 +178,7 @@ namespace BreadWars
                     //default load deck 1.dat
                     else if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))
                     {
-                        NewGame("1.dat");
+                        NewGame(deckFiles[0]);
                         state = GameState.Game;
                         
                     }if(mState.Position == new Point(0,0)) //change pos, for credits
@@ -234,7 +234,7 @@ namespace BreadWars
 
                                 if (cardPos[i].Contains(mState.Position))
                                 {
-                                    cardsInPlay[0] = player2.Hand[i];
+                                    cardsInPlay[1] = player2.Hand[i];
                                     prevPhase = currPhase;
                                     currPhase = Phase.Pause;
                                     break;
@@ -302,7 +302,7 @@ namespace BreadWars
                     introTest.DrawStatic(spriteBatch);
                     for(int i=0; i< deckFiles.Count; i++)
                     {
-                        spriteBatch.DrawString(font, "press "+ i+ "for " + deckFiles[i], new Vector2(10, 20*i), Color.Black);
+                        //spriteBatch.DrawString(font, "press "+ i+ "for " + deckFiles[i], new Vector2(10, 20*i), Color.Black);
                     }
 
                     //figuring out spritesheet problems
