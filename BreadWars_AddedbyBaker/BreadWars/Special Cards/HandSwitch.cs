@@ -21,6 +21,7 @@ public class HandSwitch : Card
     {
         if (isActive)
         {
+                //change players' hands
             List<Card> hand1 = opponent.Hand;
             List<Card> hand2 = self.Hand;
             opponent.Hand = hand2;

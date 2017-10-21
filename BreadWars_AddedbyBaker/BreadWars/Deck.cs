@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
-
+using System.IO;
 
 namespace BreadWars
 {
@@ -27,6 +27,8 @@ namespace BreadWars
         {   
             cardTexts = pCardTexts;
             numbers = pNumbers;
+            //HardcodeDeck();
+            //PopulateDeck();
         }
 
         int count = 0;
@@ -41,8 +43,8 @@ namespace BreadWars
         //@kyle, if you need to discard this to make sync, please copy and paste the back up I'll put in google docs, or let me know so I can. Thanks.
         //you may want to adjust populate to read files, if you don't already have a populator
         int cardsAdded;
-        //21 int array
-        int[] cardsToAdd = new int[21];
+        // int list
+        List<int> cardsToAdd = new List<int>();
         public void HardcodeDeck()
         {
             cardsToAdd[0] = 2;
@@ -71,9 +73,40 @@ namespace BreadWars
             
         }
 
-        public void PopulateDeck(Random rng, Texture2D Texture)
+        public void LoadDeck(string filename)
         {
-            for (int i = 0; i < cardsToAdd.Length; i ++)
+            int[] cards = new int[41];
+            try
+            {
+                // create the BinaryReader
+                BinaryReader input = new BinaryReader(File.OpenRead(filename));
+
+                // need to follow the file format to get the data
+                for (int i = 0; i < 41; i++)
+                {
+                    input.ReadString();
+                    cards[i] = input.ReadInt32();
+                }
+                // close when we are done
+                input.Close();
+            }
+            catch (IOException ioe)
+            {
+                Console.WriteLine("error reading binary.dat: " + ioe.Message);
+            }
+            for (int i=0; i<cards.Length; i++)
+            {
+                for(int j=0; j<cards[i]; j++)
+                {
+                    cardsToAdd.Add(i);
+                }
+            }
+            PopulateDeck();
+        }
+
+        public void PopulateDeck()
+        {
+            for (int i = 0; i < cardsToAdd.Count; i ++)
             {
                      for (int j = 0; j < cardsToAdd[i]; j++)
                      {

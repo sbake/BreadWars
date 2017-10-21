@@ -46,6 +46,16 @@ namespace BreadWars
         {
             get { return texr; }
         }
+        public int Rows
+        {
+            get { return rows; }
+            set { rows = value; }
+        }
+        public int Columns
+        {
+            get { return columns; }
+            set { columns = value; }
+        }
 
         //constructor- N/A
         //most things can't just be drawable objects- should be a background object or a card.
@@ -54,6 +64,9 @@ namespace BreadWars
         {
             texr = pTexr;
             posit = pPosit;
+            imageSize = new Point(pPosit.Width, pPosit.Height);
+
+            spriteLocations = new List<Point>();
         }
         
 

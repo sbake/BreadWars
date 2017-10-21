@@ -55,6 +55,10 @@ namespace BreadWars
             is8 = false;
             isActive = active;
             Numbers = pNumbers;
+
+            //rows and columns
+            rows = 1;
+            columns = 2;
         }
 
         public virtual void Effect(Player opponent, Player self, Deck deck){
@@ -81,9 +85,18 @@ namespace BreadWars
                     spriteBatch.Draw(texr, posit, new Rectangle(spriteLocations[1], new Point(posit.Width/2, posit.Height)), Color.White);
                 }
                 //draw numbr
-                int offsetFromCorners = 30; //add to posit
-                spriteBatch.Draw(Numbers.Texr, posit, new Rectangle(Numbers.SpriteLocations[value], new Point(posit.Width/10, posit.Height/10)), Color.White);
-                spriteBatch.Draw(Numbers.Texr, posit, new Rectangle(Numbers.SpriteLocations[value], new Point(posit.Width/10, posit.Height/10)), Color.White);
+                //int offsetFromCorners = 30; //add to posit
+                if (value / 10 != 0)
+                {
+                    spriteBatch.Draw(Numbers.Texr, new Rectangle(posit.X, posit.Y, 14, 20), new Rectangle(Numbers.SpriteLocations[value / 10], new Point(Numbers.Posit.Width / 10, Numbers.Posit.Height)), Color.White);
+                    spriteBatch.Draw(Numbers.Texr, new Rectangle(posit.X + 14, posit.Y, 14, 20), new Rectangle(Numbers.SpriteLocations[value % 10], new Point(Numbers.Posit.Width / 10, Numbers.Posit.Height)), Color.White);
+                }
+                else
+                {
+                    //texture, destination, source, color
+                    spriteBatch.Draw(Numbers.Texr, new Rectangle(posit.X, posit.Y, 14, 20), new Rectangle(Numbers.SpriteLocations[value % 10], new Point(Numbers.Posit.Width / 10, Numbers.Posit.Height)), Color.White);
+                }
+                
             }
         }
     }

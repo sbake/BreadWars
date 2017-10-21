@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
+using System.IO;
 
 namespace BreadWars
 {
@@ -29,14 +31,23 @@ namespace BreadWars
         Player[] players;
         Card[] cardsInPlay = new Card[2];
 
-        //124 to 768
-        Rectangle[] cardPos = { new Rectangle(0,0, 20, 20), new Rectangle(0,0, 20, 20), new Rectangle(0,0, 20, 20), new Rectangle(0,0 ,20, 20) };
+        //drawing cards
+        static int cardDepth = 350;
+        static int backCardDepth = 100;
+        static int cardWidth = 50;
+        static int cardHeight = 75;
+        Rectangle[] cardPos = { new Rectangle(100, cardDepth, cardWidth, cardHeight), new Rectangle(200, cardDepth, cardWidth, cardHeight), new Rectangle(300, cardDepth, cardWidth, cardHeight), new Rectangle(400, cardDepth, cardWidth, cardHeight), new Rectangle(500, cardDepth, cardWidth, cardHeight) };
+        Rectangle[] backCardPos = { new Rectangle(100, backCardDepth, cardWidth, cardHeight), new Rectangle(200, backCardDepth, cardWidth, cardHeight), new Rectangle(300, backCardDepth, cardWidth, cardHeight), new Rectangle(400, backCardDepth, cardWidth, cardHeight), new Rectangle(500, backCardDepth, cardWidth, cardHeight) };
+        List<string> deckFiles; //lists filenames for all decks
 
         //hudobject things
         HUDObjects background;
         HUDObjects introTest;
+        HUDObjects backCard;
         Texture2D bGText;
         Texture2D testText;
+        Texture2D backText;
+        SpriteFont font;
 
         //phase and game states
         enum GameState { Start, Help, Game, Credits, GameOver};
@@ -74,6 +85,7 @@ namespace BreadWars
             players[0] = player1;
             players[1] = player2;
 
+            //starting game and phase states
             state = GameState.Start;
             prevPhase = Phase.Results;
             currPhase = Phase.Pause;
@@ -81,7 +93,7 @@ namespace BreadWars
             round = new Round(20, deck);
             kState = Keyboard.GetState();
             kStatePrev = Keyboard.GetState();
-
+            IsMouseVisible = true;
         }
 
         /// <summary>
@@ -98,6 +110,8 @@ namespace BreadWars
             background = new HUDObjects(bGText, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Width));
             testText = Content.Load<Texture2D>("introTest");
             introTest = new HUDObjects(testText, new Rectangle(0, 0, 400, 600));
+            backText = Content.Load<Texture2D>("backCard");
+            backCard = new HUDObjects(backText, new Rectangle(0, 0, 0, 0));
 
             //things with textures
             //cards- load all card textures into array here, rename card textures to numbers -card0, card1, card2... cardn
@@ -107,8 +121,19 @@ namespace BreadWars
                 cardText[i] = Content.Load<Texture2D>("Card");
             }
             //numbers and deck
-            numbers = new Drawable(Content.Load<Texture2D>("numberText14020"), new Rectangle(0, 0, 140, 20));
+            numbers = new Drawable(Content.Load<Texture2D>("testnumbers14020"), new Rectangle(0, 0, 140, 20));
+            numbers.Rows = 1;
+            numbers.Columns = 10;
+            numbers.UnpackSprites();
             deck = new Deck(cardText, numbers);
+
+            font = Content.Load<SpriteFont>("Arial");
+
+            string[] allFiles = Directory.GetFiles(".");
+            foreach(string f in allFiles)
+            {
+                if (f.Contains(".dat")) deckFiles.Add(f);
+            }
         }
 
         /// <summary>
@@ -135,13 +160,25 @@ namespace BreadWars
             kState = Keyboard.GetState();
             
             MouseState mState = Mouse.GetState();
+            
 
             switch (state)
             {
                 case GameState.Start:
-                    if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))
+                    //choose deck to load (work in progress)
+                    if (kState.IsKeyDown(Keys.NumPad0))
                     {
-                        NewGame();
+                        NewGame(deckFiles[0]);
+                        state = GameState.Game;
+                    }
+                    else if (kState.IsKeyDown(Keys.NumPad1)){
+                        NewGame(deckFiles[1]);
+                        state = GameState.Game;
+                    }
+                    //default load deck 1.dat
+                    else if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))
+                    {
+                        NewGame("1.dat");
                         state = GameState.Game;
                         
                     }if(mState.Position == new Point(0,0)) //change pos, for credits
@@ -154,19 +191,19 @@ namespace BreadWars
                     }
                     break;
                 case GameState.Help:
-                    if (kState.IsKeyDown(Keys.Back))
+                    if (kState.IsKeyDown(Keys.Back)) //press back to return to start screen
                     {
                         state = GameState.Start;
                     }
                     break;
                 case GameState.Credits:
-                    if (kState.IsKeyDown(Keys.Back))
+                    if (kState.IsKeyDown(Keys.Back)) //press back to return to start screen
                     {
                         state = GameState.Start;
                     }
                     break;
                 case GameState.GameOver:
-                    if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))
+                    if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter)) //press enter to go back to start screen
                     {
                         state = GameState.Start;
                     }
@@ -177,6 +214,9 @@ namespace BreadWars
                         case Phase.Player1:
                             for (int i = 0; i < player1.Hand.Count; i++)
                             {
+                                //assigning card positions
+                                player1.Hand[i].Posit = cardPos[i];
+
                                 if (cardPos[i].Contains(mState.Position))
                                 {
                                     cardsInPlay[0] = player1.Hand[i];
@@ -189,6 +229,9 @@ namespace BreadWars
                         case Phase.Player2:
                             for (int i = 0; i < player2.Hand.Count; i++)
                             {
+                                //assigning card positions
+                                player2.Hand[i].Posit = cardPos[i];
+
                                 if (cardPos[i].Contains(mState.Position))
                                 {
                                     cardsInPlay[0] = player2.Hand[i];
@@ -200,6 +243,7 @@ namespace BreadWars
                             break;
                         case Phase.Pause:
                             if (!(kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))) break;
+                            //press enter to continue to next phase
                             switch (prevPhase)
                             {
                                 case Phase.Player1:
@@ -217,11 +261,12 @@ namespace BreadWars
                             }
                             break;
                         case Phase.Results:
+                            //calculate victor of round and other effects
                             byte winPlayer = round.CompareCards(cardsInPlay);
                             round.EditHealth(winPlayer, players);
                             round.SpecialCards(cardsInPlay[0], 0, players);
                             round.SpecialCards(cardsInPlay[1], 1, players);
-                            if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))
+                            if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter)) //press enter to continue to next phase
                             {
                                 prevPhase = currPhase;
                                 currPhase = Phase.Pause;
@@ -255,6 +300,16 @@ namespace BreadWars
             {
                 case GameState.Start:
                     introTest.DrawStatic(spriteBatch);
+                    for(int i=0; i< deckFiles.Count; i++)
+                    {
+                        spriteBatch.DrawString(font, "press "+ i+ "for " + deckFiles[i], new Vector2(10, 20*i), Color.Black);
+                    }
+
+                    //figuring out spritesheet problems
+                    for (int i = 0; i < numbers.SpriteLocations.Count; i++)
+                    {
+                        numbers.DrawStatic(spriteBatch);
+                    }
                     break;
                 case GameState.Help:
                     break;
@@ -266,8 +321,28 @@ namespace BreadWars
                     switch (currPhase)
                     {
                         case Phase.Player1:
+                            //draw all cards in a loop
+                            for (int i = 0; i <player1.Hand.Count; i++)
+                            {
+                                player1.Hand[i].DrawStatic(spriteBatch);
+                            }
+                            for (int i = 0; i < 5; i++)
+                            {
+                                backCard.Posit = backCardPos[i];
+                                backCard.DrawStatic(spriteBatch);
+                            }
                             break;
                         case Phase.Player2:
+                            //draw all cards in a loop
+                            for (int i = 0; i < player2.Hand.Count; i++)
+                            {
+                                player2.Hand[i].DrawStatic(spriteBatch);
+                            }
+                            for (int i = 0; i < 5; i++)
+                            {
+                                backCard.Posit = backCardPos[i];
+                                backCard.DrawStatic(spriteBatch);
+                            }
                             break;
                         case Phase.Pause:
                             switch (prevPhase)
@@ -292,8 +367,9 @@ namespace BreadWars
         }
 
 
-        public void NewGame()
+        public void NewGame(string deckName)
         {
+            deck.LoadDeck(deckName);
             //initialize player hands
             player1.Hand.Clear();
             player2.Hand.Clear();
