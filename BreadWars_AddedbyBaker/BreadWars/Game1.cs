@@ -107,9 +107,9 @@ namespace BreadWars
 
             // TODO: use this.Content to load your game content here
             bGText = Content.Load<Texture2D>("bgCuteTemp");
-            background = new HUDObjects(bGText, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Width));
+            background = new HUDObjects(bGText, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
             testText = Content.Load<Texture2D>("introscreenTemp");
-            introTest = new HUDObjects(testText, new Rectangle(0, 0, 400, 600));
+            introTest = new HUDObjects(testText, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
             backText = Content.Load<Texture2D>("backCard");
             backCard = new HUDObjects(backText, new Rectangle(0, 0, 0, 0));
 
