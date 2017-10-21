@@ -156,3 +156,7 @@ C:\Users\medinarc\source\repos\BreadWars\BreadWars\BreadWars_AddedbyBaker\BreadW
 C:\Users\medinarc\source\repos\BreadWars\BreadWars\BreadWars_AddedbyBaker\BreadWars\obj\Debug\BreadWars.csproj.CoreCompileInputs.cache
 C:\Users\medinarc\source\repos\BreadWars\BreadWars\BreadWars_AddedbyBaker\BreadWars\obj\Debug\BreadWars.exe
 C:\Users\medinarc\source\repos\BreadWars\BreadWars\BreadWars_AddedbyBaker\BreadWars\obj\Debug\BreadWars.pdb
+C:\Users\sbake\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\backCard.xnb
+C:\Users\sbake\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\bgCuteTemp.xnb
+C:\Users\sbake\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\introscreenTemp.xnb
+C:\Users\sbake\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\testnumbers14020.xnb
