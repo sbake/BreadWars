@@ -106,10 +106,10 @@ namespace BreadWars
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            bGText = Content.Load<Texture2D>("green");
-            background = new HUDObjects(bGText, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Width));
-            testText = Content.Load<Texture2D>("introTest");
-            introTest = new HUDObjects(testText, new Rectangle(0, 0, 400, 600));
+            bGText = Content.Load<Texture2D>("bgCuteTemp");
+            background = new HUDObjects(bGText, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
+            testText = Content.Load<Texture2D>("introscreenTemp");
+            introTest = new HUDObjects(testText, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
             backText = Content.Load<Texture2D>("backCard");
             backCard = new HUDObjects(backText, new Rectangle(0, 0, 0, 0));
 
@@ -317,10 +317,10 @@ namespace BreadWars
                     }
 
                     //figuring out spritesheet problems
-                    for (int i = 0; i < numbers.SpriteLocations.Count; i++)
-                    {
-                        numbers.DrawStatic(spriteBatch);
-                    }
+                    //for (int i = 0; i < numbers.SpriteLocations.Count; i++)
+                    //{
+                    //    numbers.DrawStatic(spriteBatch);
+                    //}
                     break;
                 case GameState.Help:
                     break;
