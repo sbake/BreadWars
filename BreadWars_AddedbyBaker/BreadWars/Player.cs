@@ -9,7 +9,7 @@ namespace BreadWars
 {
     public class Player
     {
-        const int PLAYER_MAX_HEALTH = 50;
+        public const int PLAYER_MAX_HEALTH = 50;
         const int PLAYER_START_HEALTH = 25;
 
         //number

@@ -266,8 +266,19 @@ namespace BreadWars
                             round.EditHealth(winPlayer, players);
                             round.SpecialCards(cardsInPlay[0], 0, players);
                             round.SpecialCards(cardsInPlay[1], 1, players);
+
                             if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter)) //press enter to continue to next phase
                             {
+                                if(player2.Health<0 || player1.Health>Player.PLAYER_MAX_HEALTH )
+                                {
+                                    winPlayer = 1;
+                                    state = GameState.GameOver;
+                                }
+                                else if (player1.Health < 0 || player2.Health > Player.PLAYER_MAX_HEALTH)
+                                {
+                                    winPlayer = 2;
+                                    state = GameState.GameOver;
+                                }
                                 prevPhase = currPhase;
                                 currPhase = Phase.Pause;
                             }
