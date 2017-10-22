@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/HandSwitch.png</SourceFile>
-  <SourceTime>2017-10-18T11:38:24.1928762-04:00</SourceTime>
-  <DestFile>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/bin/DesktopGL/cards/HandSwitch.xnb</DestFile>
-  <DestTime>2017-10-21T13:39:24.5075418-04:00</DestTime>
+  <SourceFile>C:/Users/medinarc/source/repos/BreadWars/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cards/HandSwitch.png</SourceFile>
+  <SourceTime>2017-10-18T19:25:22.4814942-04:00</SourceTime>
+  <DestFile>C:/Users/medinarc/source/repos/BreadWars/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/bin/DesktopGL/cards/HandSwitch.xnb</DestFile>
+  <DestTime>2017-10-21T14:01:34.2930146-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T10:05:36-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
