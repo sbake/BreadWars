@@ -223,3 +223,4 @@ C:\Users\Koji\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\obj\Debug\
 C:\Users\Koji\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\obj\Debug\BreadWars.csproj.CoreCompileInputs.cache
 C:\Users\Koji\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\obj\Debug\BreadWars.exe
 C:\Users\Koji\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\obj\Debug\BreadWars.pdb
+C:\Users\sbake\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\Arial.xnb

@@ -47,27 +47,27 @@ namespace BreadWars
         List<int> cardsToAdd = new List<int>();
         public void HardcodeDeck()
         {
-            cardsToAdd[0] = 2;
-            cardsToAdd[1] = 2;
-            cardsToAdd[2] = 2;
+            cardsToAdd[0] = 3;
+            cardsToAdd[1] = 3;
+            cardsToAdd[2] = 3;
             cardsToAdd[3] = 2;
             cardsToAdd[4] = 2;
             cardsToAdd[5] = 2;
             cardsToAdd[6] = 2;
-            cardsToAdd[7] = 2;
-            cardsToAdd[8] = 2;
-            cardsToAdd[9] = 2;
+            cardsToAdd[7] = 3;
+            cardsToAdd[8] = 3;
+            cardsToAdd[9] = 3;
             cardsToAdd[10] = 2;
             cardsToAdd[11] = 2;
             cardsToAdd[12] = 2;
             cardsToAdd[13] = 2;
-            cardsToAdd[14] = 2;
-            cardsToAdd[15] = 2;
-            cardsToAdd[16] = 2;
+            cardsToAdd[14] = 3;
+            cardsToAdd[15] = 3;
+            cardsToAdd[16] = 3;
             cardsToAdd[17] = 3;
-            cardsToAdd[18] = 5;
-            cardsToAdd[19] = 5;
-            cardsToAdd[20] = 5;
+            cardsToAdd[18] = 2;
+            cardsToAdd[19] = 2;
+            cardsToAdd[20] = 2;
 
             cardsAdded = 0;
             

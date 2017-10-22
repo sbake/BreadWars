@@ -152,6 +152,8 @@ namespace BreadWars
             backText = Content.Load<Texture2D>("backCard");
             backCard = new HUDObjects(backText, new Rectangle(0, 0, 0, 0));
 
+            font = Content.Load<SpriteFont>("Arial");
+
             //things with textures
             //cards- load all card textures into array here, rename card textures to numbers -card0, card1, card2... cardn
             cardText = new Texture2D[21];
