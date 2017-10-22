@@ -34,10 +34,12 @@ namespace BreadWars
         //drawing cards
         static int cardDepth = 300;
         static int backCardDepth = 50;
+        static int resultCardDepth = 165;
         static int cardWidth = 100;
         static int cardHeight = 150;
         Rectangle[] cardPos = { new Rectangle(80, cardDepth, cardWidth, cardHeight), new Rectangle(200, cardDepth, cardWidth, cardHeight), new Rectangle(320, cardDepth, cardWidth, cardHeight), new Rectangle(440, cardDepth, cardWidth, cardHeight), new Rectangle(560, cardDepth, cardWidth, cardHeight) };
         Rectangle[] backCardPos = { new Rectangle(80, backCardDepth, cardWidth, cardHeight), new Rectangle(200, backCardDepth, cardWidth, cardHeight), new Rectangle(320, backCardDepth, cardWidth, cardHeight), new Rectangle(440, backCardDepth, cardWidth, cardHeight), new Rectangle(560, backCardDepth, cardWidth, cardHeight) };
+        Rectangle[] resultCardPos = { new Rectangle(260, resultCardDepth, cardWidth, cardHeight), new Rectangle(440, resultCardDepth, cardWidth, cardHeight) };
         List<string> deckFiles= new List<string>(); //lists filenames for all decks
 
         //hudobject things
@@ -387,6 +389,11 @@ namespace BreadWars
                             }
                             break;
                         case Phase.Results:
+                            for (int i = 0; i < cardsInPlay.Length; i++)
+                            {
+                                cardsInPlay[i].Posit = resultCardPos[i];
+                                cardsInPlay[i].DrawStatic(spriteBatch);
+                            }
                             break;
                     }
                     break;
