@@ -18,6 +18,7 @@ namespace BreadWars
         //The players
         Player player1;
         Player player2;
+        byte winPlayer;
 
         //Deck + numbers
         Deck deck;
@@ -34,7 +35,7 @@ namespace BreadWars
         //drawing cards
         static int cardDepth = 300;
         static int backCardDepth = 50;
-        static int resultCardDepth = 165;
+        static int resultCardDepth = 135;
         static int cardWidth = 100;
         static int cardHeight = 150;
         Rectangle[] cardPos = { new Rectangle(80, cardDepth, cardWidth, cardHeight), new Rectangle(200, cardDepth, cardWidth, cardHeight), new Rectangle(320, cardDepth, cardWidth, cardHeight), new Rectangle(440, cardDepth, cardWidth, cardHeight), new Rectangle(560, cardDepth, cardWidth, cardHeight) };
@@ -49,12 +50,19 @@ namespace BreadWars
         HUDObjects pause1;
         HUDObjects pause2;
         HUDObjects pause;
+        HUDObjects vs;
+        HUDObjects player1wins;
+        HUDObjects player2wins;
         Texture2D bGText;
         Texture2D testText;
         Texture2D backText;
         Texture2D pause1Text;
         Texture2D pause2Text;
         Texture2D pauseText;
+        Texture2D vsText;
+        Texture2D win1Text;
+        Texture2D win2Text;
+        
         SpriteFont font;
 
         //phase and game states
@@ -127,6 +135,14 @@ namespace BreadWars
             pause2 = new HUDObjects(pause2Text, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
             pauseText = Content.Load<Texture2D>("pausephaseBlank");
             pause = new HUDObjects(pauseText, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
+
+            //results text
+            win1Text = Content.Load<Texture2D>("player1wins");
+            player1wins = new HUDObjects(win1Text, new Rectangle(240, 290, 320, 60));
+            win2Text = Content.Load<Texture2D>("player2wins");
+            player2wins = new HUDObjects(win2Text, new Rectangle(230, 290, 340, 60));
+            vsText = Content.Load<Texture2D>("vs");
+            vs = new HUDObjects(vsText, new Rectangle(365, 160, 70, 50));
 
             //Card backs 
             backText = Content.Load<Texture2D>("backCard");
@@ -281,7 +297,7 @@ namespace BreadWars
                             break;
                         case Phase.Results:
                             //calculate victor of round and other effects
-                            byte winPlayer = round.CompareCards(cardsInPlay);
+                            winPlayer = round.CompareCards(cardsInPlay);
                             round.EditHealth(winPlayer, players);
                             round.SpecialCards(cardsInPlay[0], 0, players);
                             round.SpecialCards(cardsInPlay[1], 1, players);
@@ -393,6 +409,15 @@ namespace BreadWars
                             {
                                 cardsInPlay[i].Posit = resultCardPos[i];
                                 cardsInPlay[i].DrawStatic(spriteBatch);
+                            }
+                            vs.DrawStatic(spriteBatch);
+                            if (winPlayer == 1)
+                            {
+                                player1wins.DrawStatic(spriteBatch);
+                            }
+                            if (winPlayer == 2)
+                            {
+                                player2wins.DrawStatic(spriteBatch);
                             }
                             break;
                     }

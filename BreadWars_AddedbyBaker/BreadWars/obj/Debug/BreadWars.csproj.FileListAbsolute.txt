@@ -164,3 +164,6 @@ C:\Users\sbake\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\Deskt
 C:\Users\sbake\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\pausephase1.xnb
 C:\Users\sbake\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\pausephase2.xnb
 C:\Users\sbake\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\pausephaseBlank.xnb
+C:\Users\sbake\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\player1wins.xnb
+C:\Users\sbake\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\player2wins.xnb
+C:\Users\sbake\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\vs.xnb

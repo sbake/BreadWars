@@ -39,5 +39,8 @@
     <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/pausephase1.png</File>
     <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/pausephase2.png</File>
     <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/pausephaseBlank.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/player1wins.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/player2wins.png</File>
+    <File>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/vs.png</File>
   </SourceFiles>
 </SourceFileCollection>
