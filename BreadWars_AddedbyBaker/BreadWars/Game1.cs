@@ -53,6 +53,7 @@ namespace BreadWars
         HUDObjects vs;
         HUDObjects player1wins;
         HUDObjects player2wins;
+        HUDObjects help;
         Texture2D bGText;
         Texture2D testText;
         Texture2D backText;
@@ -62,6 +63,7 @@ namespace BreadWars
         Texture2D vsText;
         Texture2D win1Text;
         Texture2D win2Text;
+        Texture2D helpSplash;
         
         SpriteFont font;
 
@@ -127,6 +129,8 @@ namespace BreadWars
             background = new HUDObjects(bGText, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
             testText = Content.Load<Texture2D>("introscreenTemp");
             introTest = new HUDObjects(testText, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
+            helpSplash = Content.Load<Texture2D>("helpScreen");
+            help = new HUDObjects(helpSplash, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
 
             //full screen cont.- pause screens
             pause1Text = Content.Load<Texture2D>("pausephase1");
@@ -216,7 +220,12 @@ namespace BreadWars
                         NewGame(deckFiles[0]);
                         state = GameState.Game;
                         
-                    }if(mState.Position == new Point(0,0)) //change pos, for credits
+                    }
+                    else if(kState.IsKeyDown(Keys.H)|| kState.IsKeyDown(Keys.F1))
+                    {
+                        state = GameState.Help;
+                    }
+                    if (mState.Position == new Point(0,0)) //change pos, for credits
                     {
                         state = GameState.Credits;
                     }
@@ -358,6 +367,9 @@ namespace BreadWars
                     //}
                     break;
                 case GameState.Help:
+                    {
+                        help.DrawStatic(spriteBatch);
+                    }
                     break;
                 case GameState.Credits:
                     break;
