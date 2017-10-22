@@ -382,7 +382,7 @@ namespace BreadWars
                             //draw all cards in a loop
                             for (int i = 0; i <player1.Hand.Count; i++)
                             {
-                                player1.Hand[i].DrawStatic(spriteBatch);
+                                player1.Hand[i].DrawStatic(spriteBatch, font);
                             }
                             for (int i = 0; i < 5; i++)
                             {
@@ -394,7 +394,7 @@ namespace BreadWars
                             //draw all cards in a loop
                             for (int i = 0; i < player2.Hand.Count; i++)
                             {
-                                player2.Hand[i].DrawStatic(spriteBatch);
+                                player2.Hand[i].DrawStatic(spriteBatch, font);
                             }
                             for (int i = 0; i < 5; i++)
                             {
@@ -420,7 +420,7 @@ namespace BreadWars
                             for (int i = 0; i < cardsInPlay.Length; i++)
                             {
                                 cardsInPlay[i].Posit = resultCardPos[i];
-                                cardsInPlay[i].DrawStatic(spriteBatch);
+                                cardsInPlay[i].DrawStatic(spriteBatch, font);
                             }
                             vs.DrawStatic(spriteBatch);
                             if (winPlayer == 1)
