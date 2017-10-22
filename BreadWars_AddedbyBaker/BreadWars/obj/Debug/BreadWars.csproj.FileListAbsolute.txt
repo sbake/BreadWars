@@ -160,5 +160,7 @@ C:\Users\sbake\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\Deskt
 C:\Users\sbake\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\bgCuteTemp.xnb
 C:\Users\sbake\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\introscreenTemp.xnb
 C:\Users\sbake\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\testnumbers14020.xnb
-C:\Users\medinarc\source\repos\BreadWars\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\bgCuteTemp.xnb
-C:\Users\medinarc\source\repos\BreadWars\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\introscreenTemp.xnb
+C:\Users\sbake\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\tempCard.xnb
+C:\Users\sbake\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\pausephase1.xnb
+C:\Users\sbake\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\pausephase2.xnb
+C:\Users\sbake\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\pausephaseBlank.xnb

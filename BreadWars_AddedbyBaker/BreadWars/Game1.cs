@@ -32,21 +32,29 @@ namespace BreadWars
         Card[] cardsInPlay = new Card[2];
 
         //drawing cards
-        static int cardDepth = 350;
-        static int backCardDepth = 100;
-        static int cardWidth = 50;
-        static int cardHeight = 75;
-        Rectangle[] cardPos = { new Rectangle(100, cardDepth, cardWidth, cardHeight), new Rectangle(200, cardDepth, cardWidth, cardHeight), new Rectangle(300, cardDepth, cardWidth, cardHeight), new Rectangle(400, cardDepth, cardWidth, cardHeight), new Rectangle(500, cardDepth, cardWidth, cardHeight) };
-        Rectangle[] backCardPos = { new Rectangle(100, backCardDepth, cardWidth, cardHeight), new Rectangle(200, backCardDepth, cardWidth, cardHeight), new Rectangle(300, backCardDepth, cardWidth, cardHeight), new Rectangle(400, backCardDepth, cardWidth, cardHeight), new Rectangle(500, backCardDepth, cardWidth, cardHeight) };
+        static int cardDepth = 300;
+        static int backCardDepth = 50;
+        static int resultCardDepth = 165;
+        static int cardWidth = 100;
+        static int cardHeight = 150;
+        Rectangle[] cardPos = { new Rectangle(80, cardDepth, cardWidth, cardHeight), new Rectangle(200, cardDepth, cardWidth, cardHeight), new Rectangle(320, cardDepth, cardWidth, cardHeight), new Rectangle(440, cardDepth, cardWidth, cardHeight), new Rectangle(560, cardDepth, cardWidth, cardHeight) };
+        Rectangle[] backCardPos = { new Rectangle(80, backCardDepth, cardWidth, cardHeight), new Rectangle(200, backCardDepth, cardWidth, cardHeight), new Rectangle(320, backCardDepth, cardWidth, cardHeight), new Rectangle(440, backCardDepth, cardWidth, cardHeight), new Rectangle(560, backCardDepth, cardWidth, cardHeight) };
+        Rectangle[] resultCardPos = { new Rectangle(260, resultCardDepth, cardWidth, cardHeight), new Rectangle(440, resultCardDepth, cardWidth, cardHeight) };
         List<string> deckFiles= new List<string>(); //lists filenames for all decks
 
         //hudobject things
         HUDObjects background;
         HUDObjects introTest;
         HUDObjects backCard;
+        HUDObjects pause1;
+        HUDObjects pause2;
+        HUDObjects pause;
         Texture2D bGText;
         Texture2D testText;
         Texture2D backText;
+        Texture2D pause1Text;
+        Texture2D pause2Text;
+        Texture2D pauseText;
         SpriteFont font;
 
         //phase and game states
@@ -106,10 +114,21 @@ namespace BreadWars
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            //background images + full screen displays
             bGText = Content.Load<Texture2D>("bgCuteTemp");
             background = new HUDObjects(bGText, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
             testText = Content.Load<Texture2D>("introscreenTemp");
             introTest = new HUDObjects(testText, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
+
+            //full screen cont.- pause screens
+            pause1Text = Content.Load<Texture2D>("pausephase1");
+            pause1 = new HUDObjects(pause1Text, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
+            pause2Text = Content.Load<Texture2D>("pausephase2");
+            pause2 = new HUDObjects(pause2Text, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
+            pauseText = Content.Load<Texture2D>("pausephaseBlank");
+            pause = new HUDObjects(pauseText, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
+
+            //Card backs 
             backText = Content.Load<Texture2D>("backCard");
             backCard = new HUDObjects(backText, new Rectangle(0, 0, 0, 0));
 
@@ -118,7 +137,7 @@ namespace BreadWars
             cardText = new Texture2D[21];
             for (int i = 0; i < 21; i++)
             {
-                cardText[i] = Content.Load<Texture2D>("Card");
+                cardText[i] = Content.Load<Texture2D>("tempCard");
             }
             //numbers and deck
             numbers = new Drawable(Content.Load<Texture2D>("testnumbers14020"), new Rectangle(0, 0, 140, 20));
@@ -216,8 +235,8 @@ namespace BreadWars
                             {
                                 //assigning card positions
                                 player1.Hand[i].Posit = cardPos[i];
-
-                                if (cardPos[i].Contains(mState.Position))
+                                
+                                if (cardPos[i].Contains(mState.Position) && mState.LeftButton == ButtonState.Pressed)
                                 {
                                     cardsInPlay[0] = player1.Hand[i];
                                     prevPhase = currPhase;
@@ -232,7 +251,7 @@ namespace BreadWars
                                 //assigning card positions
                                 player2.Hand[i].Posit = cardPos[i];
 
-                                if (cardPos[i].Contains(mState.Position))
+                                if (cardPos[i].Contains(mState.Position) && mState.LeftButton == ButtonState.Pressed)
                                 {
                                     cardsInPlay[1] = player2.Hand[i];
                                     prevPhase = currPhase;
@@ -359,14 +378,22 @@ namespace BreadWars
                             switch (prevPhase)
                             {
                                 case Phase.Player1:
+                                    pause2.DrawStatic(spriteBatch);
                                     break;
                                 case Phase.Player2:
+                                    pause.DrawStatic(spriteBatch);
                                     break;
                                 case Phase.Results:
+                                    pause1.DrawStatic(spriteBatch);
                                     break;
                             }
                             break;
                         case Phase.Results:
+                            for (int i = 0; i < cardsInPlay.Length; i++)
+                            {
+                                cardsInPlay[i].Posit = resultCardPos[i];
+                                cardsInPlay[i].DrawStatic(spriteBatch);
+                            }
                             break;
                     }
                     break;
