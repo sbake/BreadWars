@@ -45,6 +45,7 @@ namespace BreadWars
         int cardsAdded;
         // int list
         List<int> cardsToAdd = new List<int>();
+
         public void HardcodeDeck()
         {
             cardsToAdd[0] = 3;
@@ -76,6 +77,8 @@ namespace BreadWars
         public void LoadDeck(string filename)
         {
             int[] cards = new int[41];
+            cardsToAdd.Clear();
+            count = 0;
             try
             {
                 // create the BinaryReader
@@ -96,16 +99,18 @@ namespace BreadWars
             }
             for (int i=0; i<cards.Length; i++)
             {
-                for(int j=0; j<cards[i]; j++)
-                {
-                    cardsToAdd.Add(i);
-                }
+                //for(int j=0; j<cards[i]; j++)
+                //{
+                    cardsToAdd.Add(cards[i]);
+                //}
             }
             PopulateDeck();
         }
 
         public void PopulateDeck()
         {
+            cardsAdded = 0;
+            library = new Card[52];
             for (int i = 0; i < cardsToAdd.Count; i ++)
             {
                      for (int j = 0; j < cardsToAdd[i]; j++)
@@ -135,115 +140,115 @@ namespace BreadWars
                           
                           */
 
-                         switch (i)
+                         switch (i/2)
                          {
 
-                             case 0: //0- Thief
-                            Thief th = new Thief(cardTexts[i], empty, false, numbers);
+                            case 0: //0- Thief
+                            Thief th = new Thief(cardTexts[0], empty, i!=0, numbers);
                             library[cardsAdded] = th;
                             cardsAdded++;
                             break;
                              case 1: //1- Table flip
-                            TableFlip tf = new TableFlip(cardTexts[i], empty, false, numbers);
+                            TableFlip tf = new TableFlip(cardTexts[1], empty, i!=1, numbers);
                             library[cardsAdded] = tf;
                             cardsAdded++;
                             break;
                              case 2: //2- Stab
-                            Stab s = new Stab(cardTexts[i], empty, false, numbers);
+                            Stab s = new Stab(cardTexts[2], empty, i!=2, numbers);
                             library[cardsAdded] = s;
                             cardsAdded++;
                             break;
                              case 3: //3- Glue Gun
-                            GlueGun gg = new GlueGun(cardTexts[i], empty, false, numbers);
+                            GlueGun gg = new GlueGun(cardTexts[3], empty, i!=3, numbers);
                             library[cardsAdded] = gg;
                             cardsAdded++;
                             break;
                              case 4: //4- Zombie
-                             Zombie z = new Zombie(cardTexts[i], empty, false, numbers);
+                             Zombie z = new Zombie(cardTexts[4], empty, i!=4, numbers);
                             library[cardsAdded] = z;
                             cardsAdded++;
                             break;
                              case 5: //5- Jam
-                            Jam ja = new Jam(cardTexts[i], empty, false, numbers);
+                            Jam ja = new Jam(cardTexts[5], empty, i!=5, numbers);
                             library[cardsAdded] = ja;
                             cardsAdded++;
                             break;
                              case 6: //6- Save For Later
-                            SaveForLater sl = new SaveForLater(cardTexts[i], empty, false, numbers);
+                            SaveForLater sl = new SaveForLater(cardTexts[6], empty, i!=6, numbers);
                             library[cardsAdded] = sl;
                             cardsAdded++;
                             break;
                              case 7: //7- Octopus
-                            Octopus o = new Octopus(cardTexts[i], empty, false, numbers);
+                            Octopus o = new Octopus(cardTexts[7], empty, i!=7, numbers);
                             library[cardsAdded] = o;
                             cardsAdded++;
                             break;
                              case 8: //8 Punch
-                            Punch p = new Punch(cardTexts[i], empty, false, numbers);
+                            Punch p = new Punch(cardTexts[8], empty, i!=8, numbers);
                             library[cardsAdded] = p;
                             cardsAdded++;
                             break;
                              case 9: //poison
-                            Poison po = new Poison(cardTexts[i], empty, false, numbers);
+                            Poison po = new Poison(cardTexts[9], empty, i!=9, numbers);
                             library[cardsAdded] = po;
                             cardsAdded++;
                             break;
                              case 10: //faire bread
-                            FaireBread fb = new FaireBread(cardTexts[i], empty, false, numbers);
+                            FaireBread fb = new FaireBread(cardTexts[10], empty, i!=10, numbers);
                             library[cardsAdded] = fb;
                             cardsAdded++;
                             break;
                              case 11: //tazer
-                            Tazer ta = new Tazer(cardTexts[i], empty, false, numbers);
+                            Tazer ta = new Tazer(cardTexts[11], empty, i!=11, numbers);
                             library[cardsAdded] = ta;
                             cardsAdded++;
                             break;
                              case 12: //hand switch
-                            HandSwitch hs = new HandSwitch(cardTexts[i], empty, false, numbers);
+                            HandSwitch hs = new HandSwitch(cardTexts[12], empty, i!=12, numbers);
                             library[cardsAdded] = hs;
                             cardsAdded++;
                             break;
                              case 13: //telepathy
-                            Telepathy te = new Telepathy(cardTexts[i], empty, false, numbers);
+                            Telepathy te = new Telepathy(cardTexts[13], empty, i!=13, numbers);
                             library[cardsAdded] = te;
                             cardsAdded++;
                             break;
                              case 14: //block
-                            Block bl = new Block(cardTexts[i], empty, false, numbers);
+                            Block bl = new Block(cardTexts[14], empty, i!=14, numbers);
                             library[cardsAdded] = bl;
                             cardsAdded++;
                             break;
                              case 15: //whale
-                            Whale wh = new Whale(cardTexts[i], empty, false, numbers);
+                            Whale wh = new Whale(cardTexts[15], empty, i!=15, numbers);
                             library[cardsAdded] = wh;
                             cardsAdded++;
                             break;
                              case 16: //banker
-                            Banker b = new Banker(cardTexts[i], empty, false, numbers);
+                            Banker b = new Banker(cardTexts[16], empty, i!=16, numbers);
                             library[cardsAdded] = b;
                             cardsAdded++;
                             break;
                              case 17: //fire
-                            Fire fi = new Fire(cardTexts[i], empty, false, numbers);
+                            Fire fi = new Fire(cardTexts[17], empty, i!=17, numbers);
                             library[cardsAdded] = fi;
                             cardsAdded++;
                             break;
                              case 18: //unicorn
-                            Unicorn u = new Unicorn(cardTexts[i], empty, false, numbers);
+                            Unicorn u = new Unicorn(cardTexts[18], empty, i!=18, numbers);
                             library[cardsAdded] = u;
                             cardsAdded++;
                             break;
                              case 19: //confetti
-                            Confetti c = new Confetti(cardTexts[i], empty, false, numbers);
+                            Confetti c = new Confetti(cardTexts[19], empty, i!=19, numbers);
                             library[cardsAdded] = c;
                             cardsAdded++;
                             break;
                              case 20: //numbject to change
-                            NumjectToChange nj = new NumjectToChange(cardTexts[i], empty, false, numbers);
+                            NumjectToChange nj = new NumjectToChange(cardTexts[20], empty, false, numbers);
                             library[cardsAdded] = nj;
                             cardsAdded++;
                             break;
-                             default:
+                            default:
                                  break;
                          }
                      }        

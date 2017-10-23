@@ -40,9 +40,9 @@ namespace BreadWars
             if(cardPlayed.isActive )
             {
                 if (playerNum == 1)
-                    cardPlayed.Effect(players[1], players[2],deck);
+                    cardPlayed.Effect(players[0], players[1],deck);
                 if (playerNum == 2)
-                    cardPlayed.Effect(players[2], players[1], deck);
+                    cardPlayed.Effect(players[1], players[0], deck);
             }
         }
     }
