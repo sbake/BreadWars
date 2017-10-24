@@ -35,6 +35,8 @@ namespace BreadWars
         public bool IsParalyzed { get => isParalyzed; set => isParalyzed = value; }
         private int paralyzeCount;
         public int ParalyzeCount { set => paralyzeCount = value; }
+        private bool isAI;
+        public bool IsAI{get=>isAI; set=>isAI=value;}
 
         Random r;
 
@@ -50,12 +52,12 @@ namespace BreadWars
 
         public void PlayTurn(Card[] cardsToPlay, int cardIndex)
         {
-            if (isParalyzed)
+            if (isAI || isParalyzed)
             {
                 int cIndex = r.Next(0, hand.Count);
                 cardsToPlay[playerNumber] = hand[cIndex];
                 hand.Remove(hand[cIndex]);
-                paralyzeCount--;
+                if(!isAI)paralyzeCount--;
                 if (paralyzeCount == 0) isParalyzed = false;
                 return;
             }

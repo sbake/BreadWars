@@ -9,12 +9,10 @@ If you need help with navigating and using these tools please contact @keh1217 a
 
 
 notes:
-need to call update somewhere on numject to change
-need a player update to deal with poison effects
-gluegun and textures
+need to call update somewhere on numject to change //round in player updat
+need a player update to deal with poison effects //round
 save for later -> extra variable?
 table flip -> how know if win?
-check is8 for all
 confetti access drawing
 banker/save for later extra clicking
 zombie ->store last card played
