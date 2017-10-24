@@ -14,6 +14,7 @@ namespace BreadWars
         
         //value
         protected int value;
+        protected string description;
         public int Value
         {
             get { return value; }
