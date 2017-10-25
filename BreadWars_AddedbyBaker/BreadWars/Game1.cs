@@ -161,7 +161,7 @@ namespace BreadWars
             cardText = new Texture2D[21];
             for (int i = 0; i < 21; i++)
             {
-                cardText[i] = Content.Load<Texture2D>("tempCard");
+                cardText[i] = Content.Load<Texture2D>("cards/card"+ (i+1));
             }
             //numbers and deck
             numbers = new Drawable(Content.Load<Texture2D>("testnumbers14020"), new Rectangle(0, 0, 140, 20));
