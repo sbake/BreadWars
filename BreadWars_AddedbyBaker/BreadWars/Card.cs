@@ -100,7 +100,7 @@ namespace BreadWars
                 }
                 */
                 //draw numbers with spritefont instead
-                spriteBatch.DrawString(font, "" + value + (isActive? " Special": ""), new Vector2(posit.X, posit.Y), Color.Black);
+                spriteBatch.DrawString(font, "" + value +(isActive? " " + Name : ""), new Vector2(posit.X, posit.Y), Color.Black);
             }
         }
     }
