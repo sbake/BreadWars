@@ -34,7 +34,7 @@ public class FaireBread: Card
             }
             foreach(Card c in deck.Library)
             {
-                c.isActive = !c.isActive;
+                if(c!=null)c.isActive = !c.isActive;
             }
             //need to do save for laters as well
 

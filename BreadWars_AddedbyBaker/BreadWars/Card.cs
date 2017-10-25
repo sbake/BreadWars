@@ -66,7 +66,7 @@ namespace BreadWars
             if(isActive){
                 Random r = new Random();
                 for(int i=r.Next(0,51); i<52; i++){
-                    deck.Library[i].Is8 = true;
+                    if(deck.Library[i]!=null)deck.Library[i].Is8 = true;
                     i+= r.Next(0, 20);
                 }
             }
