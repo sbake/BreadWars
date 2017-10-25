@@ -39,6 +39,20 @@ namespace BreadWars
             return toReturn;
         }
 
+
+        public void Shuffle()
+        {
+            List<Card> temp = library.ToList<Card>();
+            Random rgen = new Random();
+            library = new Card[52];
+            for (int i = 0; i <= temp.Count; i++)
+            {
+                Card tempCard  = temp[rgen.Next(temp.Count)];
+                library[i] = tempCard;
+                temp.Remove(tempCard);
+            }
+        }
+
         //completely random deck stuff for testing
         //@kyle, if you need to discard this to make sync, please copy and paste the back up I'll put in google docs, or let me know so I can. Thanks.
         //you may want to adjust populate to read files, if you don't already have a populator
