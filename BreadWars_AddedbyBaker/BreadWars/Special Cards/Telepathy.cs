@@ -13,6 +13,7 @@ public class Telepathy : Card
     public Telepathy(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers) : base(pTexr, pPosit, active, pNumbers)
         {
             value = 14;
+            Name = "Telepathy";
     }
 
         public override void Effect(Player opponent, Player self, Deck deck)

@@ -18,7 +18,7 @@ namespace BreadWars
         public int Value
         {
             get { return value; }
-            set { value = this.value; } //too late to change value name? value is already the name of a thing in C#
+            set { this.value = value; } //too late to change value name? value is already the name of a thing in C#
         }
 
         public string Name { get; set; }
