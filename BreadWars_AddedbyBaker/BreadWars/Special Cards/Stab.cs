@@ -19,7 +19,12 @@ public class Stab : Card
 
     public override void Effect(Player opponent, Player self, Deck deck)
     {
-        if (isActive) opponent.AlterHealth(-STAB_DAMAGE);
+            if (this.is8)
+            {
+                base.Effect(opponent, self, deck);
+                return;
+            }
+            if (isActive) opponent.AlterHealth(-STAB_DAMAGE);
     }
 }
     }

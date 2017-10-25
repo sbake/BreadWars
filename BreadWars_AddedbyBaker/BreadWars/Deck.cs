@@ -224,7 +224,7 @@ namespace BreadWars
                             cardsAdded++;
                             break;
                              case 16: //banker
-                            Banker b = new Banker(cardTexts[16], empty, i!=16, numbers);
+                            SelfDestruct b = new SelfDestruct(cardTexts[16], empty, i!=16, numbers);
                             library[cardsAdded] = b;
                             cardsAdded++;
                             break;

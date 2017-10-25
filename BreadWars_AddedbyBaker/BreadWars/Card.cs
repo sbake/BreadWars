@@ -21,7 +21,7 @@ namespace BreadWars
             set { value = this.value; } //too late to change value name? value is already the name of a thing in C#
         }
 
-        protected string Name { get; set; }
+        public string Name { get; set; }
 
         //dimensions
         const int WIDTH = 20;
@@ -38,15 +38,15 @@ namespace BreadWars
         }
         
         //isBurned
-        private bool isBurned;
+        protected bool isBurned;
         public bool IsBurned{get{return isBurned;} set{isActive = value;}}
 
         //is8
-        private bool is8;
+        protected bool is8;
         public bool Is8{get{return is8;} set{is8 = value;}}
 
         //is unicorn
-        private bool isUnicorn;
+        protected bool isUnicorn;
         public bool IsUnicorn { get { return isUnicorn; } set { isUnicorn = value; } }
 
         //constructor

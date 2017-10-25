@@ -34,7 +34,11 @@ public class NumjectToChange : Card
 
         public override void Effect(Player opponent, Player self, Deck deck)
         {
-            //don't do anything!
+            if (this.is8)
+            {
+                base.Effect(opponent, self, deck);
+                return;
+            }
         }
     }
     }

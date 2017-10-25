@@ -18,7 +18,12 @@ public class Block : Card
 
     public override void Effect(Player opponent, Player self, Deck deck)
     {
-        if(isActive)self.HasBlock = true;
+            if (this.is8)
+            {
+                base.Effect(opponent, self, deck);
+                return;
+            }
+            if (isActive)self.HasBlock = true;
     }
 }
 }

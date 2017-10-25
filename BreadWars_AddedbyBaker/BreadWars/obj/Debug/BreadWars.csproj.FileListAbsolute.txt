@@ -277,3 +277,13 @@ Z:\IGMProfile\Documents\GitHub\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\De
 Z:\IGMProfile\Documents\GitHub\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\BreadWars.exe
 Z:\IGMProfile\Documents\GitHub\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\BreadWars.pdb
 Z:\IGMProfile\Documents\GitHub\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\MonoGame.Framework.dll
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\Arial.xnb
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\bgCuteTemp.xnb
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\introscreenTemp.xnb
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\pausephase1.xnb
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\pausephase2.xnb
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\pausephaseBlank.xnb
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\player1wins.xnb
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\player2wins.xnb
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\tempCard.xnb
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\vs.xnb

@@ -19,7 +19,12 @@ public class HandSwitch : Card
 
     public override void Effect(Player opponent, Player self, Deck deck)
     {
-        if (isActive)
+            if (this.is8)
+            {
+                base.Effect(opponent, self, deck);
+                return;
+            }
+            if (isActive)
         {
                 //change players' hands
             List<Card> hand1 = opponent.Hand;

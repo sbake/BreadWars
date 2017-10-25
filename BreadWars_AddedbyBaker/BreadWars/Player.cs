@@ -9,8 +9,9 @@ namespace BreadWars
 {
     public class Player
     {
-        public const int PLAYER_MAX_HEALTH = 50;
+        public const int PLAYER_MAX_HEALTH = 100;
         const int PLAYER_START_HEALTH = 25;
+        const int POISON_DAMAGE = 5;
 
         //number
         private byte playerNumber;
@@ -37,6 +38,11 @@ namespace BreadWars
         public int ParalyzeCount { set => paralyzeCount = value; }
         private bool isAI;
         public bool IsAI{get=>isAI; set=>isAI=value;}
+        private int untilDestruct;
+        public int UntilDestruct { set => untilDestruct = value; }
+        private bool isDestruct;
+        public bool IsDestruct { set => isDestruct = value; }
+
 
         Random r;
 
@@ -55,13 +61,13 @@ namespace BreadWars
             if (isAI || isParalyzed)
             {
                 int cIndex = r.Next(0, hand.Count);
-                cardsToPlay[playerNumber] = hand[cIndex];
+                cardsToPlay[playerNumber-1] = hand[cIndex];
                 hand.Remove(hand[cIndex]);
                 if(!isAI)paralyzeCount--;
                 if (paralyzeCount == 0) isParalyzed = false;
                 return;
             }
-            cardsToPlay[playerNumber] = hand[cardIndex];
+            cardsToPlay[playerNumber-1] = hand[cardIndex];
             hand.Remove(hand[cardIndex]);
 
         }
@@ -69,6 +75,30 @@ namespace BreadWars
         public void AlterHealth(int toChange)
         {
             playerCurrentHealth += toChange;
+        }
+
+        /// <summary>
+        /// Updates all status of this player. Must be called once each round
+        /// </summary>
+        /// <param name="opponent"></param>
+        public void Update(Player opponent)
+        {
+            if (isPoisoned)
+            {
+                AlterHealth(-POISON_DAMAGE);
+            }
+            if (isDestruct)
+            {
+                untilDestruct--;
+                if (untilDestruct == 0) playerCurrentHealth = 0;
+            }
+            foreach(Card c in hand)
+            {
+                if(c.Name=="Numject to Change")
+                {
+                    ((NumjectToChange)c).ChangeValue(opponent);
+                }
+            }
         }
 
         public void ResetHealth()
