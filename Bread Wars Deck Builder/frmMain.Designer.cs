@@ -29,13 +29,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.clbCards = new System.Windows.Forms.CheckedListBox();
+            this.clbCards = new System.Windows.Forms.ListBox();
             this.btnApply = new System.Windows.Forms.Button();
             this.tbCardNum = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnDone = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -43,6 +43,7 @@
             this.btnLoad = new System.Windows.Forms.Button();
             this.tbFilename = new System.Windows.Forms.TextBox();
             this.btnHelp = new System.Windows.Forms.Button();
+            this.btnNew = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // clbCards
@@ -140,15 +141,15 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Create your own deck";
             // 
-            // btnDone
+            // btnSave
             // 
-            this.btnDone.Location = new System.Drawing.Point(366, 529);
-            this.btnDone.Name = "btnDone";
-            this.btnDone.Size = new System.Drawing.Size(75, 23);
-            this.btnDone.TabIndex = 6;
-            this.btnDone.Text = "Done";
-            this.btnDone.UseVisualStyleBackColor = true;
-            this.btnDone.Click += new System.EventHandler(this.DoneClick);
+            this.btnSave.Location = new System.Drawing.Point(366, 529);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 6;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.DoneClick);
             // 
             // label4
             // 
@@ -212,11 +213,22 @@
             this.btnHelp.UseVisualStyleBackColor = true;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
+            // btnNew
+            // 
+            this.btnNew.Location = new System.Drawing.Point(129, 390);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(75, 23);
+            this.btnNew.TabIndex = 14;
+            this.btnNew.Text = "New Deck";
+            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 571);
+            this.Controls.Add(this.btnNew);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.tbFilename);
             this.Controls.Add(this.btnLoad);
@@ -224,7 +236,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.btnDone);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -240,13 +252,13 @@
 
         #endregion
 
-        private System.Windows.Forms.CheckedListBox clbCards;
+        private System.Windows.Forms.ListBox clbCards;
         private System.Windows.Forms.Button btnApply;
         private System.Windows.Forms.TextBox tbCardNum;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnDone;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -254,5 +266,6 @@
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.TextBox tbFilename;
         private System.Windows.Forms.Button btnHelp;
+        private System.Windows.Forms.Button btnNew;
     }
 }
