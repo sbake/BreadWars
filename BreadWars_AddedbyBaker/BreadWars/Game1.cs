@@ -54,6 +54,9 @@ namespace BreadWars
         HUDObjects player1wins;
         HUDObjects player2wins;
         HUDObjects help;
+        //HUDObjects p1Health;
+        //HUDObjects p2Health;
+        //HUDObjects deckVisual;
         Texture2D bGText;
         Texture2D testText;
         Texture2D backText;
