@@ -1,6 +1,6 @@
 ﻿namespace Bread_Wars_Deck_Builder
 {
-    partial class Form2
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -42,6 +42,7 @@
             this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnHelp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // checkedListBox1
@@ -201,11 +202,22 @@
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 12;
             // 
-            // Form2
+            // btnHelp
+            // 
+            this.btnHelp.Location = new System.Drawing.Point(366, 502);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(75, 23);
+            this.btnHelp.TabIndex = 13;
+            this.btnHelp.Text = "Help";
+            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
+            // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 571);
+            this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.checkedListBox2);
@@ -219,7 +231,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.checkedListBox1);
-            this.Name = "Form2";
+            this.Name = "frmMain";
             this.Text = "Form2";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -241,5 +253,6 @@
         private System.Windows.Forms.CheckedListBox checkedListBox2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btnHelp;
     }
 }

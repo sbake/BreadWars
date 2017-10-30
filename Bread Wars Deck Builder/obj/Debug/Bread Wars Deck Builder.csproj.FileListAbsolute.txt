@@ -96,3 +96,21 @@ Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread
 Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csproj.GenerateResource.Cache
 Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.exe
 Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.pdb
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\MonoGame.Framework.dll
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XAudio2.dll
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.dll
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.DXGI.dll
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct3D11.dll
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct2D1.dll
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XInput.dll
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.MediaFoundation.dll
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\MonoGame.Framework.xml
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XAudio2.xml
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.xml
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.DXGI.xml
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct3D11.xml
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct2D1.xml
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XInput.xml
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.MediaFoundation.xml
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csproj.Bread Wars Deck Builder.exe.config
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.frmHelp.resources

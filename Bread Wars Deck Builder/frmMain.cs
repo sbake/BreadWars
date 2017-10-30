@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Bread_Wars_Deck_Builder
 {
-    public partial class Form2 : Form
+    public partial class frmMain : Form
     {
         //array possible cards (names, both normal and special)
         private string[] cards = new string[] {
@@ -61,7 +61,7 @@ namespace Bread_Wars_Deck_Builder
         private int sumCards; //total number cards in deck, should be 52
 
 
-        public Form2()
+        public frmMain()
         {
             InitializeComponent();
             string[] allFiles = Directory.GetFiles("."); //get all files in directory;
@@ -176,7 +176,7 @@ namespace Bread_Wars_Deck_Builder
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Form2 f2 = new Form2();
+            frmMain f2 = new frmMain();
             Application.Run(f2);
         }
 
@@ -186,6 +186,13 @@ namespace Bread_Wars_Deck_Builder
             //otherwise read from default file
             if (checkedListBox2.SelectedItems.Count == 1) ReadFile((string)checkedListBox2.SelectedItem);
             else ReadFile("1.dat");
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            frmHelp fhelp = new frmHelp();
+
+            fhelp.Show();
         }
     }
 }
