@@ -70,10 +70,10 @@ namespace Bread_Wars_Deck_Builder
                 if (f.Contains(".dat")) files.Add(f.Substring(2, f.Length-6));
             }
             //set options on form correctly
-            this.checkedListBox1.Items.Clear();
-            this.checkedListBox2.Items.Clear();
-            this.checkedListBox1.Items.AddRange(cards);
-            this.checkedListBox2.Items.AddRange(files.ToArray());
+            this.clbCards.Items.Clear();
+            this.clbDecks.Items.Clear();
+            this.clbCards.Items.AddRange(cards);
+            this.clbDecks.Items.AddRange(files.ToArray());
             //initialize attributes
             numberCards = new int[cards.Length];
             sumCards = 0;
@@ -112,7 +112,7 @@ namespace Bread_Wars_Deck_Builder
             }
             catch (IOException ioe)
             {
-                Console.WriteLine("Error creating " + filename +": " + ioe.Message);
+                MessageBox.Show("Error creating file: ", ioe.Message, MessageBoxButtons.OKCancel);
             }
             
         }
@@ -131,7 +131,7 @@ namespace Bread_Wars_Deck_Builder
                 {
                     input.ReadString(); //read name of card
                     numberCards[i] = input.ReadInt32(); //save number of the card
-                    checkedListBox1.Items[i] = cards[i] + " " + numberCards[i]; //update display on form
+                    clbCards.Items[i] = cards[i] + " " + numberCards[i]; //update display on form
                     sumCards += numberCards[i]; //edit overal number of cards in deck
                 }
                 label6.Text = sumCards.ToString(); //display to form number of cards in deck
@@ -140,7 +140,7 @@ namespace Bread_Wars_Deck_Builder
             }
             catch (IOException ioe)
             {
-                Console.WriteLine("error reading binary.dat: " + ioe.Message);
+                MessageBox.Show("Error reading file: ", ioe.Message, MessageBoxButtons.OKCancel);
             }
 
         }
@@ -148,15 +148,15 @@ namespace Bread_Wars_Deck_Builder
         private void ApplyClick(object sender, EventArgs e)
         {
             int value = 0;
-            try { value = int.Parse(textBox1.Text); } catch { } //only function if user input an int value
+            try { value = int.Parse(tbCardNum.Text); } catch { } //only function if user input an int value
             
             //update number of cards as specified by user
-            foreach (int indexChecked in checkedListBox1.CheckedIndices)
+            foreach (int indexChecked in clbCards.CheckedIndices)
             {
                 if ((numberCards[indexChecked] + value) < 0) continue; //cards cannot have negative amount
                 numberCards[indexChecked] += value;
                 sumCards += value;
-                checkedListBox1.Items[indexChecked] = cards[indexChecked] + " " + numberCards[indexChecked];//write on form number of card 
+                clbCards.Items[indexChecked] = cards[indexChecked] + " " + numberCards[indexChecked];//write on form number of card 
             }
 
             label6.Text = sumCards.ToString(); //write to form total number cards on deck
@@ -165,9 +165,9 @@ namespace Bread_Wars_Deck_Builder
 
         private void DoneClick(object sender, EventArgs e)
         {
-                if (sumCards == 52 && textBox2.Text!= "") //if the deck is full then save to file
+                if (sumCards == 52 && tbFilename.Text!= "") //if the deck is full then save to file
                 {
-                    WriteFile(textBox2.Text);
+                    WriteFile(tbFilename.Text);
                 }
             
         }
@@ -184,8 +184,11 @@ namespace Bread_Wars_Deck_Builder
         {
             //if there is one specified file to read from , read from that file
             //otherwise read from default file
-            if (checkedListBox2.SelectedItems.Count == 1) ReadFile((string)checkedListBox2.SelectedItem);
-            else ReadFile("1.dat");
+            if (clbDecks.SelectedItems.Count == 1)
+            {
+                ReadFile((string)clbDecks.SelectedItem);
+            }
+            
         }
 
         private void btnHelp_Click(object sender, EventArgs e)

@@ -29,26 +29,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.clbCards = new System.Windows.Forms.CheckedListBox();
+            this.btnApply = new System.Windows.Forms.Button();
+            this.tbCardNum = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnDone = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.clbDecks = new System.Windows.Forms.CheckedListBox();
+            this.btnLoad = new System.Windows.Forms.Button();
+            this.tbFilename = new System.Windows.Forms.TextBox();
             this.btnHelp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // checkedListBox1
+            // clbCards
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
+            this.clbCards.FormattingEnabled = true;
+            this.clbCards.Items.AddRange(new object[] {
             "thief",
             "thief special",
             "table flip",
@@ -90,27 +90,27 @@
             "Confetti",
             "confetti special",
             "Numject to Change"});
-            this.checkedListBox1.Location = new System.Drawing.Point(482, 22);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(477, 529);
-            this.checkedListBox1.TabIndex = 0;
+            this.clbCards.Location = new System.Drawing.Point(482, 22);
+            this.clbCards.Name = "clbCards";
+            this.clbCards.Size = new System.Drawing.Size(477, 529);
+            this.clbCards.TabIndex = 0;
             // 
-            // button1
+            // btnApply
             // 
-            this.button1.Location = new System.Drawing.Point(175, 457);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(76, 28);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "apply";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.ApplyClick);
+            this.btnApply.Location = new System.Drawing.Point(175, 457);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(76, 28);
+            this.btnApply.TabIndex = 1;
+            this.btnApply.Text = "apply";
+            this.btnApply.UseVisualStyleBackColor = true;
+            this.btnApply.Click += new System.EventHandler(this.ApplyClick);
             // 
-            // textBox1
+            // tbCardNum
             // 
-            this.textBox1.Location = new System.Drawing.Point(97, 462);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(72, 20);
-            this.textBox1.TabIndex = 2;
+            this.tbCardNum.Location = new System.Drawing.Point(97, 462);
+            this.tbCardNum.Name = "tbCardNum";
+            this.tbCardNum.Size = new System.Drawing.Size(72, 20);
+            this.tbCardNum.TabIndex = 2;
             // 
             // label1
             // 
@@ -140,15 +140,15 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Create your own deck";
             // 
-            // button2
+            // btnDone
             // 
-            this.button2.Location = new System.Drawing.Point(366, 529);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Done";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.DoneClick);
+            this.btnDone.Location = new System.Drawing.Point(366, 529);
+            this.btnDone.Name = "btnDone";
+            this.btnDone.Size = new System.Drawing.Size(75, 23);
+            this.btnDone.TabIndex = 6;
+            this.btnDone.Text = "Done";
+            this.btnDone.UseVisualStyleBackColor = true;
+            this.btnDone.Click += new System.EventHandler(this.DoneClick);
             // 
             // label4
             // 
@@ -177,30 +177,30 @@
             this.label6.TabIndex = 9;
             this.label6.Text = "0";
             // 
-            // checkedListBox2
+            // clbDecks
             // 
-            this.checkedListBox2.FormattingEnabled = true;
-            this.checkedListBox2.Location = new System.Drawing.Point(15, 48);
-            this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(445, 274);
-            this.checkedListBox2.TabIndex = 10;
+            this.clbDecks.FormattingEnabled = true;
+            this.clbDecks.Location = new System.Drawing.Point(15, 48);
+            this.clbDecks.Name = "clbDecks";
+            this.clbDecks.Size = new System.Drawing.Size(445, 274);
+            this.clbDecks.TabIndex = 10;
             // 
-            // button3
+            // btnLoad
             // 
-            this.button3.Location = new System.Drawing.Point(326, 343);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Load file";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.LoadClick);
+            this.btnLoad.Location = new System.Drawing.Point(326, 343);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(75, 23);
+            this.btnLoad.TabIndex = 11;
+            this.btnLoad.Text = "Load file";
+            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.LoadClick);
             // 
-            // textBox2
+            // tbFilename
             // 
-            this.textBox2.Location = new System.Drawing.Point(260, 531);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 12;
+            this.tbFilename.Location = new System.Drawing.Point(260, 531);
+            this.tbFilename.Name = "tbFilename";
+            this.tbFilename.Size = new System.Drawing.Size(100, 20);
+            this.tbFilename.TabIndex = 12;
             // 
             // btnHelp
             // 
@@ -218,19 +218,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 571);
             this.Controls.Add(this.btnHelp);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.checkedListBox2);
+            this.Controls.Add(this.tbFilename);
+            this.Controls.Add(this.btnLoad);
+            this.Controls.Add(this.clbDecks);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnDone);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.checkedListBox1);
+            this.Controls.Add(this.tbCardNum);
+            this.Controls.Add(this.btnApply);
+            this.Controls.Add(this.clbCards);
             this.Name = "frmMain";
             this.Text = "Form2";
             this.ResumeLayout(false);
@@ -240,19 +240,19 @@
 
         #endregion
 
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.CheckedListBox clbCards;
+        private System.Windows.Forms.Button btnApply;
+        private System.Windows.Forms.TextBox tbCardNum;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnDone;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.CheckedListBox checkedListBox2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.CheckedListBox clbDecks;
+        private System.Windows.Forms.Button btnLoad;
+        private System.Windows.Forms.TextBox tbFilename;
         private System.Windows.Forms.Button btnHelp;
     }
 }
