@@ -59,9 +59,14 @@ namespace BreadWars
         HUDObjects player1wins;
         HUDObjects player2wins;
         HUDObjects help;
+        HUDObjects toaster1;
+        HUDObjects toasterNib1;
+        HUDObjects toaster2;
+        HUDObjects toasterNib2;
         //HUDObjects p1Health;
         //HUDObjects p2Health;
         //HUDObjects deckVisual;
+        //new phone who dis^^?
         Texture2D bGText;
         Texture2D testText;
         Texture2D backText;
@@ -72,8 +77,18 @@ namespace BreadWars
         Texture2D win1Text;
         Texture2D win2Text;
         Texture2D helpSplash;
+        Texture2D toasterText;
+        Texture2D nibText;
         Texture2D button;
-        
+
+        //health things
+        //room from top to bottom for toaster nib to move
+        const double tHDif = 65;
+        //solved location, solved in update, used in draw
+        int toastNib1Y;
+        int toastNib2Y;
+
+
         SpriteFont font;
 
         //phase and game states
@@ -167,6 +182,15 @@ namespace BreadWars
             //Card backs 
             backText = Content.Load<Texture2D>("backCard");
             backCard = new HUDObjects(backText, new Rectangle(0, 0, 0, 0));
+
+            //Health Assets
+            nibText = Content.Load<Texture2D>("toasternib");
+            toasterNib1 = new HUDObjects(nibText, new Rectangle(16, 0, 20, 10));
+            toasterNib2 = new HUDObjects(nibText, new Rectangle(16, 0, 20, 10));
+            toasterText = Content.Load<Texture2D>("toaster");
+            toaster1 = new HUDObjects(toasterText, new Rectangle(0, 100, 40, 100));
+            toaster2 = new HUDObjects(toasterText, new Rectangle(0, 300, 40, 100));
+
 
             font = Content.Load<SpriteFont>("Arial");
 
@@ -286,6 +310,10 @@ namespace BreadWars
                     {
                         case Phase.Player1:
                             resultCalculated = false;
+                            //toasterNib position
+                            toastNib1Y = System.Convert.ToInt32(125 + ((tHDif / Player.PLAYER_MAX_HEALTH) * player1.Health));
+                            toastNib2Y = System.Convert.ToInt32(325 + ((tHDif / Player.PLAYER_MAX_HEALTH) * player2.Health));
+                            
                             if (player1.IsAI)
                             {
                                 cardsInPlay[0] = player1.Hand[0];
@@ -312,6 +340,10 @@ namespace BreadWars
                             }
                             break;
                         case Phase.Player2:
+                            //toaster nib position
+                            toastNib1Y = System.Convert.ToInt32(325 + ((tHDif / Player.PLAYER_MAX_HEALTH) * player1.Health));
+                            toastNib2Y = System.Convert.ToInt32(125 + ((tHDif / Player.PLAYER_MAX_HEALTH) * player2.Health));
+
                             for (int i = 0; i < player2.Hand.Count; i++)
                             {
                                 //assigning card positions
@@ -437,6 +469,16 @@ namespace BreadWars
                     switch (currPhase)
                     {
                         case Phase.Player1:
+                            //toaster
+                            toasterNib1.Posit = new Rectangle(16, toastNib1Y, 20, 10);
+                            toaster1.DrawStatic(spriteBatch);
+                            toasterNib1.DrawStatic(spriteBatch);
+                            //toaster2
+                            toasterNib2.Posit = new Rectangle(16, toastNib2Y, 20, 10);
+                            toaster2.DrawStatic(spriteBatch);
+                            toasterNib2.DrawStatic(spriteBatch);
+
+
                             //draw all cards in a loop
                             for (int i = 0; i <player1.Hand.Count; i++)
                             {
@@ -449,6 +491,17 @@ namespace BreadWars
                             }
                             break;
                         case Phase.Player2:
+                            //toaster
+                            toasterNib1.Posit = new Rectangle(16, toastNib1Y, 20, 10);
+                            toaster1.DrawStatic(spriteBatch);
+                            toasterNib2.DrawStatic(spriteBatch);
+                            //toaster2
+                            toasterNib2.Posit = new Rectangle(16, toastNib2Y, 20, 10);
+                            toaster2.DrawStatic(spriteBatch);
+                            toasterNib1.DrawStatic(spriteBatch);
+                            
+
+
                             //draw all cards in a loop
                             for (int i = 0; i < player2.Hand.Count; i++)
                             {

@@ -15,47 +15,48 @@ namespace Bread_Wars_Deck_Builder
     {
         //array possible cards (names, both normal and special)
         private string[] cards = new string[] {
-            "thief",
-            "thief special",
-            "table flip",
-            "table flip special",
-            "stab",
-            "stab special",
-            "glue gun",
-            "glue gun special",
-            "zombie",
-            "zombie special",
-            "jam",
-            "jam special",
-            "save for later",
-            "save for later spcial",
-            "octopus",
-            "octopus special",
-            "punch",
-            "punch special",
-            "poison",
-            "poison special",
-            "Faire Bread",
-            "faire bread special",
-            "Tazer",
-            "tazer special",
-            "Hand Switch",
-            "hand switch special",
+            "1",
+            "Thief",
+            "2",
+            "Table Flip",
+            "3",
+            "Stab",
+            "4",
+            "Glue Gun",
+            "5",
+            "Zombie",
+            "6",
+            "Jam",
+            "7",
+            "Save",
+            "8",
+            "Octopus",
+            "9",
+            "Punch",
+            "10",
+            "Poison",
+            "11",
+            "Faerie Bread",
+            "12",
+            "Taser",
+            "13",
+            "Switch Hands",
+            "14",
             "Telepathy",
-            "telepathy special",
+            "15",
             "Block",
-            "block special",
+            "16",
             "Whale",
-            "whale special",
-            " Banker",
-            "banker special",
+            "17",
+            "Self-Destruct",
+            "18",
             "Fire",
-            "fire special",
+            "19",
             "Unicorn",
-            "unicorn special",
+            "20",
             "Confetti",
-            "confetti special",
             "Numject to Change"};
+
         private List<string> files = new List<string>(); //for all deck files in existance
         private int[] numberCards; //number desired cards per type
         private int sumCards; //total number cards in deck, should be 52
@@ -64,16 +65,13 @@ namespace Bread_Wars_Deck_Builder
         public frmMain()
         {
             InitializeComponent();
-            string[] allFiles = Directory.GetFiles("."); //get all files in directory;
-            foreach(string f in allFiles) //only keep deck files
-            {
-                if (f.Contains(".dat")) files.Add(f.Substring(2, f.Length-6));
-            }
+
+            
             //set options on form correctly
             this.clbCards.Items.Clear();
             this.clbDecks.Items.Clear();
+            Reload();
             this.clbCards.Items.AddRange(cards);
-            this.clbDecks.Items.AddRange(files.ToArray());
             //initialize attributes
             numberCards = new int[cards.Length];
             sumCards = 0;
@@ -151,16 +149,17 @@ namespace Bread_Wars_Deck_Builder
             try { value = int.Parse(tbCardNum.Text); } catch { } //only function if user input an int value
             
             //update number of cards as specified by user
-            foreach (int indexChecked in clbCards.CheckedIndices)
+            foreach (int indexChecked in clbCards.SelectedIndex)
             {
                 if ((numberCards[indexChecked] + value) < 0) continue; //cards cannot have negative amount
                 numberCards[indexChecked] += value;
                 sumCards += value;
                 clbCards.Items[indexChecked] = cards[indexChecked] + " " + numberCards[indexChecked];//write on form number of card 
+                Uncheck(clbCards);
             }
 
-            label6.Text = sumCards.ToString(); //write to form total number cards on deck
-            clbCards.ClearSelected();
+            label6.Text = sumCards.ToString(); //write to form total number cards on deck]
+          
 
         }
 
@@ -181,7 +180,9 @@ namespace Bread_Wars_Deck_Builder
             {
                 MessageBox.Show("Error Saving File", "Error", MessageBoxButtons.OK);
             }
-            
+
+            Reload();
+
         }
         static void Main()
         {
@@ -199,6 +200,11 @@ namespace Bread_Wars_Deck_Builder
             if (clbDecks.SelectedItems.Count == 1)
             {
                 ReadFile((string)clbDecks.SelectedItem + ".dat");
+                Uncheck(clbDecks);
+            }
+            else
+            {
+                
             }
             
         }
@@ -208,6 +214,40 @@ namespace Bread_Wars_Deck_Builder
             frmHelp fhelp = new frmHelp();
 
             fhelp.Show();
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Uncheck(CheckedListBox clb)
+        {
+            for (int i = 0; i < clb.Items.Count; i++)
+            {
+                clb.SetItemChecked(i, false);
+            }
+        }
+        private void Uncheck(ListBox lb)
+        {
+            for (int i = 0; i < lb.Items.Count; i++)
+            {
+                lb.ClearSelected();
+            }
+        }
+
+
+        private void Reload()
+        {
+            this.clbDecks.Items.Clear();
+            files.Clear();
+            string[] allFiles = Directory.GetFiles("."); //get all files in directory;
+            foreach (string f in allFiles) //only keep deck files
+            { 
+                if (f.Contains(".dat")) files.Add(f.Substring(2, f.Length - 6));
+            }
+
+            this.clbDecks.Items.AddRange(files.ToArray());
         }
     }
 }
