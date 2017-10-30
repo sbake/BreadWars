@@ -112,7 +112,7 @@ namespace Bread_Wars_Deck_Builder
             }
             catch (IOException ioe)
             {
-                MessageBox.Show("Error creating file: ", ioe.Message, MessageBoxButtons.OKCancel);
+                MessageBox.Show(ioe.Message, "Error creating file", MessageBoxButtons.OK);
             }
             
         }
@@ -140,7 +140,7 @@ namespace Bread_Wars_Deck_Builder
             }
             catch (IOException ioe)
             {
-                MessageBox.Show("Error reading file: ", ioe.Message, MessageBoxButtons.OKCancel);
+                MessageBox.Show(ioe.Message, "Error reading file", MessageBoxButtons.OK);
             }
 
         }
@@ -160,15 +160,27 @@ namespace Bread_Wars_Deck_Builder
             }
 
             label6.Text = sumCards.ToString(); //write to form total number cards on deck
+            clbCards.ClearSelected();
 
         }
 
         private void DoneClick(object sender, EventArgs e)
         {
-                if (sumCards == 52 && tbFilename.Text!= "") //if the deck is full then save to file
+            try
+            {
+                if (sumCards == 52 && tbFilename.Text != "") //if the deck is full then save to file
                 {
                     WriteFile(tbFilename.Text);
                 }
+                else
+                {
+                    
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error Saving File", "Error", MessageBoxButtons.OK);
+            }
             
         }
         static void Main()
@@ -186,7 +198,7 @@ namespace Bread_Wars_Deck_Builder
             //otherwise read from default file
             if (clbDecks.SelectedItems.Count == 1)
             {
-                ReadFile((string)clbDecks.SelectedItem);
+                ReadFile((string)clbDecks.SelectedItem + ".dat");
             }
             
         }
