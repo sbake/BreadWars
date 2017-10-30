@@ -17,8 +17,13 @@ namespace BreadWars
         private byte playerNumber;
 
         public byte PlayerNumber { get { return playerNumber; } }
-        //hand (cards or slots) an array?
+        //hand 
         private List<Card> hand = new List<Card>();
+        //last card played
+        private Card prevCard;
+        public Card PrevCard { get => prevCard; }
+        private Card currCard;
+        public Card CurrCard { get => currCard; }
 
         public List<Card> Hand { get { return hand; } set => hand = value; }
         
@@ -62,12 +67,16 @@ namespace BreadWars
             {
                 int cIndex = r.Next(0, hand.Count);
                 cardsToPlay[playerNumber-1] = hand[cIndex];
+                prevCard = currCard;
+                currCard = hand[cIndex];
                 hand.Remove(hand[cIndex]);
                 if(!isAI)paralyzeCount--;
                 if (paralyzeCount == 0) isParalyzed = false;
                 return;
             }
             cardsToPlay[playerNumber-1] = hand[cardIndex];
+            prevCard = currCard;
+            currCard = hand[cardIndex];
             hand.Remove(hand[cardIndex]);
 
         }
