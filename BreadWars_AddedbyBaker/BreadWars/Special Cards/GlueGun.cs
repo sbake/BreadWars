@@ -19,7 +19,12 @@ public class GlueGun: Card
 
     public override void Effect(Player opponent, Player self, Deck deck)
     {
-        if (isActive)
+            if (this.is8)
+            {
+                base.Effect(opponent, self, deck);
+                return;
+            }
+            if (isActive)
         {
                 //get two random cards from hand and add values together to form new card
             Random r = new Random();
@@ -28,7 +33,8 @@ public class GlueGun: Card
             self.Hand.RemoveAt(index1);
             int index2 = r.Next(0, self.Hand.Count);
             Card c2 = self.Hand[index2];
-            self.Hand.RemoveAt(index2);
+            self.Hand.Remove(c2);
+            self.Hand.Remove(c1);
             Card newCard = new Card(c2.Texr, c1.Posit, false, Numbers); //new card with no effect
             newCard.Value = c1.Value + c2.Value;
             self.Hand.Add(newCard);

@@ -19,8 +19,13 @@ public class FaireBread: Card
 
     public override void Effect(Player opponent, Player self, Deck deck)
     {
+            if (this.is8)
+            {
+                base.Effect(opponent, self, deck);
+                return;
+            }
             //switch all cards' isActive bool
-            foreach(Card c in opponent.Hand)
+            foreach (Card c in opponent.Hand)
             {
                 c.isActive = !c.isActive;
             }foreach(Card c in self.Hand)
@@ -29,7 +34,7 @@ public class FaireBread: Card
             }
             foreach(Card c in deck.Library)
             {
-                c.isActive = !c.isActive;
+                if(c!=null)c.isActive = !c.isActive;
             }
             //need to do save for laters as well
 

@@ -25,6 +25,7 @@ public class NumjectToChange : Card
             //get min and max card values from opponent
             foreach (Card c in opponent.Hand)
             {
+                if (c == null) continue;
                 if (c.Value < min) { min = c.Value; }
                 else if (c.Value > max) { max = c.Value; }
             }
@@ -34,7 +35,11 @@ public class NumjectToChange : Card
 
         public override void Effect(Player opponent, Player self, Deck deck)
         {
-            //don't do anything!
+            if (this.is8)
+            {
+                base.Effect(opponent, self, deck);
+                return;
+            }
         }
     }
     }

@@ -75,6 +75,7 @@ namespace BreadWars
         private Phase prevPhase;
         private KeyboardState kState;
         private KeyboardState kStatePrev;
+        private bool resultCalculated;
 
         public Game1()
         {
@@ -112,6 +113,7 @@ namespace BreadWars
             kState = Keyboard.GetState();
             kStatePrev = Keyboard.GetState();
             IsMouseVisible = true;
+            resultCalculated = false;
         }
 
         /// <summary>
@@ -159,7 +161,7 @@ namespace BreadWars
             cardText = new Texture2D[21];
             for (int i = 0; i < 21; i++)
             {
-                cardText[i] = Content.Load<Texture2D>("tempCard");
+                cardText[i] = Content.Load<Texture2D>("cards/card"+ (i+1));
             }
             //numbers and deck
             numbers = new Drawable(Content.Load<Texture2D>("testnumbers14020"), new Rectangle(0, 0, 140, 20));
@@ -258,6 +260,7 @@ namespace BreadWars
                     switch (currPhase)
                     {
                         case Phase.Player1:
+                            resultCalculated = false;
                             for (int i = 0; i < player1.Hand.Count; i++)
                             {
                                 //assigning card positions
@@ -266,6 +269,8 @@ namespace BreadWars
                                 if (cardPos[i].Contains(mState.Position) && mState.LeftButton == ButtonState.Pressed)
                                 {
                                     cardsInPlay[0] = player1.Hand[i];
+                                    player1.PlayTurn(cardsInPlay, i);
+                                    player1.Hand.Add(deck.Next());
                                     prevPhase = currPhase;
                                     currPhase = Phase.Pause;
                                     break;
@@ -281,6 +286,8 @@ namespace BreadWars
                                 if (cardPos[i].Contains(mState.Position) && mState.LeftButton == ButtonState.Pressed)
                                 {
                                     cardsInPlay[1] = player2.Hand[i];
+                                    player2.PlayTurn(cardsInPlay, i);
+                                    player2.Hand.Add(deck.Next());
                                     prevPhase = currPhase;
                                     currPhase = Phase.Pause;
                                     break;
@@ -308,10 +315,15 @@ namespace BreadWars
                             break;
                         case Phase.Results:
                             //calculate victor of round and other effects
-                            winPlayer = round.CompareCards(cardsInPlay);
-                            round.EditHealth(winPlayer, players);
-                            round.SpecialCards(cardsInPlay[0], 0, players);
-                            round.SpecialCards(cardsInPlay[1], 1, players);
+                            if (!resultCalculated)
+                            {
+
+                                winPlayer = round.CompareCards(cardsInPlay);
+                                round.EditHealth(winPlayer, players);
+                                round.SpecialCards(cardsInPlay[0], 0, players);
+                                round.SpecialCards(cardsInPlay[1], 1, players);
+                                resultCalculated = true;
+                            }
 
                             if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter)) //press enter to continue to next phase
                             {
@@ -447,6 +459,7 @@ namespace BreadWars
         public void NewGame(string deckName)
         {
             deck.LoadDeck(deckName);
+            deck.Shuffle();
             //initialize player hands
             player1.Hand.Clear();
             player2.Hand.Clear();

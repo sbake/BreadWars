@@ -20,7 +20,12 @@ public class Fire : Card
 
     public override void Effect(Player opponent, Player self, Deck deck)
     {
-        if (isActive)
+            if (this.is8)
+            {
+                base.Effect(opponent, self, deck);
+                return;
+            }
+            if (isActive)
         {
             opponent.AlterHealth(-FIRE_DAMAGE); //damage opponent
             //burn all cards on field 

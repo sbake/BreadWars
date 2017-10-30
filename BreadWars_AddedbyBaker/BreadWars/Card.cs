@@ -18,10 +18,10 @@ namespace BreadWars
         public int Value
         {
             get { return value; }
-            set { value = this.value; } //too late to change value name? value is already the name of a thing in C#
+            set { this.value = value; } //too late to change value name? value is already the name of a thing in C#
         }
 
-        protected string Name { get; set; }
+        public string Name { get; set; }
 
         //dimensions
         const int WIDTH = 20;
@@ -38,15 +38,15 @@ namespace BreadWars
         }
         
         //isBurned
-        private bool isBurned;
+        protected bool isBurned;
         public bool IsBurned{get{return isBurned;} set{isActive = value;}}
 
         //is8
-        private bool is8;
+        protected bool is8;
         public bool Is8{get{return is8;} set{is8 = value;}}
 
         //is unicorn
-        private bool isUnicorn;
+        protected bool isUnicorn;
         public bool IsUnicorn { get { return isUnicorn; } set { isUnicorn = value; } }
 
         //constructor
@@ -66,7 +66,7 @@ namespace BreadWars
             if(isActive){
                 Random r = new Random();
                 for(int i=r.Next(0,51); i<52; i++){
-                    deck.Library[i].Is8 = true;
+                    if(deck.Library[i]!=null)deck.Library[i].Is8 = true;
                     i+= r.Next(0, 20);
                 }
             }
@@ -100,7 +100,7 @@ namespace BreadWars
                 }
                 */
                 //draw numbers with spritefont instead
-                spriteBatch.DrawString(font, "" + value, new Vector2(posit.X, posit.Y), Color.Black);
+                spriteBatch.DrawString(font, "" + value +(isActive? " " + Name : ""), new Vector2(posit.X, posit.Y), Color.Black);
             }
         }
     }
