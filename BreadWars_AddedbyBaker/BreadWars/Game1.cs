@@ -44,7 +44,7 @@ namespace BreadWars
         List<string> deckFiles= new List<string>(); //lists filenames for all decks
         Rectangle[] deckButtonPos = { new Rectangle(80, 50, cardWidth, cardHeight), new Rectangle(200, 50, cardWidth, cardHeight), new Rectangle(320, 50, cardWidth, cardHeight), new Rectangle(80, 200, cardWidth, cardHeight), new Rectangle(200, 200, cardWidth, cardHeight), new Rectangle(320, 200, cardWidth, cardHeight) };
         Drawable[] deckButtons = new Drawable[6];
-        Rectangle[] numPlayButtonPos = { new Rectangle(80, 250, cardWidth, cardHeight), new Rectangle(200, 250, cardWidth, cardHeight) };
+        Rectangle[] numPlayButtonPos = { new Rectangle(80, 450, cardWidth, cardHeight), new Rectangle(200, 450, cardWidth, cardHeight) };
         Drawable[] numPlayButtons = new Drawable[2];
         int currDeck = 0;
 
