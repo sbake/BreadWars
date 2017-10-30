@@ -20,7 +20,7 @@ namespace BreadWars
 
         //can change however you want later, just for testing if other stuffs work
         Texture2D[] cardTexts;
-        Rectangle empty = new Rectangle(0, 0, 0, 0);
+        Rectangle cardSizeOnly = new Rectangle(0, 0, 200, 150);
         Drawable numbers;
 
         public Deck(Texture2D[] pCardTexts, Drawable pNumbers)
@@ -160,107 +160,107 @@ namespace BreadWars
                          {
 
                             case 0: //0- Thief
-                            Thief th = new Thief(cardTexts[0], empty, i==0, numbers);
+                            Thief th = new Thief(cardTexts[0], cardSizeOnly, i==0, numbers);
                             library[cardsAdded] = th;
                             cardsAdded++;
                             break;
                              case 1: //1- Table flip
-                            TableFlip tf = new TableFlip(cardTexts[1], empty, i==1, numbers);
+                            TableFlip tf = new TableFlip(cardTexts[1], cardSizeOnly, i==1, numbers);
                             library[cardsAdded] = tf;
                             cardsAdded++;
                             break;
                              case 2: //2- Stab
-                            Stab s = new Stab(cardTexts[2], empty, i==2, numbers);
+                            Stab s = new Stab(cardTexts[2], cardSizeOnly, i==2, numbers);
                             library[cardsAdded] = s;
                             cardsAdded++;
                             break;
                              case 3: //3- Glue Gun
-                            GlueGun gg = new GlueGun(cardTexts[3], empty, i==3, numbers);
+                            GlueGun gg = new GlueGun(cardTexts[3], cardSizeOnly, i==3, numbers);
                             library[cardsAdded] = gg;
                             cardsAdded++;
                             break;
                              case 4: //4- Zombie
-                             Zombie z = new Zombie(cardTexts[4], empty, i==4, numbers);
+                             Zombie z = new Zombie(cardTexts[4], cardSizeOnly, i==4, numbers);
                             library[cardsAdded] = z;
                             cardsAdded++;
                             break;
                              case 5: //5- Jam
-                            Jam ja = new Jam(cardTexts[5], empty, i==5, numbers);
+                            Jam ja = new Jam(cardTexts[5], cardSizeOnly, i==5, numbers);
                             library[cardsAdded] = ja;
                             cardsAdded++;
                             break;
                              case 6: //6- Save For Later
-                            SaveForLater sl = new SaveForLater(cardTexts[6], empty, i==6, numbers);
+                            SaveForLater sl = new SaveForLater(cardTexts[6], cardSizeOnly, i==6, numbers);
                             library[cardsAdded] = sl;
                             cardsAdded++;
                             break;
                              case 7: //7- Octopus
-                            Octopus o = new Octopus(cardTexts[7], empty, i==7, numbers);
+                            Octopus o = new Octopus(cardTexts[7], cardSizeOnly, i==7, numbers);
                             library[cardsAdded] = o;
                             cardsAdded++;
                             break;
                              case 8: //8 Punch
-                            Punch p = new Punch(cardTexts[8], empty, i==8, numbers);
+                            Punch p = new Punch(cardTexts[8], cardSizeOnly, i==8, numbers);
                             library[cardsAdded] = p;
                             cardsAdded++;
                             break;
                              case 9: //poison
-                            Poison po = new Poison(cardTexts[9], empty, i==9, numbers);
+                            Poison po = new Poison(cardTexts[9], cardSizeOnly, i==9, numbers);
                             library[cardsAdded] = po;
                             cardsAdded++;
                             break;
                              case 10: //faire bread
-                            FaireBread fb = new FaireBread(cardTexts[10], empty, i==10, numbers);
+                            FaireBread fb = new FaireBread(cardTexts[10], cardSizeOnly, i==10, numbers);
                             library[cardsAdded] = fb;
                             cardsAdded++;
                             break;
                              case 11: //tazer
-                            Tazer ta = new Tazer(cardTexts[11], empty, i==11, numbers);
+                            Tazer ta = new Tazer(cardTexts[11], cardSizeOnly, i==11, numbers);
                             library[cardsAdded] = ta;
                             cardsAdded++;
                             break;
                              case 12: //hand switch
-                            HandSwitch hs = new HandSwitch(cardTexts[12], empty, i==12, numbers);
+                            HandSwitch hs = new HandSwitch(cardTexts[12], cardSizeOnly, i==12, numbers);
                             library[cardsAdded] = hs;
                             cardsAdded++;
                             break;
                              case 13: //telepathy
-                            Telepathy te = new Telepathy(cardTexts[13], empty, i==13, numbers);
+                            Telepathy te = new Telepathy(cardTexts[13], cardSizeOnly, i==13, numbers);
                             library[cardsAdded] = te;
                             cardsAdded++;
                             break;
                              case 14: //block
-                            Block bl = new Block(cardTexts[14], empty, i==14, numbers);
+                            Block bl = new Block(cardTexts[14], cardSizeOnly, i==14, numbers);
                             library[cardsAdded] = bl;
                             cardsAdded++;
                             break;
                              case 15: //whale
-                            Whale wh = new Whale(cardTexts[15], empty, i==15, numbers);
+                            Whale wh = new Whale(cardTexts[15], cardSizeOnly, i==15, numbers);
                             library[cardsAdded] = wh;
                             cardsAdded++;
                             break;
                              case 16: //banker
-                            SelfDestruct b = new SelfDestruct(cardTexts[16], empty, i==16, numbers);
+                            SelfDestruct b = new SelfDestruct(cardTexts[16], cardSizeOnly, i==16, numbers);
                             library[cardsAdded] = b;
                             cardsAdded++;
                             break;
                              case 17: //fire
-                            Fire fi = new Fire(cardTexts[17], empty, i==17, numbers);
+                            Fire fi = new Fire(cardTexts[17], cardSizeOnly, i==17, numbers);
                             library[cardsAdded] = fi;
                             cardsAdded++;
                             break;
                              case 18: //unicorn
-                            Unicorn u = new Unicorn(cardTexts[18], empty, i==18, numbers);
+                            Unicorn u = new Unicorn(cardTexts[18], cardSizeOnly, i==18, numbers);
                             library[cardsAdded] = u;
                             cardsAdded++;
                             break;
                              case 19: //confetti
-                            Confetti c = new Confetti(cardTexts[19], empty, i==19, numbers);
+                            Confetti c = new Confetti(cardTexts[19], cardSizeOnly, i==19, numbers);
                             library[cardsAdded] = c;
                             cardsAdded++;
                             break;
                              case 20: //numbject to change
-                            NumjectToChange nj = new NumjectToChange(cardTexts[20], empty, false, numbers);
+                            NumjectToChange nj = new NumjectToChange(cardTexts[20], cardSizeOnly, false, numbers);
                             library[cardsAdded] = nj;
                             cardsAdded++;
                             break;
