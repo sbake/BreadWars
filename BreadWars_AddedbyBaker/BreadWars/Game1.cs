@@ -42,6 +42,11 @@ namespace BreadWars
         Rectangle[] backCardPos = { new Rectangle(80, backCardDepth, cardWidth, cardHeight), new Rectangle(200, backCardDepth, cardWidth, cardHeight), new Rectangle(320, backCardDepth, cardWidth, cardHeight), new Rectangle(440, backCardDepth, cardWidth, cardHeight), new Rectangle(560, backCardDepth, cardWidth, cardHeight) };
         Rectangle[] resultCardPos = { new Rectangle(260, resultCardDepth, cardWidth, cardHeight), new Rectangle(440, resultCardDepth, cardWidth, cardHeight) };
         List<string> deckFiles= new List<string>(); //lists filenames for all decks
+        Rectangle[] deckButtonPos = { new Rectangle(80, 50, cardWidth, cardHeight), new Rectangle(200, 50, cardWidth, cardHeight), new Rectangle(320, 50, cardWidth, cardHeight), new Rectangle(80, 200, cardWidth, cardHeight), new Rectangle(200, 200, cardWidth, cardHeight), new Rectangle(320, 200, cardWidth, cardHeight) };
+        Drawable[] deckButtons = new Drawable[6];
+        Rectangle[] numPlayButtonPos = { new Rectangle(80, 250, cardWidth, cardHeight), new Rectangle(200, 250, cardWidth, cardHeight) };
+        Drawable[] numPlayButtons = new Drawable[2];
+        int currDeck = 0;
 
         //hudobject things
         HUDObjects background;
@@ -67,11 +72,12 @@ namespace BreadWars
         Texture2D win1Text;
         Texture2D win2Text;
         Texture2D helpSplash;
+        Texture2D button;
         
         SpriteFont font;
 
         //phase and game states
-        enum GameState { Start, Help, Game, Credits, GameOver};
+        enum GameState { Start, Help, Game, Credits, GameOver, PickDeck};
         private GameState state;
         enum Phase { Player1, Player2, Pause, Results };
         private Phase currPhase;
@@ -136,6 +142,11 @@ namespace BreadWars
             introTest = new HUDObjects(testText, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
             helpSplash = Content.Load<Texture2D>("helpScreen");
             help = new HUDObjects(helpSplash, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
+
+            //deck& AI buttons
+            button = Content.Load<Texture2D>("Card");
+            for (int i = 0; i < 6; i++) deckButtons[i] = new Drawable(button, deckButtonPos[i]);
+            for (int i = 0; i < 2; i++) numPlayButtons[i] = new Drawable(button, numPlayButtonPos[i]);
 
             //full screen cont.- pause screens
             pause1Text = Content.Load<Texture2D>("pausephase1");
@@ -211,21 +222,19 @@ namespace BreadWars
             switch (state)
             {
                 case GameState.Start:
-                    //choose deck to load (work in progress)
-                    if (kState.IsKeyDown(Keys.NumPad0))
+                    for(int i=0; i<2; i++)
                     {
-                        NewGame(deckFiles[0]);
-                        state = GameState.Game;
+                        if (numPlayButtonPos[i].Contains(mState.Position) && mState.LeftButton == ButtonState.Pressed)
+                        {
+                            if (i == 0) player1.IsAI = true;
+                            state = GameState.PickDeck;
+                        }
                     }
-                    else if (kState.IsKeyDown(Keys.NumPad1)){
-                        NewGame(deckFiles[1]);
-                        state = GameState.Game;
-                    }
-                    //default load deck 1.dat
-                    else if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))
+                    
+                        if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))
                     {
-                        NewGame(deckFiles[0]);
-                        state = GameState.Game;
+                        player1.IsAI = true;
+                        state = GameState.PickDeck;
                         
                     }
                     else if(kState.IsKeyDown(Keys.H)|| kState.IsKeyDown(Keys.F1))
@@ -239,6 +248,19 @@ namespace BreadWars
                     if (mState.Position == new Point(0, 0)) //change pos for help
                     {
                         state = GameState.Help; 
+                    }
+                    break;
+                case GameState.PickDeck:
+
+                    if (currDeck > (deckFiles.Count - 1)) currDeck = 0;
+                    if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter)) currDeck += 6;
+                    for(int i=0; i<deckButtons.Length; i++)
+                    {
+                        if ((i+currDeck)< deckFiles.Count && deckButtonPos[i].Contains(mState.Position) && mState.LeftButton == ButtonState.Pressed)
+                        {
+                            NewGame(deckFiles[i+currDeck]);
+                            state = GameState.Game;
+                        }
                     }
                     break;
                 case GameState.Help:
@@ -264,6 +286,15 @@ namespace BreadWars
                     {
                         case Phase.Player1:
                             resultCalculated = false;
+                            if (player1.IsAI)
+                            {
+                                cardsInPlay[0] = player1.Hand[0];
+                                player1.PlayTurn(cardsInPlay, 0);
+                                player1.Hand.Add(deck.Next());
+                                prevPhase = currPhase;
+                                currPhase = Phase.Pause;
+                                break;
+                            }
                             for (int i = 0; i < player1.Hand.Count; i++)
                             {
                                 //assigning card positions
@@ -372,16 +403,26 @@ namespace BreadWars
             {
                 case GameState.Start:
                     introTest.DrawStatic(spriteBatch);
-                    for(int i=0; i< deckFiles.Count; i++)
+                    for(int i=0; i<2; i++)
                     {
-                        //spriteBatch.DrawString(font, "press "+ i+ "for " + deckFiles[i], new Vector2(10, 20*i), Color.Black);
+                        numPlayButtons[i].DrawStatic(spriteBatch);
+                        spriteBatch.DrawString(font, i == 0 ? "Single Player": "2 Players", new Vector2(numPlayButtonPos[i].X + 10, numPlayButtonPos[i].Y + 10), Color.Black);
                     }
-
                     //figuring out spritesheet problems
                     //for (int i = 0; i < numbers.SpriteLocations.Count; i++)
                     //{
                     //    numbers.DrawStatic(spriteBatch);
                     //}
+                    break;
+                case GameState.PickDeck:
+                    for(int i=0; i<6; i++)
+                    {
+                        if ((i + currDeck) < deckFiles.Count)
+                        {
+                            deckButtons[i].DrawStatic(spriteBatch);
+                            spriteBatch.DrawString(font, deckFiles[i+ currDeck].Substring(52), new Vector2(deckButtonPos[i].X +10, deckButtonPos[i].Y+10), Color.Black );
+                        }
+                    }
                     break;
                 case GameState.Help:
                     {
