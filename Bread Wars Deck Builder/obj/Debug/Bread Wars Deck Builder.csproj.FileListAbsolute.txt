@@ -160,3 +160,5 @@ Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Bu
 Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csproj.GenerateResource.Cache
 Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.exe
 Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.pdb
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.frmMain.resources
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.frmHelp.resources

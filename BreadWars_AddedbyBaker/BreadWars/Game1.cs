@@ -555,6 +555,7 @@ namespace BreadWars
 
         public void NewGame(string deckName)
         {
+
             deck.LoadDeck(deckName);
             deck.Shuffle();
             //initialize player hands
