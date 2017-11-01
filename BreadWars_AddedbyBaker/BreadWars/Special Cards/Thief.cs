@@ -26,7 +26,7 @@ public class Thief : Card
             }
             if (isActive)
             {
-                opponent.Hand[0] = null;
+                opponent.Hand[0] = new Card(texr, posit, false, Numbers);
             }
         }
     }

@@ -506,7 +506,7 @@ namespace BreadWars
                             //draw all cards in a loop
                             for (int i = 0; i < player2.Hand.Count; i++)
                             {
-                                player2.Hand[i].DrawStatic(spriteBatch, font);
+                                if (player2.Hand[i] != null) player2.Hand[i].DrawStatic(spriteBatch, font);
                             }
                             for (int i = 0; i < 5; i++)
                             {
