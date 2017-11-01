@@ -26,11 +26,13 @@ public class Thief : Card
             }
             if (isActive)
             {
+                bool done = false;
                 for (int i = 0; i < opponent.Hand.Count; i++)
                 {
-                    if (opponent.Hand[i] != null)
+                    if (!done && opponent.Hand[i] != null)
                     {
                         opponent.Hand[i] = null;
+                        done = true;
                     }
                 }
             }
