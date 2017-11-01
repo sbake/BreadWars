@@ -26,7 +26,13 @@ public class Thief : Card
             }
             if (isActive)
             {
-                opponent.Hand[0] = new Card(texr, posit, false, Numbers);
+                for (int i = 0; i < opponent.Hand.Count; i++)
+                {
+                    if (opponent.Hand[i] != null)
+                    {
+                        opponent.Hand[i] = null;
+                    }
+                }
             }
         }
     }
