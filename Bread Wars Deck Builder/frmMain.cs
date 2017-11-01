@@ -224,10 +224,11 @@ namespace Bread_Wars_Deck_Builder
                 numberCards[indexChecked] += value;
                 sumCards += value;
                 clbCards.Items[indexChecked] = cards[indexChecked] + " " + numberCards[indexChecked];//write on form number of card 
-                Uncheck(clbCards);
+                
             }
 
             lblCardNum.Text = sumCards.ToString(); //write to form total number cards on deck]
+            Uncheck(clbCards);
         }
 
         private void btnMinus1_Click(object sender, EventArgs e)
@@ -240,7 +241,6 @@ namespace Bread_Wars_Deck_Builder
                 numberCards[indexChecked] += value;
                 sumCards += value;
                 clbCards.Items[indexChecked] = cards[indexChecked] + " " + numberCards[indexChecked];//write on form number of card 
-                Uncheck(clbCards);
             }
 
             lblCardNum.Text = sumCards.ToString(); //write to form total number cards on deck]
@@ -256,7 +256,6 @@ namespace Bread_Wars_Deck_Builder
                 numberCards[indexChecked] += value;
                 sumCards += value;
                 clbCards.Items[indexChecked] = cards[indexChecked] + " " + numberCards[indexChecked];//write on form number of card 
-                Uncheck(clbCards);
             }
 
             lblCardNum.Text = sumCards.ToString(); //write to form total number cards on deck]
@@ -273,18 +272,18 @@ namespace Bread_Wars_Deck_Builder
                 numberCards[indexChecked] += value;
                 sumCards += value;
                 clbCards.Items[indexChecked] = cards[indexChecked] + " " + numberCards[indexChecked];//write on form number of card 
-                Uncheck(clbCards);
             }
 
             lblCardNum.Text = sumCards.ToString(); //write to form total number cards on deck]
+            Uncheck(clbCards);
         }
 
         private void btnClearCard_Click(object sender, EventArgs e)
         {
             //update number of cards as specified by user
-            List<int> tmp = numberCards.ToList<int>();
-            tmp.Clear();
-            numberCards = tmp.ToArray();
+            //List<int> tmp = numberCards.ToList<int>();
+            //tmp.Clear();
+            //numberCards = tmp.ToArray();
 
             Uncheck(clbCards);
             lblCardNum.Text = sumCards.ToString(); //write to form total number cards on deck]

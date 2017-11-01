@@ -39,7 +39,6 @@
             this.btnLoad = new System.Windows.Forms.Button();
             this.tbFilename = new System.Windows.Forms.TextBox();
             this.btnHelp = new System.Windows.Forms.Button();
-            this.btnNew = new System.Windows.Forms.Button();
             this.btnPlus1 = new System.Windows.Forms.Button();
             this.btnClearCard = new System.Windows.Forms.Button();
             this.btnPlus5 = new System.Windows.Forms.Button();
@@ -154,7 +153,7 @@
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(11, 344);
+            this.btnLoad.Location = new System.Drawing.Point(11, 315);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(75, 23);
             this.btnLoad.TabIndex = 11;
@@ -178,16 +177,6 @@
             this.btnHelp.Text = "Help";
             this.btnHelp.UseVisualStyleBackColor = true;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
-            // 
-            // btnNew
-            // 
-            this.btnNew.Location = new System.Drawing.Point(11, 315);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(75, 23);
-            this.btnNew.TabIndex = 14;
-            this.btnNew.Text = "New Deck";
-            this.btnNew.UseVisualStyleBackColor = true;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnPlus1
             // 
@@ -249,7 +238,6 @@
             this.Controls.Add(this.btnPlus5);
             this.Controls.Add(this.btnClearCard);
             this.Controls.Add(this.btnPlus1);
-            this.Controls.Add(this.btnNew);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.tbFilename);
             this.Controls.Add(this.btnLoad);
@@ -279,7 +267,6 @@
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.TextBox tbFilename;
         private System.Windows.Forms.Button btnHelp;
-        private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnPlus1;
         private System.Windows.Forms.Button btnClearCard;
         private System.Windows.Forms.Button btnPlus5;
