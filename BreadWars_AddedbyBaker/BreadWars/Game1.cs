@@ -167,8 +167,8 @@ namespace BreadWars
             credits = new HUDObjects(creditSplash, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
             tie1Text = Content.Load<Texture2D>("tieGame1");
             tie2Text = Content.Load<Texture2D>("tieGame2");
-            tie1 = new HUDObjects(tie1Text, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
-            tie2 = new HUDObjects(tie2Text, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
+            tie1 = new HUDObjects(tie1Text, new Rectangle(240, 290, 320, 60));
+            tie2 = new HUDObjects(tie2Text, new Rectangle(240, 380, 320, 60));
 
             //deck& AI buttons
             button = Content.Load<Texture2D>("Card");
