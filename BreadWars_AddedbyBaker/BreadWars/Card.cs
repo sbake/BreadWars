@@ -94,18 +94,18 @@ namespace BreadWars
                 }
                 //draw numbr
                 //int offsetFromCorners = 30; //add to posit
-                /*
+                
                 if (value / 10 != 0)
                 {
-                    spriteBatch.Draw(Numbers.Texr, new Rectangle(posit.X, posit.Y, 14, 20), new Rectangle(Numbers.SpriteLocations[value / 10], new Point(Numbers.Posit.Width / 10, Numbers.Posit.Height)), Color.White);
-                    spriteBatch.Draw(Numbers.Texr, new Rectangle(posit.X +14, posit.Y, 14, 20), new Rectangle(Numbers.SpriteLocations[value % 10], new Point(Numbers.Posit.Width / 10, Numbers.Posit.Height)), Color.White);
+                    spriteBatch.Draw(Numbers.Texr, new Rectangle(posit.X + 5, posit.Y+125, 14, 20), new Rectangle(Numbers.SpriteLocations[value / 10], new Point(Numbers.Posit.Width / 10, Numbers.Posit.Height)), Color.White);
+                    spriteBatch.Draw(Numbers.Texr, new Rectangle(posit.X +14 + 5, posit.Y + 125, 14, 20), new Rectangle(Numbers.SpriteLocations[value % 10], new Point(Numbers.Posit.Width / 10, Numbers.Posit.Height)), Color.White);
                 }
                 else
                 {
                     //texture, destination, source, color
-                    spriteBatch.Draw(Numbers.Texr, new Rectangle(posit.X, posit.Y, 14, 20), new Rectangle(Numbers.SpriteLocations[value % 10], new Point(Numbers.Posit.Width / 10, Numbers.Posit.Height)), Color.White);
+                    spriteBatch.Draw(Numbers.Texr, new Rectangle(posit.X+ 5, posit.Y + 125, 14, 20), new Rectangle(Numbers.SpriteLocations[value % 10], new Point(Numbers.Posit.Width / 10, Numbers.Posit.Height)), Color.White);
                 }
-                */
+                
                 //draw numbers with spritefont instead
                 spriteBatch.DrawString(font, "" + value +(isActive? " " + Name : ""), new Vector2(posit.X, posit.Y), Color.Black);
             }

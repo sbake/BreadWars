@@ -58,7 +58,10 @@ namespace BreadWars
         HUDObjects vs;
         HUDObjects player1wins;
         HUDObjects player2wins;
+        HUDObjects tie1;
+        HUDObjects tie2;
         HUDObjects help;
+        HUDObjects credits;
         HUDObjects toaster1;
         HUDObjects toasterNib1;
         HUDObjects toaster2;
@@ -76,7 +79,10 @@ namespace BreadWars
         Texture2D vsText;
         Texture2D win1Text;
         Texture2D win2Text;
+        Texture2D tie1Text;
+        Texture2D tie2Text;
         Texture2D helpSplash;
+        Texture2D creditSplash;
         Texture2D toasterText;
         Texture2D nibText;
         Texture2D button;
@@ -157,6 +163,8 @@ namespace BreadWars
             introTest = new HUDObjects(testText, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
             helpSplash = Content.Load<Texture2D>("helpScreen");
             help = new HUDObjects(helpSplash, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
+            creditSplash = Content.Load<Texture2D>("CreditsScreen");
+            credits = new HUDObjects(creditSplash, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
 
             //deck& AI buttons
             button = Content.Load<Texture2D>("Card");
@@ -265,6 +273,10 @@ namespace BreadWars
                     else if(kState.IsKeyDown(Keys.H)|| kState.IsKeyDown(Keys.F1))
                     {
                         state = GameState.Help;
+                    }
+                    else if(kState.IsKeyDown(Keys.C))
+                    {
+                        state = GameState.Credits;
                     }
                     if (mState.Position == new Point(0,0)) //change pos, for credits
                     {
@@ -463,6 +475,9 @@ namespace BreadWars
                     }
                     break;
                 case GameState.Credits:
+                    {
+                        credits.DrawStatic(spriteBatch);
+                    }
                     break;
                 case GameState.GameOver:
                     break;
@@ -543,6 +558,7 @@ namespace BreadWars
                             {
                                 player2wins.DrawStatic(spriteBatch);
                             }
+
                             break;
                     }
                     break;
