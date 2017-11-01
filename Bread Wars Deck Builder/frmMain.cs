@@ -132,7 +132,7 @@ namespace Bread_Wars_Deck_Builder
                     clbCards.Items[i] = cards[i] + " " + numberCards[i]; //update display on form
                     sumCards += numberCards[i]; //edit overal number of cards in deck
                 }
-                label6.Text = sumCards.ToString(); //display to form number of cards in deck
+                lblCardNum.Text = sumCards.ToString(); //display to form number of cards in deck
                 // close when we are done
                 input.Close();
             }
@@ -140,26 +140,6 @@ namespace Bread_Wars_Deck_Builder
             {
                 MessageBox.Show(ioe.Message, "Error reading file", MessageBoxButtons.OK);
             }
-
-        }
-
-        private void ApplyClick(object sender, EventArgs e)
-        {
-            int value = 0;
-            try { value = int.Parse(tbCardNum.Text); } catch { } //only function if user input an int value
-            
-            //update number of cards as specified by user
-            foreach (int indexChecked in clbCards.SelectedIndices)
-            {
-                if ((numberCards[indexChecked] + value) < 0) continue; //cards cannot have negative amount
-                numberCards[indexChecked] += value;
-                sumCards += value;
-                clbCards.Items[indexChecked] = cards[indexChecked] + " " + numberCards[indexChecked];//write on form number of card 
-                Uncheck(clbCards);
-            }
-
-            label6.Text = sumCards.ToString(); //write to form total number cards on deck]
-          
 
         }
 
@@ -221,6 +201,95 @@ namespace Bread_Wars_Deck_Builder
 
         }
 
+        private void Reload()
+        {
+            this.clbDecks.Items.Clear();
+            files.Clear();
+            string[] allFiles = Directory.GetFiles("."); //get all files in directory;
+            foreach (string f in allFiles) //only keep deck files
+            { 
+                if (f.Contains(".dat")) files.Add(f.Substring(2, f.Length - 6));
+            }
+
+            this.clbDecks.Items.AddRange(files.ToArray());
+        }
+
+        private void btnMinus5_Click(object sender, EventArgs e)
+        {
+            int value = -5;
+
+            foreach (int indexChecked in clbCards.SelectedIndices)
+            {
+                if ((numberCards[indexChecked] + value) < 0) continue; //cards cannot have negative amount
+                numberCards[indexChecked] += value;
+                sumCards += value;
+                clbCards.Items[indexChecked] = cards[indexChecked] + " " + numberCards[indexChecked];//write on form number of card 
+                Uncheck(clbCards);
+            }
+
+            lblCardNum.Text = sumCards.ToString(); //write to form total number cards on deck]
+        }
+
+        private void btnMinus1_Click(object sender, EventArgs e)
+        {
+            int value = -1;
+
+            foreach (int indexChecked in clbCards.SelectedIndices)
+            {
+                if ((numberCards[indexChecked] + value) < 0) continue; //cards cannot have negative amount
+                numberCards[indexChecked] += value;
+                sumCards += value;
+                clbCards.Items[indexChecked] = cards[indexChecked] + " " + numberCards[indexChecked];//write on form number of card 
+                Uncheck(clbCards);
+            }
+
+            lblCardNum.Text = sumCards.ToString(); //write to form total number cards on deck]
+        }
+
+        private void btnPlus1_Click(object sender, EventArgs e)
+        {
+            int value = 1;
+
+            foreach (int indexChecked in clbCards.SelectedIndices)
+            {
+                if ((numberCards[indexChecked] + value) < 0) continue; //cards cannot have negative amount
+                numberCards[indexChecked] += value;
+                sumCards += value;
+                clbCards.Items[indexChecked] = cards[indexChecked] + " " + numberCards[indexChecked];//write on form number of card 
+                Uncheck(clbCards);
+            }
+
+            lblCardNum.Text = sumCards.ToString(); //write to form total number cards on deck]
+        }
+
+        private void btnPlus5_Click(object sender, EventArgs e)
+        {
+            int value = 5;
+
+
+            foreach (int indexChecked in clbCards.SelectedIndices)
+            {
+                if ((numberCards[indexChecked] + value) < 0) continue; //cards cannot have negative amount
+                numberCards[indexChecked] += value;
+                sumCards += value;
+                clbCards.Items[indexChecked] = cards[indexChecked] + " " + numberCards[indexChecked];//write on form number of card 
+                Uncheck(clbCards);
+            }
+
+            lblCardNum.Text = sumCards.ToString(); //write to form total number cards on deck]
+        }
+
+        private void btnClearCard_Click(object sender, EventArgs e)
+        {
+            //update number of cards as specified by user
+            List<int> tmp = numberCards.ToList<int>();
+            tmp.Clear();
+            numberCards = tmp.ToArray();
+
+            Uncheck(clbCards);
+            lblCardNum.Text = sumCards.ToString(); //write to form total number cards on deck]
+        }
+
         private void Uncheck(CheckedListBox clb)
         {
             for (int i = 0; i < clb.Items.Count; i++)
@@ -234,20 +303,6 @@ namespace Bread_Wars_Deck_Builder
             {
                 lb.ClearSelected();
             }
-        }
-
-
-        private void Reload()
-        {
-            this.clbDecks.Items.Clear();
-            files.Clear();
-            string[] allFiles = Directory.GetFiles("."); //get all files in directory;
-            foreach (string f in allFiles) //only keep deck files
-            { 
-                if (f.Contains(".dat")) files.Add(f.Substring(2, f.Length - 6));
-            }
-
-            this.clbDecks.Items.AddRange(files.ToArray());
         }
     }
 }
