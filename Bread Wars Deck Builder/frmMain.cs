@@ -149,7 +149,7 @@ namespace Bread_Wars_Deck_Builder
             try { value = int.Parse(tbCardNum.Text); } catch { } //only function if user input an int value
             
             //update number of cards as specified by user
-            foreach (int indexChecked in clbCards.SelectedIndex)
+            foreach (int indexChecked in clbCards.SelectedIndices)
             {
                 if ((numberCards[indexChecked] + value) < 0) continue; //cards cannot have negative amount
                 numberCards[indexChecked] += value;
