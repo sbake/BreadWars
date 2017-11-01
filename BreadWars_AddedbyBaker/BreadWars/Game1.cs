@@ -398,7 +398,8 @@ namespace BreadWars
                             {
 
                                 winPlayer = round.CompareCards(cardsInPlay);
-                                round.EditHealth(winPlayer, players);
+                                if (winPlayer != 0)
+                                    round.EditHealth(winPlayer, players);
                                 round.SpecialCards(cardsInPlay[0], 0, players);
                                 round.SpecialCards(cardsInPlay[1], 1, players);
                                 resultCalculated = true;
@@ -558,7 +559,11 @@ namespace BreadWars
                             {
                                 player2wins.DrawStatic(spriteBatch);
                             }
-
+                            if (winPlayer == 0)
+                            {
+                                tie1.DrawStatic(spriteBatch);
+                                tie2.DrawStatic(spriteBatch);
+                            }
                             break;
                     }
                     break;
