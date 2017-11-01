@@ -15,5 +15,19 @@ namespace BreadWars
             value = 5;
             Name = "Zombie";
         }
+
+        public override void Effect(Player opponent, Player self, Deck deck)
+        {
+            if (this.is8)
+            {
+                base.Effect(opponent, self, deck);
+                return;
+            }
+            if (isActive && self.PrevCard!=null)
+            {
+               self.PrevCard.Effect(opponent,self,deck);
+            }
+        }
+
     } 
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>D:/Profiles/rcm3517/Source/Repos/BreadWars3/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/pausephase2.png</SourceFile>
-  <SourceTime>2017-10-30T15:46:19.2121692-04:00</SourceTime>
-  <DestFile>D:/Profiles/rcm3517/Source/Repos/BreadWars3/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/bin/DesktopGL/pausephase2.xnb</DestFile>
-  <DestTime>2017-10-30T15:51:07.11488-04:00</DestTime>
+  <SourceFile>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/pausephase2.png</SourceFile>
+  <SourceTime>2017-10-23T17:02:24.3560984-04:00</SourceTime>
+  <DestFile>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/bin/DesktopGL/pausephase2.xnb</DestFile>
+  <DestTime>2017-10-30T17:58:49.7412147-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T10:05:36-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
