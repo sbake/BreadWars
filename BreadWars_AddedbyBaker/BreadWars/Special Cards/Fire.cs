@@ -15,6 +15,7 @@ public class Fire : Card
     public Fire(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers)  : base( pTexr,  pPosit,  active,  pNumbers)
         {
             value = 18;
+            specialValue = 2;
             Name = "Fire";
         }
 

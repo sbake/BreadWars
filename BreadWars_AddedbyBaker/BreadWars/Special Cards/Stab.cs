@@ -14,6 +14,7 @@ public class Stab : Card
     public Stab(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers)  : base( pTexr,  pPosit,  active,  pNumbers)
         {
             value = 3;
+            specialValue = 3;
             Name = "Stab";
         }
 

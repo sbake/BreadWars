@@ -14,6 +14,7 @@ public class GlueGun: Card
     public GlueGun(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers)  : base( pTexr,  pPosit,  active,  pNumbers)
         {
             value = 4;
+            specialValue = 2;
             Name = "Glue Gun";
         }
 

@@ -14,6 +14,7 @@ namespace BreadWars
         
         //value
         protected int value;
+        protected int specialValue;
         protected string description;
         public int Value
         {
@@ -70,6 +71,12 @@ namespace BreadWars
                     i+= r.Next(0, 20);
                 }
             }
+        }
+
+        public int GetTotalValue()
+        {
+            if (isActive) return value + specialValue;
+            else return value;
         }
 
         //overwrite draw methos to only draw card if flipped up

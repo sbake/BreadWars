@@ -478,3 +478,5 @@ D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\Bre
 D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\cards\plain bread.xnb
 Z:\IGMProfile\Documents\GitHub\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\toaster.xnb
 Z:\IGMProfile\Documents\GitHub\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\toasternib.xnb
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\toaster.xnb
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\toasternib.xnb

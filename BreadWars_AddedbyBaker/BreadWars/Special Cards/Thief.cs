@@ -13,7 +13,8 @@ public class Thief : Card
     public Thief(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers)  : base( pTexr,  pPosit,  active,  pNumbers)
     {
         value = 1;
-        Name = "Thief";
+            specialValue = 5;
+            Name = "Thief";
     }
 
         public override void Effect(Player opponent, Player self, Deck deck)

@@ -18,6 +18,7 @@ namespace BreadWars
         {
             Name = "Self Destruct";
             value = 17;
+            specialValue = -3;
             description = "You will have 3 turns left";
         }
 

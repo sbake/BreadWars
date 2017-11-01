@@ -15,6 +15,7 @@ public class NumjectToChange : Card
     {
             value = 10;
             Name = "Numject to Change";
+            specialValue = 0;
             r = new Random();
     }
     

@@ -13,6 +13,7 @@ public class Whale : Card
     public Whale(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers)  : base( pTexr,  pPosit,  active,  pNumbers)
         {
             value = 16;
+            specialValue = 1;
             Name = "Whale";
     }
 

@@ -251,6 +251,7 @@ namespace BreadWars
                         if (numPlayButtonPos[i].Contains(mState.Position) && mState.LeftButton == ButtonState.Pressed)
                         {
                             if (i == 0) player1.IsAI = true;
+                            else player1.IsAI = false;
                             state = GameState.PickDeck;
                         }
                     }
@@ -482,7 +483,7 @@ namespace BreadWars
                             //draw all cards in a loop
                             for (int i = 0; i <player1.Hand.Count; i++)
                             {
-                                player1.Hand[i].DrawStatic(spriteBatch, font);
+                                if(player1.Hand[i]!=null)player1.Hand[i].DrawStatic(spriteBatch, font);
                             }
                             for (int i = 0; i < 5; i++)
                             {

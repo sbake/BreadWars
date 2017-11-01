@@ -13,6 +13,7 @@ public class Unicorn : Card
     public Unicorn(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers)  : base( pTexr,  pPosit,  active,  pNumbers)
         {
             value = 19;
+            specialValue = -1;
             Name = "Unicorn";
     }
 

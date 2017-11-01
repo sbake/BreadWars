@@ -14,6 +14,7 @@ public class FaireBread: Card
     public FaireBread(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers)  : base( pTexr,  pPosit,  active,  pNumbers)
         {
             value = 11;
+            specialValue = 1;
             Name = "Faire Bread";
         }
 
