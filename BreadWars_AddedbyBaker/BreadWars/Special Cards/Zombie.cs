@@ -23,7 +23,7 @@ namespace BreadWars
                 base.Effect(opponent, self, deck);
                 return;
             }
-            if (isActive)
+            if (isActive && self.PrevCard!=null)
             {
                 self.PrevCard.Effect(opponent,self,deck);
             }
