@@ -13,6 +13,7 @@ public class Block : Card
     public Block(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers)  : base( pTexr,  pPosit,  active,  pNumbers)
         {
             value = 15;
+            specialValue = 1;
             Name = "Block";
         }
 

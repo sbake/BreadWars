@@ -13,6 +13,7 @@ namespace BreadWars
         public Zombie(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers)  : base( pTexr,  pPosit,  active,  pNumbers)
         {
             value = 5;
+            specialValue = 1;
             Name = "Zombie";
         }
 

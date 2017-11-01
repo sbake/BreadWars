@@ -63,7 +63,12 @@ namespace BreadWars
 
         public void PlayTurn(Card[] cardsToPlay, int cardIndex)
         {
-            if (isAI || isParalyzed)
+            if (isAI)
+            {
+                AiTurn(cardsToPlay);
+                return;
+            }
+            if (isParalyzed)
             {
                 int cIndex = r.Next(0, hand.Count);
                 cardsToPlay[playerNumber-1] = hand[cIndex];
@@ -79,6 +84,28 @@ namespace BreadWars
             currCard = hand[cardIndex];
             hand.Remove(hand[cardIndex]);
 
+        }
+
+        public void AiTurn(Card[] cardsToPlay)
+        {
+
+            int cIndex = 0;
+            int maxHur = 0;
+            for(int i=0; i<Hand.Count; i++)
+            {if (Hand[i] == null) continue;
+                if(Hand[i].GetTotalValue() > maxHur)
+                {
+                    maxHur = Hand[i].GetTotalValue();
+                    cIndex = i;
+                }
+            }
+            cardsToPlay[playerNumber - 1] = hand[cIndex];
+            prevCard = currCard;
+            currCard = hand[cIndex];
+            hand.Remove(hand[cIndex]);
+            if (!isAI) paralyzeCount--;
+            if (paralyzeCount == 0) isParalyzed = false;
+            return;
         }
 
         public void AlterHealth(int toChange)

@@ -13,6 +13,7 @@ public class Poison : Card
     public Poison(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers)  : base( pTexr,  pPosit,  active,  pNumbers)
         {
             value = 10;
+            specialValue = 3;
             Name = "Poison";
     }
 

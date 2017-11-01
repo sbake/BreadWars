@@ -15,6 +15,7 @@ public class HandSwitch : Card
     public HandSwitch(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers) : base(pTexr, pPosit, active, pNumbers)
         {
             value = 13;
+            specialValue = 0;
             Name = "Hand Switch";
         }
 

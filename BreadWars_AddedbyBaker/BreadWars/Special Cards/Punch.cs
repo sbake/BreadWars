@@ -15,6 +15,7 @@ public class Punch: Card
     public Punch(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers) : base(pTexr, pPosit, active, pNumbers)
         {
             value = 9;
+            specialValue = 3;
             Name = "Punch";
         }
 
