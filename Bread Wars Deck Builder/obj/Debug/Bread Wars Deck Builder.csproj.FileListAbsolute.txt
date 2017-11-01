@@ -162,3 +162,30 @@ Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Bu
 Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.pdb
 Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.frmMain.resources
 Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.frmHelp.resources
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.exe.config
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.exe
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.pdb
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\MonoGame.Framework.dll
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XAudio2.dll
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.dll
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.DXGI.dll
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct3D11.dll
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct2D1.dll
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XInput.dll
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.MediaFoundation.dll
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\MonoGame.Framework.xml
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XAudio2.xml
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.xml
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.DXGI.xml
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct3D11.xml
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct2D1.xml
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XInput.xml
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.MediaFoundation.xml
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csprojResolveAssemblyReference.cache
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csproj.Bread Wars Deck Builder.exe.config
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.frmMain.resources
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.frmHelp.resources
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.Properties.Resources.resources
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csproj.GenerateResource.Cache
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.exe
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.pdb
