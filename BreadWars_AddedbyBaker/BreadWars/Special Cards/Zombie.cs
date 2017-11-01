@@ -26,7 +26,7 @@ namespace BreadWars
             }
             if (isActive && self.PrevCard!=null)
             {
-                self.PrevCard.Effect(opponent,self,deck);
+               self.PrevCard.Effect(opponent,self,deck);
             }
         }
 
