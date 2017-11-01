@@ -165,6 +165,10 @@ namespace BreadWars
             help = new HUDObjects(helpSplash, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
             creditSplash = Content.Load<Texture2D>("CreditsScreen");
             credits = new HUDObjects(creditSplash, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
+            tie1Text = Content.Load<Texture2D>("tieGame1");
+            tie2Text = Content.Load<Texture2D>("tieGame2");
+            tie1 = new HUDObjects(tie1Text, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
+            tie2 = new HUDObjects(tie2Text, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
 
             //deck& AI buttons
             button = Content.Load<Texture2D>("Card");
@@ -338,17 +342,20 @@ namespace BreadWars
                             }
                             for (int i = 0; i < player1.Hand.Count; i++)
                             {
-                                //assigning card positions
-                                player1.Hand[i].Posit = cardPos[i];
-                                
-                                if (cardPos[i].Contains(mState.Position) && mState.LeftButton == ButtonState.Pressed)
+                                if (player1.Hand[i] != null)
                                 {
-                                    cardsInPlay[0] = player1.Hand[i];
-                                    player1.PlayTurn(cardsInPlay, i);
-                                    player1.Hand.Add(deck.Next());
-                                    prevPhase = currPhase;
-                                    currPhase = Phase.Pause;
-                                    break;
+                                    //assigning card positions
+                                    player1.Hand[i].Posit = cardPos[i];
+
+                                    if (cardPos[i].Contains(mState.Position) && mState.LeftButton == ButtonState.Pressed)
+                                    {
+                                        cardsInPlay[0] = player1.Hand[i];
+                                        player1.PlayTurn(cardsInPlay, i);
+                                        player1.Hand.Add(deck.Next());
+                                        prevPhase = currPhase;
+                                        currPhase = Phase.Pause;
+                                        break;
+                                    }
                                 }
                             }
                             break;
@@ -359,17 +366,20 @@ namespace BreadWars
 
                             for (int i = 0; i < player2.Hand.Count; i++)
                             {
-                                //assigning card positions
-                                player2.Hand[i].Posit = cardPos[i];
-
-                                if (cardPos[i].Contains(mState.Position) && mState.LeftButton == ButtonState.Pressed)
+                                if (player2.Hand[i] != null)
                                 {
-                                    cardsInPlay[1] = player2.Hand[i];
-                                    player2.PlayTurn(cardsInPlay, i);
-                                    player2.Hand.Add(deck.Next());
-                                    prevPhase = currPhase;
-                                    currPhase = Phase.Pause;
-                                    break;
+                                    //assigning card positions
+                                    player2.Hand[i].Posit = cardPos[i];
+
+                                    if (cardPos[i].Contains(mState.Position) && mState.LeftButton == ButtonState.Pressed)
+                                    {
+                                        cardsInPlay[1] = player2.Hand[i];
+                                        player2.PlayTurn(cardsInPlay, i);
+                                        player2.Hand.Add(deck.Next());
+                                        prevPhase = currPhase;
+                                        currPhase = Phase.Pause;
+                                        break;
+                                    }
                                 }
                             }
                             break;
@@ -398,7 +408,8 @@ namespace BreadWars
                             {
 
                                 winPlayer = round.CompareCards(cardsInPlay);
-                                round.EditHealth(winPlayer, players);
+                                if (winPlayer != 0)
+                                    round.EditHealth(winPlayer, players);
                                 round.SpecialCards(cardsInPlay[0], 0, players);
                                 round.SpecialCards(cardsInPlay[1], 1, players);
                                 resultCalculated = true;
@@ -546,7 +557,7 @@ namespace BreadWars
                         case Phase.Results:
                             for (int i = 0; i < cardsInPlay.Length; i++)
                             {
-                                cardsInPlay[i].Posit = resultCardPos[i];
+                                cardsInPlay[i].Posit = resultCardPos[i]; //thief and stealing the card that just got played like
                                 cardsInPlay[i].DrawStatic(spriteBatch, font);
                             }
                             vs.DrawStatic(spriteBatch);
@@ -558,7 +569,11 @@ namespace BreadWars
                             {
                                 player2wins.DrawStatic(spriteBatch);
                             }
-
+                            if (winPlayer == 0)
+                            {
+                                tie1.DrawStatic(spriteBatch);
+                                tie2.DrawStatic(spriteBatch);
+                            }
                             break;
                     }
                     break;
