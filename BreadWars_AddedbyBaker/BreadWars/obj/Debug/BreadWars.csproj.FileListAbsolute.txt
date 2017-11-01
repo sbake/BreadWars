@@ -480,3 +480,6 @@ Z:\IGMProfile\Documents\GitHub\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\De
 Z:\IGMProfile\Documents\GitHub\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\toasternib.xnb
 D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\toaster.xnb
 D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\toasternib.xnb
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\creditsScreen.xnb
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\tieGame1.xnb
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\tieGame2.xnb
