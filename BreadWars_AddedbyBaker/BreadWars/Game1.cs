@@ -83,7 +83,7 @@ namespace BreadWars
 
         //health things
         //room from top to bottom for toaster nib to move
-        const double tHDif = 65;
+        const double tHDif = 99;
         //solved location, solved in update, used in draw
         int toastNib1Y;
         int toastNib2Y;
@@ -185,11 +185,11 @@ namespace BreadWars
 
             //Health Assets
             nibText = Content.Load<Texture2D>("toasternib");
-            toasterNib1 = new HUDObjects(nibText, new Rectangle(16, 0, 20, 10));
-            toasterNib2 = new HUDObjects(nibText, new Rectangle(16, 0, 20, 10));
+            toasterNib1 = new HUDObjects(nibText, new Rectangle(24, 0, 30, 15));
+            toasterNib2 = new HUDObjects(nibText, new Rectangle(24, 0, 30, 15));
             toasterText = Content.Load<Texture2D>("toaster");
-            toaster1 = new HUDObjects(toasterText, new Rectangle(0, 100, 40, 100));
-            toaster2 = new HUDObjects(toasterText, new Rectangle(0, 300, 40, 100));
+            toaster1 = new HUDObjects(toasterText, new Rectangle(0, 50, 60, 150));
+            toaster2 = new HUDObjects(toasterText, new Rectangle(0, 300, 60, 150));
 
 
             font = Content.Load<SpriteFont>("Arial");
@@ -311,8 +311,8 @@ namespace BreadWars
                         case Phase.Player1:
                             resultCalculated = false;
                             //toasterNib position
-                            toastNib1Y = System.Convert.ToInt32(125 + ((tHDif / Player.PLAYER_MAX_HEALTH) * player1.Health));
-                            toastNib2Y = System.Convert.ToInt32(325 + ((tHDif / Player.PLAYER_MAX_HEALTH) * player2.Health));
+                            toastNib1Y = System.Convert.ToInt32(78 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player1.Health)));
+                            toastNib2Y = System.Convert.ToInt32(328 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player2.Health)));
                             
                             if (player1.IsAI)
                             {
@@ -341,8 +341,8 @@ namespace BreadWars
                             break;
                         case Phase.Player2:
                             //toaster nib position
-                            toastNib1Y = System.Convert.ToInt32(325 + ((tHDif / Player.PLAYER_MAX_HEALTH) * player1.Health));
-                            toastNib2Y = System.Convert.ToInt32(125 + ((tHDif / Player.PLAYER_MAX_HEALTH) * player2.Health));
+                            toastNib1Y = System.Convert.ToInt32(328 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player1.Health)));
+                            toastNib2Y = System.Convert.ToInt32(78 + ((tHDif / Player.PLAYER_MAX_HEALTH) * ( 100 - player2.Health)));
 
                             for (int i = 0; i < player2.Hand.Count; i++)
                             {
@@ -470,11 +470,11 @@ namespace BreadWars
                     {
                         case Phase.Player1:
                             //toaster
-                            toasterNib1.Posit = new Rectangle(16, toastNib1Y, 20, 10);
+                            toasterNib1.Posit = new Rectangle(24, toastNib1Y, 30, 15);
                             toaster1.DrawStatic(spriteBatch);
                             toasterNib1.DrawStatic(spriteBatch);
                             //toaster2
-                            toasterNib2.Posit = new Rectangle(16, toastNib2Y, 20, 10);
+                            toasterNib2.Posit = new Rectangle(24, toastNib2Y, 30, 15);
                             toaster2.DrawStatic(spriteBatch);
                             toasterNib2.DrawStatic(spriteBatch);
 
@@ -492,11 +492,11 @@ namespace BreadWars
                             break;
                         case Phase.Player2:
                             //toaster
-                            toasterNib1.Posit = new Rectangle(16, toastNib1Y, 20, 10);
+                            toasterNib1.Posit = new Rectangle(24, toastNib1Y, 30, 15);
                             toaster1.DrawStatic(spriteBatch);
                             toasterNib2.DrawStatic(spriteBatch);
                             //toaster2
-                            toasterNib2.Posit = new Rectangle(16, toastNib2Y, 20, 10);
+                            toasterNib2.Posit = new Rectangle(24, toastNib2Y, 30, 15);
                             toaster2.DrawStatic(spriteBatch);
                             toasterNib1.DrawStatic(spriteBatch);
                             
