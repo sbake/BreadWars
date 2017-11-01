@@ -23,11 +23,12 @@ namespace BreadWars
         {
             //compare 2 cards in and reutrn winner
             byte winner = 0;
-            if (cardsIn[0].Value >= cardsIn[1].Value)
+            if (cardsIn[0].Value > cardsIn[1].Value)
                 winner = 1;
             else if (cardsIn[1].Value > cardsIn[0].Value)
                 winner = 2;
-
+            else if (cardsIn[0].Value == cardsIn[1].Value)
+                winner = 0;
             return winner;
         }
 
