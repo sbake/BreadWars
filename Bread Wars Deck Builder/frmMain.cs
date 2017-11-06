@@ -196,11 +196,6 @@ namespace Bread_Wars_Deck_Builder
             fhelp.Show();
         }
 
-        private void btnNew_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Reload()
         {
             this.clbDecks.Items.Clear();
