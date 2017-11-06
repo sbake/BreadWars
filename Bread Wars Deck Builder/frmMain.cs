@@ -228,7 +228,7 @@ namespace Bread_Wars_Deck_Builder
             }
 
             lblCardNum.Text = sumCards.ToString(); //write to form total number cards on deck]
-            Uncheck(clbCards);
+            //Uncheck(clbCards);
         }
 
         private void btnMinus1_Click(object sender, EventArgs e)
@@ -275,7 +275,7 @@ namespace Bread_Wars_Deck_Builder
             }
 
             lblCardNum.Text = sumCards.ToString(); //write to form total number cards on deck]
-            Uncheck(clbCards);
+            //Uncheck(clbCards);
         }
 
         private void btnClearCard_Click(object sender, EventArgs e)
