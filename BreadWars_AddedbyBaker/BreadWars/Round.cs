@@ -41,9 +41,20 @@ namespace BreadWars
             if(cardPlayed.isActive )
             {
                 if (playerNum == 1)
-                    cardPlayed.Effect(players[1], players[0] ,deck);
+                {
+                    if(players[1].HasBlock){
+                        players[1].HasBlock = false;
+                    }
+                    else cardPlayed.Effect(players[1], players[0], deck);
+                }
                 if (playerNum == 2)
-                    cardPlayed.Effect(players[0], players[1] , deck);
+                {
+                    if (players[0].HasBlock)
+                    {
+                        players[0].HasBlock = false;
+                    }
+                    else cardPlayed.Effect(players[0], players[1], deck);
+                }
             }
         }
     }
