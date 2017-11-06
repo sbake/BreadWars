@@ -28,7 +28,7 @@ public class Whale : Card
             {
                 foreach(Card c in deck.Library)
                 {
-                    c.Is8 = false;
+                    if(c!=null)c.Is8 = false;
                 }
             }
         }

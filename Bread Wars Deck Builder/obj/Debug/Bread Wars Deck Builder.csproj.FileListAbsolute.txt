@@ -18,10 +18,8 @@ C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Buil
 C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.pdb
 D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csprojResolveAssemblyReference.cache
 D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csproj.Bread Wars Deck Builder.exe.config
-D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.Form2.resources
 D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.Properties.Resources.resources
 D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csproj.GenerateResource.Cache
-D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csproj.CoreCompileInputs.cache
 D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.exe
 D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.pdb
 D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.exe.config
@@ -189,3 +187,5 @@ D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\obj\Debug\Bre
 D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csproj.GenerateResource.Cache
 D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.exe
 D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.pdb
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.frmMain.resources
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.frmHelp.resources

@@ -72,7 +72,6 @@ namespace BreadWars
             {
                 int cIndex = r.Next(0, hand.Count);
                 cardsToPlay[playerNumber-1] = hand[cIndex];
-                prevCard = currCard;
                 currCard = hand[cIndex];
                 hand.Remove(hand[cIndex]);
                 if(!isAI)paralyzeCount--;
@@ -80,7 +79,6 @@ namespace BreadWars
                 return;
             }
             cardsToPlay[playerNumber-1] = hand[cardIndex];
-            prevCard = currCard;
             currCard = hand[cardIndex];
             hand.Remove(hand[cardIndex]);
 
@@ -128,13 +126,19 @@ namespace BreadWars
                 untilDestruct--;
                 if (untilDestruct == 0) playerCurrentHealth = 0;
             }
+            bool isEmpty = true;
             foreach(Card c in hand)
             {
-                if(c.Name=="Numject to Change")
+                if (c != null)
                 {
-                    ((NumjectToChange)c).ChangeValue(opponent);
+                    isEmpty = false;
+                    if (c.Name == "Numject to Change")
+                    {
+                        ((NumjectToChange)c).ChangeValue(opponent);
+                    }
                 }
             }
+            if (isEmpty) playerCurrentHealth = 0;
         }
 
         public void ResetHealth()
@@ -143,7 +147,11 @@ namespace BreadWars
             isPoisoned = false;
             hasBlock = false;
             isParalyzed = false;
+            isDestruct = false;
+            isAI = false;
             paralyzeCount = 0;
+            prevCard = null;
+            currCard = null;
         }
     }
 }

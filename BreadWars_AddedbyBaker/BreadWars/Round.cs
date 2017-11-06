@@ -38,13 +38,12 @@ namespace BreadWars
         }
         public void SpecialCards(Card cardPlayed, byte playerNum, Player[] players)
         {
-
             if(cardPlayed.isActive )
             {
                 if (playerNum == 1)
-                    cardPlayed.Effect(players[0], players[1],deck);
+                    cardPlayed.Effect(players[1], players[0] ,deck);
                 if (playerNum == 2)
-                    cardPlayed.Effect(players[1], players[0], deck);
+                    cardPlayed.Effect(players[0], players[1] , deck);
             }
         }
     }

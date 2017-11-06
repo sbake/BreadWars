@@ -23,7 +23,7 @@ public class TableFlip : Card
                 base.Effect(opponent, self, deck);
                 return;
             }
-            if (isActive && opponent.CurrCard.Value<2)
+            if (isActive && opponent.CurrCard.Value<=2)
             {
                 opponent.Health = 0;
             }

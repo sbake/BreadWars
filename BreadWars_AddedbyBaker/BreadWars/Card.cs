@@ -64,10 +64,13 @@ namespace BreadWars
         }
 
         public virtual void Effect(Player opponent, Player self, Deck deck){
-            if(isActive){
+            if(isActive || is8){
                 Random r = new Random();
                 for(int i=r.Next(0,51); i<52; i++){
-                    if(deck.Library[i]!=null)deck.Library[i].Is8 = true;
+                    if (deck.Library[i] != null)
+                    {
+                        deck.Library[i].Is8 = true;
+                    }
                     i+= r.Next(0, 20);
                 }
             }
@@ -107,7 +110,7 @@ namespace BreadWars
                 }
                 
                 //draw numbers with spritefont instead
-                spriteBatch.DrawString(font, "" + value +(isActive? " " + Name : ""), new Vector2(posit.X, posit.Y), Color.Black);
+                spriteBatch.DrawString(font, is8? "octo": "", new Vector2(posit.X, posit.Y), Color.Black);
             }
         }
     }

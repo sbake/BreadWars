@@ -406,23 +406,23 @@ namespace BreadWars
                             //calculate victor of round and other effects
                             if (!resultCalculated)
                             {
-
                                 winPlayer = round.CompareCards(cardsInPlay);
                                 if (winPlayer != 0)
                                     round.EditHealth(winPlayer, players);
-                                round.SpecialCards(cardsInPlay[0], 0, players);
-                                round.SpecialCards(cardsInPlay[1], 1, players);
+                                round.SpecialCards(cardsInPlay[0], 1, players);
+                                round.SpecialCards(cardsInPlay[1], 2, players);
+                                player1.Update(player2);
+                                player2.Update(player1);
                                 resultCalculated = true;
                             }
-
                             if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter)) //press enter to continue to next phase
                             {
-                                if(player2.Health<0 || player1.Health>Player.PLAYER_MAX_HEALTH )
+                                if(player2.Health<=0 || player1.Health>Player.PLAYER_MAX_HEALTH )
                                 {
                                     winPlayer = 1;
                                     state = GameState.GameOver;
                                 }
-                                else if (player1.Health < 0 || player2.Health > Player.PLAYER_MAX_HEALTH)
+                                else if (player1.Health <= 0 || player2.Health > Player.PLAYER_MAX_HEALTH)
                                 {
                                     winPlayer = 2;
                                     state = GameState.GameOver;
@@ -446,8 +446,7 @@ namespace BreadWars
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            // TODO: Add your drawing code here
+            
             spriteBatch.Begin();
 
             //test code to get screen size
@@ -527,8 +526,6 @@ namespace BreadWars
                             toaster2.DrawStatic(spriteBatch);
                             toasterNib1.DrawStatic(spriteBatch);
                             
-
-
                             //draw all cards in a loop
                             for (int i = 0; i < player2.Hand.Count; i++)
                             {
@@ -587,7 +584,6 @@ namespace BreadWars
 
         public void NewGame(string deckName)
         {
-
             deck.LoadDeck(deckName);
             deck.Shuffle();
             //initialize player hands
