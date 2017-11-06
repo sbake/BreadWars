@@ -261,7 +261,7 @@ namespace BreadWars
                             cardsAdded++;
                             break;
                              case 20: //numbject to change
-                            NumjectToChange nj = new NumjectToChange(cardTexts[20], cardSizeOnly, false, numbers);
+                            NumjectToChange nj = new NumjectToChange(cardTexts[20], cardSizeOnly, true, numbers);
                             library[cardsAdded] = nj;
                             cardsAdded++;
                             break;

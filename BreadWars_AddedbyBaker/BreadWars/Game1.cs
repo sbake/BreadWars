@@ -66,10 +66,6 @@ namespace BreadWars
         HUDObjects toasterNib1;
         HUDObjects toaster2;
         HUDObjects toasterNib2;
-        //HUDObjects p1Health;
-        //HUDObjects p2Health;
-        //HUDObjects deckVisual;
-        //new phone who dis^^?
         Texture2D bGText;
         Texture2D testText;
         Texture2D backText;
