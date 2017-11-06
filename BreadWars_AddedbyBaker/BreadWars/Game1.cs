@@ -87,6 +87,8 @@ namespace BreadWars
         Texture2D nibText;
         Texture2D button;
 
+        //tutorial
+
         //health things
         //room from top to bottom for toaster nib to move
         const double tHDif = 99;
