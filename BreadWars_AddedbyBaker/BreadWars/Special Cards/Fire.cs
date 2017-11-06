@@ -32,11 +32,11 @@ public class Fire : Card
             //burn all cards on field 
             foreach(Card c in self.Hand)
             {
-                c.IsBurned = true;
+                if(c!=null)c.IsBurned = true;
             }
             foreach(Card c in opponent.Hand)
             {
-                c.IsBurned = true;
+                if(c!=null)c.IsBurned = true;
             }
         }
     }
