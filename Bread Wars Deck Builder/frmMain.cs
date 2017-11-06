@@ -280,7 +280,6 @@ namespace Bread_Wars_Deck_Builder
 
         private void btnClearCard_Click(object sender, EventArgs e)
         {
-            //update number of cards as specified by user
             //List<int> tmp = numberCards.ToList<int>();
             //tmp.Clear();
             //numberCards = tmp.ToArray();
