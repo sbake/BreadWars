@@ -326,8 +326,8 @@ namespace BreadWars
                         case Phase.Player1:
                             resultCalculated = false;
                             //toasterNib position
-                            toastNib1Y = System.Convert.ToInt32(78 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player1.Health)));
-                            toastNib2Y = System.Convert.ToInt32(328 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player2.Health)));
+                            toastNib1Y = System.Convert.ToInt32(328 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player1.Health)));
+                            toastNib2Y = System.Convert.ToInt32(78 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player2.Health)));
                             
                             if (player1.IsAI)
                             {
@@ -359,8 +359,8 @@ namespace BreadWars
                             break;
                         case Phase.Player2:
                             //toaster nib position
-                            toastNib1Y = System.Convert.ToInt32(328 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player1.Health)));
-                            toastNib2Y = System.Convert.ToInt32(78 + ((tHDif / Player.PLAYER_MAX_HEALTH) * ( 100 - player2.Health)));
+                            toastNib1Y = System.Convert.ToInt32(78 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player1.Health)));
+                            toastNib2Y = System.Convert.ToInt32(328 + ((tHDif / Player.PLAYER_MAX_HEALTH) * ( 100 - player2.Health)));
 
                             for (int i = 0; i < player2.Hand.Count; i++)
                             {
@@ -496,10 +496,13 @@ namespace BreadWars
                             //toaster
                             toasterNib1.Posit = new Rectangle(24, toastNib1Y, 30, 15);
                             toaster1.DrawStatic(spriteBatch);
-                            toasterNib1.DrawStatic(spriteBatch);
+                            
                             //toaster2
                             toasterNib2.Posit = new Rectangle(24, toastNib2Y, 30, 15);
                             toaster2.DrawStatic(spriteBatch);
+
+                            //nibs
+                            toasterNib1.DrawStatic(spriteBatch);
                             toasterNib2.DrawStatic(spriteBatch);
 
 
@@ -518,10 +521,13 @@ namespace BreadWars
                             //toaster
                             toasterNib1.Posit = new Rectangle(24, toastNib1Y, 30, 15);
                             toaster1.DrawStatic(spriteBatch);
-                            toasterNib2.DrawStatic(spriteBatch);
+                            
                             //toaster2
                             toasterNib2.Posit = new Rectangle(24, toastNib2Y, 30, 15);
                             toaster2.DrawStatic(spriteBatch);
+
+                            //nibs
+                            toasterNib2.DrawStatic(spriteBatch);
                             toasterNib1.DrawStatic(spriteBatch);
                             
                             //draw all cards in a loop
