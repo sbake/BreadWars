@@ -87,6 +87,8 @@ namespace BreadWars
         Texture2D nibText;
         Texture2D button;
 
+        //tutorial
+
         //health things
         //room from top to bottom for toaster nib to move
         const double tHDif = 99;
@@ -214,7 +216,7 @@ namespace BreadWars
                 cardText[i] = Content.Load<Texture2D>("cards/card"+ (i+1));
             }
             //numbers and deck
-            numbers = new Drawable(Content.Load<Texture2D>("testnumbers14020"), new Rectangle(0, 0, 140, 20));
+            numbers = new Drawable(Content.Load<Texture2D>("numbers14020"), new Rectangle(0, 0, 140, 20));
             numbers.Rows = 1;
             numbers.Columns = 10;
             numbers.UnpackSprites();
