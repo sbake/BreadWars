@@ -100,7 +100,6 @@ namespace BreadWars
                 }
             }
             cardsToPlay[playerNumber - 1] = hand[cIndex];
-            prevCard = currCard;
             currCard = hand[cIndex];
             hand.Remove(hand[cIndex]);
             if (!isAI) paralyzeCount--;
@@ -119,6 +118,7 @@ namespace BreadWars
         /// <param name="opponent"></param>
         public void Update(Player opponent)
         {
+            prevCard = currCard;
             if (isPoisoned)
             {
                 AlterHealth(-POISON_DAMAGE);
