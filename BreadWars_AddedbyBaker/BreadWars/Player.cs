@@ -70,12 +70,7 @@ namespace BreadWars
             }
             if (isParalyzed)
             {
-                int cIndex = r.Next(0, hand.Count);
-                cardsToPlay[playerNumber-1] = hand[cIndex];
-                currCard = hand[cIndex];
-                hand.Remove(hand[cIndex]);
-                if(!isAI)paralyzeCount--;
-                if (paralyzeCount == 0) isParalyzed = false;
+                RandomTurn(cardsToPlay);
                 return;
             }
             cardsToPlay[playerNumber-1] = hand[cardIndex];
@@ -84,13 +79,27 @@ namespace BreadWars
 
         }
 
+        public void RandomTurn(Card[] cardsToPlay)
+        {
+            int cIndex = r.Next(0, hand.Count);
+            cardsToPlay[playerNumber - 1] = hand[cIndex];
+            currCard = hand[cIndex];
+            hand.Remove(hand[cIndex]);
+            if (isParalyzed) paralyzeCount--;
+            if (paralyzeCount == 0) isParalyzed = false;
+        }
+
         public void AiTurn(Card[] cardsToPlay)
         {
-
+            if (isParalyzed)
+            {
+                RandomTurn(cardsToPlay);
+                return;
+            }
             int cIndex = 0;
             int maxHur = 0;
             for(int i=0; i<Hand.Count; i++)
-            {if (Hand[i] == null) continue;
+            {   if (Hand[i] == null) continue;
                 if(Hand[i].GetTotalValue() > maxHur)
                 {
                     maxHur = Hand[i].GetTotalValue();
@@ -100,8 +109,6 @@ namespace BreadWars
             cardsToPlay[playerNumber - 1] = hand[cIndex];
             currCard = hand[cIndex];
             hand.Remove(hand[cIndex]);
-            if (!isAI) paralyzeCount--;
-            if (paralyzeCount == 0) isParalyzed = false;
             return;
         }
 
@@ -148,7 +155,6 @@ namespace BreadWars
             hasBlock = false;
             isParalyzed = false;
             isDestruct = false;
-            isAI = false;
             paralyzeCount = 0;
             prevCard = null;
             currCard = null;

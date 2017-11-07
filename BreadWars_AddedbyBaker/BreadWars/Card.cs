@@ -21,6 +21,7 @@ namespace BreadWars
             get { return value; }
             set { this.value = value; } //too late to change value name? value is already the name of a thing in C#
         }
+        private Random r;
 
         public string Name { get; set; }
 
@@ -40,7 +41,7 @@ namespace BreadWars
         
         //isBurned
         protected bool isBurned;
-        public bool IsBurned{get{return isBurned;} set{isActive = value;}}
+        public bool IsBurned{get{return isBurned;} set{isBurned = value;}}
 
         //is8
         protected bool is8;
@@ -57,6 +58,8 @@ namespace BreadWars
             is8 = false;
             isActive = active;
             Numbers = pNumbers;
+
+            r = new Random();
 
             //rows and columns
             rows = 1;
@@ -78,6 +81,7 @@ namespace BreadWars
 
         public int GetTotalValue()
         {
+            if (isBurned) return r.Next(0,20);
             if (isActive) return value + specialValue;
             else return value;
         }
@@ -89,7 +93,7 @@ namespace BreadWars
             {
                 base.UnpackSprites();
                 //draw base
-                spriteBatch.Draw(texr, posit, new Rectangle(spriteLocations[0], new Point(posit.Width/2, posit.Height)), Color.White);
+                spriteBatch.Draw(texr, posit, new Rectangle(spriteLocations[0], new Point(posit.Width/2, posit.Height)), isBurned? Color.Black: Color.White);
                 //draw special if special
                 if (isActive)
                 {
@@ -98,19 +102,19 @@ namespace BreadWars
                 //draw numbr
                 //int offsetFromCorners = 30; //add to posit
                 
-                if (value / 10 != 0)
+                if (!isBurned && value / 10 != 0)
                 {
                     spriteBatch.Draw(Numbers.Texr, new Rectangle(posit.X + 5, posit.Y+125, 14, 20), new Rectangle(Numbers.SpriteLocations[value / 10], new Point(Numbers.Posit.Width / 10, Numbers.Posit.Height)), Color.White);
                     spriteBatch.Draw(Numbers.Texr, new Rectangle(posit.X +14 + 5, posit.Y + 125, 14, 20), new Rectangle(Numbers.SpriteLocations[value % 10], new Point(Numbers.Posit.Width / 10, Numbers.Posit.Height)), Color.White);
                 }
-                else
+                else if(!isBurned)
                 {
                     //texture, destination, source, color
                     spriteBatch.Draw(Numbers.Texr, new Rectangle(posit.X+ 5, posit.Y + 125, 14, 20), new Rectangle(Numbers.SpriteLocations[value % 10], new Point(Numbers.Posit.Width / 10, Numbers.Posit.Height)), Color.White);
                 }
                 
                 //draw numbers with spritefont instead
-                spriteBatch.DrawString(font, is8? "octo": "", new Vector2(posit.X, posit.Y), Color.Black);
+                spriteBatch.DrawString(font, is8? "octo": "" + (isBurned? "burn" : ""), new Vector2(posit.X, posit.Y), Color.Black);
             }
         }
     }

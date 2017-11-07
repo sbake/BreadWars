@@ -103,6 +103,8 @@ namespace BreadWars
         private Phase prevPhase;
         private KeyboardState kState;
         private KeyboardState kStatePrev;
+        private MouseState mState;
+        private MouseState mStatePrev;
         private bool resultCalculated;
 
         public Game1()
@@ -211,15 +213,13 @@ namespace BreadWars
             {
                 cardText[i] = Content.Load<Texture2D>("cards/card"+ (i+1));
             }
-            //numbers and deck
+            //numbers
             numbers = new Drawable(Content.Load<Texture2D>("numbers14020"), new Rectangle(0, 0, 140, 20));
             numbers.Rows = 1;
             numbers.Columns = 10;
             numbers.UnpackSprites();
+            //Deck
             deck = new Deck(cardText, numbers);
-
-            //font = Content.Load<SpriteFont>("Arial");
-
             string[] allFiles = Directory.GetFiles("..\\..\\..\\..\\..\\..\\Bread Wars Deck Builder\\bin\\Debug");
             foreach(string f in allFiles)
             {
@@ -245,14 +245,13 @@ namespace BreadWars
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
-            // TODO: Add your update logic here
+            
             kStatePrev = kState;
             kState = Keyboard.GetState();
+            mStatePrev = mState;
+            mState = Mouse.GetState();
+           
             
-            MouseState mState = Mouse.GetState();
-            
-
             switch (state)
             {
                 case GameState.Start:
@@ -260,8 +259,8 @@ namespace BreadWars
                     {
                         if (numPlayButtonPos[i].Contains(mState.Position) && mState.LeftButton == ButtonState.Pressed)
                         {
-                            if (i == 0) player1.IsAI = true;
-                            else player1.IsAI = false;
+                            if (i == 0) player2.IsAI = true;
+                            else player2.IsAI = false;
                             state = GameState.PickDeck;
                         }
                     }
@@ -329,15 +328,6 @@ namespace BreadWars
                             toastNib1Y = System.Convert.ToInt32(328 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player1.Health)));
                             toastNib2Y = System.Convert.ToInt32(78 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player2.Health)));
                             
-                            if (player1.IsAI)
-                            {
-                                cardsInPlay[0] = player1.Hand[0];
-                                player1.PlayTurn(cardsInPlay, 0);
-                                player1.Hand.Add(deck.Next());
-                                prevPhase = currPhase;
-                                currPhase = Phase.Pause;
-                                break;
-                            }
                             for (int i = 0; i < player1.Hand.Count; i++)
                             {
                                 if (player1.Hand[i] != null)
@@ -345,17 +335,29 @@ namespace BreadWars
                                     //assigning card positions
                                     player1.Hand[i].Posit = cardPos[i];
 
-                                    if (cardPos[i].Contains(mState.Position) && mState.LeftButton == ButtonState.Pressed)
+                                    if (cardPos[i].Contains(mState.Position) && mStatePrev.LeftButton== ButtonState.Released && mState.LeftButton == ButtonState.Pressed)
                                     {
                                         cardsInPlay[0] = player1.Hand[i];
                                         player1.PlayTurn(cardsInPlay, i);
                                         player1.Hand.Add(deck.Next());
                                         prevPhase = currPhase;
+
+                                        if (player2.IsAI)
+                                        {
+                                            cardsInPlay[1] = player2.Hand[1];
+                                            player2.PlayTurn(cardsInPlay, 0);
+                                            player2.Hand.Add(deck.Next());
+                                            prevPhase = Phase.Player2;
+                                            currPhase = Phase.Pause;
+                                        }
+                                        
                                         currPhase = Phase.Pause;
                                         break;
                                     }
                                 }
                             }
+
+                            
                             break;
                         case Phase.Player2:
                             //toaster nib position
@@ -369,7 +371,7 @@ namespace BreadWars
                                     //assigning card positions
                                     player2.Hand[i].Posit = cardPos[i];
 
-                                    if (cardPos[i].Contains(mState.Position) && mState.LeftButton == ButtonState.Pressed)
+                                    if (cardPos[i].Contains(mState.Position) && mStatePrev.LeftButton == ButtonState.Released && mState.LeftButton == ButtonState.Pressed)
                                     {
                                         cardsInPlay[1] = player2.Hand[i];
                                         player2.PlayTurn(cardsInPlay, i);
@@ -382,7 +384,7 @@ namespace BreadWars
                             }
                             break;
                         case Phase.Pause:
-                            if (!(kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))) break;
+                            if(!(mState.LeftButton == ButtonState.Pressed && mStatePrev.LeftButton ==ButtonState.Released) && (!(kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))) ) break;
                             //press enter to continue to next phase
                             switch (prevPhase)
                             {
@@ -411,9 +413,11 @@ namespace BreadWars
                                 round.SpecialCards(cardsInPlay[1], 2, players);
                                 player1.Update(player2);
                                 player2.Update(player1);
+                                cardsInPlay[0].IsBurned = false;
+                                cardsInPlay[1].IsBurned = false;
                                 resultCalculated = true;
                             }
-                            if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter)) //press enter to continue to next phase
+                            if ((mState.LeftButton ==ButtonState.Pressed && mStatePrev.LeftButton == ButtonState.Released) || kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter)) //press enter to continue to next phase
                             {
                                 if(player2.Health<=0 || player1.Health>Player.PLAYER_MAX_HEALTH )
                                 {
