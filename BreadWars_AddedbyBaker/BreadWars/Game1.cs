@@ -324,7 +324,7 @@ namespace BreadWars
                     }
                     break;
                 case GameState.GameOver:
-                    if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter)) //press enter to go back to start screen
+                    if ((mStatePrev.LeftButton == ButtonState.Released && mState.LeftButton == ButtonState.Pressed) || (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))) //press enter to go back to start screen
                     {
                         state = GameState.Start;
                     }
