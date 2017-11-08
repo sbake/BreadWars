@@ -16,5 +16,10 @@ namespace Bread_Wars_Deck_Builder
         {
             InitializeComponent();
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
