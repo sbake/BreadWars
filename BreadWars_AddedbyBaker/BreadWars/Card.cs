@@ -14,13 +14,16 @@ namespace BreadWars
         
         //value
         protected int value;
+        protected int specialValue;
+        protected string description;
         public int Value
         {
             get { return value; }
-            set { value = this.value; } //too late to change value name? value is already the name of a thing in C#
+            set { this.value = value; } //too late to change value name? value is already the name of a thing in C#
         }
+        private Random r;
 
-        protected string Name { get; set; }
+        public string Name { get; set; }
 
         //dimensions
         const int WIDTH = 20;
@@ -37,15 +40,15 @@ namespace BreadWars
         }
         
         //isBurned
-        private bool isBurned;
-        public bool IsBurned{get{return isBurned;} set{isActive = value;}}
+        protected bool isBurned;
+        public bool IsBurned{get{return isBurned;} set{isBurned = value;}}
 
         //is8
-        private bool is8;
+        protected bool is8;
         public bool Is8{get{return is8;} set{is8 = value;}}
 
         //is unicorn
-        private bool isUnicorn;
+        protected bool isUnicorn;
         public bool IsUnicorn { get { return isUnicorn; } set { isUnicorn = value; } }
 
         //constructor
@@ -56,19 +59,31 @@ namespace BreadWars
             isActive = active;
             Numbers = pNumbers;
 
+            r = new Random();
+
             //rows and columns
             rows = 1;
             columns = 2;
         }
 
         public virtual void Effect(Player opponent, Player self, Deck deck){
-            if(isActive){
+            if(isActive || is8){
                 Random r = new Random();
                 for(int i=r.Next(0,51); i<52; i++){
-                    deck.Library[i].Is8 = true;
+                    if (deck.Library[i] != null)
+                    {
+                        deck.Library[i].Is8 = true;
+                    }
                     i+= r.Next(0, 20);
                 }
             }
+        }
+
+        public int GetTotalValue()
+        {
+            if (isBurned) return r.Next(0,20);
+            if (isActive) return value + specialValue;
+            else return value;
         }
 
         //overwrite draw methos to only draw card if flipped up
@@ -78,28 +93,28 @@ namespace BreadWars
             {
                 base.UnpackSprites();
                 //draw base
-                spriteBatch.Draw(texr, posit, new Rectangle(spriteLocations[0], new Point(posit.Width/2, posit.Height)), Color.White);
+                spriteBatch.Draw(texr, posit, new Rectangle(spriteLocations[0], new Point(posit.Width/2, posit.Height)), isBurned? Color.Black: Color.White);
                 //draw special if special
                 if (isActive)
                 {
-                    spriteBatch.Draw(texr, posit, new Rectangle(spriteLocations[1], new Point(posit.Width/2, posit.Height)), Color.White);
+                    spriteBatch.Draw(texr, new Rectangle(posit.X, Posit.Y, Posit.Width, posit.Height*2), new Rectangle(new Point(SpriteLocations[1].X +2, SpriteLocations[1].Y), new Point(posit.Width/2, posit.Height)), Color.Red);
                 }
                 //draw numbr
                 //int offsetFromCorners = 30; //add to posit
-                /*
-                if (value / 10 != 0)
+                
+                if (!isBurned && value / 10 != 0)
                 {
-                    spriteBatch.Draw(Numbers.Texr, new Rectangle(posit.X, posit.Y, 14, 20), new Rectangle(Numbers.SpriteLocations[value / 10], new Point(Numbers.Posit.Width / 10, Numbers.Posit.Height)), Color.White);
-                    spriteBatch.Draw(Numbers.Texr, new Rectangle(posit.X +14, posit.Y, 14, 20), new Rectangle(Numbers.SpriteLocations[value % 10], new Point(Numbers.Posit.Width / 10, Numbers.Posit.Height)), Color.White);
+                    spriteBatch.Draw(Numbers.Texr, new Rectangle(posit.X + 5, posit.Y+125, 14, 20), new Rectangle(Numbers.SpriteLocations[value / 10], new Point(Numbers.Posit.Width / 10, Numbers.Posit.Height)), Color.White);
+                    spriteBatch.Draw(Numbers.Texr, new Rectangle(posit.X +14 + 5, posit.Y + 125, 14, 20), new Rectangle(Numbers.SpriteLocations[value % 10], new Point(Numbers.Posit.Width / 10, Numbers.Posit.Height)), Color.White);
                 }
-                else
+                else if(!isBurned)
                 {
                     //texture, destination, source, color
-                    spriteBatch.Draw(Numbers.Texr, new Rectangle(posit.X, posit.Y, 14, 20), new Rectangle(Numbers.SpriteLocations[value % 10], new Point(Numbers.Posit.Width / 10, Numbers.Posit.Height)), Color.White);
+                    spriteBatch.Draw(Numbers.Texr, new Rectangle(posit.X+ 5, posit.Y + 125, 14, 20), new Rectangle(Numbers.SpriteLocations[value % 10], new Point(Numbers.Posit.Width / 10, Numbers.Posit.Height)), Color.White);
                 }
-                */
+                
                 //draw numbers with spritefont instead
-                spriteBatch.DrawString(font, "" + value, new Vector2(posit.X, posit.Y), Color.Black);
+                spriteBatch.DrawString(font, is8? "octo": "" + (isBurned? "burn" : ""), new Vector2(posit.X, posit.Y), Color.Black);
             }
         }
     }

@@ -13,6 +13,7 @@ public class Confetti : Card
     public Confetti(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers)  : base( pTexr,  pPosit,  active,  pNumbers)
         {
             value = 20;
+            specialValue = 0;
             Name = "Confetti";
     }
 }

@@ -13,12 +13,18 @@ public class Block : Card
     public Block(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers)  : base( pTexr,  pPosit,  active,  pNumbers)
         {
             value = 15;
+            specialValue = 1;
             Name = "Block";
         }
 
     public override void Effect(Player opponent, Player self, Deck deck)
     {
-        if(isActive)self.HasBlock = true;
+            if (this.is8)
+            {
+                base.Effect(opponent, self, deck);
+                return;
+            }
+            if (isActive)self.HasBlock = true;
     }
 }
 }

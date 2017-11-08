@@ -13,11 +13,17 @@ public class Unicorn : Card
     public Unicorn(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers)  : base( pTexr,  pPosit,  active,  pNumbers)
         {
             value = 19;
+            specialValue = -1;
             Name = "Unicorn";
     }
 
         public override void Effect(Player opponent, Player self, Deck deck)
         {
+            if (this.is8)
+            {
+                base.Effect(opponent, self, deck);
+                return;
+            }
             if (isActive)
             {
                 foreach (Card c in opponent.Hand)

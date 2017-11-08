@@ -90,7 +90,7 @@ namespace BreadWars
             {
                 for (int j = 0; j < columns; j++)
                 {
-                    Point location = new Point((i * (posit.Height/rows)),(j * (posit.Width/columns)));
+                    Point location = new Point((j * (posit.Width/columns)), (i * (posit.Height / rows)));
                     spriteLocations.Add(location);
                 }
             }
