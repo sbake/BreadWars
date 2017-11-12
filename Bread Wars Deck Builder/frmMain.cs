@@ -273,6 +273,8 @@ namespace Bread_Wars_Deck_Builder
             //Uncheck(clbCards);
         }
 
+
+        //currently not implemented
         private void btnClearCard_Click(object sender, EventArgs e)
         {
             Uncheck(clbCards);
