@@ -194,7 +194,7 @@
             this.btnClearCard.Name = "btnClearCard";
             this.btnClearCard.Size = new System.Drawing.Size(74, 31);
             this.btnClearCard.TabIndex = 16;
-            this.btnClearCard.Text = "Clear Card";
+            this.btnClearCard.Text = "Uncheck";
             this.btnClearCard.UseVisualStyleBackColor = true;
             this.btnClearCard.Click += new System.EventHandler(this.btnClearCard_Click);
             // 

@@ -275,18 +275,7 @@ namespace Bread_Wars_Deck_Builder
 
         private void btnClearCard_Click(object sender, EventArgs e)
         {
-            int value = -999;
-
-           /* foreach (string item in clbCards.Items)
-            {
-                if ((numberCards[indexChecked] + value) < 0) continue; //cards cannot have negative amount
-                numberCards[indexChecked] += value;
-                sumCards += value;
-                clbCards.Items[indexChecked] = cards[indexChecked] + " " + numberCards[indexChecked];//write on form number of card 
-            } */
-
             Uncheck(clbCards);
-            lblCardNum.Text = sumCards.ToString(); //write to form total number cards on deck]
         }
 
         private void Uncheck(CheckedListBox clb)
