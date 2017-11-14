@@ -514,41 +514,41 @@ namespace BreadWars
                         case Phase.Player1:
                             //toaster
                             toasterNib1.Posit = new Rectangle(24, toastNib1Y, 30, 15);
-                            toaster1.DrawStatic(spriteBatch);
-                            
+                            toaster1.DrawStatic(spriteBatch, player1.IsPoisoned);
+
                             //toaster2
                             toasterNib2.Posit = new Rectangle(24, toastNib2Y, 30, 15);
-                            toaster2.DrawStatic(spriteBatch);
+                            toaster2.DrawStatic(spriteBatch, player1.IsPoisoned);
 
                             //nibs
-                            toasterNib1.DrawStatic(spriteBatch);
-                            toasterNib2.DrawStatic(spriteBatch);
+                            toasterNib1.DrawStatic(spriteBatch, player1.IsPoisoned);
+                            toasterNib2.DrawStatic(spriteBatch, player1.IsPoisoned);
 
 
                             //draw all cards in a loop
-                            for (int i = 0; i <player1.Hand.Count; i++)
+                            for (int i = 0; i < player1.Hand.Count; i++)
                             {
-                                if(player1.Hand[i]!=null)player1.Hand[i].DrawStatic(spriteBatch, font);
+                                if (player1.Hand[i] != null) player1.Hand[i].DrawStatic(spriteBatch, font);
                             }
                             for (int i = 0; i < 5; i++)
                             {
                                 backCard.Posit = backCardPos[i];
-                                backCard.DrawStatic(spriteBatch);
+                                backCard.DrawStatic(spriteBatch, player1.IsPoisoned);
                             }
                             break;
                         case Phase.Player2:
                             //toaster
                             toasterNib1.Posit = new Rectangle(24, toastNib1Y, 30, 15);
-                            toaster1.DrawStatic(spriteBatch);
-                            
+                            toaster1.DrawStatic(spriteBatch, player2.IsPoisoned);
+
                             //toaster2
                             toasterNib2.Posit = new Rectangle(24, toastNib2Y, 30, 15);
-                            toaster2.DrawStatic(spriteBatch);
+                            toaster2.DrawStatic(spriteBatch, player2.IsPoisoned);
 
                             //nibs
-                            toasterNib2.DrawStatic(spriteBatch);
-                            toasterNib1.DrawStatic(spriteBatch);
-                            
+                            toasterNib2.DrawStatic(spriteBatch, player2.IsPoisoned);
+                            toasterNib1.DrawStatic(spriteBatch, player2.IsPoisoned);
+
                             //draw all cards in a loop
                             for (int i = 0; i < player2.Hand.Count; i++)
                             {
@@ -557,7 +557,7 @@ namespace BreadWars
                             for (int i = 0; i < 5; i++)
                             {
                                 backCard.Posit = backCardPos[i];
-                                backCard.DrawStatic(spriteBatch);
+                                backCard.DrawStatic(spriteBatch, player2.IsPoisoned);
                             }
                             break;
                         case Phase.Pause:
@@ -573,6 +573,7 @@ namespace BreadWars
                                     pause1.DrawStatic(spriteBatch);
                                     break;
                             }
+
                             break;
                         case Phase.Results:
                             for (int i = 0; i < cardsInPlay.Length; i++)
