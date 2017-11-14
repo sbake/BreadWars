@@ -186,7 +186,7 @@ namespace BreadWars
             tie2 = new HUDObjects(tie2Text, new Rectangle(240, 380, 320, 60));
 
             //deck& AI buttons
-            button = Content.Load<Texture2D>("Card");
+            button = Content.Load<Texture2D>("button");
             for (int i = 0; i < 6; i++) deckButtons[i] = new Drawable(button, deckButtonPos[i]);
             for (int i = 0; i < 2; i++) numPlayButtons[i] = new Drawable(button, numPlayButtonPos[i]);
 
@@ -487,12 +487,13 @@ namespace BreadWars
                     //}
                     break;
                 case GameState.PickDeck:
+                    spriteBatch.DrawString(font, "Choose a Deck (ENTER to view more):", new Vector2 (80, 10), Color.Black);
                     for(int i=0; i<6; i++)
                     {
                         if ((i + currDeck) < deckFiles.Count)
                         {
                             deckButtons[i].DrawStatic(spriteBatch);
-                            spriteBatch.DrawString(font, deckFiles[i+ currDeck].Substring(52), new Vector2(deckButtonPos[i].X +10, deckButtonPos[i].Y+10), Color.Black );
+                            spriteBatch.DrawString(font, deckFiles[i+ currDeck].Substring(52, deckFiles[i + currDeck].Length-56), new Vector2(deckButtonPos[i].X +10, deckButtonPos[i].Y+10), Color.Black );
                         }
                     }
                     break;
