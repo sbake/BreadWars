@@ -130,7 +130,7 @@ namespace Bread_Wars_Deck_Builder
                     input.ReadString(); //read name of card
                     numberCards[i] = input.ReadInt32(); //save number of the card
                     clbCards.Items[i] = cards[i] + " " + numberCards[i]; //update display on form
-                    sumCards += numberCards[i]; //edit overal number of cards in deck
+                    sumCards = numberCards[i]; //edit overal number of cards in deck
                 }
                 lblCardNum.Text = sumCards.ToString(); //display to form number of cards in deck
                 // close when we are done

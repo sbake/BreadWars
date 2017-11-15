@@ -282,7 +282,7 @@ namespace BreadWars
                     
                         if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))
                     {
-                        player1.IsAI = true;
+                        player2.IsAI = true;
                         state = GameState.PickDeck;
                         
                     }
