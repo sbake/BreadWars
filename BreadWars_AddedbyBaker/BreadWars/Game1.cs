@@ -272,7 +272,7 @@ namespace BreadWars
                 case GameState.Start:
                     for(int i=0; i<2; i++)
                     {
-                        if (numPlayButtonPos[i].Contains(mState.Position) && mState.LeftButton == ButtonState.Pressed)
+                        if (numPlayButtonPos[i].Contains(mState.Position) && mState.LeftButton == ButtonState.Pressed &&mStatePrev.LeftButton == ButtonState.Released)
                         {
                             if (i == 0) player2.IsAI = true;
                             else player2.IsAI = false;
