@@ -26,22 +26,33 @@ public class FaireBread: Card
                 return;
             }
             //switch all cards' isActive bool
-            if (this.isActive)
+            if (isActive)
             {
                 foreach (Card c in opponent.Hand)
                 {
-                    if (c != null && c!=this) c.isActive = (c.IsActive ? false: true);
+                    try
+                    {
+                        if (c.IsActive) c.IsActive = false;
+                        else c.IsActive = true;
+                    }
+                    catch { }
                 }
                 foreach (Card c in deck.Library)
                 {
-                    if (c != null) c.IsActive = (c.isActive ? false : true);
+                    if (c != null) c.IsActive = (c.IsActive ? false : true);
                 }
                 foreach (Card c in self.Hand)
                 {
-                    if (c != null && c!=this) c.isActive = (c.IsActive ? false : true);
+                    try
+                    {
+                        if (c.IsActive) c.IsActive = false;
+                        else c.IsActive = true;
+                    }
+                    catch { }
                 }
-                this.isActive = false;
                 //need to do save for laters as well
+                
+
             }
 
 
