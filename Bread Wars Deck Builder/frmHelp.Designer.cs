@@ -73,9 +73,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(55, 74);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(253, 26);
+            this.label4.Size = new System.Drawing.Size(310, 26);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Use the 4 buttons to adjust the amount of each card\r\n\r\n";
+            this.label4.Text = "Use the 4 adjustment buttons to adjust the amount of each card \r\n\r\n";
             // 
             // label5
             // 
