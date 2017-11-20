@@ -24,7 +24,8 @@ namespace BreadWars
         public Card PrevCard { get => prevCard; }
         private Card currCard;
         public Card CurrCard { get => currCard; }
-
+        private Card saveLater;
+        public Card SaveLater { get => saveLater; set => saveLater = value; }
         public List<Card> Hand { get { return hand; } set => hand = value; }
         
         //health
@@ -47,6 +48,10 @@ namespace BreadWars
         public int UntilDestruct { set => untilDestruct = value; }
         private bool isDestruct;
         public bool IsDestruct { set => isDestruct = value; }
+        private bool isTelepathic;
+        public bool IsTelephathic { set => isTelepathic = value; get =>  isTelepathic; }
+        private int telepCount;
+        public int TelepCount { set => telepCount = value; }
 
 
         Random r;
@@ -146,6 +151,12 @@ namespace BreadWars
                 }
             }
             if (isEmpty) playerCurrentHealth = 0;
+            if (isTelepathic)
+            {
+                telepCount--;
+                if(telepCount ==0)
+                isTelepathic = false;
+            }
         }
 
         public void ResetHealth()

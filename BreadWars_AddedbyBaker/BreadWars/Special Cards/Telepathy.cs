@@ -26,11 +26,8 @@ public class Telepathy : Card
             }
             if (isActive)
             {
-                //need to pass in a sprite batch.
-                for(int i=0; i<4; i++)
-                {
-                    //deck.Library[i].DrawStatic(); //???
-                }
+                self.IsTelephathic = true;
+                self.TelepCount = 2;
             }
         }
 

@@ -1,7 +1,7 @@
-﻿
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Threading;
 
 namespace BreadWars
 {
@@ -30,17 +30,29 @@ public class FaireBread: Card
             {
                 foreach (Card c in opponent.Hand)
                 {
-                    if (c != null) c.IsActive = !c.IsActive;
-                }
-                foreach (Card c in self.Hand)
-                {
-                    if (c != null) c.IsActive = !c.IsActive;
+                    try
+                    {
+                        if (c.IsActive) c.IsActive = false;
+                        else c.IsActive = true;
+                    }
+                    catch { }
                 }
                 foreach (Card c in deck.Library)
                 {
-                    if (c != null) c.IsActive = !c.IsActive;
+                    if (c != null) c.IsActive = (c.IsActive ? false : true);
+                }
+                foreach (Card c in self.Hand)
+                {
+                    try
+                    {
+                        if (c.IsActive) c.IsActive = false;
+                        else c.IsActive = true;
+                    }
+                    catch { }
                 }
                 //need to do save for laters as well
+                
+
             }
 
 

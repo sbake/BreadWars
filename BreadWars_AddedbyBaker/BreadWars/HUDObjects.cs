@@ -23,5 +23,21 @@ namespace BreadWars
             rows = pRows;
             columns = pColumns;
         }
+        //methods
+        //Overwrite draw methods to draw everything green if player is poisoned
+        public void DrawStatic(SpriteBatch spriteBatch, bool poison)
+        {
+            if (poison)
+            {
+                //draw texture at posit
+                spriteBatch.Draw(texr, posit, Color.LimeGreen);
+            }
+            else
+            {
+                //draw texture at posit
+                spriteBatch.Draw(texr, posit, Color.White);
+            }
+        }
+
     }
 }

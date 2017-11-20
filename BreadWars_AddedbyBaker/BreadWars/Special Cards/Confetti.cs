@@ -16,5 +16,9 @@ public class Confetti : Card
             specialValue = 0;
             Name = "Confetti";
     }
-}
+        public override void Effect(Player opponent, Player self, Deck deck)
+        {
+            if(is8)base.Effect(opponent, self, deck);
+        }
+    }
 }
