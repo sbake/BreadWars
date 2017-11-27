@@ -21,6 +21,7 @@ public class Jam: Card
 
     public override void Effect(Player opponent, Player self, Deck deck)
         {
+            SetPos(self);
             EffectDescription = "Player " + self.PlayerNumber + " has been cured of Poison!";
             if (this.is8)
             {

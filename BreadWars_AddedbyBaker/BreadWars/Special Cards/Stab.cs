@@ -21,6 +21,7 @@ public class Stab : Card
     public override void Effect(Player opponent, Player self, Deck deck)
     {
 
+            SetPos(self);
             EffectDescription = "Player " + opponent.PlayerNumber + " has been Stabbed!";
             if (this.is8)
             {

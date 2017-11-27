@@ -18,6 +18,7 @@ public class Tazer : Card
 
         public override void Effect(Player opponent, Player self, Deck deck)
         {
+            SetPos(self);
             EffectDescription = "Player " + opponent.PlayerNumber + " is Paralyzed!";
             if (this.is8)
             {

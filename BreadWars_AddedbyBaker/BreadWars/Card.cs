@@ -68,14 +68,7 @@ namespace BreadWars
         }
 
         public virtual void Effect(Player opponent, Player self, Deck deck){
-            if (self.PlayerNumber == 1)
-            {
-                strPosit = new Vector2(500, 500);
-            }
-            else
-            {
-                strPosit = new Vector2(500, 600);
-            }
+            SetPos(self);
             if(isActive || is8){
                 Random r = new Random();
                 for(int i=r.Next(0,51); i<52; i++){
@@ -88,6 +81,18 @@ namespace BreadWars
             }
         }
 
+        public void SetPos(Player self)
+        {
+            if (self.PlayerNumber == 1)
+            {
+                strPosit = new Vector2(500, 500);
+            }
+            else
+            {
+                strPosit = new Vector2(500, 600);
+            }
+        }
+
         public int GetTotalValue()
         {
             if (isBurned) return r.Next(0,20);
@@ -97,6 +102,11 @@ namespace BreadWars
         public override string ToString()
         {
             return EffectDescription; ;
+        }
+
+        public void ChangeTintHover()
+        {
+            tint = Color.DimGray;
         }
 
         //overwrite draw method to only draw card if flipped up

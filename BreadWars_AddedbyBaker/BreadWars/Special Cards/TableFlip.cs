@@ -19,6 +19,7 @@ public class TableFlip : Card
         public override void Effect(Player opponent, Player self, Deck deck)
         {
 
+            SetPos(self);
             EffectDescription = "Player " + self.PlayerNumber + " has won by Table Flip!";
             if (this.is8)
             {

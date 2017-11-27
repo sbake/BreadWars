@@ -19,6 +19,7 @@ namespace BreadWars
         protected SpriteFont font;
         protected Rectangle posit;
         protected Vector2 strPosit;
+        protected Color tint;
 
         //sprite sheet + animation
         protected int rows, columns; //how many rows and columns
@@ -68,6 +69,8 @@ namespace BreadWars
             posit = pPosit;
             imageSize = new Point(pPosit.Width, pPosit.Height);
 
+            tint = Color.White;
+
             spriteLocations = new List<Point>();
         }
 
@@ -85,7 +88,7 @@ namespace BreadWars
         public void DrawStatic(SpriteBatch spriteBatch)
         {
             //draw texture at posit
-            spriteBatch.Draw(texr, posit, Color.White);
+            spriteBatch.Draw(texr, posit, tint);
         }
 
         //method for drawing static objects (position doesn't move, can use variable)

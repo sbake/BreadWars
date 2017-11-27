@@ -20,6 +20,7 @@ public class FaireBread: Card
 
     public override void Effect(Player opponent, Player self, Deck deck)
         {
+            SetPos(self);
             EffectDescription = "Special cards are now normal (and normal are special)!";
             if (this.is8)
             {

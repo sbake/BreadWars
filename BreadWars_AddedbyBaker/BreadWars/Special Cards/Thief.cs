@@ -19,6 +19,7 @@ public class Thief : Card
 
         public override void Effect(Player opponent, Player self, Deck deck)
         {
+            SetPos(self);
             EffectDescription = "Player " + opponent.PlayerNumber + " has been Thiefed!";
             if (this.is8)
             {

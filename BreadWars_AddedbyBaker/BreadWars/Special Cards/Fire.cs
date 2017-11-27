@@ -21,6 +21,7 @@ public class Fire : Card
 
     public override void Effect(Player opponent, Player self, Deck deck)
         {
+            SetPos(self);
             EffectDescription = "All cards in play have been burned!";
             if (this.is8)
             {

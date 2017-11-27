@@ -19,6 +19,7 @@ public class Whale : Card
 
         public override void Effect(Player opponent, Player self, Deck deck)
         {
+            SetPos(self);
             EffectDescription = "Any extra Octopi have been eaten!";
             if (this.is8)
             {

@@ -19,6 +19,7 @@ public class Telepathy : Card
 
         public override void Effect(Player opponent, Player self, Deck deck)
         {
+            SetPos(self);
             EffectDescription = "Player " + self.PlayerNumber + " is now Telepathic!";
             if (this.is8)
             {

@@ -19,6 +19,7 @@ public class Unicorn : Card
 
         public override void Effect(Player opponent, Player self, Deck deck)
         {
+            SetPos(self);
             EffectDescription = "Any special cards in play have been UNICORNED!";
             if (this.is8)
             {

@@ -36,6 +36,7 @@ public class NumjectToChange : Card
 
         public override void Effect(Player opponent, Player self, Deck deck)
         {
+            SetPos(self);
             EffectDescription = "";
             if (this.is8)
             {
