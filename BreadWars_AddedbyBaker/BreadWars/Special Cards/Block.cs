@@ -28,5 +28,7 @@ public class Block : Card
             }
             if (isActive)self.HasBlock = true;
     }
-}
+
+      
+    }
 }

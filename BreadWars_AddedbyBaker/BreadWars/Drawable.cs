@@ -95,6 +95,11 @@ namespace BreadWars
             spriteBatch.DrawString(font, this.ToString(), strPosit, Color.Brown);
         }
 
+        public void DrawString(SpriteFont fnt, SpriteBatch spriteBatch)
+        {
+            //draw texture at posit
+            spriteBatch.DrawString(fnt, this.ToString(), strPosit, Color.Brown);
+        } 
         //methods to unpack sprites
         ///takes size of sprites and rows/columns, divides. 
         //saves locations for each to make animation quicker- only need to do this math once

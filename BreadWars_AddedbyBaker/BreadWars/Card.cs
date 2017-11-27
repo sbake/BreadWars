@@ -68,6 +68,14 @@ namespace BreadWars
         }
 
         public virtual void Effect(Player opponent, Player self, Deck deck){
+            if (self.PlayerNumber == 1)
+            {
+                strPosit = new Vector2(500, 500);
+            }
+            else
+            {
+                strPosit = new Vector2(500, 600);
+            }
             if(isActive || is8){
                 Random r = new Random();
                 for(int i=r.Next(0,51); i<52; i++){
@@ -86,8 +94,12 @@ namespace BreadWars
             if (isActive) return value + specialValue;
             else return value;
         }
+        public override string ToString()
+        {
+            return EffectDescription; ;
+        }
 
-        //overwrite draw methos to only draw card if flipped up
+        //overwrite draw method to only draw card if flipped up
         public void DrawStatic(SpriteBatch spriteBatch, SpriteFont font)
         {
             if (1 == 1)//if player has turn, how to check?
