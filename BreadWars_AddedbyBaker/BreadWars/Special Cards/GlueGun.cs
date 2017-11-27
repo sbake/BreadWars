@@ -19,7 +19,8 @@ public class GlueGun: Card
         }
 
     public override void Effect(Player opponent, Player self, Deck deck)
-    {
+        {
+            EffectDescription = "Two of player " + self.PlayerNumber + "'s cards have been glued!";
             if (this.is8)
             {
                 base.Effect(opponent, self, deck);

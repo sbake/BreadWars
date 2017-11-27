@@ -19,6 +19,7 @@ public class Poison : Card
 
         public override void Effect(Player opponent, Player self, Deck deck)
         {
+            EffectDescription = "Player " + opponent.PlayerNumber + " has been poisoned!";
             if (this.is8)
             {
                 base.Effect(opponent, self, deck);

@@ -24,6 +24,7 @@ namespace BreadWars
         private Random r;
 
         public string Name { get; set; }
+        public string EffectDescription { get; set; }
 
         //dimensions
         const int WIDTH = 20;

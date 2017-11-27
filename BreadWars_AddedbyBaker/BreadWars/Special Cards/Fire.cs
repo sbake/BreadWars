@@ -20,7 +20,8 @@ public class Fire : Card
         }
 
     public override void Effect(Player opponent, Player self, Deck deck)
-    {
+        {
+            EffectDescription = "All cards in play have been burned!";
             if (this.is8)
             {
                 base.Effect(opponent, self, deck);

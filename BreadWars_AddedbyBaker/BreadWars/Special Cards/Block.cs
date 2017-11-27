@@ -19,6 +19,8 @@ public class Block : Card
 
     public override void Effect(Player opponent, Player self, Deck deck)
     {
+
+            EffectDescription = "Player " + self.PlayerNumber + " now has a Block!";
             if (this.is8)
             {
                 base.Effect(opponent, self, deck);

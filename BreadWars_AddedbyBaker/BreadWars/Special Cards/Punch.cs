@@ -21,6 +21,7 @@ public class Punch: Card
 
     public override void Effect(Player opponent, Player self, Deck deck)
     {
+            EffectDescription = "Player " + opponent.PlayerNumber + " has been punched!";
         if (this.is8) {
                 base.Effect(opponent,self,deck);
                 return;

@@ -16,7 +16,9 @@ namespace BreadWars
         //attributes
         //basic
         protected Texture2D texr; //single texture or spritesheet, objects should have all associated textures on one sprite sheet, ideally
+        protected SpriteFont font;
         protected Rectangle posit;
+        protected Vector2 strPosit;
 
         //sprite sheet + animation
         protected int rows, columns; //how many rows and columns
@@ -68,7 +70,15 @@ namespace BreadWars
 
             spriteLocations = new List<Point>();
         }
-        
+
+        public Drawable(SpriteFont fnt, Vector2 posit)
+        {
+            font = fnt;
+            strPosit = posit;
+
+            spriteLocations = new List<Point>();
+        }
+
 
         //methods
         //method for drawing static objects (position doesn't move, can use variable)
@@ -77,7 +87,14 @@ namespace BreadWars
             //draw texture at posit
             spriteBatch.Draw(texr, posit, Color.White);
         }
-        
+
+        //method for drawing static objects (position doesn't move, can use variable)
+        public void DrawString(SpriteBatch spriteBatch)
+        {
+            //draw texture at posit
+            spriteBatch.DrawString(font, this.ToString(), strPosit, Color.Brown);
+        }
+
         //methods to unpack sprites
         ///takes size of sprites and rows/columns, divides. 
         //saves locations for each to make animation quicker- only need to do this math once

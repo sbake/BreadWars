@@ -140,15 +140,6 @@ namespace BreadWars
 
             base.Initialize();
 
-            //The players
-            player1 = new Player(1);
-            player2 = new Player(2);
-
-            //player array
-            players = new Player[2];
-            players[0] = player1;
-            players[1] = player2;
-
             //starting game and phase states
             state = GameState.Start;
             prevPhase = Phase.Results;
@@ -240,6 +231,17 @@ namespace BreadWars
             {
                 if (f.Contains(".dat")) deckFiles.Add(f);
             }
+
+
+            //The players
+            player1 = new Player(1, font, new Vector2(20, 100));
+            player2 = new Player(2, font, new Vector2(600, 100));
+
+            //player array
+            players = new Player[2];
+            players[0] = player1;
+            players[1] = player2;
+
         }
 
         /// <summary>
@@ -596,6 +598,8 @@ namespace BreadWars
                                 tie1.DrawStatic(spriteBatch);
                                 tie2.DrawStatic(spriteBatch);
                             }
+                            player1.DrawString(spriteBatch);
+                            player2.DrawString(spriteBatch);
                             break;
                     }
                     break;

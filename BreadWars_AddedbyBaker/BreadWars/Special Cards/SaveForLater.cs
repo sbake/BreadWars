@@ -19,6 +19,7 @@ public class SaveForLater : Card
 
         public override void Effect(Player opponent, Player self, Deck deck)
         {
+            EffectDescription = "Player "+self.PlayerNumber + ": A random card has been stored.";
             if (is8)
             {
                 base.Effect(opponent, self, deck);

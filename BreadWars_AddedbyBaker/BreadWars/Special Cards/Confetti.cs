@@ -18,7 +18,8 @@ public class Confetti : Card
     }
         public override void Effect(Player opponent, Player self, Deck deck)
         {
-            if(is8)base.Effect(opponent, self, deck);
+            EffectDescription = "You have been confettied!";
+            if (is8)base.Effect(opponent, self, deck);
         }
     }
 }

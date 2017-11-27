@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
 namespace BreadWars
 {
-    public class Player
+    public class Player:Drawable
     {
         public const int PLAYER_MAX_HEALTH = 100;
         const int PLAYER_START_HEALTH = 25;
@@ -56,7 +57,7 @@ namespace BreadWars
 
         Random r;
 
-        public Player(byte number)
+        public Player(byte number, SpriteFont font, Vector2 posit):base(font, posit)
         {
             isPoisoned = false;
             hasBlock = false;
@@ -169,6 +170,16 @@ namespace BreadWars
             paralyzeCount = 0;
             prevCard = null;
             currCard = null;
+        }
+
+        public override string ToString()
+        {   string toReturn = "HP: " + Health;
+            if (isPoisoned) toReturn += "\nYou are Poisoned!";
+            if (HasBlock) toReturn += "\nYou have Block!";
+            if (isParalyzed) toReturn += "\nYou are Paralyzed!";
+            if (isDestruct) toReturn += "\nYou will destruct in " + untilDestruct + " turns!";
+            if (isTelepathic) toReturn += "\nYou are Telepathic!";
+            return toReturn;
         }
     }
 }
