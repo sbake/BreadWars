@@ -579,3 +579,8 @@
 /processorParam:TextureFormat=Compressed
 /build:cheri.spritefont
 
+#begin CHERI___.TTF
+/importer:
+/processor:
+/build:CHERI___.TTF
+
