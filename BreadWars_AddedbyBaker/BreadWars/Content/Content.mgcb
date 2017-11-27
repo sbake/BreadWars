@@ -572,3 +572,10 @@
 /processorParam:TextureFormat=Color
 /build:button.png
 
+#begin cheri.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:cheri.spritefont
+
