@@ -109,6 +109,7 @@ namespace BreadWars
 
 
         SpriteFont font;
+        SpriteFont font2;
 
         //phase and game states
         enum GameState { Start, Help, Game, Credits, GameOver, PickDeck};
@@ -211,6 +212,7 @@ namespace BreadWars
 
 
             font = Content.Load<SpriteFont>("Arial");
+            font2 = Content.Load<SpriteFont>("cheri");
 
             //things with textures
             //cards- load all card textures into array here, rename card textures to numbers -card0, card1, card2... cardn
@@ -489,7 +491,7 @@ namespace BreadWars
                     //}
                     break;
                 case GameState.PickDeck:
-                    spriteBatch.DrawString(font, "Choose a Deck (ENTER to view more):", new Vector2 (80, 10), Color.Black);
+                    spriteBatch.DrawString(font2, "Choose a Deck (ENTER to view more):", new Vector2 (80, 10), Color.Black);
                     for(int i=0; i<6; i++)
                     {
                         if ((i + currDeck) < deckFiles.Count)
