@@ -28,7 +28,7 @@ public class Unicorn : Card
             {
                 foreach (Card c in opponent.Hand)
                 {
-                    if (c.IsActive) {
+                    if (c!=null && c.IsActive) {
                         c.IsActive = false;
                         c.IsUnicorn = true;
                     }
@@ -36,7 +36,7 @@ public class Unicorn : Card
                 }
                 foreach (Card c in self.Hand)
                 {
-                    if (c.IsActive)
+                    if (c!=null && c.IsActive)
                     {
                         c.IsActive = false;
                         c.IsUnicorn = true;

@@ -38,7 +38,7 @@ namespace BreadWars
         }
         public void SpecialCards(Card cardPlayed, byte playerNum, Player[] players)
         {
-            if(cardPlayed.isActive )
+            if(cardPlayed.IsActive )
             {
                 if (playerNum == 1)
                 {

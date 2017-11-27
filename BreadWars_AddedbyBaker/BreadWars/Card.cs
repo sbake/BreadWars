@@ -32,7 +32,7 @@ namespace BreadWars
         public int Height { get => HEIGHT; }
 
         //special (effect active)
-        public bool isActive;
+        protected bool isActive;
         public bool IsActive
         {
             get{return isActive;}

@@ -186,7 +186,7 @@ namespace BreadWars
             tie2 = new HUDObjects(tie2Text, new Rectangle(240, 380, 320, 60));
 
             //deck& AI buttons
-            button = Content.Load<Texture2D>("Card");
+            button = Content.Load<Texture2D>("button");
             for (int i = 0; i < 6; i++) deckButtons[i] = new Drawable(button, deckButtonPos[i]);
             for (int i = 0; i < 2; i++) numPlayButtons[i] = new Drawable(button, numPlayButtonPos[i]);
 
@@ -272,7 +272,7 @@ namespace BreadWars
                 case GameState.Start:
                     for(int i=0; i<2; i++)
                     {
-                        if (numPlayButtonPos[i].Contains(mState.Position) && mState.LeftButton == ButtonState.Pressed)
+                        if (numPlayButtonPos[i].Contains(mState.Position) && mState.LeftButton == ButtonState.Pressed &&mStatePrev.LeftButton == ButtonState.Released)
                         {
                             if (i == 0) player2.IsAI = true;
                             else player2.IsAI = false;
@@ -282,7 +282,7 @@ namespace BreadWars
                     
                         if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))
                     {
-                        player1.IsAI = true;
+                        player2.IsAI = true;
                         state = GameState.PickDeck;
                         
                     }
@@ -487,12 +487,13 @@ namespace BreadWars
                     //}
                     break;
                 case GameState.PickDeck:
+                    spriteBatch.DrawString(font, "Choose a Deck (ENTER to view more):", new Vector2 (80, 10), Color.Black);
                     for(int i=0; i<6; i++)
                     {
                         if ((i + currDeck) < deckFiles.Count)
                         {
                             deckButtons[i].DrawStatic(spriteBatch);
-                            spriteBatch.DrawString(font, deckFiles[i+ currDeck].Substring(52), new Vector2(deckButtonPos[i].X +10, deckButtonPos[i].Y+10), Color.Black );
+                            spriteBatch.DrawString(font, deckFiles[i+ currDeck].Substring(52, deckFiles[i + currDeck].Length-56), new Vector2(deckButtonPos[i].X +10, deckButtonPos[i].Y+10), Color.Black );
                         }
                     }
                     break;
@@ -514,41 +515,41 @@ namespace BreadWars
                         case Phase.Player1:
                             //toaster
                             toasterNib1.Posit = new Rectangle(24, toastNib1Y, 30, 15);
-                            toaster1.DrawStatic(spriteBatch);
-                            
+                            toaster1.DrawStatic(spriteBatch, player1.IsPoisoned);
+
                             //toaster2
                             toasterNib2.Posit = new Rectangle(24, toastNib2Y, 30, 15);
-                            toaster2.DrawStatic(spriteBatch);
+                            toaster2.DrawStatic(spriteBatch, player1.IsPoisoned);
 
                             //nibs
-                            toasterNib1.DrawStatic(spriteBatch);
-                            toasterNib2.DrawStatic(spriteBatch);
+                            toasterNib1.DrawStatic(spriteBatch, player1.IsPoisoned);
+                            toasterNib2.DrawStatic(spriteBatch, player1.IsPoisoned);
 
 
                             //draw all cards in a loop
-                            for (int i = 0; i <player1.Hand.Count; i++)
+                            for (int i = 0; i < player1.Hand.Count; i++)
                             {
-                                if(player1.Hand[i]!=null)player1.Hand[i].DrawStatic(spriteBatch, font);
+                                if (player1.Hand[i] != null) player1.Hand[i].DrawStatic(spriteBatch, font);
                             }
                             for (int i = 0; i < 5; i++)
                             {
                                 backCard.Posit = backCardPos[i];
-                                backCard.DrawStatic(spriteBatch);
+                                backCard.DrawStatic(spriteBatch, player1.IsPoisoned);
                             }
                             break;
                         case Phase.Player2:
                             //toaster
                             toasterNib1.Posit = new Rectangle(24, toastNib1Y, 30, 15);
-                            toaster1.DrawStatic(spriteBatch);
-                            
+                            toaster1.DrawStatic(spriteBatch, player2.IsPoisoned);
+
                             //toaster2
                             toasterNib2.Posit = new Rectangle(24, toastNib2Y, 30, 15);
-                            toaster2.DrawStatic(spriteBatch);
+                            toaster2.DrawStatic(spriteBatch, player2.IsPoisoned);
 
                             //nibs
-                            toasterNib2.DrawStatic(spriteBatch);
-                            toasterNib1.DrawStatic(spriteBatch);
-                            
+                            toasterNib2.DrawStatic(spriteBatch, player2.IsPoisoned);
+                            toasterNib1.DrawStatic(spriteBatch, player2.IsPoisoned);
+
                             //draw all cards in a loop
                             for (int i = 0; i < player2.Hand.Count; i++)
                             {
@@ -557,7 +558,7 @@ namespace BreadWars
                             for (int i = 0; i < 5; i++)
                             {
                                 backCard.Posit = backCardPos[i];
-                                backCard.DrawStatic(spriteBatch);
+                                backCard.DrawStatic(spriteBatch, player2.IsPoisoned);
                             }
                             break;
                         case Phase.Pause:
@@ -573,6 +574,7 @@ namespace BreadWars
                                     pause1.DrawStatic(spriteBatch);
                                     break;
                             }
+
                             break;
                         case Phase.Results:
                             for (int i = 0; i < cardsInPlay.Length; i++)
