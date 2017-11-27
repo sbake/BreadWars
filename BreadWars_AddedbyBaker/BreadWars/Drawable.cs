@@ -70,6 +70,7 @@ namespace BreadWars
             imageSize = new Point(pPosit.Width, pPosit.Height);
 
             tint = Color.White;
+            strPosit = new Vector2(0,0);
 
             spriteLocations = new List<Point>();
         }
@@ -95,13 +96,13 @@ namespace BreadWars
         public void DrawString(SpriteBatch spriteBatch)
         {
             //draw texture at posit
-            spriteBatch.DrawString(font, this.ToString(), strPosit, Color.Brown);
+            spriteBatch.DrawString(font, this.ToString(), strPosit, Color.SaddleBrown);
         }
 
         public void DrawString(SpriteFont fnt, SpriteBatch spriteBatch)
         {
             //draw texture at posit
-            spriteBatch.DrawString(fnt, this.ToString(), strPosit, Color.Brown);
+            if(this.ToString()!=null)spriteBatch.DrawString(fnt, this.ToString(), strPosit, Color.SaddleBrown);
         } 
         //methods to unpack sprites
         ///takes size of sprites and rows/columns, divides. 

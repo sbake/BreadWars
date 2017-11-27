@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading;
+using System.Diagnostics;
 
 namespace BreadWars
 {
@@ -122,11 +124,14 @@ namespace BreadWars
         private MouseState mState;
         private MouseState mStatePrev;
         private bool resultCalculated;
+        private int timeFromPrevState;
+        private Stopwatch watch;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            watch = new Stopwatch();
         }
 
         /// <summary>
@@ -353,29 +358,40 @@ namespace BreadWars
                                 {
                                     //assigning card positions
                                     player1.Hand[i].Posit = cardPos[i];
-                                    if (cardPos[i].Contains(mState.Position))
+                                    if (watch.ElapsedMilliseconds>100 && cardPos[i].Contains(mState.Position))
                                     {
                                         player1.Hand[i].ChangeTintHover();
-                                        
-                                        if (mStatePrev.LeftButton == ButtonState.Released && mState.LeftButton == ButtonState.Pressed)
+                                        if(mStatePrev.LeftButton == ButtonState.Pressed)
                                         {
-                                            cardsInPlay[0] = player1.Hand[i];
-                                            player1.PlayTurn(cardsInPlay, i);
-                                            player1.Hand.Add(deck.Next());
-                                            prevPhase = currPhase;
+                                            player1.Hand[i].ChangeTintPressed();
 
-                                            if (player2.IsAI)
+                                            if (mState.LeftButton == ButtonState.Released)
                                             {
-                                                cardsInPlay[1] = player2.Hand[1];
-                                                player2.PlayTurn(cardsInPlay, 0);
-                                                player2.Hand.Add(deck.Next());
-                                                prevPhase = Phase.Player2;
-                                                currPhase = Phase.Pause;
-                                            }
+                                                cardsInPlay[0] = player1.Hand[i];
+                                                player1.PlayTurn(cardsInPlay, i);
+                                                player1.Hand.Add(deck.Next());
+                                                prevPhase = currPhase;
 
-                                            currPhase = Phase.Pause;
-                                            break;
+                                                if (player2.IsAI)
+                                                {
+                                                    cardsInPlay[1] = player2.Hand[1];
+                                                    player2.PlayTurn(cardsInPlay, 0);
+                                                    player2.Hand.Add(deck.Next());
+                                                    prevPhase = Phase.Player2;
+                                                    currPhase = Phase.Pause;
+                                                }
+
+                                                currPhase = Phase.Pause;
+                                                watch = Stopwatch.StartNew();
+                                                break;
+                                            }
+                                       
                                         }
+                                    }
+                                    else
+                                    {
+
+                                        player1.Hand[i].ChangeTintNotHover();
                                     }
                                     
                                 }
@@ -384,27 +400,42 @@ namespace BreadWars
                             
                             break;
                         case Phase.Player2:
+                            
                             //toaster nib position
                             toastNib1Y = System.Convert.ToInt32(78 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player1.Health)));
                             toastNib2Y = System.Convert.ToInt32(328 + ((tHDif / Player.PLAYER_MAX_HEALTH) * ( 100 - player2.Health)));
 
                             for (int i = 0; i < player2.Hand.Count; i++)
                             {
+                                
                                 if (player2.Hand[i] != null)
                                 {
                                     //assigning card positions
                                     player2.Hand[i].Posit = cardPos[i];
                                     if (cardPos[i].Contains(mState.Position))
                                     {
-                                        if (mStatePrev.LeftButton == ButtonState.Released && mState.LeftButton == ButtonState.Pressed)
+                                        player2.Hand[i].ChangeTintHover();
+                                        if (watch.ElapsedMilliseconds>100 && mStatePrev.LeftButton == ButtonState.Pressed)
                                         {
-                                            cardsInPlay[1] = player2.Hand[i];
-                                            player2.PlayTurn(cardsInPlay, i);
-                                            player2.Hand.Add(deck.Next());
-                                            prevPhase = currPhase;
-                                            currPhase = Phase.Pause;
-                                            break;
+
+                                            player2.Hand[i].ChangeTintPressed();
+
+                                            if (mState.LeftButton == ButtonState.Released)
+                                            {
+                                                cardsInPlay[1] = player2.Hand[i];
+                                                player2.PlayTurn(cardsInPlay, i);
+                                                player2.Hand.Add(deck.Next());
+                                                prevPhase = currPhase;
+                                                currPhase = Phase.Pause;
+                                                watch = Stopwatch.StartNew();
+                                                break;
+                                            }
                                         }
+                                    }
+                                    else
+                                    {
+
+                                        player2.Hand[i].ChangeTintNotHover();
                                     }
                                     
                                 }
@@ -418,14 +449,17 @@ namespace BreadWars
                                 case Phase.Player1:
                                     prevPhase = currPhase;
                                     currPhase = Phase.Player2;
+                                    watch = Stopwatch.StartNew();
                                     break;
                                 case Phase.Player2:
                                     prevPhase = currPhase;
                                     currPhase = Phase.Results;
+                                    watch = Stopwatch.StartNew();
                                     break;
                                 case Phase.Results:
                                     prevPhase = currPhase;
                                     currPhase = Phase.Player1;
+                                    watch = Stopwatch.StartNew();
                                     break;
                             }
                             break;

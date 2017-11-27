@@ -543,3 +543,6 @@ Z:\IGMProfile\Documents\GitHub\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\De
 D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\button.xnb
 Z:\IGMProfile\Documents\GitHub\BreadWars\BreadWars_AddedbyBaker\BreadWars\obj\Debug\BreadWars.csproj.CoreCompileInputs.cache
 Z:\IGMProfile\Documents\GitHub\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\cheri.xnb
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\button.xnb
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\tutorial.xnb
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\cheri.xnb

@@ -83,13 +83,14 @@ namespace BreadWars
 
         public void SetPos(Player self)
         {
+            ChangeTintNotHover();
             if (self.PlayerNumber == 1)
             {
-                strPosit = new Vector2(500, 500);
+                strPosit = new Vector2(10, 10);
             }
             else
             {
-                strPosit = new Vector2(500, 600);
+                strPosit = new Vector2(10, 50);
             }
         }
 
@@ -101,12 +102,22 @@ namespace BreadWars
         }
         public override string ToString()
         {
-            return EffectDescription; ;
+            return EffectDescription; 
         }
 
         public void ChangeTintHover()
         {
-            tint = Color.DimGray;
+            tint = Color.Gray;
+        }
+
+        public void ChangeTintNotHover()
+        {
+            tint = Color.White;
+        }
+
+        public void ChangeTintPressed()
+        {
+            tint = Color.HotPink;
         }
 
         //overwrite draw method to only draw card if flipped up
@@ -116,7 +127,7 @@ namespace BreadWars
             {
                 base.UnpackSprites();
                 //draw base
-                spriteBatch.Draw(texr, posit, new Rectangle(spriteLocations[0], new Point(posit.Width/2, posit.Height)), isBurned? Color.Black: Color.White);
+                spriteBatch.Draw(texr, posit, new Rectangle(spriteLocations[0], new Point(posit.Width/2, posit.Height)), isBurned? Color.Black: tint);
                 //draw special if special
                 if (isActive)
                 {
