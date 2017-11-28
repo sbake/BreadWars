@@ -51,23 +51,24 @@ namespace BreadWars
         int currDeck = 0;
 
         //hudobject things
-        HUDObjects background;
+        HUDObjects background; //background and intro screens
         HUDObjects introTest;
-        HUDObjects backCard;
-        HUDObjects pause1;
+        HUDObjects backCard; //back card image for non-active player
+        HUDObjects pause1; //pause splash screens
         HUDObjects pause2;
         HUDObjects pause;
         HUDObjects vs;
-        HUDObjects player1wins;
+        HUDObjects player1wins; //player wins text
         HUDObjects player2wins;
-        HUDObjects tie1;
+        HUDObjects tie1; //tie textures
         HUDObjects tie2;
-        HUDObjects help;
+        HUDObjects help; //help and credit splash screens
         HUDObjects credits;
-        HUDObjects toaster1;
-        HUDObjects toasterNib1;
+        HUDObjects toaster1; //toaster background (gray and pink portions)
+        HUDObjects toasterNib1; //toaster lever (moving black portion)
         HUDObjects toaster2;
         HUDObjects toasterNib2;
+        //textures for above objects
         Texture2D bGText;
         Texture2D testText;
         Texture2D backText;
