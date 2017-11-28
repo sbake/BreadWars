@@ -6,20 +6,20 @@ using System.Collections.Generic;
 
 namespace BreadWars
 {
-/// <summary>
-/// Summary description for HandSwitch
-/// </summary>
-public class HandSwitch : Card
-{
+    /// <summary>
+    /// Summary description for HandSwitch
+    /// </summary>
+    public class HandSwitch : Card
+    {
 
-    public HandSwitch(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers) : base(pTexr, pPosit, active, pNumbers)
+        public HandSwitch(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers) : base(pTexr, pPosit, active, pNumbers)
         {
             value = 13;
             specialValue = 0;
             Name = "Hand Switch";
         }
 
-    public override void Effect(Player opponent, Player self, Deck deck)
+        public override void Effect(Player opponent, Player self, Deck deck)
         {
             SetPos(self);
             EffectDescription = "Players have switched hands";
@@ -28,14 +28,12 @@ public class HandSwitch : Card
                 base.Effect(opponent, self, deck);
                 return;
             }
-            if (isActive)
-        {
-                //change players' hands
+            //change players' hands
             List<Card> hand1 = opponent.Hand;
             List<Card> hand2 = self.Hand;
             opponent.Hand = hand2;
             self.Hand = hand1;
+
         }
     }
-}
 }

@@ -25,8 +25,7 @@ public class Block : Card
             {
                 base.Effect(opponent, self, deck);
                 return;
-            }
-            if (isActive)self.HasBlock = true;
+            }self.HasBlock = true;
     }
 
       

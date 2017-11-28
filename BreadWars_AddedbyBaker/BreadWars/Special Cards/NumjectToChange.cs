@@ -4,23 +4,23 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 namespace BreadWars
 {
-/// <summary>
-/// Summary description for Class1
-/// </summary>
-public class NumjectToChange : Card
-{
+    /// <summary>
+    /// Summary description for Class1
+    /// </summary>
+    public class NumjectToChange : Card
+    {
         Random r;
 
-    public NumjectToChange(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers)  : base( pTexr,  pPosit,  active,  pNumbers)
-    {
+        public NumjectToChange(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers) : base(pTexr, pPosit, active, pNumbers)
+        {
             value = 10;
             Name = "Numject to Change";
             specialValue = 0;
             r = new Random();
-    }
-    
-    public void ChangeValue(Player opponent)
-    {
+        }
+
+        public void ChangeValue(Player opponent)
+        {
             int min = 21;
             int max = 0;
             //get min and max card values from opponent
@@ -32,7 +32,7 @@ public class NumjectToChange : Card
             }
             //get a random new value between opponents' highest and lowest card values
             value = r.Next(min, max);
-    }
+        }
 
         public override void Effect(Player opponent, Player self, Deck deck)
         {
@@ -45,4 +45,4 @@ public class NumjectToChange : Card
             }
         }
     }
-    }
+}

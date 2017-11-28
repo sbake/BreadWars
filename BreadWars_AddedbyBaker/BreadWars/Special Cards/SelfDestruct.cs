@@ -14,7 +14,7 @@ namespace BreadWars
         const int UNTIL_DESTRUCT = 3;
 
 
-        public SelfDestruct(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers)  : base( pTexr,  pPosit,  active,  pNumbers) 
+        public SelfDestruct(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers) : base(pTexr, pPosit, active, pNumbers)
         {
             Name = "Self Destruct";
             value = 17;
@@ -31,11 +31,10 @@ namespace BreadWars
                 base.Effect(opponent, self, deck);
                 return;
             }
-            if (isActive)
-            {
-                self.IsDestruct = true;
-                self.UntilDestruct = UNTIL_DESTRUCT;
-            }
+
+            self.IsDestruct = true;
+            self.UntilDestruct = UNTIL_DESTRUCT;
+
         }
     }
 }

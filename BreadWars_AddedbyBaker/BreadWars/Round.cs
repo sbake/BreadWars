@@ -8,11 +8,10 @@ namespace BreadWars
 {
     class Round
     {
-        //TODO add methods for comparing cards, calling specials, awarding points 
         //attributes
         private int pointsPerRound;
         private Deck deck;
-                
+
         public Round(int ptsPerRound, Deck d)
         {
             pointsPerRound = ptsPerRound;
@@ -34,15 +33,17 @@ namespace BreadWars
 
         public void EditHealth(byte winPlayer, Player[] players)
         {
-            players[winPlayer-1].Health += pointsPerRound;
+            players[winPlayer - 1].Health += pointsPerRound;
         }
+
         public void SpecialCards(Card cardPlayed, byte playerNum, Player[] players)
         {
-            if(cardPlayed.IsActive )
+            if (cardPlayed.IsActive)
             {
                 if (playerNum == 1)
                 {
-                    if(players[1].HasBlock){
+                    if (players[1].HasBlock)
+                    {
                         players[1].HasBlock = false;
                     }
                     else cardPlayed.Effect(players[1], players[0], deck);

@@ -5,20 +5,20 @@ using System.Threading;
 
 namespace BreadWars
 {
-/// <summary>
-/// Summary description for FaireBread
-/// </summary>
-public class FaireBread: Card
-{
+    /// <summary>
+    /// Summary description for FaireBread
+    /// </summary>
+    public class FaireBread : Card
+    {
 
-    public FaireBread(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers)  : base( pTexr,  pPosit,  active,  pNumbers)
+        public FaireBread(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers) : base(pTexr, pPosit, active, pNumbers)
         {
             value = 11;
             specialValue = 1;
             Name = "Faire Bread";
         }
 
-    public override void Effect(Player opponent, Player self, Deck deck)
+        public override void Effect(Player opponent, Player self, Deck deck)
         {
             SetPos(self);
             EffectDescription = "Special cards are now normal (and normal are special)!";
@@ -28,14 +28,13 @@ public class FaireBread: Card
                 return;
             }
             //switch all cards' isActive bool
-            if (isActive)
-            {
-                foreach (Card c in deck.Library)
-                {
-                    if (c != null) c.IsActive = (c.IsActive ? false : true);
-                }
 
+            foreach (Card c in deck.Library)
+            {
+                if (c != null) c.IsActive = (c.IsActive ? false : true);
             }
+
+
         }
-}
+    }
 }
