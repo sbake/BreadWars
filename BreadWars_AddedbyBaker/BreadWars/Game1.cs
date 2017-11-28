@@ -467,6 +467,8 @@ namespace BreadWars
                             //calculate victor of round and other effects
                             if (!resultCalculated)
                             {
+                                cardsInPlay[0].ChangeTintNotHover();
+                                cardsInPlay[1].ChangeTintNotHover();
                                 winPlayer = round.CompareCards(cardsInPlay);
                                 if (winPlayer != 0)
                                     round.EditHealth(winPlayer, players);
