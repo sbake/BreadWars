@@ -25,6 +25,12 @@ namespace BreadWars
         }
         //methods
         //Overwrite draw methods to draw everything green if player is poisoned
+        /// <summary>
+        /// Draws static objects
+        /// Objects drawn green if player is poisoned
+        /// </summary>
+        /// <param name="spriteBatch"></param>
+        /// <param name="poison">True if player is poisoned, should be set to poisoned bool</param>
         public void DrawStatic(SpriteBatch spriteBatch, bool poison)
         {
             if (poison)

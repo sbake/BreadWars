@@ -11,8 +11,6 @@ namespace BreadWars
 {
     public class Card : Drawable
     {
-        
-        //value
         protected int value;
         protected int specialValue;
         protected string description;
@@ -153,5 +151,3 @@ namespace BreadWars
         }
     }
 }
-// Point location = new Point((i * (posit.Height/rows)),(j * (posit.Width/columns)));
-//spriteLocations.Add(location);
