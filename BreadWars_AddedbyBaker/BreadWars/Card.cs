@@ -147,6 +147,10 @@ namespace BreadWars
                     //texture, destination, source, color
                     spriteBatch.Draw(Numbers.Texr, new Rectangle(posit.X + 5, posit.Y + 125, 14, 20), new Rectangle(Numbers.SpriteLocations[value % 10], new Point(Numbers.Posit.Width / 10, Numbers.Posit.Height)), Color.White);
                 }
+                else //is burned
+                {
+                    //draw fire effects
+                }
 
                 //draw numbers with spritefont instead
                 spriteBatch.DrawString(font, is8 ? "octo" : "" , new Vector2(posit.X, posit.Y), Color.Black);
