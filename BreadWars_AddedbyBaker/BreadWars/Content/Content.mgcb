@@ -579,3 +579,21 @@
 /processorParam:TextureFormat=Compressed
 /build:cheri.spritefont
 
+#begin game.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:game.mp3
+
+#begin gameOver.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:gameOver.mp3
+
+#begin title.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:title.wav
+

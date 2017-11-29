@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Diagnostics;
+using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
 
 namespace BreadWars
 {
@@ -87,21 +89,21 @@ namespace BreadWars
         Texture2D button;
 
         //tutorial
-        HUDObjects tutorialStart;
-        Texture2D tutStartText;
-        HUDObjects downArrow;
-        Texture2D downArrowText;
+        //HUDObjects tutorialStart;
+        //Texture2D tutStartText;
+        //HUDObjects downArrow;
+        //Texture2D downArrowText;
         //drawing arrows
         static int arrowDepth = 255;
         static int arrowWidth = 32;
         static int arrowHeight = 30;
         Rectangle[] arrowPos = { new Rectangle(80, arrowDepth, arrowWidth, arrowHeight), new Rectangle(200, arrowDepth, arrowWidth, arrowHeight), new Rectangle(320, arrowDepth, arrowWidth, arrowHeight), new Rectangle(440, arrowDepth, arrowWidth, arrowHeight), new Rectangle(560, arrowDepth, arrowWidth, arrowHeight) };
-        int arrow = 0;
+        //int arrow = 0;
         //tutorial variables
-        bool player1Tut;
-        bool player2Tut;
-        int play1TutRound;
-        int play2TutRound;
+        //bool player1Tut;
+        //bool player2Tut;
+        //int play1TutRound;
+        //int play2TutRound;
 
         //health things
         //room from top to bottom for toaster nib to move
@@ -125,8 +127,13 @@ namespace BreadWars
         private MouseState mState;
         private MouseState mStatePrev;
         private bool resultCalculated;
-        private int timeFromPrevState;
+        //private int timeFromPrevState;
         private Stopwatch watch;
+
+        //musique!
+        Song title;
+        SoundEffect game;
+        SoundEffect gameEnd;
 
         public Game1()
         {
@@ -250,6 +257,14 @@ namespace BreadWars
             players[0] = player1;
             players[1] = player2;
 
+            //music assets
+            this.title = Content.Load<Song>("title");
+            this.game = Content.Load<SoundEffect>("game");
+            this.gameEnd = Content.Load<SoundEffect>("gameOver");
+
+            MediaPlayer.Play(title);
+            MediaPlayer.IsRepeating = true;
+
         }
 
         /// <summary>
@@ -339,12 +354,14 @@ namespace BreadWars
                     }
                     break;
                 case GameState.GameOver:
+                    
                     if ((mStatePrev.LeftButton == ButtonState.Released && mState.LeftButton == ButtonState.Pressed) || (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))) //press enter to go back to start screen
                     {
                         state = GameState.Start;
                     }
                     break;
                 case GameState.Game:
+                   
                     switch (currPhase)
                     {
                         case Phase.Player1:
@@ -677,5 +694,7 @@ namespace BreadWars
             currPhase = Phase.Pause;
             prevPhase = Phase.Results;
         }
+
+       
     }
 }
