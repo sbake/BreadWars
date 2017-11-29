@@ -20,7 +20,7 @@ namespace BreadWars
         {
 
             SetPos(self);
-            EffectDescription = "Player " + self.PlayerNumber + " has won by Table Flip!";
+            EffectDescription = "Player " + self.PlayerNumber + " has wasted this card T^T";
             if (this.is8)
             {
                 base.Effect(opponent, self, deck);
@@ -29,6 +29,7 @@ namespace BreadWars
             if (opponent.CurrCard.Value <= 2)
             {
                 opponent.Health = 0;
+                EffectDescription = "Player " + self.PlayerNumber + " has won by Table Flip!";
             }
         }
 
