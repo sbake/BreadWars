@@ -51,6 +51,25 @@ namespace BreadWars
         Drawable[] deckButtons = new Drawable[6];
         Rectangle[] numPlayButtonPos = { new Rectangle(80, 450, cardWidth, cardHeight), new Rectangle(200, 450, cardWidth, cardHeight) };
         Drawable[] numPlayButtons = new Drawable[2];
+
+        /*
+        //drawing cards new sizes
+        static int cardDepth = 475;
+        static int backCardDepth = 75;
+        static int resultCardDepth = 150;
+        static int cardWidth = 166;
+        static int cardHeight = 250;
+        Rectangle[] cardPos = { new Rectangle(150, cardDepth, cardWidth, cardHeight), new Rectangle(336, cardDepth, cardWidth, cardHeight), new Rectangle(522, cardDepth, cardWidth, cardHeight), new Rectangle(708, cardDepth, cardWidth, cardHeight), new Rectangle(894, cardDepth, cardWidth, cardHeight) };
+        Rectangle[] backCardPos = { new Rectangle(150, backCardDepth, cardWidth, cardHeight), new Rectangle(336, backCardDepth, cardWidth, cardHeight), new Rectangle(522, backCardDepth, cardWidth, cardHeight), new Rectangle(708, backCardDepth, cardWidth, cardHeight), new Rectangle(894, backCardDepth, cardWidth, cardHeight) };
+        Rectangle[] resultCardPos = { new Rectangle(500, resultCardDepth, cardWidth, cardHeight), new Rectangle(614, resultCardDepth, cardWidth, cardHeight) };
+        List<string> deckFiles = new List<string>(); //lists filenames for all decks
+        Rectangle[] deckButtonPos = { new Rectangle(80, 50, cardWidth, cardHeight), new Rectangle(200, 50, cardWidth, cardHeight), new Rectangle(320, 50, cardWidth, cardHeight), new Rectangle(80, 200, cardWidth, cardHeight), new Rectangle(200, 200, cardWidth, cardHeight), new Rectangle(320, 200, cardWidth, cardHeight) };
+        Drawable[] deckButtons = new Drawable[6];
+        Rectangle[] numPlayButtonPos = { new Rectangle(80, 450, cardWidth, cardHeight), new Rectangle(200, 450, cardWidth, cardHeight) };
+        Drawable[] numPlayButtons = new Drawable[2];
+        */
+
+
         int currDeck = 0;
 
         //hudobject things
@@ -108,7 +127,7 @@ namespace BreadWars
 
         //health things
         //room from top to bottom for toaster nib to move
-        const double tHDif = 99;
+        const double tHDif = 99; //= 175;
         //solved location, solved in update, used in draw
         int toastNib1Y;
         int toastNib2Y;
