@@ -52,5 +52,8 @@
     <File>D:/Profiles/rcm3517/Source/Repos/BreadWars3/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/tutorial.png</File>
     <File>D:/Profiles/rcm3517/Source/Repos/BreadWars3/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/button.png</File>
     <File>D:/Profiles/rcm3517/Source/Repos/BreadWars3/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/cheri.spritefont</File>
+    <File>D:/Profiles/rcm3517/Source/Repos/BreadWars3/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/game.mp3</File>
+    <File>D:/Profiles/rcm3517/Source/Repos/BreadWars3/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/gameOver.mp3</File>
+    <File>D:/Profiles/rcm3517/Source/Repos/BreadWars3/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/title.wav</File>
   </SourceFiles>
 </SourceFileCollection>

@@ -31,6 +31,7 @@ namespace BreadWars
 
         //Round
         Round round;
+        int roundCount;
 
         //temp array holding both players(may be moved in the future)
         Player[] players;
@@ -497,6 +498,7 @@ namespace BreadWars
                                 cardsInPlay[0].IsBurned = false;
                                 cardsInPlay[1].IsBurned = false;
                                 resultCalculated = true;
+                                roundCount++;
                             }
                             if ((mState.LeftButton == ButtonState.Pressed && mStatePrev.LeftButton == ButtonState.Released) || kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter)) //press enter to continue to next phase
                             {
@@ -666,6 +668,7 @@ namespace BreadWars
                             player2.DrawString(spriteBatch);
                             if (cardsInPlay[0].IsActive) cardsInPlay[0].DrawString(font2, spriteBatch);
                             if (cardsInPlay[1].IsActive) cardsInPlay[1].DrawString(font2, spriteBatch);
+                            spriteBatch.DrawString(font2, "Round: " + roundCount, new Vector2(20, 450), Color.DarkSlateBlue);
                             break;
                     }
                     break;
@@ -679,6 +682,7 @@ namespace BreadWars
 
         public void NewGame(string deckName)
         {
+            roundCount = 0;
             deck.LoadDeck(deckName);
             deck.Shuffle();
             //initialize player hands
