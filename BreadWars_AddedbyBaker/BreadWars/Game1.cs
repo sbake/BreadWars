@@ -3,7 +3,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using System.IO;
-using Microsoft.Xna.Framework.Media;
+using System.Threading;
+using System.Diagnostics;
 
 namespace BreadWars
 {
@@ -42,7 +43,7 @@ namespace BreadWars
         Rectangle[] cardPos = { new Rectangle(80, cardDepth, cardWidth, cardHeight), new Rectangle(200, cardDepth, cardWidth, cardHeight), new Rectangle(320, cardDepth, cardWidth, cardHeight), new Rectangle(440, cardDepth, cardWidth, cardHeight), new Rectangle(560, cardDepth, cardWidth, cardHeight) };
         Rectangle[] backCardPos = { new Rectangle(80, backCardDepth, cardWidth, cardHeight), new Rectangle(200, backCardDepth, cardWidth, cardHeight), new Rectangle(320, backCardDepth, cardWidth, cardHeight), new Rectangle(440, backCardDepth, cardWidth, cardHeight), new Rectangle(560, backCardDepth, cardWidth, cardHeight) };
         Rectangle[] resultCardPos = { new Rectangle(260, resultCardDepth, cardWidth, cardHeight), new Rectangle(440, resultCardDepth, cardWidth, cardHeight) };
-        List<string> deckFiles= new List<string>(); //lists filenames for all decks
+        List<string> deckFiles = new List<string>(); //lists filenames for all decks
         Rectangle[] deckButtonPos = { new Rectangle(80, 50, cardWidth, cardHeight), new Rectangle(200, 50, cardWidth, cardHeight), new Rectangle(320, 50, cardWidth, cardHeight), new Rectangle(80, 200, cardWidth, cardHeight), new Rectangle(200, 200, cardWidth, cardHeight), new Rectangle(320, 200, cardWidth, cardHeight) };
         Drawable[] deckButtons = new Drawable[6];
         Rectangle[] numPlayButtonPos = { new Rectangle(80, 450, cardWidth, cardHeight), new Rectangle(200, 450, cardWidth, cardHeight) };
@@ -50,23 +51,24 @@ namespace BreadWars
         int currDeck = 0;
 
         //hudobject things
-        HUDObjects background;
+        HUDObjects background; //background and intro screens
         HUDObjects introTest;
-        HUDObjects backCard;
-        HUDObjects pause1;
+        HUDObjects backCard; //back card image for non-active player
+        HUDObjects pause1; //pause splash screens
         HUDObjects pause2;
         HUDObjects pause;
         HUDObjects vs;
-        HUDObjects player1wins;
+        HUDObjects player1wins; //player wins text
         HUDObjects player2wins;
-        HUDObjects tie1;
+        HUDObjects tie1; //tie textures
         HUDObjects tie2;
-        HUDObjects help;
+        HUDObjects help; //help and credit splash screens
         HUDObjects credits;
-        HUDObjects toaster1;
-        HUDObjects toasterNib1;
+        HUDObjects toaster1; //toaster background (gray and pink portions)
+        HUDObjects toasterNib1; //toaster lever (moving black portion)
         HUDObjects toaster2;
         HUDObjects toasterNib2;
+        //textures for above objects
         Texture2D bGText;
         Texture2D testText;
         Texture2D backText;
@@ -110,9 +112,10 @@ namespace BreadWars
 
 
         SpriteFont font;
+        SpriteFont font2;
 
         //phase and game states
-        enum GameState { Start, Help, Game, Credits, GameOver, PickDeck};
+        enum GameState { Start, Help, Game, Credits, GameOver, PickDeck };
         private GameState state;
         enum Phase { Player1, Player2, Pause, Results };
         private Phase currPhase;
@@ -122,14 +125,14 @@ namespace BreadWars
         private MouseState mState;
         private MouseState mStatePrev;
         private bool resultCalculated;
-
-        //musique!
-
+        private int timeFromPrevState;
+        private Stopwatch watch;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            watch = new Stopwatch();
         }
 
         /// <summary>
@@ -143,15 +146,6 @@ namespace BreadWars
             // TODO: Add your initialization logic here
 
             base.Initialize();
-
-            //The players
-            player1 = new Player(1);
-            player2 = new Player(2);
-
-            //player array
-            players = new Player[2];
-            players[0] = player1;
-            players[1] = player2;
 
             //starting game and phase states
             state = GameState.Start;
@@ -224,13 +218,14 @@ namespace BreadWars
 
 
             font = Content.Load<SpriteFont>("Arial");
+            font2 = Content.Load<SpriteFont>("cheri");
 
             //things with textures
             //cards- load all card textures into array here, rename card textures to numbers -card0, card1, card2... cardn
             cardText = new Texture2D[21];
             for (int i = 0; i < 21; i++)
             {
-                cardText[i] = Content.Load<Texture2D>("cards/card"+ (i+1));
+                cardText[i] = Content.Load<Texture2D>("cards/card" + (i + 1));
             }
             //numbers
             numbers = new Drawable(Content.Load<Texture2D>("numbers14020"), new Rectangle(0, 0, 140, 20));
@@ -240,10 +235,21 @@ namespace BreadWars
             //Deck
             deck = new Deck(cardText, numbers);
             string[] allFiles = Directory.GetFiles("..\\..\\..\\..\\..\\..\\Bread Wars Deck Builder\\bin\\Debug");
-            foreach(string f in allFiles)
+            foreach (string f in allFiles)
             {
                 if (f.Contains(".dat")) deckFiles.Add(f);
             }
+
+
+            //The players
+            player1 = new Player(1, font2, new Vector2(20, 100));
+            player2 = new Player(2, font2, new Vector2(600, 100));
+
+            //player array
+            players = new Player[2];
+            players[0] = player1;
+            players[1] = player2;
+
         }
 
         /// <summary>
@@ -264,58 +270,58 @@ namespace BreadWars
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-            
+
             kStatePrev = kState;
             kState = Keyboard.GetState();
             mStatePrev = mState;
             mState = Mouse.GetState();
-           
-            
+
+
             switch (state)
             {
                 case GameState.Start:
-                    for(int i=0; i<2; i++)
+                    for (int i = 0; i < 2; i++)
                     {
-                        if (numPlayButtonPos[i].Contains(mState.Position) && mState.LeftButton == ButtonState.Pressed &&mStatePrev.LeftButton == ButtonState.Released)
+                        if (numPlayButtonPos[i].Contains(mState.Position) && mState.LeftButton == ButtonState.Pressed && mStatePrev.LeftButton == ButtonState.Released)
                         {
                             if (i == 0) player2.IsAI = true;
                             else player2.IsAI = false;
                             state = GameState.PickDeck;
                         }
                     }
-                    
-                        if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))
+
+                    if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))
                     {
                         player2.IsAI = true;
                         state = GameState.PickDeck;
-                        
+
                     }
-                    else if(kState.IsKeyDown(Keys.H)|| kState.IsKeyDown(Keys.F1))
+                    else if (kState.IsKeyDown(Keys.H) || kState.IsKeyDown(Keys.F1))
                     {
                         state = GameState.Help;
                     }
-                    else if(kState.IsKeyDown(Keys.C))
+                    else if (kState.IsKeyDown(Keys.C))
                     {
                         state = GameState.Credits;
                     }
-                    if (mState.Position == new Point(0,0)) //change pos, for credits
+                    if (mState.Position == new Point(0, 0)) //change pos, for credits
                     {
                         state = GameState.Credits;
                     }
                     if (mState.Position == new Point(0, 0)) //change pos for help
                     {
-                        state = GameState.Help; 
+                        state = GameState.Help;
                     }
                     break;
                 case GameState.PickDeck:
 
                     if (currDeck > (deckFiles.Count - 1)) currDeck = 0;
                     if (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter)) currDeck += 6;
-                    for(int i=0; i<deckButtons.Length; i++)
+                    for (int i = 0; i < deckButtons.Length; i++)
                     {
-                        if ((i+currDeck)< deckFiles.Count && deckButtonPos[i].Contains(mState.Position) && mState.LeftButton == ButtonState.Pressed)
+                        if ((i + currDeck) < deckFiles.Count && deckButtonPos[i].Contains(mState.Position) && mState.LeftButton == ButtonState.Pressed)
                         {
-                            NewGame(deckFiles[i+currDeck]);
+                            NewGame(deckFiles[i + currDeck]);
                             state = GameState.Game;
                         }
                     }
@@ -346,78 +352,115 @@ namespace BreadWars
                             //toasterNib position
                             toastNib1Y = System.Convert.ToInt32(328 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player1.Health)));
                             toastNib2Y = System.Convert.ToInt32(78 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player2.Health)));
-                            
+
                             for (int i = 0; i < player1.Hand.Count; i++)
                             {
                                 if (player1.Hand[i] != null)
                                 {
                                     //assigning card positions
                                     player1.Hand[i].Posit = cardPos[i];
-
-                                    if (cardPos[i].Contains(mState.Position) && mStatePrev.LeftButton== ButtonState.Released && mState.LeftButton == ButtonState.Pressed)
+                                    if (watch.ElapsedMilliseconds > 200 && cardPos[i].Contains(mState.Position))
                                     {
-                                        cardsInPlay[0] = player1.Hand[i];
-                                        player1.PlayTurn(cardsInPlay, i);
-                                        player1.Hand.Add(deck.Next());
-                                        prevPhase = currPhase;
-
-                                        if (player2.IsAI)
+                                        player1.Hand[i].ChangeTintHover();
+                                        if (mStatePrev.LeftButton == ButtonState.Pressed)
                                         {
-                                            cardsInPlay[1] = player2.Hand[1];
-                                            player2.PlayTurn(cardsInPlay, 0);
-                                            player2.Hand.Add(deck.Next());
-                                            prevPhase = Phase.Player2;
-                                            currPhase = Phase.Pause;
+                                            player1.Hand[i].ChangeTintPressed();
+
+                                            if (mState.LeftButton == ButtonState.Released)
+                                            {
+                                                cardsInPlay[0] = player1.Hand[i];
+                                                player1.PlayTurn(cardsInPlay, i);
+                                                player1.Hand.Add(deck.Next());
+                                                prevPhase = currPhase;
+
+                                                if (player2.IsAI)
+                                                {
+                                                    cardsInPlay[1] = player2.Hand[1];
+                                                    player2.PlayTurn(cardsInPlay, 0);
+                                                    player2.Hand.Add(deck.Next());
+                                                    prevPhase = Phase.Player2;
+                                                    currPhase = Phase.Pause;
+                                                }
+
+                                                currPhase = Phase.Pause;
+                                                watch = Stopwatch.StartNew();
+                                                break;
+                                            }
+
                                         }
-                                        
-                                        currPhase = Phase.Pause;
-                                        break;
                                     }
+                                    else
+                                    {
+
+                                        player1.Hand[i].ChangeTintNoTint();
+                                    }
+
                                 }
                             }
 
-                            
+
                             break;
                         case Phase.Player2:
+
                             //toaster nib position
                             toastNib1Y = System.Convert.ToInt32(78 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player1.Health)));
-                            toastNib2Y = System.Convert.ToInt32(328 + ((tHDif / Player.PLAYER_MAX_HEALTH) * ( 100 - player2.Health)));
+                            toastNib2Y = System.Convert.ToInt32(328 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player2.Health)));
 
                             for (int i = 0; i < player2.Hand.Count; i++)
                             {
+
                                 if (player2.Hand[i] != null)
                                 {
                                     //assigning card positions
                                     player2.Hand[i].Posit = cardPos[i];
-
-                                    if (cardPos[i].Contains(mState.Position) && mStatePrev.LeftButton == ButtonState.Released && mState.LeftButton == ButtonState.Pressed)
+                                    if (cardPos[i].Contains(mState.Position))
                                     {
-                                        cardsInPlay[1] = player2.Hand[i];
-                                        player2.PlayTurn(cardsInPlay, i);
-                                        player2.Hand.Add(deck.Next());
-                                        prevPhase = currPhase;
-                                        currPhase = Phase.Pause;
-                                        break;
+                                        player2.Hand[i].ChangeTintHover();
+                                        if (watch.ElapsedMilliseconds > 200 && mStatePrev.LeftButton == ButtonState.Pressed)
+                                        {
+
+                                            player2.Hand[i].ChangeTintPressed();
+
+                                            if (mState.LeftButton == ButtonState.Released)
+                                            {
+                                                cardsInPlay[1] = player2.Hand[i];
+                                                player2.PlayTurn(cardsInPlay, i);
+                                                player2.Hand.Add(deck.Next());
+                                                prevPhase = currPhase;
+                                                currPhase = Phase.Pause;
+                                                watch = Stopwatch.StartNew();
+                                                break;
+                                            }
+                                        }
                                     }
+                                    else
+                                    {
+
+                                        player2.Hand[i].ChangeTintNoTint();
+                                    }
+
                                 }
                             }
                             break;
                         case Phase.Pause:
-                            if(!(mState.LeftButton == ButtonState.Pressed && mStatePrev.LeftButton ==ButtonState.Released) && (!(kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))) ) break;
+                            if (!(mState.LeftButton == ButtonState.Pressed && mStatePrev.LeftButton == ButtonState.Released) && (!(kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter)))) break;
                             //press enter to continue to next phase
                             switch (prevPhase)
                             {
                                 case Phase.Player1:
                                     prevPhase = currPhase;
                                     currPhase = Phase.Player2;
+                                    watch = Stopwatch.StartNew();
                                     break;
                                 case Phase.Player2:
                                     prevPhase = currPhase;
                                     currPhase = Phase.Results;
+                                    watch = Stopwatch.StartNew();
                                     break;
                                 case Phase.Results:
                                     prevPhase = currPhase;
                                     currPhase = Phase.Player1;
+                                    watch = Stopwatch.StartNew();
                                     break;
                             }
                             break;
@@ -425,6 +468,8 @@ namespace BreadWars
                             //calculate victor of round and other effects
                             if (!resultCalculated)
                             {
+                                cardsInPlay[0].ChangeTintNoTint();
+                                cardsInPlay[1].ChangeTintNoTint();
                                 winPlayer = round.CompareCards(cardsInPlay);
                                 if (winPlayer != 0)
                                     round.EditHealth(winPlayer, players);
@@ -436,9 +481,9 @@ namespace BreadWars
                                 cardsInPlay[1].IsBurned = false;
                                 resultCalculated = true;
                             }
-                            if ((mState.LeftButton ==ButtonState.Pressed && mStatePrev.LeftButton == ButtonState.Released) || kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter)) //press enter to continue to next phase
+                            if ((mState.LeftButton == ButtonState.Pressed && mStatePrev.LeftButton == ButtonState.Released) || kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter)) //press enter to continue to next phase
                             {
-                                if(player2.Health<=0 || player1.Health>Player.PLAYER_MAX_HEALTH )
+                                if (player2.Health <= 0 || player1.Health > Player.PLAYER_MAX_HEALTH)
                                 {
                                     winPlayer = 1;
                                     state = GameState.GameOver;
@@ -467,22 +512,22 @@ namespace BreadWars
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            
+
             spriteBatch.Begin();
 
             //test code to get screen size
             //no font---  spriteBatch.DrawString(, "Viewport Width:" + GraphicsDevice.Viewport.Width, new Vector2(10,10), Color.Black);
 
             background.DrawStatic(spriteBatch);
-            
+
             switch (state)
             {
                 case GameState.Start:
                     introTest.DrawStatic(spriteBatch);
-                    for(int i=0; i<2; i++)
+                    for (int i = 0; i < 2; i++)
                     {
                         numPlayButtons[i].DrawStatic(spriteBatch);
-                        spriteBatch.DrawString(font, i == 0 ? "Single Player": "2 Players", new Vector2(numPlayButtonPos[i].X + 10, numPlayButtonPos[i].Y + 10), Color.Black);
+                        spriteBatch.DrawString(font, i == 0 ? "Single Player" : "2 Players", new Vector2(numPlayButtonPos[i].X + 10, numPlayButtonPos[i].Y + 10), Color.Black);
                     }
                     //figuring out spritesheet problems
                     //for (int i = 0; i < numbers.SpriteLocations.Count; i++)
@@ -491,13 +536,13 @@ namespace BreadWars
                     //}
                     break;
                 case GameState.PickDeck:
-                    spriteBatch.DrawString(font, "Choose a Deck (ENTER to view more):", new Vector2 (80, 10), Color.Black);
-                    for(int i=0; i<6; i++)
+                    spriteBatch.DrawString(font2, "Choose a Deck (ENTER to view more):", new Vector2(80, 10), Color.Black);
+                    for (int i = 0; i < 6; i++)
                     {
                         if ((i + currDeck) < deckFiles.Count)
                         {
                             deckButtons[i].DrawStatic(spriteBatch);
-                            spriteBatch.DrawString(font, deckFiles[i+ currDeck].Substring(52, deckFiles[i + currDeck].Length-56), new Vector2(deckButtonPos[i].X +10, deckButtonPos[i].Y+10), Color.Black );
+                            spriteBatch.DrawString(font, deckFiles[i + currDeck].Substring(52, deckFiles[i + currDeck].Length - 56), new Vector2(deckButtonPos[i].X + 10, deckButtonPos[i].Y + 10), Color.Black);
                         }
                     }
                     break;
@@ -600,6 +645,10 @@ namespace BreadWars
                                 tie1.DrawStatic(spriteBatch);
                                 tie2.DrawStatic(spriteBatch);
                             }
+                            player1.DrawString(spriteBatch);
+                            player2.DrawString(spriteBatch);
+                            if (cardsInPlay[0].IsActive) cardsInPlay[0].DrawString(font2, spriteBatch);
+                            if (cardsInPlay[1].IsActive) cardsInPlay[1].DrawString(font2, spriteBatch);
                             break;
                     }
                     break;
@@ -618,7 +667,7 @@ namespace BreadWars
             //initialize player hands
             player1.Hand.Clear();
             player2.Hand.Clear();
-            for(int i=0; i<5; i++)
+            for (int i = 0; i < 5; i++)
             {
                 player1.Hand.Add(deck.Next());
                 player2.Hand.Add(deck.Next());
