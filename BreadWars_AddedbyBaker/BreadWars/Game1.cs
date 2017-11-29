@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using System.IO;
+using Microsoft.Xna.Framework.Media;
 
 namespace BreadWars
 {
@@ -121,6 +122,9 @@ namespace BreadWars
         private MouseState mState;
         private MouseState mStatePrev;
         private bool resultCalculated;
+
+        //musique!
+
 
         public Game1()
         {
