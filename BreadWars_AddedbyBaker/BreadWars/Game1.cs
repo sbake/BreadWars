@@ -407,7 +407,7 @@ namespace BreadWars
                     }
                     break;
                 case GameState.Game:
-                   
+                    currDeck = 0;
                     switch (currPhase)
                     {
                         case Phase.Player1:

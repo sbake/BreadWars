@@ -55,6 +55,7 @@
     <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/game.mp3</File>
     <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/gameOver.mp3</File>
     <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/titleEdit2.wav</File>
+<<<<<<< HEAD
     <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/bw2/bgCuteTemp.png</File>
     <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/bw2/bluebutton.png</File>
     <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/bw2/breadwars.png</File>
@@ -82,5 +83,7 @@
     <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/bw2/cards/card19.png</File>
     <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/bw2/cards/card20.png</File>
     <File>Z:/IGMProfile/Documents/GitHub/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/bw2/cards/card21.png</File>
+=======
+>>>>>>> f1d6e3b7f1ac1b7dd9b451e173b4cd16ce2d8d7c
   </SourceFiles>
 </SourceFileCollection>
