@@ -34,6 +34,11 @@ namespace BreadWars
         int count = 0;
         public Card Next()
         {
+            if (count > library.Length)
+            {
+                count = 0;
+                Shuffle();
+            }
             Card toReturn = library.ElementAt(count);
             count++;
             return toReturn;
