@@ -19,6 +19,11 @@ namespace BreadWars
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        //window size
+        static int windowX = 1280;
+        static int windowY = 800;
+        
+
         //The players
         Player player1;
         Player player2;
@@ -38,6 +43,7 @@ namespace BreadWars
         Card[] cardsInPlay = new Card[2];
 
         //drawing cards
+        /*
         static int cardDepth = 300;
         static int backCardDepth = 50;
         static int resultCardDepth = 135;
@@ -47,12 +53,15 @@ namespace BreadWars
         Rectangle[] backCardPos = { new Rectangle(80, backCardDepth, cardWidth, cardHeight), new Rectangle(200, backCardDepth, cardWidth, cardHeight), new Rectangle(320, backCardDepth, cardWidth, cardHeight), new Rectangle(440, backCardDepth, cardWidth, cardHeight), new Rectangle(560, backCardDepth, cardWidth, cardHeight) };
         Rectangle[] resultCardPos = { new Rectangle(260, resultCardDepth, cardWidth, cardHeight), new Rectangle(440, resultCardDepth, cardWidth, cardHeight) };
         List<string> deckFiles = new List<string>(); //lists filenames for all decks
-        Rectangle[] deckButtonPos = { new Rectangle(80, 50, cardWidth, cardHeight), new Rectangle(200, 50, cardWidth, cardHeight), new Rectangle(320, 50, cardWidth, cardHeight), new Rectangle(80, 200, cardWidth, cardHeight), new Rectangle(200, 200, cardWidth, cardHeight), new Rectangle(320, 200, cardWidth, cardHeight) };
+        //button size: 
+        static int buttonX = 273;
+        static int buttonY = 113;
+        Rectangle[] deckButtonPos = { new Rectangle(80, 50, buttonX, buttonY), new Rectangle(380, 50, buttonX, buttonY), new Rectangle(680, 50, buttonX, buttonY), new Rectangle(80, 200, buttonX, buttonY), new Rectangle(380, 200, buttonX, buttonY), new Rectangle(680, 200, buttonX, buttonY) };
         Drawable[] deckButtons = new Drawable[6];
-        Rectangle[] numPlayButtonPos = { new Rectangle(80, 450, cardWidth, cardHeight), new Rectangle(200, 450, cardWidth, cardHeight) };
+        Rectangle[] numPlayButtonPos = { new Rectangle(80, 300, buttonX, buttonY), new Rectangle(380, 300, buttonX, buttonY) };
         Drawable[] numPlayButtons = new Drawable[2];
-
-        /*
+        */
+        
         //drawing cards new sizes
         static int cardDepth = 475;
         static int backCardDepth = 75;
@@ -63,11 +72,14 @@ namespace BreadWars
         Rectangle[] backCardPos = { new Rectangle(150, backCardDepth, cardWidth, cardHeight), new Rectangle(336, backCardDepth, cardWidth, cardHeight), new Rectangle(522, backCardDepth, cardWidth, cardHeight), new Rectangle(708, backCardDepth, cardWidth, cardHeight), new Rectangle(894, backCardDepth, cardWidth, cardHeight) };
         Rectangle[] resultCardPos = { new Rectangle(500, resultCardDepth, cardWidth, cardHeight), new Rectangle(614, resultCardDepth, cardWidth, cardHeight) };
         List<string> deckFiles = new List<string>(); //lists filenames for all decks
-        Rectangle[] deckButtonPos = { new Rectangle(80, 50, cardWidth, cardHeight), new Rectangle(200, 50, cardWidth, cardHeight), new Rectangle(320, 50, cardWidth, cardHeight), new Rectangle(80, 200, cardWidth, cardHeight), new Rectangle(200, 200, cardWidth, cardHeight), new Rectangle(320, 200, cardWidth, cardHeight) };
+        //button size: 
+        static int buttonX = 273;
+        static int buttonY = 113;
+        Rectangle[] deckButtonPos = { new Rectangle(80, 50, buttonX, buttonY), new Rectangle(380, 50, buttonX, buttonY), new Rectangle(680, 50, buttonX, buttonY), new Rectangle(80, 200, buttonX, buttonY), new Rectangle(380, 200, buttonX, buttonY), new Rectangle(680, 200, buttonX, buttonY) };
         Drawable[] deckButtons = new Drawable[6];
-        Rectangle[] numPlayButtonPos = { new Rectangle(80, 450, cardWidth, cardHeight), new Rectangle(200, 450, cardWidth, cardHeight) };
+        Rectangle[] numPlayButtonPos = { new Rectangle(80, 300, buttonX, buttonY), new Rectangle(380, 300, buttonX, buttonY) };
         Drawable[] numPlayButtons = new Drawable[2];
-        */
+
 
 
         int currDeck = 0;
@@ -106,7 +118,9 @@ namespace BreadWars
         Texture2D creditSplash;
         Texture2D toasterText;
         Texture2D nibText;
-        Texture2D button;
+        Texture2D buttonP;
+        Texture2D buttonB;
+        Texture2D[] buttons;
 
         //tutorial
         //HUDObjects tutorialStart;
@@ -160,6 +174,10 @@ namespace BreadWars
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             watch = new Stopwatch();
+
+            //graphics window
+            graphics.PreferredBackBufferWidth = windowX;
+            graphics.PreferredBackBufferHeight = windowY;
         }
 
         /// <summary>
@@ -197,31 +215,36 @@ namespace BreadWars
 
             // TODO: use this.Content to load your game content here
             //background images + full screen displays
-            bGText = Content.Load<Texture2D>("bgCuteTemp");
-            background = new HUDObjects(bGText, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
-            testText = Content.Load<Texture2D>("introscreenTemp");
-            introTest = new HUDObjects(testText, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
+            bGText = Content.Load<Texture2D>("bw2/bgCuteTemp");
+            background = new HUDObjects(bGText, new Rectangle(0, 0, windowX, windowY));
+            testText = Content.Load<Texture2D>("bw2/breadwars");
+            introTest = new HUDObjects(testText, new Rectangle(0, 0, windowX, windowY));
             helpSplash = Content.Load<Texture2D>("helpScreen");
-            help = new HUDObjects(helpSplash, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
+            help = new HUDObjects(helpSplash, new Rectangle(0, 0, windowX, windowY));
             creditSplash = Content.Load<Texture2D>("CreditsScreen");
-            credits = new HUDObjects(creditSplash, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
+            credits = new HUDObjects(creditSplash, new Rectangle(0, 0, windowX, windowY));
             tie1Text = Content.Load<Texture2D>("tieGame1");
             tie2Text = Content.Load<Texture2D>("tieGame2");
             tie1 = new HUDObjects(tie1Text, new Rectangle(240, 290, 320, 60));
             tie2 = new HUDObjects(tie2Text, new Rectangle(240, 380, 320, 60));
 
             //deck& AI buttons
-            button = Content.Load<Texture2D>("button");
-            for (int i = 0; i < 6; i++) deckButtons[i] = new Drawable(button, deckButtonPos[i]);
-            for (int i = 0; i < 2; i++) numPlayButtons[i] = new Drawable(button, numPlayButtonPos[i]);
+            buttonP = Content.Load<Texture2D>("bw2/pinkbutton");
+            buttonB = Content.Load<Texture2D>("bw2/bluebutton");
+            buttons = new Texture2D[2];
+            buttons[0] = buttonP;
+            buttons[1] = buttonB;
+            //for (int i = 0; i < 6; i++) deckButtons[i] = new Drawable(buttons[1], deckButtonPos[i]);
+            for (int i = 0; i < 2; i++) numPlayButtons[i] = new Drawable(buttons[i], numPlayButtonPos[i]);
 
             //full screen cont.- pause screens
-            pause1Text = Content.Load<Texture2D>("pausephase1");
-            pause1 = new HUDObjects(pause1Text, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
-            pause2Text = Content.Load<Texture2D>("pausephase2");
-            pause2 = new HUDObjects(pause2Text, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
-            pauseText = Content.Load<Texture2D>("pausephaseBlank");
-            pause = new HUDObjects(pauseText, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height));
+            /////////////////////////////////////////////////////////////////////////////////////delete this if everthing works
+            //pause1Text = Content.Load<Texture2D>("pausephase1");
+            //pause1 = new HUDObjects(pause1Text, new Rectangle(0, 0, windowX, windowY));
+            //pause2Text = Content.Load<Texture2D>("pausephase2");
+            //pause2 = new HUDObjects(pause2Text, new Rectangle(0, 0, windowX, windowY));
+            pauseText = Content.Load<Texture2D>("bw2/pausephase");
+            pause = new HUDObjects(pauseText, new Rectangle(0, 0, windowX, windowY));
 
             //results text
             win1Text = Content.Load<Texture2D>("player1wins");
@@ -252,7 +275,7 @@ namespace BreadWars
             cardText = new Texture2D[21];
             for (int i = 0; i < 21; i++)
             {
-                cardText[i] = Content.Load<Texture2D>("cards/card" + (i + 1));
+                cardText[i] = Content.Load<Texture2D>("bw2/cards/card" + (i + 1));
             }
             //numbers
             numbers = new Drawable(Content.Load<Texture2D>("numbers14020"), new Rectangle(0, 0, 140, 20));
@@ -322,6 +345,9 @@ namespace BreadWars
                             if (i == 0) player2.IsAI = true;
                             else player2.IsAI = false;
                             state = GameState.PickDeck;
+
+                            //makes buttons same color
+                            for (int j = 0; j < 6; j++) deckButtons[j] = new Drawable(buttons[i], deckButtonPos[j]);
                         }
                     }
 
@@ -565,7 +591,7 @@ namespace BreadWars
                     for (int i = 0; i < 2; i++)
                     {
                         numPlayButtons[i].DrawStatic(spriteBatch);
-                        spriteBatch.DrawString(font, i == 0 ? "Single Player" : "2 Players", new Vector2(numPlayButtonPos[i].X + 10, numPlayButtonPos[i].Y + 10), Color.Black);
+                        spriteBatch.DrawString(font2, i == 0 ? "Single Player" : "2 Players", new Vector2(numPlayButtonPos[i].X + 50, numPlayButtonPos[i].Y + 40), Color.White);
                     }
                     //figuring out spritesheet problems
                     //for (int i = 0; i < numbers.SpriteLocations.Count; i++)
@@ -580,7 +606,7 @@ namespace BreadWars
                         if ((i + currDeck) < deckFiles.Count)
                         {
                             deckButtons[i].DrawStatic(spriteBatch);
-                            spriteBatch.DrawString(font, deckFiles[i + currDeck].Substring(52, deckFiles[i + currDeck].Length - 56), new Vector2(deckButtonPos[i].X + 10, deckButtonPos[i].Y + 10), Color.Black);
+                            spriteBatch.DrawString(font2, deckFiles[i + currDeck].Substring(52, deckFiles[i + currDeck].Length - 56), new Vector2(deckButtonPos[i].X + 50, deckButtonPos[i].Y + 40), Color.White);
                         }
                     }
                     break;
@@ -652,13 +678,13 @@ namespace BreadWars
                             switch (prevPhase)
                             {
                                 case Phase.Player1:
-                                    pause2.DrawStatic(spriteBatch);
+                                    pause.DrawStatic(spriteBatch);
                                     break;
                                 case Phase.Player2:
                                     pause.DrawStatic(spriteBatch);
                                     break;
                                 case Phase.Results:
-                                    pause1.DrawStatic(spriteBatch);
+                                    pause.DrawStatic(spriteBatch);
                                     break;
                             }
 
