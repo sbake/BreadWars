@@ -585,4 +585,3 @@ Z:\IGMProfile\Documents\GitHub\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\De
 Z:\IGMProfile\Documents\GitHub\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\bw2\cards\card19.xnb
 Z:\IGMProfile\Documents\GitHub\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\bw2\cards\card20.xnb
 Z:\IGMProfile\Documents\GitHub\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\bw2\cards\card21.xnb
->>>>>>> f1d6e3b7f1ac1b7dd9b451e173b4cd16ce2d8d7c
