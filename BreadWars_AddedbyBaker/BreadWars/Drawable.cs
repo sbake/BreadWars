@@ -130,7 +130,7 @@ namespace BreadWars
             {
                 for (int j = 0; j < columns; j++)
                 {
-                    Point location = new Point((j * (posit.Width/columns)), (i * (posit.Height / rows)));
+                    Point location = new Point((j * (imageSize.X / columns)), (i * (imageSize.Y / rows)));
                     spriteLocations.Add(location);
                 }
             }
