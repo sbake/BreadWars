@@ -25,13 +25,12 @@ namespace BreadWars
         public override void Effect(Player opponent, Player self, Deck deck)
         {
             SetPos(self);
-            EffectDescription = "Player " + self.PlayerNumber + " has 3 turns left";
             if (this.is8)
             {
                 base.Effect(opponent, self, deck);
                 return;
             }
-
+            EffectDescription = "Player " + self.PlayerNumber + " has 3 turns left";
             self.IsDestruct = true;
             self.UntilDestruct = UNTIL_DESTRUCT;
 

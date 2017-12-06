@@ -34,6 +34,7 @@ namespace BreadWars
         int count = 0;
         public Card Next()
         {
+            if (count >= 52) count = 0;
             Card toReturn = library.ElementAt(count);
             count++;
             return toReturn;

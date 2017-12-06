@@ -22,12 +22,12 @@ namespace BreadWars
         {
 
             SetPos(self);
-            EffectDescription = "Player " + opponent.PlayerNumber + " has been Stabbed!";
             if (this.is8)
             {
                 base.Effect(opponent, self, deck);
                 return;
             }
+            EffectDescription = "Player " + opponent.PlayerNumber + " has been Stabbed!";
             opponent.AlterHealth(-STAB_DAMAGE);
         }
     }

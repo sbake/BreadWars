@@ -21,12 +21,12 @@ namespace BreadWars
         public override void Effect(Player opponent, Player self, Deck deck)
         {
             SetPos(self);
-            EffectDescription = "Special cards are now normal (and normal are special)!";
             if (this.is8)
             {
                 base.Effect(opponent, self, deck);
                 return;
             }
+            EffectDescription = "Special cards are now normal (and normal are special)!";
             //switch all cards' isActive bool
 
             foreach (Card c in deck.Library)

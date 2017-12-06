@@ -19,13 +19,12 @@ namespace BreadWars
         public override void Effect(Player opponent, Player self, Deck deck)
         {
             SetPos(self);
-            EffectDescription = "Player " + opponent.PlayerNumber + " is Paralyzed!";
             if (this.is8)
             {
                 base.Effect(opponent, self, deck);
                 return;
             }
-
+            EffectDescription = "Player " + opponent.PlayerNumber + " is Paralyzed!";
             opponent.IsParalyzed = true;
             opponent.ParalyzeCount = 4;
 

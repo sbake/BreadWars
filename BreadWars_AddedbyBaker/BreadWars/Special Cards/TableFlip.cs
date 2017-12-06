@@ -20,12 +20,12 @@ namespace BreadWars
         {
 
             SetPos(self);
-            EffectDescription = "Player " + self.PlayerNumber + " has wasted this card T^T";
             if (this.is8)
             {
                 base.Effect(opponent, self, deck);
                 return;
             }
+            EffectDescription = "Player " + self.PlayerNumber + " has wasted this card T^T";
             if (opponent.CurrCard.Value <= 2)
             {
                 opponent.Health = 0;

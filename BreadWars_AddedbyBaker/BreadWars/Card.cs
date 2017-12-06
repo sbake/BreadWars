@@ -68,6 +68,7 @@ namespace BreadWars
         public virtual void Effect(Player opponent, Player self, Deck deck)
         {
             SetPos(self);
+            EffectDescription = "Random cards have become octopuses!";
             if (isActive || is8)
             {
                 Random r = new Random();
@@ -130,7 +131,7 @@ namespace BreadWars
                 //draw base
                 spriteBatch.Draw(texr, posit, new Rectangle(spriteLocations[0], new Point(posit.Width / 2, posit.Height)), isBurned ? Color.Black : tint);
                 //draw special if special
-                if (isActive)
+                if (!isBurned && isActive)
                 {
                     spriteBatch.Draw(texr, posit, new Rectangle(new Point(SpriteLocations[1].X, SpriteLocations[1].Y), new Point(posit.Width, posit.Height)), Color.White);
                 }

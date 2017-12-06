@@ -20,14 +20,12 @@ namespace BreadWars
         public override void Effect(Player opponent, Player self, Deck deck)
         {
             SetPos(self);
-            EffectDescription = "Player " + opponent.PlayerNumber + " has been poisoned!";
             if (this.is8)
             {
                 base.Effect(opponent, self, deck);
                 return;
             }
-
-
+            EffectDescription = "Player " + opponent.PlayerNumber + " has been poisoned!";
             opponent.IsPoisoned = true;
 
         }

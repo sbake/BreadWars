@@ -21,12 +21,12 @@ namespace BreadWars
         public override void Effect(Player opponent, Player self, Deck deck)
         {
             SetPos(self);
-            EffectDescription = "Two of player " + self.PlayerNumber + "'s cards have been glued!";
             if (this.is8)
             {
                 base.Effect(opponent, self, deck);
                 return;
             }
+            EffectDescription = "Two of player " + self.PlayerNumber + "'s cards have been glued!";
             //get two random cards from hand and add values together to form new card
             Random r = new Random();
             int index1 = r.Next(0, self.Hand.Count);

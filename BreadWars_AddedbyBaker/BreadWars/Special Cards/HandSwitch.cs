@@ -22,12 +22,12 @@ namespace BreadWars
         public override void Effect(Player opponent, Player self, Deck deck)
         {
             SetPos(self);
-            EffectDescription = "Players have switched hands";
             if (this.is8)
             {
                 base.Effect(opponent, self, deck);
                 return;
             }
+            EffectDescription = "Players have switched hands";
             //change players' hands
             List<Card> hand1 = opponent.Hand;
             List<Card> hand2 = self.Hand;

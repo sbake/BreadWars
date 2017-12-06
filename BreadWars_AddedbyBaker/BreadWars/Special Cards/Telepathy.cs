@@ -20,12 +20,12 @@ namespace BreadWars
         public override void Effect(Player opponent, Player self, Deck deck)
         {
             SetPos(self);
-            EffectDescription = "Player " + self.PlayerNumber + " is now Telepathic!";
             if (this.is8)
             {
                 base.Effect(opponent, self, deck);
                 return;
             }
+            EffectDescription = "Player " + self.PlayerNumber + " is now Telepathic!";
             self.IsTelephathic = true;
             self.TelepCount = 2;
 

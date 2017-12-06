@@ -20,12 +20,12 @@ namespace BreadWars
         public override void Effect(Player opponent, Player self, Deck deck)
         {
             SetPos(self);
-            EffectDescription = "Any special cards in play have been UNICORNED!";
             if (this.is8)
             {
                 base.Effect(opponent, self, deck);
                 return;
             }
+            EffectDescription = "Any special cards in play have been UNICORNED!";
             foreach (Card c in opponent.Hand)
             {
                 if (c != null && c.IsActive)
