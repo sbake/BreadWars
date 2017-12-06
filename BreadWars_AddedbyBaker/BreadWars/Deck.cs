@@ -45,7 +45,7 @@ namespace BreadWars
             List<Card> temp = library.ToList<Card>();
             Random rgen = new Random();
             library = new Card[52];
-            for (int i = 0; i <= 52; i++)
+            for (int i = 0; i < 52; i++)
             {
                 Card tempCard  = temp[rgen.Next(temp.Count)];
                 library[i] = tempCard;
