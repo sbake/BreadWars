@@ -44,6 +44,8 @@
             this.btnPlus5 = new System.Windows.Forms.Button();
             this.btnMinus5 = new System.Windows.Forms.Button();
             this.btnMinus1 = new System.Windows.Forms.Button();
+            this.numberCardsWarning = new System.Windows.Forms.Label();
+            this.fileWarningLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // clbCards
@@ -228,11 +230,31 @@
             this.btnMinus1.UseVisualStyleBackColor = true;
             this.btnMinus1.Click += new System.EventHandler(this.btnMinus1_Click);
             // 
+            // numberCardsWarning
+            // 
+            this.numberCardsWarning.AutoSize = true;
+            this.numberCardsWarning.ForeColor = System.Drawing.Color.Red;
+            this.numberCardsWarning.Location = new System.Drawing.Point(224, 430);
+            this.numberCardsWarning.Name = "numberCardsWarning";
+            this.numberCardsWarning.Size = new System.Drawing.Size(0, 13);
+            this.numberCardsWarning.TabIndex = 20;
+            // 
+            // fileWarningLabel
+            // 
+            this.fileWarningLabel.AutoSize = true;
+            this.fileWarningLabel.ForeColor = System.Drawing.Color.Red;
+            this.fileWarningLabel.Location = new System.Drawing.Point(12, 341);
+            this.fileWarningLabel.Name = "fileWarningLabel";
+            this.fileWarningLabel.Size = new System.Drawing.Size(0, 13);
+            this.fileWarningLabel.TabIndex = 21;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(392, 511);
+            this.Controls.Add(this.fileWarningLabel);
+            this.Controls.Add(this.numberCardsWarning);
             this.Controls.Add(this.btnMinus1);
             this.Controls.Add(this.btnMinus5);
             this.Controls.Add(this.btnPlus5);
@@ -272,5 +294,7 @@
         private System.Windows.Forms.Button btnPlus5;
         private System.Windows.Forms.Button btnMinus5;
         private System.Windows.Forms.Button btnMinus1;
+        private System.Windows.Forms.Label numberCardsWarning;
+        private System.Windows.Forms.Label fileWarningLabel;
     }
 }

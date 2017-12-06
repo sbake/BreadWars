@@ -123,7 +123,7 @@ namespace Bread_Wars_Deck_Builder
             {
                 // create the BinaryReader
                 BinaryReader input = new BinaryReader(File.OpenRead(filename));
-
+                sumCards = 0;
                 // need to follow the file format to get the data
                for(int i=0; i<41; i++)
                 {
@@ -135,6 +135,7 @@ namespace Bread_Wars_Deck_Builder
                 lblCardNum.Text = sumCards.ToString(); //display to form number of cards in deck
                 // close when we are done
                 input.Close();
+                numberCardsWarning.Text = "";
             }
             catch (IOException ioe)
             {
@@ -150,10 +151,11 @@ namespace Bread_Wars_Deck_Builder
                 if (sumCards == 52 && tbFilename.Text != "") //if the deck is full then save to file
                 {
                     WriteFile(tbFilename.Text);
+                    numberCardsWarning.Text = "";
                 }
                 else
                 {
-                    
+                    numberCardsWarning.Text = "Must have 52 cards to save!";
                 }
             }
             catch (Exception)
@@ -177,14 +179,17 @@ namespace Bread_Wars_Deck_Builder
         {
             //if there is one specified file to read from , read from that file
             //otherwise read from default file
-            if (clbDecks.SelectedItems.Count == 1)
+            if (clbDecks.CheckedItems.Count == 1)
             {
+                
                 ReadFile((string)clbDecks.SelectedItem + ".dat");
                 Uncheck(clbDecks);
+                numberCardsWarning.Text = "";
+                fileWarningLabel.Text = "";
             }
             else
             {
-                
+                fileWarningLabel.Text = "Click one and only one file to load!";
             }
             
         }
@@ -212,7 +217,7 @@ namespace Bread_Wars_Deck_Builder
         private void btnMinus5_Click(object sender, EventArgs e)
         {
             int value = -5;
-
+            numberCardsWarning.Text = "";
             foreach (int indexChecked in clbCards.SelectedIndices)
             {
                 if ((numberCards[indexChecked] + value) < 0) continue; //cards cannot have negative amount
@@ -229,7 +234,7 @@ namespace Bread_Wars_Deck_Builder
         private void btnMinus1_Click(object sender, EventArgs e)
         {
             int value = -1;
-
+            numberCardsWarning.Text = "";
             foreach (int indexChecked in clbCards.SelectedIndices)
             {
                 if ((numberCards[indexChecked] + value) < 0) continue; //cards cannot have negative amount
@@ -244,7 +249,7 @@ namespace Bread_Wars_Deck_Builder
         private void btnPlus1_Click(object sender, EventArgs e)
         {
             int value = 1;
-
+            numberCardsWarning.Text = "";
             foreach (int indexChecked in clbCards.SelectedIndices)
             {
                 if ((numberCards[indexChecked] + value) < 0) continue; //cards cannot have negative amount
@@ -259,7 +264,7 @@ namespace Bread_Wars_Deck_Builder
         private void btnPlus5_Click(object sender, EventArgs e)
         {
             int value = 5;
-
+            numberCardsWarning.Text = "";
 
             foreach (int indexChecked in clbCards.SelectedIndices)
             {
