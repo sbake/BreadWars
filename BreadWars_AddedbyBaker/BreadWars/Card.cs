@@ -132,7 +132,7 @@ namespace BreadWars
                 //draw special if special
                 if (isActive)
                 {
-                    spriteBatch.Draw(texr, new Rectangle(posit.X, Posit.Y, Posit.Width, posit.Height * 2), new Rectangle(new Point(SpriteLocations[1].X + 2, SpriteLocations[1].Y), new Point(posit.Width / 2, posit.Height)), Color.Red);
+                    spriteBatch.Draw(texr, new Rectangle(posit.X, posit.Y, posit.Width, posit.Height), new Rectangle(new Point(SpriteLocations[1].X, SpriteLocations[1].Y), new Point(posit.Width, posit.Height)), Color.White);
                 }
                 //draw numbr
                 //int offsetFromCorners = 30; //add to posit

@@ -20,7 +20,7 @@ namespace BreadWars
 
         //can change however you want later, just for testing if other stuffs work
         Texture2D[] cardTexts;
-        Rectangle cardSizeOnly = new Rectangle(0, 0, 200, 150);
+        Rectangle cardSizeOnly = new Rectangle(0, 0, 250, 166);
         Drawable numbers;
 
         public Deck(Texture2D[] pCardTexts, Drawable pNumbers)
