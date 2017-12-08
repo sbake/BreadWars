@@ -70,7 +70,7 @@ namespace BreadWars
         static int cardHeight = 250;
         Rectangle[] cardPos = { new Rectangle(150, cardDepth, cardWidth, cardHeight), new Rectangle(336, cardDepth, cardWidth, cardHeight), new Rectangle(522, cardDepth, cardWidth, cardHeight), new Rectangle(708, cardDepth, cardWidth, cardHeight), new Rectangle(894, cardDepth, cardWidth, cardHeight) };
         Rectangle[] backCardPos = { new Rectangle(150, backCardDepth, cardWidth, cardHeight), new Rectangle(336, backCardDepth, cardWidth, cardHeight), new Rectangle(522, backCardDepth, cardWidth, cardHeight), new Rectangle(708, backCardDepth, cardWidth, cardHeight), new Rectangle(894, backCardDepth, cardWidth, cardHeight) };
-        Rectangle[] resultCardPos = { new Rectangle(500, resultCardDepth, cardWidth, cardHeight), new Rectangle(614, resultCardDepth, cardWidth, cardHeight) };
+        Rectangle[] resultCardPos = { new Rectangle(400, resultCardDepth, cardWidth, cardHeight), new Rectangle(650, resultCardDepth, cardWidth, cardHeight) };
         List<string> deckFiles = new List<string>(); //lists filenames for all decks
         //button size: 
         static int buttonX = 273;
@@ -225,8 +225,8 @@ namespace BreadWars
             credits = new HUDObjects(creditSplash, new Rectangle(0, 0, windowX, windowY));
             tie1Text = Content.Load<Texture2D>("tieGame1");
             tie2Text = Content.Load<Texture2D>("tieGame2");
-            tie1 = new HUDObjects(tie1Text, new Rectangle(240, 290, 320, 60));
-            tie2 = new HUDObjects(tie2Text, new Rectangle(240, 380, 320, 60));
+            tie1 = new HUDObjects(tie1Text, new Rectangle(470, 420, 320, 60));
+            tie2 = new HUDObjects(tie2Text, new Rectangle(470, 480, 320, 60));
 
             //deck& AI buttons
             buttonP = Content.Load<Texture2D>("bw2/pinkbutton");
@@ -248,11 +248,11 @@ namespace BreadWars
 
             //results text
             win1Text = Content.Load<Texture2D>("player1wins");
-            player1wins = new HUDObjects(win1Text, new Rectangle(240, 290, 320, 60));
+            player1wins = new HUDObjects(win1Text, new Rectangle(470, 460, 320, 60));
             win2Text = Content.Load<Texture2D>("player2wins");
-            player2wins = new HUDObjects(win2Text, new Rectangle(230, 290, 340, 60));
+            player2wins = new HUDObjects(win2Text, new Rectangle(470, 460, 340, 60));
             vsText = Content.Load<Texture2D>("vs");
-            vs = new HUDObjects(vsText, new Rectangle(365, 160, 70, 50));
+            vs = new HUDObjects(vsText, new Rectangle(570, 260, 70, 50));
 
             //Card backs 
             backText = Content.Load<Texture2D>("backCard");
@@ -293,7 +293,7 @@ namespace BreadWars
 
             //The players
             player1 = new Player(1, font2, new Vector2(20, 100));
-            player2 = new Player(2, font2, new Vector2(600, 100));
+            player2 = new Player(2, font2, new Vector2(800, 100));
 
             //player array
             players = new Player[2];
@@ -642,7 +642,7 @@ namespace BreadWars
                             //draw all cards in a loop
                             for (int i = 0; i < player1.Hand.Count; i++)
                             {
-                                if (player1.Hand[i] != null) player1.Hand[i].DrawStatic(spriteBatch, font);
+                                if (player1.Hand[i] != null) player1.Hand[i].DrawStatic(spriteBatch, font2);
                             }
                             for (int i = 0; i < 5; i++)
                             {
@@ -666,7 +666,7 @@ namespace BreadWars
                             //draw all cards in a loop
                             for (int i = 0; i < player2.Hand.Count; i++)
                             {
-                                if (player2.Hand[i] != null) player2.Hand[i].DrawStatic(spriteBatch, font);
+                                if (player2.Hand[i] != null) player2.Hand[i].DrawStatic(spriteBatch, font2);
                             }
                             for (int i = 0; i < 5; i++)
                             {
@@ -693,7 +693,7 @@ namespace BreadWars
                             for (int i = 0; i < cardsInPlay.Length; i++)
                             {
                                 cardsInPlay[i].Posit = resultCardPos[i]; //thief and stealing the card that just got played like
-                                cardsInPlay[i].DrawStatic(spriteBatch, font);
+                                cardsInPlay[i].DrawStatic(spriteBatch, font2);
                             }
                             vs.DrawStatic(spriteBatch);
                             if (winPlayer == 1)
@@ -713,7 +713,7 @@ namespace BreadWars
                             player2.DrawString(spriteBatch);
                             if (cardsInPlay[0].IsActive) cardsInPlay[0].DrawString(font2, spriteBatch);
                             if (cardsInPlay[1].IsActive) cardsInPlay[1].DrawString(font2, spriteBatch);
-                            spriteBatch.DrawString(font2, "Round: " + roundCount, new Vector2(20, 450), Color.DarkSlateBlue);
+                            spriteBatch.DrawString(font2, "Round: " + roundCount, new Vector2(20, 750), Color.DarkSlateBlue);
                             break;
                     }
                     break;
@@ -723,7 +723,7 @@ namespace BreadWars
 
             base.Draw(gameTime);
         }
-
+        
 
         public void NewGame(string deckName)
         {

@@ -138,15 +138,9 @@ namespace BreadWars
                 //draw numbr
                 //int offsetFromCorners = 30; //add to posit
 
-                if (!isBurned && value / 10 != 0)
+                if (!isBurned)
                 {
-                    spriteBatch.Draw(Numbers.Texr, new Rectangle(posit.X + 5, posit.Y + 225, 14, 20), new Rectangle(Numbers.SpriteLocations[value / 10], new Point(Numbers.Posit.Width / 10, Numbers.Posit.Height)), Color.White);
-                    spriteBatch.Draw(Numbers.Texr, new Rectangle(posit.X + 14 + 5, posit.Y + 225, 14, 20), new Rectangle(Numbers.SpriteLocations[value % 10], new Point(Numbers.Posit.Width / 10, Numbers.Posit.Height)), Color.White);
-                }
-                else if (!isBurned)
-                {
-                    //texture, destination, source, color
-                    spriteBatch.Draw(Numbers.Texr, new Rectangle(posit.X + 5, posit.Y + 225, 14, 20), new Rectangle(Numbers.SpriteLocations[value % 10], new Point(Numbers.Posit.Width / 10, Numbers.Posit.Height)), Color.White);
+                    spriteBatch.DrawString(font, SplitName(), new Vector2(posit.X + 5, posit.Y + 190), Color.Black);
                 }
                 else //is burned
                 {
@@ -156,6 +150,36 @@ namespace BreadWars
                 //draw numbers with spritefont instead
                 spriteBatch.DrawString(font, is8 ? "octo" : "" , new Vector2(posit.X, posit.Y), Color.Black);
             }
+        }
+
+        private string SplitName()
+        {
+            string toReturn = value + " ";
+            if (!isActive) return toReturn;
+            int count = toReturn.Length;
+            if (Name.Length > 10)
+            {
+                string[] words = Name.Split();
+                for(int i=0; i<words.Length; i++)
+                {
+                    if ((count + words[i].Length) > 11)
+                    {
+                        toReturn += "\n " + words[i] + " ";
+                        count = words[i].Length + 2;
+                    }
+                    else
+                    {
+                        toReturn += words[i] + " ";
+                        count += words[i].Length + 1;
+                    }
+
+                }
+            }
+            else
+            {
+                toReturn += Name;
+            }
+            return toReturn;
         }
     }
 }
