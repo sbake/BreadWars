@@ -168,6 +168,8 @@ namespace BreadWars
         Song title;
         SoundEffect game;
         SoundEffect gameEnd;
+        SoundEffectInstance gInstance;
+        SoundEffectInstance geInstance; 
 
         public Game1()
         {
@@ -305,8 +307,12 @@ namespace BreadWars
             this.game = Content.Load<SoundEffect>("game");
             this.gameEnd = Content.Load<SoundEffect>("gameOver");
 
+            gInstance = game.CreateInstance();
+            geInstance = gameEnd.CreateInstance();
+
             MediaPlayer.Play(title);
             MediaPlayer.IsRepeating = true;
+            
 
         }
 
@@ -335,9 +341,21 @@ namespace BreadWars
             mState = Mouse.GetState();
 
 
+
             switch (state)
             {
                 case GameState.Start:
+
+                    if (geInstance.State == SoundState.Playing)
+                    {
+                        geInstance.Stop();
+                    }
+
+                    if (MediaPlayer.State != MediaState.Playing)
+                    {
+                        MediaPlayer.Play(title);
+                    }
+
                     for (int i = 0; i < 2; i++)
                     {
                         if (numPlayButtonPos[i].Contains(mState.Position) && mState.LeftButton == ButtonState.Pressed && mStatePrev.LeftButton == ButtonState.Released)
@@ -401,6 +419,12 @@ namespace BreadWars
                     break;
                 case GameState.GameOver:
                     
+                    if(geInstance.State != SoundState.Playing && gInstance.State == SoundState.Playing)
+                    {
+                        gInstance.Stop();
+                        geInstance.Play();
+                    }
+
                     if ((mStatePrev.LeftButton == ButtonState.Released && mState.LeftButton == ButtonState.Pressed) || (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))) //press enter to go back to start screen
                     {
                         state = GameState.Start;
@@ -408,6 +432,14 @@ namespace BreadWars
                     break;
                 case GameState.Game:
                     currDeck = 0;
+                    MediaPlayer.Stop();
+                    
+                    if(gInstance.State != SoundState.Playing)
+                    {
+                        gInstance.Play();
+                    }
+                    
+
                     switch (currPhase)
                     {
                         case Phase.Player1:
@@ -564,7 +596,6 @@ namespace BreadWars
                     }
                     break;
             }
-
 
             base.Update(gameTime);
         }
