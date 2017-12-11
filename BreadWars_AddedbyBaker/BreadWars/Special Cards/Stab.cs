@@ -1,14 +1,34 @@
 ﻿using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
-/// <summary>
-/// Summary description for Stab
-/// </summary>
-public class Stab : Card
+namespace BreadWars
 {
-	public Stab()
-	{
-		//
-		// TODO: Add constructor logic here
-		//
-	}
+    /// <summary>
+    /// Summary description for Stab
+    /// </summary>
+    public class Stab : Card
+    {
+        private int STAB_DAMAGE = 20;
+
+        public Stab(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers) : base(pTexr, pPosit, active, pNumbers)
+        {
+            value = 3;
+            specialValue = 3;
+            Name = "Stab";
+        }
+
+        public override void Effect(Player opponent, Player self, Deck deck)
+        {
+
+            SetPos(self);
+            if (this.is8)
+            {
+                base.Effect(opponent, self, deck);
+                return;
+            }
+            EffectDescription = "Player " + opponent.PlayerNumber + " has been Stabbed!";
+            opponent.AlterHealth(-STAB_DAMAGE);
+        }
+    }
 }

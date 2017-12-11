@@ -10,39 +10,145 @@ using Microsoft.Xna.Framework.Input;
 
 namespace BreadWars
 {
-    class Drawable
+    public class Drawable
     {
         //attributes
-        //Texture or spritesheet, or multiple textures
-        //            cards will add another texture for back
-        //            specials will have multiple animated things associated with them, ie. a special texture
-        //            spritesheets
-        //position
-        Texture2D texr; //single texture or spritesheet
-        Rectangle posit;
-        SpriteBatch spriteBatch;
+        //basic
+        protected Texture2D texr; //single texture or spritesheet, objects should have all associated textures on one sprite sheet, ideally
+        protected SpriteFont font;
+        protected Rectangle posit;
+        protected Vector2 strPosit;
+        protected Color tint;
+
+        //sprite sheet + animation
+        protected int rows, columns; //how many rows and columns
+        protected Point imageSize; //width and height of image
+        protected List<Point> spriteLocations; //stores location of sprites on spritesheet
+
+        //drawable Numbers
+        protected Drawable Numbers;
 
 
-        //constructor
-        //every drawable object needsa texture to be drawn, and a position to draw that texture
-        Drawable(Texture2D pTexr, Rectangle pPosit, SpriteBatch pSpriteBatch)
+        //animation 
+        protected int msPerFrame;
+        protected int msSinceFrame;
+
+        //Properties
+        public Rectangle Posit
+        {
+            get { return posit; }
+            set { posit = value; }
+        }
+
+        public List<Point> SpriteLocations
+        {
+            get { return spriteLocations; }
+        }
+        public Texture2D Texr
+        {
+            get { return texr; }
+        }
+        public int Rows
+        {
+            get { return rows; }
+            set { rows = value; }
+        }
+        public int Columns
+        {
+            get { return columns; }
+            set { columns = value; }
+        }
+
+        //constructor- N/A
+        //most things can't just be drawable objects- should be a background object or a card.
+        //only two cases: numbers and Player
+        public Drawable(Texture2D pTexr, Rectangle pPosit)
         {
             texr = pTexr;
             posit = pPosit;
-            spriteBatch = pSpriteBatch;
+            imageSize = new Point(pPosit.Width, pPosit.Height);
+
+            tint = Color.White;
+            strPosit = new Vector2(0,0);
+
+            spriteLocations = new List<Point>();
         }
 
+        //seperate constructor for player objects- for drawing effects in results
+        public Drawable(SpriteFont fnt, Vector2 posit)
+        {
+            font = fnt;
+            strPosit = posit;
+
+            spriteLocations = new List<Point>();
+        }
+
+
         //methods
-        //method for drawing static objects (position doesn't move, can use variable)
-        public void DrawStatic()
+        /// <summary>
+        /// Draws static objects, uses rectangle position variables
+        /// </summary>
+        /// <param name="spriteBatch"></param>
+        public void DrawStatic(SpriteBatch spriteBatch)
         {
             //draw texture at posit
-            spriteBatch.Draw(texr, posit, Color.White);
-            
+            spriteBatch.Draw(texr, posit, tint);
         }
         
-        //methods to unpack sprites
-        //method for animated objects a (takes position as a parameter)
-        //method for animated objects b (moves through multiple sprites)
+        /// <summary>
+        /// Draws string using default font
+        /// </summary>
+        /// <param name="spriteBatch"></param>
+        public void DrawString(SpriteBatch spriteBatch)
+        {
+            //draw texture at posit
+            spriteBatch.DrawString(font, this.ToString(), strPosit, Color.SaddleBrown);
+        }
+
+        /// <summary>
+        /// Draws string, and can be passed a font
+        /// </summary>
+        /// <param name="fnt">Font to be used</param>
+        /// <param name="spriteBatch"></param>
+        public void DrawString(SpriteFont fnt, SpriteBatch spriteBatch)
+        {
+            //draw texture at posit
+            if(this.ToString()!=null)spriteBatch.DrawString(fnt, this.ToString(), strPosit, Color.SaddleBrown);
+        } 
+        
+        /// <summary>
+        /// takes size of sprites and rows/columns, divides. 
+        /// saves locations for each sprite to make animation and drawing quicker quicker- only need to do this math once
+        /// should only be called on an object once
+        /// </summary>
+        public void UnpackSprites()
+        {
+            spriteLocations.Clear();
+
+            //store sprites in SpriteLocations list
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    Point location = new Point((j * (imageSize.X / columns)), (i * (imageSize.Y / rows)));
+                    spriteLocations.Add(location);
+                }
+            }
+        }
+
+        /// <summary>
+        /// method for animated objects 
+        /// a (just position changes)
+        /// b (moves through multiple sprites and position)
+        /// </summary>
+        public void Anim()
+        {
+            //goes through spriteLocations timed
+            if (msPerFrame >= msSinceFrame)
+            {
+                
+            }
+        }
+        
     }
 }

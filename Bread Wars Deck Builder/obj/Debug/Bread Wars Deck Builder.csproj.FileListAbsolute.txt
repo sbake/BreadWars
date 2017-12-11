@@ -1,0 +1,190 @@
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.frmMain.resources
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.Properties.Resources.resources
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csproj.GenerateResource.Cache
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.exe.config
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.exe
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.pdb
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.exe
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.pdb
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.exe.config
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.exe
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.pdb
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csprojResolveAssemblyReference.cache
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.frmMain.resources
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.Properties.Resources.resources
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csproj.GenerateResource.Cache
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csproj.CoreCompileInputs.cache
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.exe
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.pdb
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csprojResolveAssemblyReference.cache
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csproj.Bread Wars Deck Builder.exe.config
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.Properties.Resources.resources
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csproj.GenerateResource.Cache
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.exe
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.pdb
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.exe.config
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.exe
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.pdb
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\bin\Debug\MonoGame.Framework.dll
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\bin\Debug\SharpDX.XAudio2.dll
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\bin\Debug\SharpDX.dll
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\bin\Debug\SharpDX.DXGI.dll
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct3D11.dll
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct2D1.dll
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\bin\Debug\SharpDX.XInput.dll
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\bin\Debug\SharpDX.MediaFoundation.dll
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\bin\Debug\MonoGame.Framework.xml
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\bin\Debug\SharpDX.XAudio2.xml
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\bin\Debug\SharpDX.xml
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\bin\Debug\SharpDX.DXGI.xml
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct3D11.xml
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct2D1.xml
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\bin\Debug\SharpDX.XInput.xml
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\bin\Debug\SharpDX.MediaFoundation.xml
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.exe.config
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.exe
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.pdb
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\Bread Wars Deck Builder\bin\Debug\MonoGame.Framework.dll
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XAudio2.dll
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.dll
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.DXGI.dll
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct3D11.dll
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct2D1.dll
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XInput.dll
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.MediaFoundation.dll
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\Bread Wars Deck Builder\bin\Debug\MonoGame.Framework.xml
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XAudio2.xml
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.xml
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.DXGI.xml
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct3D11.xml
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct2D1.xml
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XInput.xml
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.MediaFoundation.xml
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csprojResolveAssemblyReference.cache
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csproj.Bread Wars Deck Builder.exe.config
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.Form2.resources
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.Properties.Resources.resources
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csproj.GenerateResource.Cache
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csproj.CoreCompileInputs.cache
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.exe
+C:\Users\medinarc\source\repos\BreadWars\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.pdb
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.exe.config
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.exe
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.pdb
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\MonoGame.Framework.dll
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XAudio2.dll
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.dll
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.DXGI.dll
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct3D11.dll
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct2D1.dll
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XInput.dll
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.MediaFoundation.dll
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\MonoGame.Framework.xml
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XAudio2.xml
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.xml
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.DXGI.xml
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct3D11.xml
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct2D1.xml
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XInput.xml
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.MediaFoundation.xml
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csprojResolveAssemblyReference.cache
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csproj.Bread Wars Deck Builder.exe.config
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.Properties.Resources.resources
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csproj.GenerateResource.Cache
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.exe
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.pdb
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\MonoGame.Framework.dll
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XAudio2.dll
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.dll
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.DXGI.dll
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct3D11.dll
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct2D1.dll
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XInput.dll
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.MediaFoundation.dll
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\MonoGame.Framework.xml
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XAudio2.xml
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.xml
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.DXGI.xml
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct3D11.xml
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct2D1.xml
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XInput.xml
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.MediaFoundation.xml
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csproj.Bread Wars Deck Builder.exe.config
+C:\Users\music\OneDrive\Pictures\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.frmHelp.resources
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\bin\Debug\MonoGame.Framework.dll
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XAudio2.dll
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.dll
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.DXGI.dll
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct3D11.dll
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct2D1.dll
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XInput.dll
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.MediaFoundation.dll
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\bin\Debug\MonoGame.Framework.xml
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XAudio2.xml
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.xml
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.DXGI.xml
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct3D11.xml
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct2D1.xml
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XInput.xml
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.MediaFoundation.xml
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csprojResolveAssemblyReference.cache
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csproj.Bread Wars Deck Builder.exe.config
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.frmHelp.resources
+Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.exe.config
+Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.exe
+Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.pdb
+Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\bin\Debug\MonoGame.Framework.dll
+Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XAudio2.dll
+Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.dll
+Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.DXGI.dll
+Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct3D11.dll
+Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct2D1.dll
+Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XInput.dll
+Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.MediaFoundation.dll
+Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\bin\Debug\MonoGame.Framework.xml
+Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XAudio2.xml
+Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.xml
+Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.DXGI.xml
+Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct3D11.xml
+Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct2D1.xml
+Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XInput.xml
+Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.MediaFoundation.xml
+Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csprojResolveAssemblyReference.cache
+Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csproj.Bread Wars Deck Builder.exe.config
+Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.frmMain.resources
+Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.frmHelp.resources
+Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.Properties.Resources.resources
+Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csproj.GenerateResource.Cache
+Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.exe
+Z:\IGMProfile\Documents\Visual Studio 2017\Projects\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.pdb
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.frmMain.resources
+Z:\IGMProfile\Documents\GitHub\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.frmHelp.resources
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.exe.config
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.exe
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\Bread Wars Deck Builder.pdb
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\MonoGame.Framework.dll
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XAudio2.dll
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.dll
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.DXGI.dll
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct3D11.dll
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct2D1.dll
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XInput.dll
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.MediaFoundation.dll
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\MonoGame.Framework.xml
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XAudio2.xml
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.xml
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.DXGI.xml
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct3D11.xml
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.Direct2D1.xml
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.XInput.xml
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\bin\Debug\SharpDX.MediaFoundation.xml
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csprojResolveAssemblyReference.cache
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csproj.Bread Wars Deck Builder.exe.config
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.frmMain.resources
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.frmHelp.resources
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.Properties.Resources.resources
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.csproj.GenerateResource.Cache
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.exe
+D:\Profiles\wxk7916\Source\Repos\BreadWars\Bread Wars Deck Builder\obj\Debug\Bread Wars Deck Builder.pdb
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.frmMain.resources
+D:\Profiles\rcm3517\Source\Repos\BreadWars3\Bread Wars Deck Builder\obj\Debug\Bread_Wars_Deck_Builder.frmHelp.resources

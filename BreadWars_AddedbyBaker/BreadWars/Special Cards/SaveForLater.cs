@@ -1,14 +1,43 @@
 ﻿using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
-/// <summary>
-/// Summary description for SaveForLater
-/// </summary>
-public class SaveForLater: Card
+
+namespace BreadWars
 {
-	public SaveForLater()
-	{
-		//
-		// TODO: Add constructor logic here
-		//
-	}
+    /// <summary>
+    /// Summary description for SaveForLater
+    /// </summary>
+    public class SaveForLater : Card
+    {
+        public SaveForLater(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers) : base(pTexr, pPosit, active, pNumbers)
+        {
+            value = 7;
+            specialValue = 1;
+            Name = "Save for Later";
+        }
+
+        public override void Effect(Player opponent, Player self, Deck deck)
+        {
+            SetPos(self);
+            if (is8)
+            {
+                base.Effect(opponent, self, deck);
+                return;
+            }
+            EffectDescription = "Player " + self.PlayerNumber + ": A random card has been stored.";
+            Random r = new Random();
+            int index = r.Next(0, self.Hand.Count);
+            Card toSave = self.Hand[index];
+            while (toSave == null || toSave.Name == "Save for Later")
+            {
+                index = r.Next(0, self.Hand.Count);
+                toSave = self.Hand[index];
+            }
+            self.SaveLater = toSave;
+            self.Hand[index] = deck.Next();
+
+
+        }
+    }
 }

@@ -1,14 +1,33 @@
 ﻿using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
-/// <summary>
-/// Summary description for Tazer
-/// </summary>
-public class Tazer: Card
+namespace BreadWars
 {
-	public Tazer()
-	{
-		//
-		// TODO: Add constructor logic here
-		//
-	}
+    /// <summary>
+    /// Summary description for Tazer
+    /// </summary>
+    public class Tazer : Card
+    {
+        public Tazer(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers) : base(pTexr, pPosit, active, pNumbers)
+        {
+            value = 12;
+            specialValue = 2;
+            Name = "Tazer";
+        }
+
+        public override void Effect(Player opponent, Player self, Deck deck)
+        {
+            SetPos(self);
+            if (this.is8)
+            {
+                base.Effect(opponent, self, deck);
+                return;
+            }
+            EffectDescription = "Player " + opponent.PlayerNumber + " is Paralyzed!";
+            opponent.IsParalyzed = true;
+            opponent.ParalyzeCount = 4;
+
+        }
+    }
 }

@@ -1,14 +1,40 @@
-﻿using System;
+﻿
+using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
-/// <summary>
-/// Summary description for Thief
-/// </summary>
-public class Thief: Card
+namespace BreadWars
 {
-	public Thief()
-	{
-		//
-		// TODO: Add constructor logic here
-		//
-	}
+    /// <summary>
+    /// Summary description for Thief
+    /// </summary>
+    public class Thief : Card
+    {
+        public Thief(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers) : base(pTexr, pPosit, active, pNumbers)
+        {
+            value = 1;
+            specialValue = 5;
+            Name = "Thief";
+        }
+
+        public override void Effect(Player opponent, Player self, Deck deck)
+        {
+            SetPos(self);
+            if (this.is8)
+            {
+                base.Effect(opponent, self, deck);
+                return;
+            }
+            EffectDescription = "Player " + opponent.PlayerNumber + " has been Thiefed!";
+            for (int i = 0; i < opponent.Hand.Count; i++)
+            {
+                if (opponent.Hand[i] != null)
+                {
+                    opponent.Hand[i] = null;
+                    return;
+                }
+
+            }
+        }
+    }
 }

@@ -1,14 +1,35 @@
-﻿using System;
+﻿
+using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
-/// <summary>
-/// Summary description for Telepathy
-/// </summary>
-public class Telepathy: Card
+namespace BreadWars
 {
-	public Telepathy()
-	{
-		//
-		// TODO: Add constructor logic here
-		//
-	}
+    /// <summary>
+    /// Summary description for Telepathy
+    /// </summary>
+    public class Telepathy : Card
+    {
+        public Telepathy(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers) : base(pTexr, pPosit, active, pNumbers)
+        {
+            value = 14;
+            specialValue = 0;
+            Name = "Telepathy";
+        }
+
+        public override void Effect(Player opponent, Player self, Deck deck)
+        {
+            SetPos(self);
+            if (this.is8)
+            {
+                base.Effect(opponent, self, deck);
+                return;
+            }
+            EffectDescription = "Player " + self.PlayerNumber + " is now Telepathic!";
+            self.IsTelephathic = true;
+            self.TelepCount = 2;
+
+        }
+
+    }
 }

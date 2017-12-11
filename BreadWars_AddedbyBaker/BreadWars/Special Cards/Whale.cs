@@ -1,14 +1,36 @@
-﻿using System;
+﻿
+using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
-/// <summary>
-/// Summary description for Whale
-/// </summary>
-public class Whale: Card
+namespace BreadWars
 {
-	public Whale()
-	{
-		//
-		// TODO: Add constructor logic here
-		//
-	}
+    /// <summary>
+    /// Summary description for Whale
+    /// </summary>
+    public class Whale : Card
+    {
+        public Whale(Texture2D pTexr, Rectangle pPosit, bool active, Drawable pNumbers) : base(pTexr, pPosit, active, pNumbers)
+        {
+            value = 16;
+            specialValue = 1;
+            Name = "Whale";
+        }
+
+        public override void Effect(Player opponent, Player self, Deck deck)
+        {
+            SetPos(self);
+            if (this.is8)
+            {
+                base.Effect(opponent, self, deck);
+                return;
+            }
+            EffectDescription = "Any extra Octopi have been eaten!";
+            foreach (Card c in deck.Library)
+            {
+                if (c != null) c.Is8 = false;
+            }
+        }
+
+    }
 }
