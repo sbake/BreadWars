@@ -444,12 +444,12 @@ namespace BreadWars
                 case GameState.Game:
                     currDeck = 0;
                     //CHANGE
-                    //MediaPlayer.Stop();
+                    MediaPlayer.Stop();
                     
                     if(gInstance.State != SoundState.Playing)
                     {
                         //CHANGE
-                        //gInstance.Play();
+                        gInstance.Play();
                     }
                     
 
