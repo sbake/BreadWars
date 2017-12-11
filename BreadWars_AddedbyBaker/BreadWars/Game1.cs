@@ -314,7 +314,7 @@ namespace BreadWars
             players[1] = player2;
 
             //music assets
-            //this.title = Content.Load<Song>("titleEdit2");
+            this.title = Content.Load<Song>("titleEdit2");
             this.game = Content.Load<SoundEffect>("game");
             this.gameEnd = Content.Load<SoundEffect>("gameOver");
 
@@ -444,12 +444,12 @@ namespace BreadWars
                 case GameState.Game:
                     currDeck = 0;
                     //CHANGE
-                    //MediaPlayer.Stop();
+                    MediaPlayer.Stop();
                     
                     if(gInstance.State != SoundState.Playing)
                     {
                         //CHANGE
-                        //gInstance.Play();
+                        gInstance.Play();
                     }
                     
 
