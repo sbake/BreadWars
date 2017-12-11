@@ -306,7 +306,7 @@ namespace BreadWars
 
             //The players
             player1 = new Player(1, font2, new Vector2(20, 100));
-            player2 = new Player(2, font2, new Vector2(800, 100));
+            player2 = new Player(2, font2, new Vector2(830, 100));
 
             //player array
             players = new Player[2];
