@@ -731,6 +731,7 @@ namespace BreadWars
                         numPlayButtons[i].DrawStatic(spriteBatch);
                         spriteBatch.DrawString(font2, i == 0 ? "Single Player" : "2 Players", new Vector2(numPlayButtonPos[i].X + 50, numPlayButtonPos[i].Y + 40), Color.White);
                     }
+                    spriteBatch.DrawString(font2, "Press h for help!", new Vector2(50, 200), Color.Black);
                     //figuring out spritesheet problems
                     //for (int i = 0; i < numbers.SpriteLocations.Count; i++)
                     //{
