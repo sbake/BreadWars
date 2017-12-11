@@ -793,12 +793,24 @@ namespace BreadWars
                             {
                                 player1.SaveLater.DrawStatic(spriteBatch, font2);
                             }
-
-                            for (int i = 0; i < 5; i++)
+                            //telepathy
+                            if (player1.IsTelephathic)
                             {
-                                backCard.Posit = backCardPos[i];
-                                backCard.DrawStatic(spriteBatch, player1.IsPoisoned);
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    player2.Hand[i].Posit = backCardPos[i];
+                                    player2.Hand[i].DrawStatic(spriteBatch, font2);
+                                }
                             }
+                            else
+                            {
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    backCard.Posit = backCardPos[i];
+                                    backCard.DrawStatic(spriteBatch, player1.IsPoisoned);
+                                }
+                            }
+
                             if (player2.SaveLater != null)
                             {
                                 backCard.Posit = savedCardPos[0];
@@ -829,10 +841,22 @@ namespace BreadWars
                                 player2.SaveLater.DrawStatic(spriteBatch, font2);
                             }
 
-                            for (int i = 0; i < 5; i++)
+                            //telepathy
+                            if (player2.IsTelephathic)
                             {
-                                backCard.Posit = backCardPos[i];
-                                backCard.DrawStatic(spriteBatch, player2.IsPoisoned);
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    player1.Hand[i].Posit = backCardPos[i];
+                                    player1.Hand[i].DrawStatic(spriteBatch, font2);
+                                }
+                            }
+                            else
+                            {
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    backCard.Posit = backCardPos[i];
+                                    backCard.DrawStatic(spriteBatch, player2.IsPoisoned);
+                                }
                             }
                             if (player1.SaveLater != null)
                             {
