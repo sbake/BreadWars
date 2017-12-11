@@ -314,7 +314,7 @@ namespace BreadWars
             players[1] = player2;
 
             //music assets
-            this.title = Content.Load<Song>("titleEdit2");
+            //this.title = Content.Load<Song>("titleEdit2");
             this.game = Content.Load<SoundEffect>("game");
             this.gameEnd = Content.Load<SoundEffect>("gameOver");
 
@@ -443,11 +443,13 @@ namespace BreadWars
                     break;
                 case GameState.Game:
                     currDeck = 0;
-                    MediaPlayer.Stop();
+                    //CHANGE
+                    //MediaPlayer.Stop();
                     
                     if(gInstance.State != SoundState.Playing)
                     {
-                        gInstance.Play();
+                        //CHANGE
+                        //gInstance.Play();
                     }
                     
 
@@ -658,6 +660,29 @@ namespace BreadWars
                                 cardsInPlay[1].IsBurned = false;
                                 resultCalculated = true;
                                 roundCount++;
+
+                                //is8 happens
+                                for (int i = 0; i < player2.Hand.Count; i++)
+                                {
+                                    if (player2.Hand[i] != null)
+                                    {
+                                        if (player2.Hand[i].Is8)
+                                        {
+                                            player2.Hand[i].Texr = cardText[7]; //changes card texture to octo
+                                        }
+                                    }
+                                }
+                                for (int i = 0; i < player1.Hand.Count; i++)
+                                {
+                                    if (player1.Hand[i] != null)
+                                    {
+                                        if (player1.Hand[i].Is8)
+                                        {
+                                            player1.Hand[i].Texr = cardText[7]; //changes card texture to octo
+                                        }
+                                    }
+                                }
+
                             }
                             if ((mState.LeftButton == ButtonState.Pressed && mStatePrev.LeftButton == ButtonState.Released) || kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter)) //press enter to continue to next phase
                             {

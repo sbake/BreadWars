@@ -47,6 +47,7 @@ namespace BreadWars
         public Texture2D Texr
         {
             get { return texr; }
+            set { texr = value; } //for octo
         }
         public int Rows
         {
@@ -58,7 +59,7 @@ namespace BreadWars
             get { return columns; }
             set { columns = value; }
         }
-
+        
         //constructor- N/A
         //most things can't just be drawable objects- should be a background object or a card.
         //only two cases: numbers and Player
