@@ -777,7 +777,7 @@ namespace BreadWars
                             if (player2.SaveLater != null)
                             {
                                 backCard.Posit = savedCardPos[0];
-                                backCard.DrawStatic(spriteBatch, player1.IsPoisoned);
+                                backCard.DrawStatic(spriteBatch, player2.IsPoisoned);
                             }
 
                             break;
