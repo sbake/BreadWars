@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/bgCuteTemp.png</SourceFile>
-  <SourceTime>2017-12-05T13:16:29.7874986-05:00</SourceTime>
-  <DestFile>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/bin/DesktopGL/bgCuteTemp.xnb</DestFile>
-  <DestTime>2017-12-11T20:51:25.6505672-05:00</DestTime>
+  <SourceFile>C:/Users/medinarc/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/bgCuteTemp.png</SourceFile>
+  <SourceTime>2017-12-10T21:46:37.0962778-05:00</SourceTime>
+  <DestFile>C:/Users/medinarc/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/bin/DesktopGL/bgCuteTemp.xnb</DestFile>
+  <DestTime>2017-12-11T21:39:57.223471-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T10:05:36-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
