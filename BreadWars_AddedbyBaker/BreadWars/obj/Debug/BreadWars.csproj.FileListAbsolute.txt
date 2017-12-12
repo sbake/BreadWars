@@ -954,3 +954,4 @@ C:\Users\medinarc\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\obj\De
 C:\Users\medinarc\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\obj\Debug\BreadWars.csproj.CoreCompileInputs.cache
 C:\Users\medinarc\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\obj\Debug\BreadWars.exe
 C:\Users\medinarc\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\obj\Debug\BreadWars.pdb
+C:\Users\sbake\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\bw2\confet.xnb
