@@ -71,6 +71,9 @@ namespace BreadWars
         Rectangle[] cardPos = { new Rectangle(150, cardDepth, cardWidth, cardHeight), new Rectangle(336, cardDepth, cardWidth, cardHeight), new Rectangle(522, cardDepth, cardWidth, cardHeight), new Rectangle(708, cardDepth, cardWidth, cardHeight), new Rectangle(894, cardDepth, cardWidth, cardHeight) };
         Rectangle[] backCardPos = { new Rectangle(150, backCardDepth, cardWidth, cardHeight), new Rectangle(336, backCardDepth, cardWidth, cardHeight), new Rectangle(522, backCardDepth, cardWidth, cardHeight), new Rectangle(708, backCardDepth, cardWidth, cardHeight), new Rectangle(894, backCardDepth, cardWidth, cardHeight) };
         Rectangle[] resultCardPos = { new Rectangle(400, resultCardDepth, cardWidth, cardHeight), new Rectangle(650, resultCardDepth, cardWidth, cardHeight) };
+        //saved for later
+        Rectangle[] savedCardPos = { new Rectangle(1080, -25, cardWidth, cardHeight), new Rectangle(1080, 575, cardWidth, cardHeight)};
+
         List<string> deckFiles = new List<string>(); //lists filenames for all decks
         //button size: 
         static int buttonX = 273;
@@ -88,8 +91,6 @@ namespace BreadWars
         HUDObjects background; //background and intro screens
         HUDObjects introTest;
         HUDObjects backCard; //back card image for non-active player
-        HUDObjects pause1; //pause splash screens
-        HUDObjects pause2;
         HUDObjects pause;
         HUDObjects vs;
         HUDObjects player1wins; //player wins text
@@ -102,12 +103,12 @@ namespace BreadWars
         HUDObjects toasterNib1; //toaster lever (moving black portion)
         HUDObjects toaster2;
         HUDObjects toasterNib2;
+        HUDObjects[] WinGame;
+        HUDObjects mainMenuButton;
         //textures for above objects
         Texture2D bGText;
         Texture2D testText;
         Texture2D backText;
-        Texture2D pause1Text;
-        Texture2D pause2Text;
         Texture2D pauseText;
         Texture2D vsText;
         Texture2D win1Text;
@@ -121,6 +122,9 @@ namespace BreadWars
         Texture2D buttonP;
         Texture2D buttonB;
         Texture2D[] buttons;
+        Texture2D winGame1text;
+        Texture2D winGame2text;
+
 
         //tutorial
         //HUDObjects tutorialStart;
@@ -168,6 +172,8 @@ namespace BreadWars
         Song title;
         SoundEffect game;
         SoundEffect gameEnd;
+        SoundEffectInstance gInstance;
+        SoundEffectInstance geInstance; 
 
         public Game1()
         {
@@ -227,6 +233,11 @@ namespace BreadWars
             tie2Text = Content.Load<Texture2D>("tieGame2");
             tie1 = new HUDObjects(tie1Text, new Rectangle(470, 420, 320, 60));
             tie2 = new HUDObjects(tie2Text, new Rectangle(470, 480, 320, 60));
+            win1Text = Content.Load<Texture2D>("bw2/play1splash");
+            win2Text = Content.Load<Texture2D>("bw2/play2splash");
+            WinGame = new HUDObjects[2];
+            WinGame[0] = new HUDObjects(win1Text, new Rectangle(0, 0, windowX, windowY));
+            WinGame[1] = new HUDObjects(win2Text, new Rectangle(0, 0, windowX, windowY));
 
             //deck& AI buttons
             buttonP = Content.Load<Texture2D>("bw2/pinkbutton");
@@ -237,6 +248,8 @@ namespace BreadWars
             //for (int i = 0; i < 6; i++) deckButtons[i] = new Drawable(buttons[1], deckButtonPos[i]);
             for (int i = 0; i < 2; i++) numPlayButtons[i] = new Drawable(buttons[i], numPlayButtonPos[i]);
 
+            //main menu button
+            mainMenuButton = new HUDObjects(buttonB, new Rectangle(503, 503, buttonX, buttonY));
             //full screen cont.- pause screens
             /////////////////////////////////////////////////////////////////////////////////////delete this if everthing works
             //pause1Text = Content.Load<Texture2D>("pausephase1");
@@ -293,7 +306,7 @@ namespace BreadWars
 
             //The players
             player1 = new Player(1, font2, new Vector2(20, 100));
-            player2 = new Player(2, font2, new Vector2(800, 100));
+            player2 = new Player(2, font2, new Vector2(830, 100));
 
             //player array
             players = new Player[2];
@@ -305,8 +318,12 @@ namespace BreadWars
             this.game = Content.Load<SoundEffect>("game");
             this.gameEnd = Content.Load<SoundEffect>("gameOver");
 
+            gInstance = game.CreateInstance();
+            geInstance = gameEnd.CreateInstance();
+
             MediaPlayer.Play(title);
             MediaPlayer.IsRepeating = true;
+            
 
         }
 
@@ -335,9 +352,21 @@ namespace BreadWars
             mState = Mouse.GetState();
 
 
+
             switch (state)
             {
                 case GameState.Start:
+
+                    if (geInstance.State == SoundState.Playing)
+                    {
+                        geInstance.Stop();
+                    }
+
+                    if (MediaPlayer.State != MediaState.Playing)
+                    {
+                        MediaPlayer.Play(title);
+                    }
+
                     for (int i = 0; i < 2; i++)
                     {
                         if (numPlayButtonPos[i].Contains(mState.Position) && mState.LeftButton == ButtonState.Pressed && mStatePrev.LeftButton == ButtonState.Released)
@@ -401,6 +430,12 @@ namespace BreadWars
                     break;
                 case GameState.GameOver:
                     
+                    if(geInstance.State != SoundState.Playing && gInstance.State == SoundState.Playing)
+                    {
+                        gInstance.Stop();
+                        geInstance.Play();
+                    }
+
                     if ((mStatePrev.LeftButton == ButtonState.Released && mState.LeftButton == ButtonState.Pressed) || (kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter))) //press enter to go back to start screen
                     {
                         state = GameState.Start;
@@ -408,6 +443,16 @@ namespace BreadWars
                     break;
                 case GameState.Game:
                     currDeck = 0;
+                    //CHANGE
+                    MediaPlayer.Stop();
+                    
+                    if(gInstance.State != SoundState.Playing)
+                    {
+                        //CHANGE
+                        gInstance.Play();
+                    }
+                    
+
                     switch (currPhase)
                     {
                         case Phase.Player1:
@@ -416,13 +461,19 @@ namespace BreadWars
                             toastNib1Y = System.Convert.ToInt32(328 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player1.Health)));
                             toastNib2Y = System.Convert.ToInt32(78 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player2.Health)));
 
+                            //save for later pos
+                            if (player1.SaveLater != null)
+                            {
+                                player1.SaveLater.Posit = savedCardPos[1];
+                            }
                             for (int i = 0; i < player1.Hand.Count; i++)
                             {
                                 if (player1.Hand[i] != null)
                                 {
                                     //assigning card positions
                                     player1.Hand[i].Posit = cardPos[i];
-                                    if (watch.ElapsedMilliseconds > 200 && cardPos[i].Contains(mState.Position))
+                      
+                                    if (watch.ElapsedMilliseconds > 200 && (cardPos[i].Contains(mState.Position)))
                                     {
                                         player1.Hand[i].ChangeTintHover();
                                         if (mStatePrev.LeftButton == ButtonState.Pressed)
@@ -460,7 +511,42 @@ namespace BreadWars
 
                                 }
                             }
+                            if (player1.SaveLater != null)
+                            {
+                                if (watch.ElapsedMilliseconds > 200 && savedCardPos[1].Contains(mState.Position))
+                                {
+                                    player1.SaveLater.ChangeTintHover();
+                                    if (mStatePrev.LeftButton == ButtonState.Pressed)
+                                    {
+                                        player1.SaveLater.ChangeTintPressed();
 
+                                        if (mState.LeftButton == ButtonState.Released)
+                                        {
+                                            cardsInPlay[0] = player1.SaveLater;
+                                            player1.PlayTurn(cardsInPlay, 6);
+                                            prevPhase = currPhase;
+
+                                            if (player2.IsAI)
+                                            {
+                                                cardsInPlay[1] = player2.Hand[1];
+                                                player2.PlayTurn(cardsInPlay, 0);
+                                                player2.Hand.Add(deck.Next());
+                                                prevPhase = Phase.Player2;
+                                                currPhase = Phase.Pause;
+                                            }
+
+                                            currPhase = Phase.Pause;
+                                            watch = Stopwatch.StartNew();
+                                            break;
+                                        }
+
+                                    }
+                                }
+                                else
+                                {
+                                    player1.SaveLater.ChangeTintNoTint();
+                                }
+                            }
 
                             break;
                         case Phase.Player2:
@@ -469,6 +555,10 @@ namespace BreadWars
                             toastNib1Y = System.Convert.ToInt32(78 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player1.Health)));
                             toastNib2Y = System.Convert.ToInt32(328 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player2.Health)));
 
+                            if (player2.SaveLater != null)
+                            {
+                                player2.SaveLater.Posit = savedCardPos[1];
+                            }
                             for (int i = 0; i < player2.Hand.Count; i++)
                             {
 
@@ -498,10 +588,36 @@ namespace BreadWars
                                     }
                                     else
                                     {
-
                                         player2.Hand[i].ChangeTintNoTint();
                                     }
 
+                                }
+                            }
+                            if (player2.SaveLater != null)
+                            {
+                                if (savedCardPos[1].Contains(mState.Position))
+                                {
+                                    player2.SaveLater.ChangeTintHover();
+                                    if (watch.ElapsedMilliseconds > 200 && mStatePrev.LeftButton == ButtonState.Pressed)
+                                    {
+
+                                        player2.SaveLater.ChangeTintPressed();
+
+                                        if (mState.LeftButton == ButtonState.Released)
+                                        {
+                                            cardsInPlay[1] = player2.SaveLater;
+                                            player2.PlayTurn(cardsInPlay, 6);
+                                            prevPhase = currPhase;
+                                            currPhase = Phase.Pause;
+                                            watch = Stopwatch.StartNew();
+                                            break;
+                                        }
+                                    }
+                                }
+                                else
+                                {
+
+                                    player2.SaveLater.ChangeTintNoTint();
                                 }
                             }
                             break;
@@ -544,6 +660,29 @@ namespace BreadWars
                                 cardsInPlay[1].IsBurned = false;
                                 resultCalculated = true;
                                 roundCount++;
+
+                                //is8 happens
+                                for (int i = 0; i < player2.Hand.Count; i++)
+                                {
+                                    if (player2.Hand[i] != null)
+                                    {
+                                        if (player2.Hand[i].Is8)
+                                        {
+                                            player2.Hand[i].Texr = cardText[7]; //changes card texture to octo
+                                        }
+                                    }
+                                }
+                                for (int i = 0; i < player1.Hand.Count; i++)
+                                {
+                                    if (player1.Hand[i] != null)
+                                    {
+                                        if (player1.Hand[i].Is8)
+                                        {
+                                            player1.Hand[i].Texr = cardText[7]; //changes card texture to octo
+                                        }
+                                    }
+                                }
+
                             }
                             if ((mState.LeftButton == ButtonState.Pressed && mStatePrev.LeftButton == ButtonState.Released) || kState.IsKeyDown(Keys.Enter) && kStatePrev.IsKeyUp(Keys.Enter)) //press enter to continue to next phase
                             {
@@ -564,7 +703,6 @@ namespace BreadWars
                     }
                     break;
             }
-
 
             base.Update(gameTime);
         }
@@ -593,6 +731,7 @@ namespace BreadWars
                         numPlayButtons[i].DrawStatic(spriteBatch);
                         spriteBatch.DrawString(font2, i == 0 ? "Single Player" : "2 Players", new Vector2(numPlayButtonPos[i].X + 50, numPlayButtonPos[i].Y + 40), Color.White);
                     }
+                    spriteBatch.DrawString(font2, "Press h for help!", new Vector2(50, 200), Color.Black);
                     //figuring out spritesheet problems
                     //for (int i = 0; i < numbers.SpriteLocations.Count; i++)
                     //{
@@ -621,6 +760,13 @@ namespace BreadWars
                     }
                     break;
                 case GameState.GameOver:
+                    {
+                        WinGame[winPlayer - 1].DrawStatic(spriteBatch);
+                        //play again
+                        mainMenuButton.DrawStatic(spriteBatch);
+                        spriteBatch.DrawString(font2, "Main Menu", new Vector2(565, 540), Color.White);
+                        
+                    }
                     break;
                 case GameState.Game:
                     switch (currPhase)
@@ -644,11 +790,34 @@ namespace BreadWars
                             {
                                 if (player1.Hand[i] != null) player1.Hand[i].DrawStatic(spriteBatch, font2);
                             }
-                            for (int i = 0; i < 5; i++)
+                            if (player1.SaveLater != null)
                             {
-                                backCard.Posit = backCardPos[i];
+                                player1.SaveLater.DrawStatic(spriteBatch, font2);
+                            }
+                            //telepathy
+                            if (player1.IsTelephathic)
+                            {
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    player2.Hand[i].Posit = backCardPos[i];
+                                    player2.Hand[i].DrawStatic(spriteBatch, font2);
+                                }
+                            }
+                            else
+                            {
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    backCard.Posit = backCardPos[i];
+                                    backCard.DrawStatic(spriteBatch, player1.IsPoisoned);
+                                }
+                            }
+
+                            if (player2.SaveLater != null)
+                            {
+                                backCard.Posit = savedCardPos[0];
                                 backCard.DrawStatic(spriteBatch, player1.IsPoisoned);
                             }
+
                             break;
                         case Phase.Player2:
                             //toaster
@@ -668,11 +837,34 @@ namespace BreadWars
                             {
                                 if (player2.Hand[i] != null) player2.Hand[i].DrawStatic(spriteBatch, font2);
                             }
-                            for (int i = 0; i < 5; i++)
+                            if (player2.SaveLater != null)
                             {
-                                backCard.Posit = backCardPos[i];
+                                player2.SaveLater.DrawStatic(spriteBatch, font2);
+                            }
+
+                            //telepathy
+                            if (player2.IsTelephathic)
+                            {
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    player1.Hand[i].Posit = backCardPos[i];
+                                    player1.Hand[i].DrawStatic(spriteBatch, font2);
+                                }
+                            }
+                            else
+                            {
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    backCard.Posit = backCardPos[i];
+                                    backCard.DrawStatic(spriteBatch, player2.IsPoisoned);
+                                }
+                            }
+                            if (player1.SaveLater != null)
+                            {
+                                backCard.Posit = savedCardPos[0];
                                 backCard.DrawStatic(spriteBatch, player2.IsPoisoned);
                             }
+
                             break;
                         case Phase.Pause:
                             switch (prevPhase)

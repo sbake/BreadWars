@@ -121,10 +121,17 @@ namespace BreadWars
                 RandomTurn(cardsToPlay);
                 return;
             }
-            cardsToPlay[playerNumber-1] = hand[cardIndex]; //put card to play in container
-            currCard = hand[cardIndex]; //store card as curr card played
-            hand.Remove(hand[cardIndex]); //remove card from hand
-
+            if (cardIndex < 5)
+            {
+                cardsToPlay[playerNumber - 1] = hand[cardIndex]; //put card to play in container
+                currCard = hand[cardIndex]; //store card as curr card played
+                hand.Remove(hand[cardIndex]); //remove card from hand
+            }
+            else //save for later
+            {
+                currCard = saveLater;
+                saveLater = null;
+            }
         }
 
         /// <summary>
@@ -161,6 +168,12 @@ namespace BreadWars
                     maxHur = Hand[i].GetTotalValue();
                     cIndex = i;
                 }
+            }
+            if (saveLater != null && saveLater.Value > hand[cIndex].Value)
+            {
+                cardsToPlay[playerNumber - 1] = saveLater;
+                saveLater = null;
+                return;
             }
             cardsToPlay[playerNumber - 1] = hand[cIndex];
             currCard = hand[cIndex];
