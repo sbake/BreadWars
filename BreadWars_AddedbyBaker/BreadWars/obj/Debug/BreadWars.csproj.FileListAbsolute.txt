@@ -836,3 +836,4 @@ D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars_AddedbyBaker\BreadWars\bin
 D:\Profiles\rcm3517\Source\Repos\BreadWars3\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\bw2\cards\card9.xnb
 C:\Users\medinarc\source\repos\BreadWars\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\bw2\play1splash.xnb
 C:\Users\medinarc\source\repos\BreadWars\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\bw2\play2splash.xnb
+C:\Users\sbake\Source\Repos\BreadWars\BreadWars_AddedbyBaker\BreadWars\bin\DesktopGL\AnyCPU\Debug\Content\bw2\confet.xnb
