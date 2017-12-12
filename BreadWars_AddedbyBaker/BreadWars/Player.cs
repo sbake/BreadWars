@@ -236,6 +236,7 @@ namespace BreadWars
             paralyzeCount = 0;
             prevCard = null;
             currCard = null;
+            saveLater = null;
         }
 
         public override string ToString()
