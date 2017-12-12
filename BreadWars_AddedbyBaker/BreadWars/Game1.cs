@@ -174,8 +174,10 @@ namespace BreadWars
         Song title;
         SoundEffect game;
         SoundEffect gameEnd;
+        SoundEffect scream;
         SoundEffectInstance gInstance;
-        SoundEffectInstance geInstance; 
+        SoundEffectInstance geInstance;
+        SoundEffectInstance sInstance;
 
         public Game1()
         {
@@ -323,9 +325,11 @@ namespace BreadWars
             this.title = Content.Load<Song>("titleEdit2");
             this.game = Content.Load<SoundEffect>("game");
             this.gameEnd = Content.Load<SoundEffect>("gameOver");
+            scream = Content.Load<SoundEffect>("scream");
 
             gInstance = game.CreateInstance();
             geInstance = gameEnd.CreateInstance();
+            sInstance = scream.CreateInstance();
 
             MediaPlayer.Play(title);
             MediaPlayer.IsRepeating = true;
@@ -449,12 +453,11 @@ namespace BreadWars
                     break;
                 case GameState.Game:
                     currDeck = 0;
-                    //CHANGE
+
                     MediaPlayer.Stop();
                     
                     if(gInstance.State != SoundState.Playing)
                     {
-                        //CHANGE
                         gInstance.Play();
                     }
                     
@@ -531,6 +534,7 @@ namespace BreadWars
                                             cardsInPlay[0] = player1.SaveLater;
                                             player1.PlayTurn(cardsInPlay, 6);
                                             prevPhase = currPhase;
+                                            sInstance.Play();
 
                                             if (player2.IsAI)
                                             {
@@ -588,6 +592,7 @@ namespace BreadWars
                                                 prevPhase = currPhase;
                                                 currPhase = Phase.Pause;
                                                 watch = Stopwatch.StartNew();
+                                                //sInstance.Play();
                                                 break;
                                             }
                                         }
@@ -653,6 +658,7 @@ namespace BreadWars
                             //calculate victor of round and other effects
                             if (!resultCalculated)
                             {
+                                sInstance.Play();
                                 cardsInPlay[0].ChangeTintNoTint();
                                 cardsInPlay[1].ChangeTintNoTint();
                                 winPlayer = round.CompareCards(cardsInPlay);

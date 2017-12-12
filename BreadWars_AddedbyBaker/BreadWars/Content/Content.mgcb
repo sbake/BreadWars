@@ -957,3 +957,9 @@
 /processorParam:TextureFormat=Color
 /build:bw2/confet.png
 
+#begin scream.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:scream.wav
+
