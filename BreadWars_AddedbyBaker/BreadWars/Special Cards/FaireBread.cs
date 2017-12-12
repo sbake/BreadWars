@@ -31,7 +31,7 @@ namespace BreadWars
 
             foreach (Card c in deck.Library)
             {
-                if (c != null) c.IsActive = (c.IsActive ? false : true);
+                if (c != null && c != self.CurrCard && c != opponent.CurrCard) c.IsActive = (c.IsActive ? false : true);
             }
 
 
