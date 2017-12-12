@@ -105,6 +105,7 @@ namespace BreadWars
         HUDObjects toasterNib2;
         HUDObjects[] WinGame;
         HUDObjects mainMenuButton;
+        HUDObjects confetti;
         //textures for above objects
         Texture2D bGText;
         Texture2D testText;
@@ -124,6 +125,7 @@ namespace BreadWars
         Texture2D[] buttons;
         Texture2D winGame1text;
         Texture2D winGame2text;
+        Texture2D confettiText;
 
 
         //tutorial
@@ -238,6 +240,10 @@ namespace BreadWars
             WinGame = new HUDObjects[2];
             WinGame[0] = new HUDObjects(win1Text, new Rectangle(0, 0, windowX, windowY));
             WinGame[1] = new HUDObjects(win2Text, new Rectangle(0, 0, windowX, windowY));
+            confettiText = Content.Load<Texture2D>("bw2/confet");
+            confetti = new HUDObjects(confettiText, new Rectangle(0, 0, 1280, 2400), 3, 1);
+            confetti.UnpackSprites();
+            confetti.MsPerFrame = 300;
 
             //deck& AI buttons
             buttonP = Content.Load<Texture2D>("bw2/pinkbutton");
@@ -906,6 +912,13 @@ namespace BreadWars
                             if (cardsInPlay[0].IsActive) cardsInPlay[0].DrawString(font2, spriteBatch);
                             if (cardsInPlay[1].IsActive) cardsInPlay[1].DrawString(font2, spriteBatch);
                             spriteBatch.DrawString(font2, "Round: " + roundCount, new Vector2(20, 750), Color.DarkSlateBlue);
+
+                            if (cardsInPlay[0].Name == "Confetti" || cardsInPlay[1].Name == "Confetti")
+                            {
+                                //confetti
+                                confetti.Anim(watch, spriteBatch);
+                            }
+
                             break;
                     }
                     break;
