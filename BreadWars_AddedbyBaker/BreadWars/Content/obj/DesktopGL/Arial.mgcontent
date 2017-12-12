@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/Arial.spritefont</SourceFile>
-  <SourceTime>2017-12-09T22:09:45.1233745-05:00</SourceTime>
-  <DestFile>C:/Users/sbake/Source/Repos/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/bin/DesktopGL/Arial.xnb</DestFile>
-  <DestTime>2017-12-09T22:10:54.8584633-05:00</DestTime>
+  <SourceFile>C:/Users/medinarc/source/repos/BreadWars/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/Arial.spritefont</SourceFile>
+  <SourceTime>2017-10-24T22:31:46.0537766-04:00</SourceTime>
+  <DestFile>C:/Users/medinarc/source/repos/BreadWars/BreadWars/BreadWars_AddedbyBaker/BreadWars/Content/bin/DesktopGL/Arial.xnb</DestFile>
+  <DestTime>2017-12-08T14:43:25.8849868-05:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2017-03-01T10:05:36-05:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>
