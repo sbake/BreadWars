@@ -129,7 +129,7 @@ namespace BreadWars
             {
                 base.UnpackSprites();
                 //draw base
-                spriteBatch.Draw(texr, posit, new Rectangle(spriteLocations[0], new Point(posit.Width / 2, posit.Height)), isBurned ? Color.Black : tint);
+                spriteBatch.Draw(texr, posit, new Rectangle(spriteLocations[0], new Point(posit.Width / 2, posit.Height)), isBurned ? (tint==Color.White? Color.Black: tint) : tint);
                 //draw special if special
                 if (!isBurned && isActive)
                 {
@@ -141,10 +141,6 @@ namespace BreadWars
                 if (!isBurned)
                 {
                     spriteBatch.DrawString(font, SplitName(), new Vector2(posit.X + 5, posit.Y + 190), Color.Black);
-                }
-                else //is burned
-                {
-                    //draw fire effects
                 }
 
                 //draw numbers with spritefont instead
