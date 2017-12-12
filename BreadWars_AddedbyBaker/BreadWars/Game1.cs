@@ -145,7 +145,7 @@ namespace BreadWars
 
         //health things
         //room from top to bottom for toaster nib to move
-        const double tHDif = 99; //= 175;
+        const double tHDif = 175;
         //solved location, solved in update, used in draw
         int toastNib1Y;
         int toastNib2Y;
@@ -273,11 +273,11 @@ namespace BreadWars
 
             //Health Assets
             nibText = Content.Load<Texture2D>("toasternib");
-            toasterNib1 = new HUDObjects(nibText, new Rectangle(24, 0, 30, 15));
-            toasterNib2 = new HUDObjects(nibText, new Rectangle(24, 0, 30, 15));
+            toasterNib1 = new HUDObjects(nibText, new Rectangle(65, 0, 53, 22));
+            toasterNib2 = new HUDObjects(nibText, new Rectangle(65, 0, 53, 22));
             toasterText = Content.Load<Texture2D>("toaster");
-            toaster1 = new HUDObjects(toasterText, new Rectangle(0, 50, 60, 150));
-            toaster2 = new HUDObjects(toasterText, new Rectangle(0, 300, 60, 150));
+            toaster1 = new HUDObjects(toasterText, new Rectangle(0, 50, 125, 275));
+            toaster2 = new HUDObjects(toasterText, new Rectangle(0, 450, 125, 275));
 
 
             font = Content.Load<SpriteFont>("Arial");
@@ -458,8 +458,8 @@ namespace BreadWars
                         case Phase.Player1:
                             resultCalculated = false;
                             //toasterNib position
-                            toastNib1Y = System.Convert.ToInt32(328 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player1.Health)));
-                            toastNib2Y = System.Convert.ToInt32(78 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player2.Health)));
+                            toastNib1Y = System.Convert.ToInt32(489 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player1.Health)));
+                            toastNib2Y = System.Convert.ToInt32(89 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player2.Health)));
 
                             //save for later pos
                             if (player1.SaveLater != null)
@@ -552,8 +552,8 @@ namespace BreadWars
                         case Phase.Player2:
 
                             //toaster nib position
-                            toastNib1Y = System.Convert.ToInt32(78 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player1.Health)));
-                            toastNib2Y = System.Convert.ToInt32(328 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player2.Health)));
+                            toastNib1Y = System.Convert.ToInt32(89 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player1.Health)));
+                            toastNib2Y = System.Convert.ToInt32(489 + ((tHDif / Player.PLAYER_MAX_HEALTH) * (100 - player2.Health)));
 
                             if (player2.SaveLater != null)
                             {
@@ -773,11 +773,11 @@ namespace BreadWars
                     {
                         case Phase.Player1:
                             //toaster
-                            toasterNib1.Posit = new Rectangle(24, toastNib1Y, 30, 15);
+                            toasterNib1.Posit = new Rectangle(65, toastNib1Y, 53, 22);
                             toaster1.DrawStatic(spriteBatch, player1.IsPoisoned);
 
                             //toaster2
-                            toasterNib2.Posit = new Rectangle(24, toastNib2Y, 30, 15);
+                            toasterNib2.Posit = new Rectangle(65, toastNib2Y, 53, 22);
                             toaster2.DrawStatic(spriteBatch, player1.IsPoisoned);
 
                             //nibs
@@ -821,11 +821,11 @@ namespace BreadWars
                             break;
                         case Phase.Player2:
                             //toaster
-                            toasterNib1.Posit = new Rectangle(24, toastNib1Y, 30, 15);
+                            toasterNib1.Posit = new Rectangle(65, toastNib1Y, 53, 22);
                             toaster1.DrawStatic(spriteBatch, player2.IsPoisoned);
 
                             //toaster2
-                            toasterNib2.Posit = new Rectangle(24, toastNib2Y, 30, 15);
+                            toasterNib2.Posit = new Rectangle(65, toastNib2Y, 53, 22);
                             toaster2.DrawStatic(spriteBatch, player2.IsPoisoned);
 
                             //nibs
