@@ -125,33 +125,27 @@ namespace BreadWars
         //overwrite draw method to only draw card if flipped up
         public void DrawStatic(SpriteBatch spriteBatch, SpriteFont font)
         {
-            if (1 == 1)//if player has turn, how to check?
+
+            base.UnpackSprites();
+            //draw base
+            spriteBatch.Draw(texr, posit, new Rectangle(spriteLocations[0], new Point(posit.Width / 2, posit.Height)), isBurned ? (tint == Color.White ? Color.Black : tint) : tint);
+            //draw special if special
+            if (!isBurned && isActive)
             {
-                base.UnpackSprites();
-                //draw base
-                spriteBatch.Draw(texr, posit, new Rectangle(spriteLocations[0], new Point(posit.Width / 2, posit.Height)), isBurned ? Color.Black : tint);
-                //draw special if special
-                if (!isBurned && isActive)
-                {
-                    spriteBatch.Draw(texr, posit, new Rectangle(new Point(SpriteLocations[1].X, SpriteLocations[1].Y), new Point(posit.Width, posit.Height)), Color.White);
-                }
-                //draw numbr
-                //int offsetFromCorners = 30; //add to posit
-
-                if (!isBurned)
-                {
-                    spriteBatch.DrawString(font, SplitName(), new Vector2(posit.X + 5, posit.Y + 190), Color.Black);
-                }
-                else //is burned
-                {
-                    //draw fire effects
-                }
-
-                //draw numbers with spritefont instead
-                spriteBatch.DrawString(font, is8 ? "octo" : "" , new Vector2(posit.X, posit.Y), Color.Black);
+                spriteBatch.Draw(texr, posit, new Rectangle(new Point(SpriteLocations[1].X, SpriteLocations[1].Y), new Point(posit.Width, posit.Height)), Color.White);
             }
+
+            if (!isBurned)
+            {
+                spriteBatch.DrawString(font, SplitName(), new Vector2(posit.X + 5, posit.Y + 190), Color.Black);
+            }
+
+            //say if card is not a natural octopus
+            spriteBatch.DrawString(font, is8 ? "Octopied!" : "", new Vector2(posit.X, posit.Y), Color.Black);
+
         }
 
+        //turns the name of the card into a drawable string to fit card graphic
         private string SplitName()
         {
             string toReturn = value + " ";
@@ -160,7 +154,7 @@ namespace BreadWars
             if (Name.Length > 10)
             {
                 string[] words = Name.Split();
-                for(int i=0; i<words.Length; i++)
+                for (int i = 0; i < words.Length; i++)
                 {
                     if ((count + words[i].Length) > 11)
                     {

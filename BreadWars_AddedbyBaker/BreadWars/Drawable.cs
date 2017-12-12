@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.IO;
+using System.Threading;
+using System.Diagnostics;
+using Microsoft.Xna.Framework.Media;
 
 
 namespace BreadWars
@@ -30,8 +34,10 @@ namespace BreadWars
 
 
         //animation 
-        protected int msPerFrame;
-        protected int msSinceFrame;
+        protected long msPerFrame;
+        protected long msSinceFrame;
+        protected long oldTime;
+        int frame;
 
         //Properties
         public Rectangle Posit
@@ -47,6 +53,7 @@ namespace BreadWars
         public Texture2D Texr
         {
             get { return texr; }
+            set { texr = value; } //for octo
         }
         public int Rows
         {
@@ -57,6 +64,12 @@ namespace BreadWars
         {
             get { return columns; }
             set { columns = value; }
+        }
+        //animation
+        public long MsPerFrame
+        {
+            get { return msPerFrame; }
+            set { msPerFrame = value; }
         }
 
         //constructor- N/A
@@ -134,6 +147,7 @@ namespace BreadWars
                     spriteLocations.Add(location);
                 }
             }
+            
         }
 
         /// <summary>
@@ -141,13 +155,21 @@ namespace BreadWars
         /// a (just position changes)
         /// b (moves through multiple sprites and position)
         /// </summary>
-        public void Anim()
+        public void Anim(Stopwatch watch, SpriteBatch spritebatch)
         {
+            msSinceFrame = watch.ElapsedMilliseconds - oldTime;
             //goes through spriteLocations timed
-            if (msPerFrame >= msSinceFrame)
+            if (msPerFrame <= msSinceFrame)
             {
-                
+                frame += 1;
+                oldTime = watch.ElapsedMilliseconds;
             }
+            if (frame > spriteLocations.Count-1)
+            {
+                frame = 0;
+            }
+
+            spritebatch.Draw(texr, new Rectangle(0,0, posit.Width/columns, posit.Height/rows), new Rectangle(spriteLocations[frame].X, spriteLocations[frame].Y, posit.Width / columns, posit.Height / rows), Color.White);
         }
         
     }

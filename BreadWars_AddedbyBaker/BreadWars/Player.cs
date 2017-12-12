@@ -169,6 +169,12 @@ namespace BreadWars
                     cIndex = i;
                 }
             }
+            if (saveLater != null && saveLater.Value > hand[cIndex].Value)
+            {
+                cardsToPlay[playerNumber - 1] = saveLater;
+                saveLater = null;
+                return;
+            }
             cardsToPlay[playerNumber - 1] = hand[cIndex];
             currCard = hand[cIndex];
             hand.Remove(hand[cIndex]);
@@ -230,6 +236,7 @@ namespace BreadWars
             paralyzeCount = 0;
             prevCard = null;
             currCard = null;
+            saveLater = null;
         }
 
         public override string ToString()

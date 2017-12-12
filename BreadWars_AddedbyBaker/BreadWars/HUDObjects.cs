@@ -15,6 +15,7 @@ namespace BreadWars
         //constructor
         public HUDObjects(Texture2D pTexr, Rectangle pPosit) : base(pTexr, pPosit)
         {
+            oldTime = 0;
         }
 
         //constructor for spritesheet objects
@@ -22,6 +23,7 @@ namespace BreadWars
         {
             rows = pRows;
             columns = pColumns;
+            oldTime = 0;
         }
         //methods
         //Overwrite draw methods to draw everything green if player is poisoned
